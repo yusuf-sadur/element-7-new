@@ -25,7 +25,7 @@ export default function ResidentialPage() {
       <PageHero
         image="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=1920&q=85"
         label="Residential"
-        title="Your Personal"
+        title="Your Personal" 
         titleAccent="Wellness Sanctuary"
         subtitle="Bespoke wellness environments designed around your life, your architecture, and your ambitions."
         height="100vh"
