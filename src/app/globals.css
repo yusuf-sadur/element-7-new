@@ -111,16 +111,60 @@
   .delay-700 { animation-delay: 700ms; }
   .delay-800 { animation-delay: 800ms; }
 
-  /* ── Scroll Reveal ── */
+  /* ── Scroll Reveal (IntersectionObserver adds .revealed — see ScrollRevealInit) ── */
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  /* Default: rise */
+  .scroll-reveal:not([data-reveal]),
+  .scroll-reveal[data-reveal="up"] {
+    transform: translate3d(0, 28px, 0);
+  }
+  .scroll-reveal[data-reveal="left"] {
+    transform: translate3d(-36px, 0, 0);
+  }
+  .scroll-reveal[data-reveal="right"] {
+    transform: translate3d(36px, 0, 0);
+  }
+  .scroll-reveal[data-reveal="scale"] {
+    transform: translate3d(0, 22px, 0) scale(0.97);
+  }
+  .scroll-reveal[data-reveal="blur"] {
+    transform: translate3d(0, 20px, 0);
+    filter: blur(12px);
   }
   .scroll-reveal.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+    will-change: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+      will-change: auto;
+    }
+    .animate-fade-up,
+    .animate-fade-in,
+    .animate-slide-right,
+    .animate-scale-in {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .interior-hero-label-line {
+      transform: scaleX(1) !important;
+      transition: none !important;
+    }
   }
 
   /* ── Float ── */

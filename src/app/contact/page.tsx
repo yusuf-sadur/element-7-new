@@ -1,5 +1,7 @@
 import ConsultationForm from "@/components/ConsultationForm";
+import PageHero from "@/components/PageHero";
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -7,8 +9,6 @@ export const metadata: Metadata = {
   description:
     "Book a no-obligation consultation with Element 7. We design and build custom saunas, steam rooms, cold plunge systems and wellness environments across Melbourne.",
 };
-
-import PageHero from "@/components/PageHero";
 
 export default function ContactPage() {
   return (
@@ -26,7 +26,11 @@ export default function ContactPage() {
         <div className="container-e7">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact info */}
-          <div className="space-y-8">
+          <div
+            className="scroll-reveal space-y-8"
+            data-reveal="left"
+            style={{ "--reveal-delay": "60ms" } as CSSProperties}
+          >
             {/* Contact details */}
             <div className="bg-white/[0.03] border border-white/[0.07] p-8">
               <h2 className="font-semibold text-white text-base mb-6 tracking-wider">Contact Information</h2>
@@ -85,7 +89,11 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <div>
+          <div
+            className="scroll-reveal"
+            data-reveal="right"
+            style={{ "--reveal-delay": "140ms" } as CSSProperties}
+          >
             <ConsultationForm />
           </div>
         </div>

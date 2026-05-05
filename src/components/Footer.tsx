@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logoSrc from "@/assets/logo.jpeg";
@@ -57,7 +58,7 @@ export default function Footer() {
         {/* Top band: positioning + primary CTA */}
         <div className="container-e7 border-b border-white/[0.06] py-12 md:py-14 lg:py-16">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-xl">
+            <div className="max-w-xl scroll-reveal" data-reveal="left">
               <p className="font-display text-2xl font-light leading-snug tracking-tight text-white/95 md:text-3xl">
                 Engineered environments for{" "}
                 <span className="text-gold/95">recovery</span> and performance.
@@ -67,7 +68,11 @@ export default function Footer() {
                 and built in Melbourne for residential and commercial spaces.
               </p>
             </div>
-            <div className="flex shrink-0 flex-col items-stretch gap-3 sm:flex-row sm:items-center lg:flex-col lg:items-end">
+            <div
+              className="flex shrink-0 flex-col items-stretch gap-3 sm:flex-row sm:items-center lg:flex-col lg:items-end scroll-reveal"
+              style={{ "--reveal-delay": "120ms" } as CSSProperties}
+              data-reveal="scale"
+            >
               <Link
                 href="/contact"
                 className="btn-gold justify-center px-10 text-xs lg:min-w-[240px]"
@@ -85,7 +90,7 @@ export default function Footer() {
         <div className="container-e7 py-14 md:py-16 lg:py-20">
           <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-12 lg:gap-12 xl:gap-16">
             {/* Brand */}
-            <div className="lg:col-span-4">
+            <div className="scroll-reveal lg:col-span-4" data-reveal="up">
               <Link
                 href="/"
                 className="group mb-8 inline-flex items-center gap-4 rounded-2xl outline-none ring-offset-2 ring-offset-obsidian transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-gold"
@@ -133,7 +138,11 @@ export default function Footer() {
             </div>
 
             {/* Navigation */}
-            <div className="lg:col-span-2">
+            <div
+              className="scroll-reveal lg:col-span-2"
+              style={{ "--reveal-delay": "80ms" } as CSSProperties}
+              data-reveal="up"
+            >
               <h3 className="section-label !mb-6">Explore</h3>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
@@ -152,7 +161,11 @@ export default function Footer() {
             </div>
 
             {/* Services — single column so Contact can use more width */}
-            <div className="lg:col-span-2">
+            <div
+              className="scroll-reveal lg:col-span-2"
+              style={{ "--reveal-delay": "140ms" } as CSSProperties}
+              data-reveal="up"
+            >
               <h3 className="section-label !mb-6">Services</h3>
               <ul className="space-y-3">
                 {services.map((service) => (
@@ -171,7 +184,11 @@ export default function Footer() {
             </div>
 
             {/* Contact */}
-            <div className="lg:col-span-4">
+            <div
+              className="scroll-reveal lg:col-span-4"
+              style={{ "--reveal-delay": "200ms" } as CSSProperties}
+              data-reveal="right"
+            >
               <h3 className="section-label !mb-6">Contact</h3>
               <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 shadow-[0_16px_48px_rgba(0,0,0,0.35)] backdrop-blur-md">
                 <ul className="space-y-5">
@@ -228,7 +245,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/[0.06] bg-black/40 backdrop-blur-sm">
-          <div className="container-e7 flex flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between md:gap-6">
+          <div className="container-e7 flex scroll-reveal flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between md:gap-6">
             <p className="text-center text-[11px] font-light tracking-wide text-white/35 md:text-left">
               © {year} Element Seven. Crafted in Melbourne.
             </p>

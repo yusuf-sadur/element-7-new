@@ -100,9 +100,9 @@ export default function Navbar() {
       {/* Same width + horizontal padding as HeroSection content wrapper */}
       <div className={`pointer-events-auto mx-auto w-full max-w-[1600px] ${pagePad}`}>
         <div
-          className={`relative z-[55] flex items-center justify-between gap-3 rounded-2xl border px-3 py-2.5 shadow-2xl shadow-black/30 transition-all duration-300 sm:gap-4 sm:px-5 sm:py-3 md:rounded-[1.35rem] md:px-6 ${
+          className={`relative z-[55] flex items-center justify-between gap-3 rounded-2xl border px-3 py-2.5 shadow-2xl shadow-black/30 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 sm:gap-4 sm:px-5 sm:py-3 md:rounded-[1.35rem] md:px-6 ${
             isScrolled
-              ? "border-white/[0.09] bg-[#0a0a0a]/85 backdrop-blur-2xl"
+              ? "border-white/[0.09] bg-[#0a0a0a]/85 shadow-[0_12px_48px_rgba(0,0,0,0.55)] backdrop-blur-2xl"
               : "border-white/[0.06] bg-black/35 backdrop-blur-xl"
           }`}
         >
@@ -247,8 +247,10 @@ export default function Navbar() {
         type="button"
         aria-label="Close menu"
         style={{ top: headerHeight }}
-        className={`pointer-events-auto fixed inset-x-0 bottom-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
-          isMobileMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        className={`fixed inset-x-0 bottom-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+          isMobileMenuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
         tabIndex={-1}

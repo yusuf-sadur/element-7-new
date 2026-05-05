@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -39,15 +40,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en-AU" className={`${montserrat.variable} ${playfair.variable}`}>
       <head>
       </head>
       <body className="bg-obsidian text-white antialiased">
         <ScrollRevealInit />
+        <ScrollProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />

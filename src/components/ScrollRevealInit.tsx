@@ -9,8 +9,9 @@ import { useEffect } from "react";
 export default function ScrollRevealInit() {
   useEffect(() => {
     const observerOptions: IntersectionObserverInit = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
+      threshold: 0.08,
+      /* Slightly earlier reveals than a deep -50px inset */
+      rootMargin: "0px 0px -36px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {

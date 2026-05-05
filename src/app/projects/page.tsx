@@ -98,7 +98,7 @@ export default function ProjectsPage() {
       />
 
       <section className="section-padding section-glass">
-        <div className="container-e7 mb-10">
+        <div className="container-e7 mb-10 scroll-reveal" data-reveal="scale">
         <div className="flex flex-wrap gap-6">
           <div className="flex gap-1">
             {categories.map((cat) => (
@@ -136,7 +136,7 @@ export default function ProjectsPage() {
       {/* Grid */}
       <div className="container-e7 pb-20">
         {filtered.length === 0 ? (
-          <div className="text-center py-20 text-white/30">
+          <div className="scroll-reveal py-20 text-center text-white/30" data-reveal="blur">
             No projects match the selected filters.
           </div>
         ) : (
