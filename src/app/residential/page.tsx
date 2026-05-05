@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import ConsultationForm from "@/components/ConsultationForm";
 import type { Metadata } from "next";
+import Residential from "@/assets/Residential.png";
 
 export const metadata: Metadata = {
   title: "Residential Wellness | Custom Home Saunas & Recovery Spaces Melbourne — Element 7",
@@ -23,7 +24,7 @@ export default function ResidentialPage() {
   return (
     <div className="min-h-screen bg-transparent">
       <PageHero
-        image="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=1920&q=85"
+        image={Residential.src}
         label="Residential"
         title="Your Personal" 
         titleAccent="Wellness Sanctuary"

@@ -61,7 +61,7 @@ export default function ServicePageHero({
       className="relative min-h-[min(100svh,1040px)] w-full overflow-hidden bg-transparent lg:min-h-[min(96svh,1200px)]"
     >
       <div
-        className="fixed inset-0 z-0 will-change-transform"
+        className="pointer-events-none fixed inset-0 z-0 will-change-transform"
         style={{
           filter: `blur(${blurValue}px) brightness(${brightnessValue})`,
           opacity: opacityValue,
@@ -83,24 +83,23 @@ export default function ServicePageHero({
         <div className="absolute inset-0 bg-dot-pattern opacity-20" />
       </div>
 
-      <div className="pointer-events-none fixed inset-0 z-[1] bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
-      <div className="pointer-events-none fixed inset-0 z-[1] bg-obsidian/20" />
+      <div className="pointer-events-none fixed inset-0 z-[1] bg-gradient-to-r from-black/44 via-black/18 to-transparent" />
+      <div className="pointer-events-none fixed inset-0 z-[1] bg-obsidian/12" />
 
-      {/* pt-* clears fixed navbar so the eyebrow label stays visible */}
-      <div className="relative z-10 flex min-h-[inherit] w-full flex-col pt-16 sm:pt-20 lg:flex-row lg:pt-24">
+      <div className="relative z-10 grid min-h-[inherit] w-full grid-cols-1 lg:grid-cols-[min(52%,640px)_minmax(0,1fr)] lg:items-stretch">
         <div
-          className={`relative flex w-full flex-col justify-center border-white/[0.07] bg-[#060606]/85 py-14 backdrop-blur-xl lg:w-[min(52%,640px)] lg:max-w-[640px] lg:flex-none lg:border-r lg:py-16 xl:py-20 ${pagePad}`}
+          className={`relative flex min-h-full w-full flex-col justify-center border-white/[0.07] bg-[#080808]/72 backdrop-blur-xl lg:border-r lg:border-b-0 ${pagePad} pt-16 sm:pt-20 lg:pt-24 pb-14 lg:pb-16 xl:pb-20`}
         >
           <div
-            className="pointer-events-none absolute inset-0 opacity-[0.35]"
+            className="pointer-events-none absolute inset-0 opacity-[0.28]"
             style={{
               backgroundImage:
-                "linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 42%), linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.35) 100%)",
+                "linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 42%), linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.26) 100%)",
             }}
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute inset-y-8 left-0 w-px bg-gradient-to-b from-gold/45 via-gold/15 to-transparent md:inset-y-10"
+            className="pointer-events-none absolute bottom-8 left-0 top-8 w-px bg-gradient-to-b from-gold/45 via-gold/15 to-transparent md:bottom-10 md:top-10"
             aria-hidden
           />
 
@@ -168,14 +167,14 @@ export default function ServicePageHero({
           </div>
         </div>
 
-        <div className="relative hidden flex-1 lg:block" aria-hidden />
+        <div className="relative hidden min-h-0 lg:block" aria-hidden />
 
-        <p className="pointer-events-none absolute bottom-6 right-6 z-10 hidden max-w-[220px] text-right font-mono text-[9px] uppercase leading-relaxed tracking-[0.26em] text-white/35 lg:block">
-          Specifications below · Element Seven
-        </p>
-
-        <div className="min-h-[42vh] shrink-0 lg:hidden" aria-hidden />
+        <div className="col-span-full min-h-[42vh] lg:hidden" aria-hidden />
       </div>
+
+      <p className="pointer-events-none absolute bottom-6 right-6 z-10 hidden max-w-[220px] text-right font-mono text-[9px] uppercase leading-relaxed tracking-[0.26em] text-white/35 lg:block">
+        Specifications below · Element Seven
+      </p>
     </section>
   );
 }

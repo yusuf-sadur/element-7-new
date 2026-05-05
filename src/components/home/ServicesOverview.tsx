@@ -52,7 +52,14 @@ const services: ServiceItem[] = [
   },
 ];
 
-export default function ServicesOverview() {
+type ServicesOverviewProps = {
+  /** When false, hides the bottom “View all services” strip (e.g. on `/services`). Default true. */
+  showCatalogueFooter?: boolean;
+};
+
+export default function ServicesOverview({
+  showCatalogueFooter = true,
+}: Readonly<ServicesOverviewProps>) {
   return (
     <section
       id="services-overview"
@@ -159,26 +166,28 @@ export default function ServicesOverview() {
         </div>
 
         {/* Footer strip */}
-        <div className="scroll-reveal mt-16 border-t border-white/[0.08] pt-12 md:mt-20 md:pt-14">
-          <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
-            <div className="max-w-lg">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-gold/80">
-                Full catalogue
-              </p>
-              <p className="mt-3 text-lg font-light leading-snug text-white/80 md:text-xl">
-                Contrast therapy, recovery suites, outdoor wellness, and
-                commercial programmes — all specified to the same standard.
-              </p>
+        {showCatalogueFooter && (
+          <div className="scroll-reveal mt-16 border-t border-white/[0.08] pt-12 md:mt-20 md:pt-14">
+            <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
+              <div className="max-w-lg">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-gold/80">
+                  Full catalogue
+                </p>
+                <p className="mt-3 text-lg font-light leading-snug text-white/80 md:text-xl">
+                  Contrast therapy, recovery suites, outdoor wellness, and
+                  commercial programmes — all specified to the same standard.
+                </p>
+              </div>
+              <Link
+                href="/services"
+                className="btn-gold shrink-0 px-10 py-4 text-[11px]"
+                id="services-overview-all"
+              >
+                View all services
+              </Link>
             </div>
-            <Link
-              href="/services"
-              className="btn-gold shrink-0 px-10 py-4 text-[11px]"
-              id="services-overview-all"
-            >
-              View all services
-            </Link>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

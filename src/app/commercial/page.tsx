@@ -3,6 +3,7 @@ import { ArrowRight, Building2, Hotel, Dumbbell, Activity } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import ConsultationForm from "@/components/ConsultationForm";
 import type { Metadata } from "next";
+import WellnessTrends from "@/assets/Wellness Trends.png";
 
 export const metadata: Metadata = {
   title: "Commercial Wellness | Gym & Hotel Sauna & Recovery Fit-Outs Melbourne — Element 7",
@@ -21,7 +22,7 @@ export default function CommercialPage() {
   return (
     <div className="min-h-screen bg-transparent">
       <PageHero
-        image="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=85"
+        image={WellnessTrends.src}
         label="Commercial"
         title="Wellness at"
         titleAccent="Commercial Scale"

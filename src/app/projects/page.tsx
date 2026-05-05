@@ -4,6 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
+import Residential from "@/assets/Residential.png";
+import wellnessStudio from "@/assets/wellness Trends.png";
+import ourProjects from "@/assets/our Projects.png";
+
+
 
 const projects = [
   {
@@ -52,7 +57,7 @@ const projects = [
     category: "Residential",
     type: "Sauna",
     tags: ["Custom Sauna", "Contrast Therapy", "Recovery"],
-    image: "https://images.unsplash.com/photo-1545579133-99bb5ad189be?w=800&q=80",
+    image: Residential.src,
     description: "A complete contrast therapy suite with custom sauna, cold plunge tub, and private relaxation lounge.",
     suburb: "Brighton, VIC",
   },
@@ -62,7 +67,7 @@ const projects = [
     category: "Commercial",
     type: "Recovery",
     tags: ["Commercial", "Steam Room", "Sauna"],
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image: wellnessStudio.src,
     description: "A boutique wellness studio fit-out including a 3-person infrared sauna, private steam room, and cold shower station.",
     suburb: "Fitzroy, VIC",
   },
@@ -84,7 +89,7 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-transparent">
       <PageHero
-        image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85"
+        image={ourProjects.src}
         label="Portfolio"
         title="Our"
         titleAccent="Projects"

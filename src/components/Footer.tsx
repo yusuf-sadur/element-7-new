@@ -151,10 +151,10 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Services — two columns on md+ */}
-            <div className="lg:col-span-3">
+            {/* Services — single column so Contact can use more width */}
+            <div className="lg:col-span-2">
               <h3 className="section-label !mb-6">Services</h3>
-              <ul className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
+              <ul className="space-y-3">
                 {services.map((service) => (
                   <li key={service.name} className="min-w-0">
                     <Link href={service.href} className={linkClass}>
@@ -171,7 +171,7 @@ export default function Footer() {
             </div>
 
             {/* Contact */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-4">
               <h3 className="section-label !mb-6">Contact</h3>
               <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 shadow-[0_16px_48px_rgba(0,0,0,0.35)] backdrop-blur-md">
                 <ul className="space-y-5">

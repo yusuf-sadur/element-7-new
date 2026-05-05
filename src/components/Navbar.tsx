@@ -225,7 +225,7 @@ export default function Navbar() {
               className="hidden rounded-full bg-gradient-to-r from-gold to-gold-light px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-black shadow-[0_4px_24px_rgba(201,168,76,0.28)] transition-all duration-300 hover:shadow-[0_6px_32px_rgba(201,168,76,0.4)] lg:inline-flex lg:items-center"
               id="nav-cta-desktop"
             >
-              Book
+              Book consultation
             </Link>
 
             <button

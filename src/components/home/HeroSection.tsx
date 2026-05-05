@@ -48,7 +48,7 @@ export default function HeroSection() {
     >
       {/* ── Background: photo + vignette + dots ── */}
       <div
-        className="fixed inset-0 z-0 will-change-transform"
+        className="pointer-events-none fixed inset-0 z-0 will-change-transform"
         style={{
           filter: `blur(${blurValue}px) brightness(${brightnessValue})`,
           opacity: opacityValue,
