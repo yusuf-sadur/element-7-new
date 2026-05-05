@@ -1,8 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import ServicesOverview from "@/components/home/ServicesOverview";
 import TheDifference from "@/components/home/TheDifference";
-import FeaturedProjects from "@/components/home/FeaturedProjects";
-import WellnessPhilosophy from "@/components/home/WellnessPhilosophy";
 import ProcessSection from "@/components/home/ProcessSection";
 import Testimonials from "@/components/home/Testimonials";
 import FinalCTA from "@/components/home/FinalCTA";
@@ -20,8 +18,6 @@ export default function HomePage() {
       <HeroSection />
       <ServicesOverview />
       <TheDifference />
-      <FeaturedProjects />
-      <WellnessPhilosophy />
       <ProcessSection />
       <Testimonials />
       <FinalCTA />

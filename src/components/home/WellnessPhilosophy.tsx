@@ -46,12 +46,12 @@ export default function WellnessPhilosophy() {
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-20 scroll-reveal">
           <p className="section-label">Our Philosophy</p>
-          <h2 className="font-['Cormorant_Garamond',serif] text-4xl md:text-6xl font-light text-white leading-tight mb-6">
+          <h2 className="font-display text-5xl md:text-7xl font-light text-white leading-tight mb-6">
             Engineered for{" "}
             <span className="italic text-gold">Human Performance</span>
           </h2>
           <div className="divider-gold mx-auto" />
-          <blockquote className="mt-8 text-white/50 text-lg font-light leading-relaxed italic font-['Cormorant_Garamond',serif]">
+          <blockquote className="mt-8 text-white/50 text-lg font-light leading-relaxed italic font-display">
             &ldquo;We believe the spaces we inhabit shape who we become. An
             Element 7 wellness environment is an investment in your health,
             your performance, and your quality of life — built to last a
@@ -68,7 +68,7 @@ export default function WellnessPhilosophy() {
               style={{ transitionDelay: `${idx * 80}ms` }}
             >
               <div className="w-8 h-px bg-gold mb-6 group-hover:w-16 transition-all duration-500" />
-              <h3 className="font-['Cormorant_Garamond',serif] text-2xl font-light text-white mb-3 group-hover:text-gold transition-colors duration-300">
+              <h3 className="font-display text-2xl font-light text-white mb-3 group-hover:text-gold transition-colors duration-300">
                 {pillar.title}
               </h3>
               <p className="text-white/45 text-sm leading-relaxed">

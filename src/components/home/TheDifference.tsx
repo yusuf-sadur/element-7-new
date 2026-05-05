@@ -55,7 +55,7 @@ export default function TheDifference() {
           {/* Left — content */}
           <div className="scroll-reveal">
             <p className="section-label">Why Element 7</p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
+            <h2 className="font-display text-5xl md:text-7xl font-light text-white mb-6 leading-tight">
               The Element 7{" "}
               <span className="italic text-gold">Difference</span>
             </h2>
@@ -88,7 +88,7 @@ export default function TheDifference() {
                 className="group card-dark p-6 scroll-reveal"
                 style={{ transitionDelay: `${idx * 80}ms` }}
               >
-                <div className="text-gold/20 font-light text-4xl font-['Cormorant_Garamond',serif] mb-3 group-hover:text-gold/40 transition-colors duration-300">
+                <div className="text-gold/20 font-light text-4xl font-display mb-3 group-hover:text-gold/40 transition-colors duration-300">
                   {item.number}
                 </div>
                 <h3 className="text-white font-semibold text-sm mb-2 group-hover:text-gold transition-colors duration-300">

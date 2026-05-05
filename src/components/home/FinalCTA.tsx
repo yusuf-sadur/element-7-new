@@ -19,7 +19,7 @@ export default function FinalCTA() {
           {/* Left — text */}
           <div className="scroll-reveal">
             <p className="section-label">Get Started</p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-4xl md:text-5xl font-light text-white leading-tight mb-6">
+            <h2 className="font-display text-5xl md:text-7xl font-light text-white leading-tight mb-6">
               Create Your{" "}
               <span className="italic text-gold">Wellness Space</span>
             </h2>

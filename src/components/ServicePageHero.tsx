@@ -1,40 +1,39 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import Image, { type StaticImageData } from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 const pagePad =
   "px-5 sm:px-8 md:px-10 lg:px-12 xl:px-[clamp(2.5rem,7vw,6rem)]";
 
-interface PageHeroProps {
-  image: string;
+interface ServicePageHeroProps {
+  image: string | StaticImageData;
   label: string;
   title: string;
-  titleAccent?: string;
-  subtitle?: string;
-  height?: string;
-  children?: React.ReactNode;
+  tagline: string;
+  lead: string;
 }
 
 /**
- * Interior split layout over a fixed cinematic background.
- * Scroll blur / brightness / opacity / scale match `HeroSection` so the photo
- * opens up (reads more transparent) as you scroll.
+ * Service detail hero: interior split copy + same fixed-bg scroll treatment as
+ * `HeroSection` / `PageHero` (blur, brightness, opacity fade on scroll).
  */
-export default function PageHero({
+export default function ServicePageHero({
   image,
   label,
   title,
-  titleAccent,
-  subtitle,
-  height = "min(92svh,880px)",
-  children,
-}: Readonly<PageHeroProps>) {
+  tagline,
+  lead,
+}: Readonly<ServicePageHeroProps>) {
   const [scrollY, setScrollY] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setLoaded(true);
+
     let ticking = false;
     const onScroll = () => {
       if (!ticking) {
@@ -45,6 +44,7 @@ export default function PageHero({
         ticking = true;
       }
     };
+
     globalThis.addEventListener("scroll", onScroll, { passive: true });
     return () => globalThis.removeEventListener("scroll", onScroll);
   }, []);
@@ -56,10 +56,10 @@ export default function PageHero({
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-transparent"
-      style={{ minHeight: height }}
+      id="service-hero"
+      ref={sectionRef}
+      className="relative min-h-[min(100svh,1040px)] w-full overflow-hidden bg-transparent lg:min-h-[min(96svh,1200px)]"
     >
-      {/* Fixed fullscreen photo — same scroll physics as home hero */}
       <div
         className="fixed inset-0 z-0 will-change-transform"
         style={{
@@ -86,8 +86,8 @@ export default function PageHero({
       <div className="pointer-events-none fixed inset-0 z-[1] bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
       <div className="pointer-events-none fixed inset-0 z-[1] bg-obsidian/20" />
 
+      {/* pt-* clears fixed navbar so the eyebrow label stays visible */}
       <div className="relative z-10 flex min-h-[inherit] w-full flex-col pt-16 sm:pt-20 lg:flex-row lg:pt-24">
-        {/* Left rail — semi-transparent so the fading bg still reads through */}
         <div
           className={`relative flex w-full flex-col justify-center border-white/[0.07] bg-[#060606]/85 py-14 backdrop-blur-xl lg:w-[min(52%,640px)] lg:max-w-[640px] lg:flex-none lg:border-r lg:py-16 xl:py-20 ${pagePad}`}
         >
@@ -100,7 +100,7 @@ export default function PageHero({
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute inset-y-8 left-0 w-px bg-gradient-to-b from-gold/40 via-gold/10 to-transparent md:inset-y-10"
+            className="pointer-events-none absolute inset-y-8 left-0 w-px bg-gradient-to-b from-gold/45 via-gold/15 to-transparent md:inset-y-10"
             aria-hidden
           />
 
@@ -115,48 +115,66 @@ export default function PageHero({
             </div>
 
             <h1
-              className={`font-display text-[clamp(2.15rem,5vw,3.75rem)] font-light leading-[1.06] tracking-[-0.03em] text-white transition-all duration-700 delay-75 ${loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+              className={`font-display font-light tracking-[-0.03em] text-white transition-all duration-700 delay-75 ${loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
             >
-              <span className="block text-balance">{title}</span>
-              {titleAccent && (
-                <span className="mt-2 block text-[clamp(1.75rem,4.2vw,3rem)] font-light italic text-gold">
-                  {titleAccent}
+              <span className="block text-balance text-[clamp(1.85rem,4.5vw,3.15rem)] leading-[1.06]">
+                {title}
+              </span>
+              <span className="mt-3 block text-[clamp(1.5rem,3.6vw,2.5rem)] leading-[1.1]">
+                <span className="bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text font-display italic text-transparent">
+                  {tagline}
                 </span>
-              )}
+              </span>
             </h1>
 
-            {subtitle && (
-              <p
-                className={`mt-6 max-w-md border-l-2 border-gold/35 pl-5 text-[15px] font-light leading-relaxed text-white/55 transition-all duration-700 delay-150 md:text-base ${loaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}
-              >
-                {subtitle}
-              </p>
-            )}
-
-            {children && (
-              <div
-                className={`relative mt-10 transition-all duration-700 delay-200 ${loaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}
-              >
-                {children}
-              </div>
-            )}
+            <p
+              className={`mt-7 max-w-md border-l-2 border-gold/35 pl-5 text-[14px] font-light leading-relaxed text-white/55 transition-all duration-700 delay-150 sm:text-[15px] ${loaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}
+            >
+              {lead}
+            </p>
 
             <div
-              className={`mt-10 flex items-center gap-3 transition-all duration-1000 delay-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+              className={`mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6 ${loaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"} transition-all duration-700 delay-200`}
+            >
+              <Link
+                href="/contact"
+                className="btn-gold justify-center px-8 py-3.5 text-[10px] sm:min-w-[200px]"
+                id="service-hero-cta-primary"
+              >
+                Book consultation
+              </Link>
+              <Link
+                href="/services"
+                className="group/ghost inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.26em] text-white/55 transition-colors hover:text-gold"
+                id="service-hero-cta-secondary"
+              >
+                All services
+                <ArrowUpRight
+                  size={14}
+                  strokeWidth={1.75}
+                  className="transition-transform duration-300 group-hover/ghost:-translate-y-0.5 group-hover/ghost:translate-x-0.5"
+                />
+              </Link>
+            </div>
+
+            <div
+              className={`mt-12 flex items-center gap-3 transition-all duration-1000 delay-300 ${loaded ? "opacity-100" : "opacity-0"}`}
             >
               <span className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-white/25 to-transparent" />
               <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-white/25">
-                Element 7
+                Melbourne
               </span>
             </div>
           </div>
         </div>
 
-        {/* Right: lets the fixed photo show through (desktop) */}
-        <div className="relative hidden min-h-0 flex-1 lg:block" aria-hidden />
+        <div className="relative hidden flex-1 lg:block" aria-hidden />
 
-        {/* Mobile: reserve height so hero feels immersive over fixed bg */}
-        <div className="min-h-[36vh] shrink-0 lg:hidden" aria-hidden />
+        <p className="pointer-events-none absolute bottom-6 right-6 z-10 hidden max-w-[220px] text-right font-mono text-[9px] uppercase leading-relaxed tracking-[0.26em] text-white/35 lg:block">
+          Specifications below · Element Seven
+        </p>
+
+        <div className="min-h-[42vh] shrink-0 lg:hidden" aria-hidden />
       </div>
     </section>
   );

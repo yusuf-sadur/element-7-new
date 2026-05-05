@@ -101,7 +101,7 @@ export default function JournalPage() {
               </div>
               <span className="text-white/25 text-xs">{articles[0].date}</span>
             </div>
-            <h2 className="font-['Cormorant_Garamond',serif] text-3xl font-light text-white mb-4 leading-tight group-hover:text-gold transition-colors duration-300">
+            <h2 className="font-display text-3xl font-light text-white mb-4 leading-tight group-hover:text-gold transition-colors duration-300">
               {articles[0].title}
             </h2>
             <p className="text-white/50 text-sm leading-relaxed mb-8">{articles[0].excerpt}</p>
@@ -145,7 +145,7 @@ export default function JournalPage() {
                     {article.readTime}
                   </div>
                 </div>
-                <h3 className="font-['Cormorant_Garamond',serif] text-lg font-light text-white mb-2 leading-tight group-hover:text-gold transition-colors duration-300">
+                <h3 className="font-display text-lg font-light text-white mb-2 leading-tight group-hover:text-gold transition-colors duration-300">
                   {article.title}
                 </h3>
                 <p className="text-white/40 text-xs leading-relaxed line-clamp-3">{article.excerpt}</p>

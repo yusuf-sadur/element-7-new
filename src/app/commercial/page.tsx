@@ -35,7 +35,7 @@ export default function CommercialPage() {
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
           <div className="scroll-reveal">
             <p className="section-label">Commercial Wellness Design</p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-4xl font-light text-white leading-tight mb-6">
+            <h2 className="font-display text-4xl font-light text-white leading-tight mb-6">
               Built for <span className="italic text-gold">Business</span>
             </h2>
             <div className="divider-gold" />
@@ -74,7 +74,7 @@ export default function CommercialPage() {
         <div className="mb-20 scroll-reveal">
           <div className="text-center mb-12">
             <p className="section-label">Who We Work With</p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-3xl font-light text-white">
+            <h2 className="font-display text-3xl font-light text-white">
               Our <span className="italic text-gold">Commercial Clients</span>
             </h2>
           </div>
@@ -88,7 +88,7 @@ export default function CommercialPage() {
                 <div className="w-12 h-12 border border-gold/20 flex items-center justify-center mb-6 group-hover:border-gold/50 group-hover:bg-gold/5 transition-all duration-300">
                   <client.Icon size={20} className="text-gold/60 group-hover:text-gold transition-colors duration-300" />
                 </div>
-                <h3 className="font-['Cormorant_Garamond',serif] text-xl font-light text-white mb-3 group-hover:text-gold transition-colors">
+                <h3 className="font-display text-xl font-light text-white mb-3 group-hover:text-gold transition-colors">
                   {client.title}
                 </h3>
                 <p className="text-white/40 text-sm leading-relaxed">{client.description}</p>
@@ -101,7 +101,7 @@ export default function CommercialPage() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div className="scroll-reveal">
             <p className="section-label">Market Context</p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-3xl font-light text-white mb-6">
+            <h2 className="font-display text-3xl font-light text-white mb-6">
               Wellness Trends in <span className="italic text-gold">Hospitality & Fitness</span>
             </h2>
             <div className="divider-gold" />

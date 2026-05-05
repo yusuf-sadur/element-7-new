@@ -1,23 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logoSrc from "@/assets/logo.jpeg";
 
-import { Menu, X, ChevronDown, Mail, Phone } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
-
 
 const services = [
   { title: "Custom Saunas", slug: "custom-saunas" },
   { title: "Infrared Saunas", slug: "infrared-saunas" },
   { title: "Steam Rooms", slug: "steam-rooms" },
   { title: "Cold Plunge Systems", slug: "cold-plunge" },
-  { title: "Contrast Therapy", slug: "contrast-therapy" },
-  { title: "Recovery Rooms", slug: "recovery-rooms" },
-  { title: "Outdoor Wellness", slug: "outdoor-wellness" },
-  { title: "Commercial Spaces", slug: "commercial-wellness" },
 ];
 
 const navLinks = [
@@ -29,220 +24,333 @@ const navLinks = [
   { type: "link", name: "Projects", to: "/projects" },
   { type: "link", name: "Blogs", to: "/blogs" },
   { type: "link", name: "Contact", to: "/contact" },
-];
+] as const;
+
+const linkBase =
+  "relative py-2 text-[13px] font-medium tracking-tight transition-colors duration-200";
+
+/** Matches `HeroSection` content gutter so the nav aligns with the hero. */
+const pagePad =
+  "px-5 sm:px-8 md:px-10 lg:px-12 xl:px-[clamp(2.5rem,7vw,6rem)]";
 
 export default function Navbar() {
+  const headerRef = useRef<HTMLElement>(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const pathname = usePathname();
+  const isServicesActive = pathname.startsWith("/services");
+
+  const handleScroll = useCallback(() => {
+    setIsScrolled(globalThis.scrollY > 24);
+  }, []);
 
   useEffect(() => {
+    handleScroll();
     let ticking = false;
-    const handleScroll = () => {
+    const onScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 60);
+        globalThis.requestAnimationFrame(() => {
+          handleScroll();
           ticking = false;
         });
         ticking = true;
       }
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    globalThis.addEventListener("scroll", onScroll, { passive: true });
+    return () => globalThis.removeEventListener("scroll", onScroll);
+  }, [handleScroll]);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsMobileServicesOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMobileMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const measure = () => setHeaderHeight(el.offsetHeight);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [isMobileMenuOpen, isScrolled]);
+
+  const activeLink = (path: string) =>
+    pathname === path ? "text-white" : "text-white/55 hover:text-white/90";
+
   return (
-    <nav
-      className={`fixed w-full top-0 z-50 transition-all duration-500 ease-in-out bg-obsidian/95 backdrop-blur-xl border-b border-white/[0.06] ${
-        isScrolled ? "py-0 shadow-lg shadow-black/20" : "py-0"
-      }`}
-    >
-      {/* Main nav */}
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-24 relative">
-          {/* Logo - Left */}
-          <div className="z-10">
-            <Link
-              href="/"
-              className="flex-shrink-0 group transition-opacity hover:opacity-90"
-              aria-label="Element Seven — Home"
-            >
-              <Image src={logoSrc} alt="Element Seven" width={94} height={94} className="object-contain h-auto max-h-20" />
-            </Link>
+    <header ref={headerRef} className="pointer-events-none fixed inset-x-0 top-0 z-50 pt-3 sm:pt-4 md:pt-5">
+      {/* Same width + horizontal padding as HeroSection content wrapper */}
+      <div className={`pointer-events-auto mx-auto w-full max-w-[1600px] ${pagePad}`}>
+        <div
+          className={`relative z-[55] flex items-center justify-between gap-3 rounded-2xl border px-3 py-2.5 shadow-2xl shadow-black/30 transition-all duration-300 sm:gap-4 sm:px-5 sm:py-3 md:rounded-[1.35rem] md:px-6 ${
+            isScrolled
+              ? "border-white/[0.09] bg-[#0a0a0a]/85 backdrop-blur-2xl"
+              : "border-white/[0.06] bg-black/35 backdrop-blur-xl"
+          }`}
+        >
+          <Link
+            href="/"
+            className="flex shrink-0 items-center gap-2 rounded-xl outline-offset-4 transition-opacity hover:opacity-90"
+            aria-label="Element Seven — Home"
+          >
+            <Image
+              src={logoSrc}
+              alt=""
+              width={88}
+              height={88}
+              className={`w-auto object-contain transition-all duration-300 ${
+                isScrolled ? "h-10 sm:h-11" : "h-11 sm:h-[52px]"
+              }`}
+            />
+          </Link>
+
+          {/* Desktop navigation */}
+          <div className="hidden min-w-0 flex-1 items-center justify-center lg:flex">
+            <nav className="flex items-center gap-1 xl:gap-1.5" aria-label="Primary">
+              {navLinks.map((link) => {
+                if (link.type === "dropdown") {
+                  return (
+                    <div
+                      key={link.name}
+                      className="relative px-1.5 py-0.5"
+                      onMouseEnter={() => setIsServicesDropdownOpen(true)}
+                      onMouseLeave={() => setIsServicesDropdownOpen(false)}
+                    >
+                      <button
+                        type="button"
+                        className={`${linkBase} inline-flex items-center gap-1 ${isServicesActive ? "text-white" : "text-white/55 hover:text-white/90"}`}
+                        aria-expanded={isServicesDropdownOpen}
+                        aria-haspopup="true"
+                        aria-controls="services-menu"
+                        id="services-trigger"
+                      >
+                        {link.name}
+                        <ChevronDown
+                          size={15}
+                          strokeWidth={2}
+                          className={`opacity-60 transition-transform duration-200 ${
+                            isServicesDropdownOpen ? "rotate-180" : ""
+                          }`}
+                          aria-hidden
+                        />
+                      </button>
+                      {isServicesActive && (
+                        <span
+                          className="absolute bottom-0 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-gold"
+                          aria-hidden
+                        />
+                      )}
+
+                      <div
+                        id="services-menu"
+                        role="menu"
+                        aria-labelledby="services-trigger"
+                        className={`absolute left-1/2 top-[calc(100%+10px)] z-50 w-[min(22rem,calc(100vw-3rem))] -translate-x-1/2 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#101010]/95 shadow-[0_20px_50px_rgba(0,0,0,0.65)] ring-1 ring-white/[0.03] backdrop-blur-2xl transition-all duration-200 ease-out ${
+                          isServicesDropdownOpen
+                            ? "visible translate-y-0 opacity-100"
+                            : "invisible -translate-y-1.5 opacity-0"
+                        }`}
+                      >
+                        <div className="border-b border-white/[0.06] px-5 py-4">
+                          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                            Browse
+                          </p>
+                          <Link
+                            href="/services"
+                            role="menuitem"
+                            className="mt-2 block text-sm font-medium text-gold transition-colors hover:text-gold-light"
+                            onClick={() => setIsServicesDropdownOpen(false)}
+                          >
+                            View all services →
+                          </Link>
+                        </div>
+                        <div className="max-h-[min(52vh,380px)] overflow-y-auto overscroll-contain py-2">
+                          {services.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/services/${service.slug}`}
+                              role="menuitem"
+                              className="block px-5 py-2.5 text-[13px] text-white/65 transition-colors hover:bg-white/[0.04] hover:text-white"
+                              onClick={() => setIsServicesDropdownOpen(false)}
+                            >
+                              {service.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.to ?? "/"}
+                    className={`${linkBase} px-1.5 ${activeLink(link.to ?? "/")}`}
+                  >
+                    {link.name}
+                    {pathname === link.to && (
+                      <span
+                        className="absolute bottom-0 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-gold"
+                        aria-hidden
+                      />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
 
-          {/* Desktop nav links - Center */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-7">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <Link
+              href="/contact"
+              className="hidden rounded-full bg-gradient-to-r from-gold to-gold-light px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-black shadow-[0_4px_24px_rgba(201,168,76,0.28)] transition-all duration-300 hover:shadow-[0_6px_32px_rgba(201,168,76,0.4)] lg:inline-flex lg:items-center"
+              id="nav-cta-desktop"
+            >
+              Book
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.1] bg-white/[0.04] text-white transition-colors hover:border-white/20 hover:bg-white/[0.07] lg:hidden"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+              id="mobile-menu-toggle"
+            >
+              {isMobileMenuOpen ? <X size={20} strokeWidth={2} /> : <Menu size={20} strokeWidth={2} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile backdrop */}
+      <button
+        type="button"
+        aria-label="Close menu"
+        style={{ top: headerHeight }}
+        className={`pointer-events-auto fixed inset-x-0 bottom-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+          isMobileMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        onClick={() => setIsMobileMenuOpen(false)}
+        tabIndex={-1}
+      />
+
+      {/* Mobile drawer */}
+      <div
+        className={`fixed inset-y-0 right-0 z-50 flex w-[min(100%,400px)] max-w-full flex-col border-l border-white/[0.08] bg-[#0a0a0a] shadow-[-16px_0_48px_rgba(0,0,0,0.55)] transition-transform duration-300 ease-out lg:hidden ${
+          isMobileMenuOpen
+            ? "pointer-events-auto translate-x-0"
+            : "pointer-events-none translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-4">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/40">Menu</span>
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.1] text-white/80 transition-colors hover:bg-white/[0.05]"
+            aria-label="Close menu"
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        <nav className="flex-1 overflow-y-auto overscroll-contain px-4 py-4" aria-label="Mobile">
+          <div className="space-y-1">
             {navLinks.map((link) => {
               if (link.type === "dropdown") {
                 return (
-                  <div
-                    key={link.name}
-                    className="relative"
-                    onMouseEnter={() => setIsServicesDropdownOpen(true)}
-                    onMouseLeave={() => setIsServicesDropdownOpen(false)}
-                  >
-                    <button className="nav-link flex items-center gap-1 pb-1">
+                  <div key={link.name} className="rounded-xl bg-white/[0.03]">
+                    <button
+                      type="button"
+                      onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                      className="flex w-full items-center justify-between px-4 py-3.5 text-left text-[15px] font-medium text-white"
+                      aria-expanded={isMobileServicesOpen}
+                    >
                       {link.name}
                       <ChevronDown
-                        size={14}
-                        className={`transition-transform duration-200 ${
-                          isServicesDropdownOpen ? "rotate-180" : ""
+                        size={18}
+                        className={`shrink-0 text-white/45 transition-transform duration-200 ${
+                          isMobileServicesOpen ? "rotate-180" : ""
                         }`}
                       />
                     </button>
-
-                    {/* Dropdown */}
                     <div
-                      className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-obsidian border border-white/[0.08] shadow-2xl shadow-black/60 transition-all duration-200 ${
-                        isServicesDropdownOpen
-                          ? "opacity-100 visible translate-y-0"
-                          : "opacity-0 invisible -translate-y-2"
+                      className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                        isMobileServicesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                       }`}
                     >
-                      <Link
-                        href="/services"
-                        className="block px-5 py-3.5 text-gold text-xs font-semibold tracking-widest uppercase hover:bg-gold/10 border-b border-white/[0.06] transition-colors"
-                        onClick={() => setIsServicesDropdownOpen(false)}
-                      >
-                        All Services
-                      </Link>
-                      {services.map((service) => (
-                        <Link
-                          key={service.slug}
-                          href={`/services/${service.slug}`}
-                          className="block px-5 py-3 text-white/75 hover:bg-gold/5 hover:text-gold transition-colors text-sm border-b border-white/[0.04] last:border-b-0"
-                          onClick={() => setIsServicesDropdownOpen(false)}
-                        >
-                          {service.title}
-                        </Link>
-                      ))}
+                      <div className="min-h-0 overflow-hidden">
+                        <div className="border-t border-white/[0.06] px-2 pb-3 pt-1">
+                          <Link
+                            href="/services"
+                            className="block rounded-lg px-3 py-2.5 text-sm font-medium text-gold"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            All services
+                          </Link>
+                          {services.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/services/${service.slug}`}
+                              className="block rounded-lg px-3 py-2 text-[14px] text-white/55 transition-colors hover:bg-white/[0.04] hover:text-white"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              {service.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );
               }
-
               return (
                 <Link
                   key={link.name}
                   href={link.to ?? "/"}
-                  className={`nav-link pb-1 ${
-                    pathname === link.to ? "text-gold after:w-full" : ""
+                  className={`block rounded-xl px-4 py-3.5 text-[15px] font-medium transition-colors ${
+                    pathname === link.to ? "bg-white/[0.06] text-white" : "text-white/55 hover:bg-white/[0.04] hover:text-white"
                   }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
               );
             })}
           </div>
+        </nav>
 
-          {/* Right: CTA button */}
-          <div className="hidden lg:flex z-10">
-            <Link
-              href="/contact"
-              className="btn-gold text-xs"
-              id="nav-cta-desktop"
-            >
-              Book Consultation
-            </Link>
-          </div>
-
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-white hover:text-gold transition-colors z-10"
-            aria-label="Toggle menu"
-            id="mobile-menu-toggle"
+        <div className="border-t border-white/[0.06] p-5">
+          <Link
+            href="/contact"
+            className="flex w-full items-center justify-center rounded-full bg-gradient-to-r from-gold to-gold-light py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-black shadow-lg shadow-gold/25"
+            id="nav-cta-mobile"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            Book consultation
+          </Link>
         </div>
       </div>
-
-      {/* Mobile menu */}
-      <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 ${
-          isMobileMenuOpen ? "max-h-[800px]" : "max-h-0"
-        } bg-obsidian border-t border-white/[0.06]`}
-      >
-        <div className="container-e7 py-6 space-y-1">
-          {navLinks.map((link) => {
-            if (link.type === "dropdown") {
-              return (
-                <div key={link.name}>
-                  <button
-                    onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                    className="flex items-center justify-between w-full py-3 text-white/80 hover:text-gold transition-colors font-medium text-sm tracking-wider"
-                  >
-                    {link.name}
-                    <ChevronDown
-                      size={16}
-                      className={`transition-transform duration-200 ${
-                        isMobileServicesOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      isMobileServicesOpen ? "max-h-[400px] mt-1" : "max-h-0"
-                    }`}
-                  >
-                    <div className="pl-4 space-y-1 border-l border-gold/20 ml-2">
-                      <Link
-                        href="/services"
-                        className="block py-2 text-gold text-xs font-semibold tracking-widest uppercase"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        All Services
-                      </Link>
-                      {services.map((service) => (
-                        <Link
-                          key={service.slug}
-                          href={`/services/${service.slug}`}
-                          className="block py-2 text-white/60 hover:text-gold transition-colors text-sm"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {service.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              );
-            }
-            return (
-              <Link
-                key={link.name}
-                href={link.to ?? "/"}
-                className={`block py-3 text-white/80 hover:text-gold transition-colors font-medium text-sm tracking-wider ${
-                  pathname === link.to ? "text-gold" : ""
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-          <div className="pt-4">
-            <Link
-              href="/contact"
-              className="btn-gold w-full text-center justify-center text-xs"
-              id="nav-cta-mobile"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Book Consultation
-            </Link>
-          </div>
-        </div>
-      </div>
-    </nav>
+    </header>
   );
 }

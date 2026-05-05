@@ -62,7 +62,7 @@ export default function FeaturedProjects() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div className="scroll-reveal">
             <p className="section-label">Portfolio</p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-4xl md:text-5xl font-light text-white leading-tight">
+            <h2 className="font-display text-5xl md:text-7xl font-light text-white leading-tight">
               Featured{" "}
               <span className="italic text-gold">Projects</span>
             </h2>
@@ -124,7 +124,7 @@ export default function FeaturedProjects() {
                   ))}
                 </div>
 
-                <h3 className="font-['Cormorant_Garamond',serif] text-xl font-light text-white mb-3 group-hover:text-gold transition-colors duration-300">
+                <h3 className="font-display text-xl font-light text-white mb-3 group-hover:text-gold transition-colors duration-300">
                   {project.title}
                 </h3>
                 <p className="text-white/45 text-xs leading-relaxed mb-5">

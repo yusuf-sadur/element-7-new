@@ -36,7 +36,7 @@ export default function ResidentialPage() {
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
           <div className="scroll-reveal">
             <p className="section-label">Luxury Home Wellness</p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-4xl font-light text-white leading-tight mb-6">
+            <h2 className="font-display text-4xl font-light text-white leading-tight mb-6">
               Designed Around <span className="italic text-gold">Your Life</span>
             </h2>
             <div className="divider-gold" />
@@ -70,7 +70,7 @@ export default function ResidentialPage() {
         <div className="scroll-reveal">
           <div className="text-center mb-12">
             <p className="section-label">What We Offer</p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-3xl font-light text-white">
+            <h2 className="font-display text-3xl font-light text-white">
               Residential <span className="italic text-gold">Wellness Solutions</span>
             </h2>
           </div>
@@ -82,7 +82,7 @@ export default function ResidentialPage() {
                 style={{ transitionDelay: `${idx * 80}ms` }}
               >
                 <div className="w-8 h-px bg-gold mb-5 group-hover:w-16 transition-all duration-500" />
-                <h3 className="font-['Cormorant_Garamond',serif] text-xl font-light text-white mb-3 group-hover:text-gold transition-colors">
+                <h3 className="font-display text-xl font-light text-white mb-3 group-hover:text-gold transition-colors">
                   {f.title}
                 </h3>
                 <p className="text-white/40 text-xs leading-relaxed">{f.description}</p>
@@ -95,7 +95,7 @@ export default function ResidentialPage() {
         <div className="mt-20 grid lg:grid-cols-2 gap-16 items-start">
           <div className="scroll-reveal">
             <p className="section-label">Ready to Start?</p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-3xl font-light text-white mb-4">
+            <h2 className="font-display text-3xl font-light text-white mb-4">
               Book Your Free <span className="italic text-gold">Consultation</span>
             </h2>
             <p className="text-white/50 text-sm leading-relaxed">

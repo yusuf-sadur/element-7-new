@@ -137,8 +137,8 @@ export default function ConsultationForm({
     "block text-xs font-semibold tracking-wider text-white/60 uppercase mb-1.5";
 
   return (
-    <div className="bg-white/[0.03] border border-white/[0.07] p-8 md:p-10">
-      <h3 className="font-['Cormorant_Garamond',serif] text-2xl font-light text-white mb-2">
+    <div className="rounded-2xl bg-obsidian-mid/82 backdrop-blur-md border border-white/[0.12] p-8 md:p-10">
+      <h3 className="font-display text-2xl font-light text-white mb-2">
         Book Your Consultation
       </h3>
       <p className="text-white/40 text-xs mb-8 leading-relaxed">

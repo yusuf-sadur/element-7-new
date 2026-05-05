@@ -17,7 +17,7 @@ export default function ThankYouPage() {
         </div>
 
         <p className="section-label mb-4">Enquiry Received</p>
-        <h1 className="font-['Cormorant_Garamond',serif] text-4xl md:text-5xl font-light text-white leading-tight mb-6">
+        <h1 className="font-display text-4xl md:text-5xl font-light text-white leading-tight mb-6">
           Thank You for <span className="italic text-gold">Reaching Out</span>
         </h1>
         <div className="divider-gold mx-auto mb-8" />

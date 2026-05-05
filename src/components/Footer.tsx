@@ -3,7 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import logoSrc from "@/assets/logo.jpeg";
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Instagram,
+  Youtube,
+  ArrowUpRight,
+} from "lucide-react";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -21,160 +29,221 @@ const services = [
   { name: "Infrared Saunas", href: "/services/infrared-saunas" },
   { name: "Steam Rooms", href: "/services/steam-rooms" },
   { name: "Cold Plunge Systems", href: "/services/cold-plunge" },
-  { name: "Contrast Therapy", href: "/services/contrast-therapy" },
-  { name: "Recovery Rooms", href: "/services/recovery-rooms" },
-  { name: "Outdoor Wellness", href: "/services/outdoor-wellness" },
-  { name: "Commercial Wellness", href: "/services/commercial-wellness" },
 ];
+
+const linkClass =
+  "group inline-flex items-center gap-1 text-[13px] font-light tracking-wide text-white/55 hover:text-gold transition-colors duration-300";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-black text-white border-t border-white/[0.06] relative z-10">
-      {/* Main content */}
-      <div className="container-e7 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6">
-              <Image
-                src={logoSrc}
-                alt="Element Seven — Engineered Environments for Human Performance"
-                width={94}
-                height={94}
-                className="object-contain h-auto"
-              />
-            </Link>
-            <p className="text-white/50 text-sm leading-relaxed mb-6">
-              Melbourne&apos;s premier wellness and recovery company. We design and build
-              bespoke sauna, steam, cold plunge, and contrast therapy environments
-              for discerning residential and commercial clients.
-            </p>
-            <div className="flex gap-3">
-              {[
-                { href: "https://facebook.com", Icon: Facebook, label: "Facebook" },
-                { href: "https://instagram.com", Icon: Instagram, label: "Instagram" },
-                { href: "https://youtube.com", Icon: Youtube, label: "YouTube" },
-              ].map(({ href, Icon, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-9 h-9 border border-white/10 flex items-center justify-center text-white/40 hover:text-gold hover:border-gold/40 transition-all duration-300"
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
+    <footer className="relative z-10 overflow-hidden border-t border-white/[0.07] bg-obsidian text-white">
+      {/* Ambient layers */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-[0.35]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[min(90vw,720px)] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.12)_0%,transparent_65%)]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/35 to-transparent"
+        aria-hidden
+      />
+
+      <div className="relative">
+        {/* Top band: positioning + primary CTA */}
+        <div className="container-e7 border-b border-white/[0.06] py-12 md:py-14 lg:py-16">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-xl">
+              <p className="font-display text-2xl font-light leading-snug tracking-tight text-white/95 md:text-3xl">
+                Engineered environments for{" "}
+                <span className="text-gold/95">recovery</span> and performance.
+              </p>
+              <p className="mt-3 text-sm font-light leading-relaxed text-white/45">
+                Bespoke sauna, steam, cold plunge, and contrast therapy — designed
+                and built in Melbourne for residential and commercial spaces.
+              </p>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-xs font-semibold tracking-[0.3em] uppercase text-gold mb-5">
-              Navigation
-            </h3>
-            <ul className="space-y-2.5">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white/50 hover:text-gold transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-xs font-semibold tracking-[0.3em] uppercase text-gold mb-5">
-              Services
-            </h3>
-            <ul className="space-y-2.5">
-              {services.map((service) => (
-                <li key={service.name}>
-                  <Link
-                    href={service.href}
-                    className="text-white/50 hover:text-gold transition-colors text-sm"
-                  >
-                    {service.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-xs font-semibold tracking-[0.3em] uppercase text-gold mb-5">
-              Contact
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <a
-                  href="tel:+611300000000"
-                  className="flex items-start gap-3 text-white/50 hover:text-gold transition-colors group"
-                >
-                  <Phone
-                    size={16}
-                    className="flex-shrink-0 mt-0.5 group-hover:animate-pulse"
-                  />
-                  <div>
-                    <div className="text-xs text-white/30 mb-0.5">Phone</div>
-                    <div className="text-sm">1300 000 000</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:hello@element7.com.au"
-                  className="flex items-start gap-3 text-white/50 hover:text-gold transition-colors"
-                >
-                  <Mail size={16} className="flex-shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-xs text-white/30 mb-0.5">Email</div>
-                    <div className="text-sm">hello@element7.com.au</div>
-                  </div>
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-white/50">
-                <MapPin size={16} className="flex-shrink-0 mt-0.5" />
-                <div>
-                  <div className="text-xs text-white/30 mb-0.5">Location</div>
-                  <div className="text-sm">Melbourne, VIC</div>
-                </div>
-              </li>
-            </ul>
-
-            <div className="mt-8">
+            <div className="flex shrink-0 flex-col items-stretch gap-3 sm:flex-row sm:items-center lg:flex-col lg:items-end">
               <Link
                 href="/contact"
-                className="btn-gold w-full justify-center text-xs"
+                className="btn-gold justify-center px-10 text-xs lg:min-w-[240px]"
                 id="footer-cta"
               >
-                Book Consultation
+                Book consultation
               </Link>
+              <p className="text-center text-[11px] font-medium uppercase tracking-[0.28em] text-white/35 lg:text-right">
+                Response within one business day
+              </p>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/[0.06]">
-        <div className="container-e7 py-5">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/30">
-            <div>© {year} Element Seven. All rights reserved.</div>
-            <div className="flex items-center gap-6">
-              <Link href="/privacy-policy" className="hover:text-gold transition-colors">
-                Privacy Policy
+        <div className="container-e7 py-14 md:py-16 lg:py-20">
+          <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-12 lg:gap-12 xl:gap-16">
+            {/* Brand */}
+            <div className="lg:col-span-4">
+              <Link
+                href="/"
+                className="group mb-8 inline-flex items-center gap-4 rounded-2xl outline-none ring-offset-2 ring-offset-obsidian transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-gold"
+              >
+                <span className="relative flex h-[88px] w-[88px] shrink-0 items-center justify-center rounded-2xl border border-white/[0.08] bg-white/[0.03] p-2 shadow-[0_8px_40px_rgba(0,0,0,0.45)] backdrop-blur-sm transition-all duration-500 group-hover:border-gold/25 group-hover:shadow-[0_12px_48px_rgba(201,168,76,0.08)]">
+                  <Image
+                    src={logoSrc}
+                    alt="Element Seven — Engineered Environments for Human Performance"
+                    width={72}
+                    height={72}
+                    className="object-contain"
+                  />
+                </span>
+                <span className="hidden min-[400px]:block">
+                  <span className="font-display block text-lg font-light tracking-wide text-white">
+                    Element Seven
+                  </span>
+                  <span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-[0.35em] text-gold/80">
+                    Melbourne
+                  </span>
+                </span>
               </Link>
-              <Link href="/terms" className="hover:text-gold transition-colors">
-                Terms & Conditions
+              <p className="max-w-sm text-sm font-light leading-relaxed text-white/45">
+                Premium wellness infrastructure — from concept and engineering to
+                installation and aftercare.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-2.5">
+                {[
+                  { href: "https://facebook.com", Icon: Facebook, label: "Facebook" },
+                  { href: "https://instagram.com", Icon: Instagram, label: "Instagram" },
+                  { href: "https://youtube.com", Icon: Youtube, label: "YouTube" },
+                ].map(({ href, Icon, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.02] text-white/45 transition-all duration-300 hover:border-gold/35 hover:bg-gold/5 hover:text-gold hover:shadow-[0_0_24px_rgba(201,168,76,0.12)]"
+                  >
+                    <Icon size={17} strokeWidth={1.5} />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="lg:col-span-2">
+              <h3 className="section-label !mb-6">Explore</h3>
+              <ul className="space-y-3">
+                {quickLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link href={link.href} className={linkClass}>
+                      <span>{link.name}</span>
+                      <ArrowUpRight
+                        size={14}
+                        className="opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+                        aria-hidden
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Services — two columns on md+ */}
+            <div className="lg:col-span-3">
+              <h3 className="section-label !mb-6">Services</h3>
+              <ul className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
+                {services.map((service) => (
+                  <li key={service.name} className="min-w-0">
+                    <Link href={service.href} className={linkClass}>
+                      <span className="truncate">{service.name}</span>
+                      <ArrowUpRight
+                        size={14}
+                        className="shrink-0 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+                        aria-hidden
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div className="lg:col-span-3">
+              <h3 className="section-label !mb-6">Contact</h3>
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 shadow-[0_16px_48px_rgba(0,0,0,0.35)] backdrop-blur-md">
+                <ul className="space-y-5">
+                  <li>
+                    <a
+                      href="tel:+611300000000"
+                      className="group flex gap-4 text-white/55 transition-colors hover:text-gold"
+                    >
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-gold/90 transition-colors group-hover:border-gold/30">
+                        <Phone size={17} strokeWidth={1.5} />
+                      </span>
+                      <div className="min-w-0 pt-0.5">
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                          Phone
+                        </div>
+                        <div className="text-sm font-light tracking-wide">1300 000 000</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="mailto:hello@element7.com.au"
+                      className="group flex gap-4 text-white/55 transition-colors hover:text-gold"
+                    >
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-gold/90 transition-colors group-hover:border-gold/30">
+                        <Mail size={17} strokeWidth={1.5} />
+                      </span>
+                      <div className="min-w-0 pt-0.5">
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                          Email
+                        </div>
+                        <div className="truncate text-sm font-light tracking-wide">
+                          hello@element7.com.au
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li className="flex gap-4 text-white/55">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-gold/90">
+                      <MapPin size={17} strokeWidth={1.5} />
+                    </span>
+                    <div className="pt-0.5">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                        Studio
+                      </div>
+                      <div className="text-sm font-light tracking-wide">Melbourne, VIC</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-white/[0.06] bg-black/40 backdrop-blur-sm">
+          <div className="container-e7 flex flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between md:gap-6">
+            <p className="text-center text-[11px] font-light tracking-wide text-white/35 md:text-left">
+              © {year} Element Seven. Crafted in Melbourne.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[11px] font-medium uppercase tracking-[0.22em] text-white/40">
+              <Link
+                href="/privacy-policy"
+                className="transition-colors hover:text-gold"
+              >
+                Privacy
+              </Link>
+              <span className="hidden text-white/15 sm:inline" aria-hidden>
+                ·
+              </span>
+              <Link href="/terms" className="transition-colors hover:text-gold">
+                Terms
               </Link>
             </div>
           </div>

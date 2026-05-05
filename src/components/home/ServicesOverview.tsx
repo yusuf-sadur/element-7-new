@@ -1,138 +1,183 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import {
-  Flame,
-  Zap,
-  CloudFog,
-  Droplets,
-  ArrowLeftRight,
-  Dumbbell,
-  Trees,
-  Building2,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-const services = [
+import customSaunaImg from "@/assets/hero-sauna.jpg";
+import infraredSaunasImg from "@/assets/infrared Saunas.png";
+import steamRoomsImg from "@/assets/steam rooms.png";
+import coldPlungeImg from "@/assets/cold plunge.png";
+
+type ServiceItem = {
+  image: typeof customSaunaImg;
+  label: string;
+  title: string;
+  description: string;
+  href: string;
+};
+
+const services: ServiceItem[] = [
   {
-    icon: Flame,
+    image: customSaunaImg,
+    label: "Dry heat",
     title: "Custom Saunas",
     description:
-      "Bespoke Finnish and dry heat saunas designed around your space, aesthetic, and wellness goals.",
+      "Architecture-led dry heat — timber, lighting, and airflow tuned to your rituals.",
     href: "/services/custom-saunas",
-    accent: "from-orange-900/40 to-red-900/20",
   },
   {
-    icon: Zap,
+    image: infraredSaunasImg,
+    label: "Recovery",
     title: "Infrared Saunas",
     description:
-      "Far-infrared technology delivering deep tissue recovery at lower temperatures for extended sessions.",
+      "Gentle deep-tissue warmth for longer sessions and everyday recovery.",
     href: "/services/infrared-saunas",
-    accent: "from-amber-900/40 to-orange-900/20",
   },
   {
-    icon: CloudFog,
+    image: steamRoomsImg,
+    label: "Hydrothermal",
     title: "Steam Rooms",
     description:
-      "Custom steam environments with chromotherapy, aromatherapy, and architectural tile finishes.",
+      "Quiet steam performance with refined finishes and sensory integration.",
     href: "/services/steam-rooms",
-    accent: "from-sky-900/40 to-blue-900/20",
   },
   {
-    icon: Droplets,
+    image: coldPlungeImg,
+    label: "Cold therapy",
     title: "Cold Plunge Systems",
     description:
-      "Precision-cooled cold immersion pools for optimal recovery, circulation and mental resilience.",
+      "Precision chilled immersion for contrast therapy and mental clarity.",
     href: "/services/cold-plunge",
-    accent: "from-blue-900/40 to-cyan-900/20",
-  },
-  {
-    icon: ArrowLeftRight,
-    title: "Contrast Therapy",
-    description:
-      "Integrated hot-cold environments engineered to maximise recovery through thermal contrast.",
-    href: "/services/contrast-therapy",
-    accent: "from-violet-900/40 to-purple-900/20",
-  },
-  {
-    icon: Dumbbell,
-    title: "Recovery Rooms",
-    description:
-      "Dedicated recovery sanctuaries combining multiple modalities in a single curated environment.",
-    href: "/services/recovery-rooms",
-    accent: "from-emerald-900/40 to-green-900/20",
-  },
-  {
-    icon: Trees,
-    title: "Outdoor Wellness Areas",
-    description:
-      "Architecturally integrated outdoor saunas, cold plunges and wellness areas for premium landscapes.",
-    href: "/services/outdoor-wellness",
-    accent: "from-stone-800/40 to-neutral-900/20",
-  },
-  {
-    icon: Building2,
-    title: "Commercial Wellness",
-    description:
-      "End-to-end wellness fit-outs for gyms, hotels, studios and performance facilities.",
-    href: "/services/commercial-wellness",
-    accent: "from-slate-800/40 to-gray-900/20",
   },
 ];
 
 export default function ServicesOverview() {
   return (
-    <section id="services-overview" className="section-padding section-glass overflow-hidden">
-      {/* Background dot pattern */}
-      <div className="absolute inset-0 bg-dot-pattern opacity-60 pointer-events-none" />
+    <section
+      id="services-overview"
+      className="section-padding relative isolate overflow-hidden border-t border-white/[0.07] bg-gradient-to-b from-obsidian via-obsidian-light/80 to-obsidian"
+    >
+      {/* Atmosphere */}
+      <div className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-[0.22]" />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -left-40 top-0 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(201,168,76,0.08)_0%,transparent_65%)] blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -bottom-32 right-0 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_68%)] blur-3xl"
+        aria-hidden
+      />
 
       <div className="container-e7 relative z-10">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
-          <p className="section-label">Our Services</p>
-          <h2 className="font-['Cormorant_Garamond',serif] text-4xl md:text-5xl font-light text-white mb-5 leading-tight">
-            Wellness Environments{" "}
-            <span className="italic text-gold">Designed for You</span>
-          </h2>
-          <div className="divider-gold mx-auto" />
-          <p className="text-white/55 text-sm leading-relaxed mt-5">
-            From single custom saunas to complete multi-room wellness suites — we
-            deliver every element with precision craftsmanship and premium
-            materials.
-          </p>
+        {/* Header — editorial split */}
+        <header className="scroll-reveal mb-14 grid gap-10 lg:mb-20 lg:grid-cols-12 lg:gap-12 lg:gap-x-16">
+          <div className="relative lg:col-span-7">
+            <div
+              className="pointer-events-none absolute -left-4 bottom-2 top-2 w-px bg-gradient-to-b from-gold/45 via-gold/15 to-transparent sm:-left-5"
+              aria-hidden
+            />
+            <p className="text-[11px] font-semibold uppercase tracking-[0.42em] text-gold/90">
+              Signature offerings
+            </p>
+            <h2 className="mt-6 font-display text-[clamp(2.25rem,4.8vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-white">
+              <span className="block">Wellness environments</span>
+              <span className="mt-2 inline-block bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text font-display italic text-transparent">
+                composed for your life.
+              </span>
+            </h2>
+          </div>
+          <div className="flex flex-col justify-end border-t border-white/[0.07] pt-8 lg:col-span-5 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0 xl:pl-12">
+            <p className="text-[15px] font-light leading-relaxed text-white/45">
+              Every modality is engineered as part of a whole — thermal
+              performance, acoustic discipline, and materials that carry forward
+              for decades.
+            </p>
+            <div className="mt-8 h-px w-12 bg-gradient-to-r from-gold/60 to-transparent" />
+          </div>
+        </header>
+
+        {/* Premium card grid */}
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2">
+          {services.map((service, idx) => {
+            const n = String(idx + 1).padStart(2, "0");
+
+            return (
+              <Link
+                key={service.href}
+                href={service.href}
+                className="scroll-reveal group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-black/25 shadow-[0_24px_80px_rgba(0,0,0,0.45)] ring-1 ring-inset ring-white/[0.03] transition-all duration-500 hover:border-gold/25 hover:shadow-[0_32px_100px_rgba(0,0,0,0.55)] hover:ring-gold/10"
+              >
+                <div className="relative aspect-[16/11] overflow-hidden sm:aspect-[16/10]">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    priority={idx === 0}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover transition-[transform,filter] duration-[1.1s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.04]"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
+                  <div className="pointer-events-none absolute inset-0 opacity-0 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-100">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-gold/15 via-transparent to-transparent" />
+                  </div>
+
+                  <div className="absolute left-5 top-5 flex items-baseline gap-3 sm:left-6 sm:top-6">
+                    <span className="font-display text-4xl font-extralight leading-none text-white/25 sm:text-5xl">
+                      {n}
+                    </span>
+                    <span className="rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.28em] text-gold/95 backdrop-blur-md">
+                      {service.label}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="relative flex flex-1 flex-col border-t border-white/[0.06] bg-gradient-to-b from-black/40 to-black/55 p-7 backdrop-blur-sm sm:p-8">
+                  <div className="pointer-events-none absolute left-0 top-0 h-px w-16 bg-gradient-to-r from-gold/50 to-transparent" />
+
+                  <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-white sm:text-[1.65rem]">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 max-w-md flex-1 text-sm font-light leading-relaxed text-white/50 sm:text-[15px]">
+                    {service.description}
+                  </p>
+
+                  <span className="mt-8 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-white/55 transition-colors duration-300 group-hover:text-gold">
+                    <span>Discover</span>
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-all duration-300 group-hover:border-gold/40 group-hover:bg-gold group-hover:text-black">
+                      <ArrowUpRight size={16} strokeWidth={1.75} />
+                    </span>
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
-        {/* Services grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.05]">
-          {services.map((service, idx) => (
-            <Link
-              key={service.title}
-              href={service.href}
-              id={`service-card-${idx}`}
-              className={`group relative p-8 bg-obsidian hover:bg-gradient-to-br ${service.accent} transition-all duration-500 scroll-reveal`}
-              style={{ transitionDelay: `${idx * 60}ms` }}
-            >
-              {/* Icon */}
-              <div className="mb-5">
-                <div className="w-12 h-12 border border-gold/20 flex items-center justify-center group-hover:border-gold/60 group-hover:bg-gold/10 transition-all duration-300">
-                  <service.icon size={22} className="text-gold/70 group-hover:text-gold transition-colors duration-300" />
-                </div>
-              </div>
-
-              {/* Content */}
-              <h3 className="font-semibold text-white text-base mb-2.5 group-hover:text-gold transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-white/45 text-xs leading-relaxed group-hover:text-white/65 transition-colors duration-300">
-                {service.description}
+        {/* Footer strip */}
+        <div className="scroll-reveal mt-16 border-t border-white/[0.08] pt-12 md:mt-20 md:pt-14">
+          <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
+            <div className="max-w-lg">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-gold/80">
+                Full catalogue
               </p>
-
-              {/* Arrow */}
-              <div className="mt-5 text-gold/0 group-hover:text-gold/80 transition-all duration-300 flex items-center gap-1.5 text-xs tracking-wider font-medium">
-                Learn More
-                <span className="translate-x-0 group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </div>
+              <p className="mt-3 text-lg font-light leading-snug text-white/80 md:text-xl">
+                Contrast therapy, recovery suites, outdoor wellness, and
+                commercial programmes — all specified to the same standard.
+              </p>
+            </div>
+            <Link
+              href="/services"
+              className="btn-gold shrink-0 px-10 py-4 text-[11px]"
+              id="services-overview-all"
+            >
+              View all services
             </Link>
-          ))}
+          </div>
         </div>
       </div>
     </section>

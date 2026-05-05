@@ -164,7 +164,7 @@ export default function ProjectsPage() {
                       </span>
                     ))}
                   </div>
-                  <h3 className="font-['Cormorant_Garamond',serif] text-lg font-light text-white mb-2 group-hover:text-gold transition-colors duration-300">
+                  <h3 className="font-display text-lg font-light text-white mb-2 group-hover:text-gold transition-colors duration-300">
                     {project.title}
                   </h3>
                   <p className="text-white/35 text-xs mb-1">{project.suburb}</p>

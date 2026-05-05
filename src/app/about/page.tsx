@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
+import WellnessPhilosophy from "@/components/home/WellnessPhilosophy";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <div className="scroll-reveal">
             <p className="section-label">Our Vision</p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-4xl font-light text-white leading-tight mb-6">
+            <h2 className="font-display text-4xl font-light text-white leading-tight mb-6">
               Redefining What&apos;s Possible in <span className="italic text-gold">Wellness Design</span>
             </h2>
             <div className="divider-gold" />
@@ -67,7 +68,7 @@ export default function AboutPage() {
                   key={stat.label}
                   className="bg-white/[0.03] border border-white/[0.07] p-8 text-center hover:border-gold/30 transition-all duration-300"
                 >
-                  <div className="font-['Cormorant_Garamond',serif] text-4xl font-light text-gold mb-2">
+                  <div className="font-display text-4xl font-light text-gold mb-2">
                     {stat.value}
                   </div>
                   <div className="text-xs text-white/40 tracking-wider uppercase">{stat.label}</div>
@@ -76,6 +77,8 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+        
+        <WellnessPhilosophy />
 
         {/* What We Do */}
         <div className="mb-24 scroll-reveal">
@@ -90,7 +93,7 @@ export default function AboutPage() {
             </div>
             <div className="order-1 lg:order-2">
               <p className="section-label">What We Do</p>
-              <h2 className="font-['Cormorant_Garamond',serif] text-4xl font-light text-white leading-tight mb-6">
+              <h2 className="font-display text-4xl font-light text-white leading-tight mb-6">
                 End-to-End <span className="italic text-gold">Wellness Design</span>
               </h2>
               <div className="divider-gold" />
@@ -117,7 +120,7 @@ export default function AboutPage() {
         <div className="scroll-reveal">
           <div className="text-center mb-12">
             <p className="section-label">Our Values</p>
-            <h2 className="font-['Cormorant_Garamond',serif] text-4xl font-light text-white">
+            <h2 className="font-display text-4xl font-light text-white">
               The Principles That <span className="italic text-gold">Guide Us</span>
             </h2>
           </div>
@@ -129,7 +132,7 @@ export default function AboutPage() {
                 style={{ transitionDelay: `${idx * 80}ms` }}
               >
                 <div className="w-8 h-px bg-gold mb-5 group-hover:w-16 transition-all duration-500" />
-                <h3 className="font-['Cormorant_Garamond',serif] text-xl font-light text-white mb-3 group-hover:text-gold transition-colors">
+                <h3 className="font-display text-xl font-light text-white mb-3 group-hover:text-gold transition-colors">
                   {v.title}
                 </h3>
                 <p className="text-white/40 text-xs leading-relaxed">{v.text}</p>

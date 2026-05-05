@@ -9,6 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        drip: {
+          beige: "#F4F1EA",
+          sand: "#E8E4D9",
+          charcoal: "#1A1A1A",
+          brown: "#3A2A1A",
+        },
         gold: {
           DEFAULT: "#C9A84C",
           light: "#E2C070",
@@ -27,8 +33,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        display: ["var(--font-cormorant)", "serif"],
+        sans: ["var(--font-sans)", "sans-serif"],
+        display: ["var(--font-display)", "serif"],
       },
       animation: {
         "fade-up": "fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards",
@@ -38,6 +44,7 @@ const config: Config = {
         shimmer: "shimmer 2s linear infinite",
         "pulse-gold": "pulseGold 2s ease-in-out infinite",
         "spin-slow": "spin 8s linear infinite",
+        "hero-scroll-line": "heroScrollLine 2.2s ease-in-out infinite",
       },
       keyframes: {
         fadeUp: {
@@ -63,6 +70,12 @@ const config: Config = {
         pulseGold: {
           "0%,100%": { boxShadow: "0 0 0 0 rgba(201,168,76,0)" },
           "50%": { boxShadow: "0 0 30px 8px rgba(201,168,76,0.35)" },
+        },
+        heroScrollLine: {
+          "0%": { transform: "translateY(-140%)", opacity: "0" },
+          "18%": { opacity: "1" },
+          "82%": { opacity: "1" },
+          "100%": { transform: "translateY(220%)", opacity: "0" },
         },
       },
       backgroundImage: {

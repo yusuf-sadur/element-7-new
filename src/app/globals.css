@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&display=swap');
+
 
 @tailwind base;
 @tailwind components;
@@ -27,7 +27,7 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans), sans-serif;
     background-color: #0A0A0A;
     color: #fff;
     overflow-x: hidden;
@@ -175,14 +175,13 @@
 }
 
 /* ─── Component Utilities ─── */
-/* ─── Component Utilities ─── */
 @layer components {
   .section-padding {
-    @apply py-24 md:py-32;
+    @apply py-32 md:py-48;
   }
 
   .section-glass {
-    @apply bg-obsidian/80 backdrop-blur-md relative;
+    @apply bg-obsidian/30 backdrop-blur-lg relative;
   }
 
  .container-custom {
@@ -216,11 +215,11 @@
     @apply translate-x-[200%];
   }
 
-  /* Secondary CTA */
+  /* Ghost Button CTA */
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-3 border border-white/30 bg-white/[0.02] backdrop-blur-sm text-white px-8 py-4 
-      font-semibold text-xs tracking-[0.25em] uppercase hover:border-gold hover:text-gold hover:bg-gold/5 
-      transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(201,168,76,0.15)];
+    @apply inline-flex items-center justify-center gap-3 border border-transparent bg-transparent text-white px-8 py-4 
+      font-semibold text-xs tracking-[0.25em] uppercase hover:border-white/30 hover:bg-white/[0.03] 
+      transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)];
   }
 
   /* Card */
@@ -254,4 +253,3 @@
       after:transition-all after:duration-500 hover:after:w-full uppercase;
   }
 }
-

@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -37,18 +43,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-AU" className={`${inter.variable}`}>
+    <html lang="en-AU" className={`${montserrat.variable} ${playfair.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body className="bg-obsidian text-white antialiased">
         <ScrollRevealInit />
