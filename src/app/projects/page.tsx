@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Residential from "@/assets/Residential.png";
-import wellnessStudio from "@/assets/wellness Trends.png";
+import wellnessStudio from "@/assets/Wellness Trends.png";
 import ourProjects from "@/assets/our Projects.png";
 
 
