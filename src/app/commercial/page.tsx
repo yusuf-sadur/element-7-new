@@ -6,16 +6,16 @@ import type { Metadata } from "next";
 import WellnessTrends from "@/assets/Wellness Trends.png";
 
 export const metadata: Metadata = {
-  title: "Commercial Wellness | Gym & Hotel Sauna & Recovery Fit-Outs Melbourne — Element 7",
+  title: "Commercial Wellness | Recovery Architecture — Element 7",
   description:
-    "Element 7 delivers commercial wellness environments for gyms, hotels, wellness studios and recovery centres across Melbourne. End-to-end design and installation.",
+    "Commercial wellness fit-outs for gyms, hotels, studios, and developers — end-to-end design and construction across Australia.",
 };
 
 const targetClients = [
-  { Icon: Dumbbell, title: "Gyms & Fitness Centres", description: "Recovery zones that retain members, justify premium pricing, and differentiate your facility in a competitive market." },
-  { Icon: Hotel, title: "Hotels & Hospitality", description: "Wellness amenities that attract the premium travel segment, increase average room rates, and build brand loyalty." },
-  { Icon: Activity, title: "Wellness Studios", description: "Dedicated sauna, steam and contrast therapy facilities that expand your service offering and revenue streams." },
-  { Icon: Building2, title: "Developers & Architects", description: "Wellness precincts within residential and mixed-use developments that command premium pricing and attract high-net-worth buyers." },
+  { Icon: Dumbbell, title: "Gyms & fitness", description: "Recovery wings and contrast therapy — gym + sauna combinations, specified for throughput and durability." },
+  { Icon: Hotel, title: "Hospitality & resorts", description: "Elegant recovery environments that elevate guest experience and brand positioning." },
+  { Icon: Activity, title: "Wellness studios", description: "Sauna, steam, hammam, and cold plunge — designed as architectural centrepieces." },
+  { Icon: Building2, title: "Developers & architects", description: "Wellness precincts within residential and mixed-use — collaborative specification from concept." },
 ];
 
 export default function CommercialPage() {
@@ -24,9 +24,9 @@ export default function CommercialPage() {
       <PageHero
         image={WellnessTrends.src}
         label="Commercial"
-        title="Wellness at"
-        titleAccent="Commercial Scale"
-        subtitle="End-to-end wellness fit-outs for gyms, hotels, studios and performance facilities across Melbourne."
+        title="Recovery"
+        titleAccent="at scale."
+        subtitle="Commercial wellness fit-outs — designed, built, and delivered end to end."
         height="100vh"
       />
 
@@ -35,31 +35,28 @@ export default function CommercialPage() {
         {/* Intro */}
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
           <div className="scroll-reveal">
-            <p className="section-label">Commercial Wellness Design</p>
+            <p className="section-label">Commercial wellness</p>
             <h2 className="font-display text-4xl font-light text-sand leading-tight mb-6">
-              Built for <span className="italic text-gold">Business</span>
+              Performance <span className="italic text-gold">wellness design.</span>
             </h2>
             <div className="divider-gold" />
-            <p className="text-sand/55 text-sm leading-relaxed mt-6 mb-5">
-              The commercial wellness sector is booming. Consumers are willing to pay
-              premium prices for access to high-quality recovery environments — and the
-              businesses that invest in these facilities are seeing the returns.
+            <p className="text-sand/55 text-sm leading-relaxed mt-6 mb-4">
+              The same architectural rigour we bring to private homes — applied to
+              gyms, hotels, studios, and hospitality brands.
             </p>
             <p className="text-sand/55 text-sm leading-relaxed mb-8">
-              Element 7 brings the same design integrity and craftsmanship to commercial
-              projects as we do to private residences. We understand the unique requirements
-              of high-throughput environments — durability, compliance, ease of maintenance,
-              and commercial grade equipment.
+              Durability, ventilation, compliance, and low-tox materials — environments
+              built for daily use and long-term performance.
             </p>
             <Link href="/contact" className="btn-gold" id="commercial-cta">
-              Discuss Your Commercial Project
+              Discuss your project
               <ArrowRight size={16} />
             </Link>
           </div>
 
           <div className="scroll-reveal" style={{ transitionDelay: "200ms" }}>
             <div className="space-y-3">
-              {["End-to-end project management", "Commercial-grade equipment specification", "Compliance & certification management", "Ventilation & HVAC design", "Integration with existing facilities", "Maintenance contracts available", "Single point of contact throughout"].map(
+              {["End-to-end design & construction", "Commercial-grade specification", "Ventilation & moisture control", "Compliance & certification", "Integration with existing facilities", "Low-tox material selection", "Single integrated team"].map(
                 (item) => (
                   <div key={item} className="flex items-center gap-3 text-sm text-sand/55">
                     <div className="w-1 h-1 bg-gold rounded-full flex-shrink-0" />
@@ -74,9 +71,9 @@ export default function CommercialPage() {
         {/* Target clients */}
         <div className="mb-20 scroll-reveal">
           <div className="text-center mb-12">
-            <p className="section-label">Who We Work With</p>
+            <p className="section-label">Who we work with</p>
             <h2 className="font-display text-3xl font-light text-sand">
-              Our <span className="italic text-gold">Commercial Clients</span>
+              Commercial <span className="italic text-gold">partners.</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-sand/[0.05]">
@@ -101,16 +98,19 @@ export default function CommercialPage() {
         {/* Wellness trends + form */}
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div className="scroll-reveal">
-            <p className="section-label">Market Context</p>
+            <p className="section-label">Begin</p>
             <h2 className="font-display text-3xl font-light text-sand mb-6">
-              Wellness Trends in <span className="italic text-gold">Hospitality & Fitness</span>
+              Design your <span className="italic text-gold">commercial space.</span>
             </h2>
             <div className="divider-gold" />
-            <div className="mt-6 space-y-4 text-sm text-sand/55 leading-relaxed">
-              <p>The global wellness economy is valued at over $6 trillion. In Australia, we are seeing accelerating demand for sauna, cold plunge, and contrast therapy across every sector — from boutique gyms to five-star hotels.</p>
-              <p>Facilities with recovery amenities are commanding 20–40% premium membership pricing. Hotels with wellness suites report significantly higher RevPAR and guest satisfaction scores.</p>
-              <p>Element 7 is uniquely positioned to help you capitalise on this trend — with the design expertise to create environments that are beautiful, functional, and revenue-generating from day one.</p>
-            </div>
+            <p className="mt-6 text-sm font-light leading-relaxed text-sand/50">
+              Recovery architecture for hospitality, fitness, and mixed-use —
+              consultation through delivery.
+            </p>
+            <p className="mt-4 text-sm font-light leading-relaxed text-sand/40">
+              Tell us about your facility, throughput, and vision. We&apos;ll map
+              the path from concept to handover.
+            </p>
           </div>
           <div className="scroll-reveal" style={{ transitionDelay: "200ms" }}>
             <ConsultationForm compact />

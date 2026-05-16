@@ -23,14 +23,14 @@ interface FormStatus {
 const serviceTypes = [
   "Custom Sauna",
   "Infrared Sauna",
-  "Steam Room",
-  "Cold Plunge System",
+  "Steam & Hammam",
+  "Cold Plunge",
   "Contrast Therapy",
-  "Recovery Room",
+  "Recovery Lounge",
   "Outdoor Wellness",
-  "Commercial Wellness",
-  "Multiple / Full Suite",
-  "Not Sure — Need Advice",
+  "Commercial Fit-Out",
+  "Complete Wellness Suite",
+  "Not sure yet",
 ];
 
 const projectTypes = ["Residential", "Commercial", "Both"];
@@ -139,11 +139,11 @@ export default function ConsultationForm({
   return (
     <div className="rounded-2xl bg-obsidian-mid/82 backdrop-blur-md border border-sand/[0.12] p-8 md:p-10">
       <h3 className="font-display text-2xl font-light text-sand mb-2">
-        Book Your Consultation
+        Begin a conversation
       </h3>
       <p className="text-sand/40 text-xs mb-8 leading-relaxed">
-        Complete the form and we&apos;ll be in touch within 24 hours to arrange
-        your no-obligation consultation.
+        Share your vision — we&apos;ll respond within one business day to arrange
+        a calm, no-obligation consultation.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-5" id="consultation-form">
@@ -291,7 +291,7 @@ export default function ConsultationForm({
           ) : (
             <>
               <Send size={18} />
-              Request Consultation
+              Send enquiry
             </>
           )}
         </button>

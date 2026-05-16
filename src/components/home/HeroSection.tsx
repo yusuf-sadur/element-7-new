@@ -105,7 +105,7 @@ export default function HeroSection() {
                 className={`mb-4 text-[9px] font-semibold uppercase tracking-[0.38em] text-gold/95 transition-all duration-1000 sm:text-[10px] ${loaded ? "opacity-100" : "opacity-0"}`}
                 style={{ transitionDelay: "100ms" }}
               >
-                Melbourne — bespoke wellness
+                Australia · wellness architecture
               </p>
 
               <h1
@@ -117,11 +117,11 @@ export default function HeroSection() {
                 }}
               >
                 <span className="block text-balance text-[clamp(1.85rem,5vw,3.35rem)] leading-[1.08]">
-                  Create a tranquil haven
+                  Recovery architecture,
                 </span>
                 <span className="mt-2 block text-[clamp(1.95rem,5.4vw,3.5rem)] leading-[1.05] sm:mt-2.5">
                   <span className="inline-block bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text font-display italic text-transparent">
-                    in your home.
+                    built for life.
                   </span>
                 </span>
               </h1>
@@ -130,15 +130,15 @@ export default function HeroSection() {
                 className={`mt-4 max-w-lg border-l border-gold/25 pl-4 text-[13px] font-light leading-snug text-sand/55 transition-all duration-1000 sm:mt-5 sm:pl-5 sm:text-sm ${loaded ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}
                 style={{ transitionDelay: "240ms" }}
               >
-                Sauna, steam & cold plunge — engineered and commissioned for
-                homes and commercial spaces.
+                Complete wellness environments — designed and built end to end.
+                Not a supplier. Not general contracting.
               </p>
 
               <div
                 className={`mt-5 flex flex-wrap gap-1.5 transition-all duration-1000 sm:mt-6 ${loaded ? "opacity-100" : "opacity-0"}`}
                 style={{ transitionDelay: "300ms" }}
               >
-                {["Residential", "Commercial", "Turnkey"].map((tag) => (
+                {["Consultation", "Design", "Build", "Delivery"].map((tag) => (
                   <span
                     key={tag}
                     className="border border-sand/[0.09] bg-sand/[0.03] px-2 py-1 text-[9px] font-medium uppercase tracking-[0.18em] text-sand/45"
@@ -157,7 +157,7 @@ export default function HeroSection() {
                   className="btn-gold justify-center px-8 py-3.5 text-[10px] sm:min-w-[180px]"
                   id="hero-cta-primary"
                 >
-                  Explore saunas
+                  Explore environments
                 </Link>
                 <Link
                   href="/contact"
@@ -195,7 +195,7 @@ export default function HeroSection() {
               </span>
             </div>
             <p className="hidden truncate text-[10px] font-light tracking-wide text-sand/30 sm:block md:max-w-[min(40vw,280px)]">
-              Recovery & calm — engineered.
+              Wellness · Recovery · Architecture
             </p>
           </div>
           <p className="shrink-0 text-[9px] font-medium uppercase tracking-[0.28em] text-sand/25">

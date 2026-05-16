@@ -45,10 +45,10 @@ export default function Testimonials() {
       <div className="container-e7 relative z-10">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
-          <p className="section-label">Testimonials</p>
+          <p className="section-label">Client voices</p>
           <h2 className="font-display text-4xl md:text-6xl font-light text-sand leading-tight">
-            What Our{" "}
-            <span className="italic text-gold">Clients Say</span>
+            Spaces that{" "}
+            <span className="italic text-gold">endure.</span>
           </h2>
           <div className="divider-gold mx-auto mt-6" />
         </div>

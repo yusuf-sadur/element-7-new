@@ -5,9 +5,9 @@ import type { CSSProperties } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Book a Free Consultation — Element 7",
+  title: "Contact | Begin Your Wellness Project — Element 7",
   description:
-    "Book a no-obligation consultation with Element 7. We design and build custom saunas, steam rooms, cold plunge systems and wellness environments across Melbourne.",
+    "Begin a consultation with Element 7. Complete wellness and recovery environments — designed and built across Australia.",
 };
 
 export default function ContactPage() {
@@ -16,9 +16,9 @@ export default function ContactPage() {
       <PageHero
         image="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&q=85"
         label="Contact"
-        title="Let's Build Your"
-        titleAccent="Wellness Space"
-        subtitle="Every Element 7 project starts with a free, no-obligation consultation. Tell us about your vision and we'll guide you through the entire journey."
+        title="Begin your"
+        titleAccent="recovery space."
+        subtitle="A quiet conversation about your property, vision, and the environment you want to create."
         height="100vh"
       />
 
@@ -38,7 +38,7 @@ export default function ContactPage() {
                 {[
                   { Icon: Phone, label: "Phone", value: "1300 000 000", href: "tel:+611300000000" },
                   { Icon: Mail, label: "Email", value: "hello@element7.com.au", href: "mailto:hello@element7.com.au" },
-                  { Icon: MapPin, label: "Service Area", value: "Melbourne, VIC & Surrounds", href: null },
+                  { Icon: MapPin, label: "Service Area", value: "Australia-wide", href: null },
                 ].map(({ Icon, label, value, href }) => (
                   <div key={label} className="flex items-start gap-4">
                     <div className="w-10 h-10 border border-gold/20 flex items-center justify-center flex-shrink-0">

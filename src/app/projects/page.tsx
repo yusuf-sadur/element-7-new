@@ -18,7 +18,7 @@ const projects = [
     type: "Sauna",
     tags: ["Custom Sauna", "Steam Room", "Cold Plunge"],
     image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&q=80",
-    description: "A complete indoor wellness suite featuring a Finnish sauna, chromotherapy steam room, and precision cold plunge — seamlessly integrated into a luxury Melbourne home.",
+    description: "Indoor wellness suite — Finnish sauna, steam, and cold plunge integrated into a private residence.",
     suburb: "Toorak, VIC",
   },
   {
@@ -38,7 +38,7 @@ const projects = [
     type: "Recovery",
     tags: ["Commercial", "Recovery Room", "Infrared"],
     image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80",
-    description: "A complete gym recovery wing featuring infrared sauna pods, a contrast therapy pool, and a guided recovery lounge.",
+    description: "Commercial recovery wing — infrared, contrast therapy, and recovery lounge.",
     suburb: "South Yarra, VIC",
   },
   {
@@ -48,7 +48,7 @@ const projects = [
     type: "Steam",
     tags: ["Steam Room", "Cold Plunge", "Outdoor"],
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80",
-    description: "A stunning freestanding wellness pavilion with internal steam room and external cold plunge, overlooking Port Phillip Bay.",
+    description: "Freestanding wellness pavilion — steam within, cold plunge without, bay views.",
     suburb: "Portsea, VIC",
   },
   {
@@ -58,7 +58,7 @@ const projects = [
     type: "Sauna",
     tags: ["Custom Sauna", "Contrast Therapy", "Recovery"],
     image: Residential.src,
-    description: "A complete contrast therapy suite with custom sauna, cold plunge tub, and private relaxation lounge.",
+    description: "Contrast therapy suite — custom sauna, cold plunge, and private lounge.",
     suburb: "Brighton, VIC",
   },
   {
@@ -68,7 +68,7 @@ const projects = [
     type: "Recovery",
     tags: ["Commercial", "Steam Room", "Sauna"],
     image: wellnessStudio.src,
-    description: "A boutique wellness studio fit-out including a 3-person infrared sauna, private steam room, and cold shower station.",
+    description: "Studio fit-out — infrared sauna, steam, and cold therapy in one calm space.",
     suburb: "Fitzroy, VIC",
   },
 ];
@@ -91,9 +91,9 @@ export default function ProjectsPage() {
       <PageHero
         image={ourProjects.src}
         label="Portfolio"
-        title="Our"
-        titleAccent="Projects"
-        subtitle="A curated selection of bespoke wellness environments we've designed and built across Melbourne."
+        title="Selected"
+        titleAccent="work."
+        subtitle="Recovery architecture — residential and commercial environments across Australia."
         height="100vh"
       />
 

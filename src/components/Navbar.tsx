@@ -9,8 +9,8 @@ import { usePathname } from "next/navigation";
 const services = [
   { title: "Custom Saunas", slug: "custom-saunas" },
   { title: "Infrared Saunas", slug: "infrared-saunas" },
-  { title: "Steam Rooms", slug: "steam-rooms" },
-  { title: "Cold Plunge Systems", slug: "cold-plunge" },
+  { title: "Steam & Hammam", slug: "steam-rooms" },
+  { title: "Cold Plunge", slug: "cold-plunge" },
 ];
 
 const navLinks = [

@@ -26,8 +26,8 @@ const quickLinks = [
 const services = [
   { name: "Custom Saunas", href: "/services/custom-saunas" },
   { name: "Infrared Saunas", href: "/services/infrared-saunas" },
-  { name: "Steam Rooms", href: "/services/steam-rooms" },
-  { name: "Cold Plunge Systems", href: "/services/cold-plunge" },
+  { name: "Steam & Hammam", href: "/services/steam-rooms" },
+  { name: "Cold Plunge", href: "/services/cold-plunge" },
 ];
 
 const linkClass =
@@ -58,12 +58,12 @@ export default function Footer() {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-xl scroll-reveal" data-reveal="left">
               <p className="font-display text-2xl font-light leading-snug tracking-tight text-sand/95 md:text-3xl">
-                Engineered environments for{" "}
-                <span className="text-gold/95">recovery</span> and performance.
+                Recovery architecture,{" "}
+                <span className="text-gold/95">built for life.</span>
               </p>
               <p className="mt-3 text-sm font-light leading-relaxed text-sand/45">
-                Bespoke sauna, steam, cold plunge, and contrast therapy — designed
-                and built in Melbourne for residential and commercial spaces.
+                Complete wellness environments — consultation, design, construction,
+                and delivery across Australia.
               </p>
             </div>
             <div
@@ -101,8 +101,7 @@ export default function Footer() {
                 </span>
               </Link>
               <p className="max-w-sm text-sm font-light leading-relaxed text-sand/45">
-                Premium wellness infrastructure — from concept and engineering to
-                installation and aftercare.
+                Wellness & recovery design studio — low-tox, custom, end to end.
               </p>
               <div className="mt-8 flex flex-wrap gap-2.5">
                 {[

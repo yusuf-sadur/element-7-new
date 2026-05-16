@@ -6,18 +6,18 @@ import type { Metadata } from "next";
 import Residential from "@/assets/Residential.png";
 
 export const metadata: Metadata = {
-  title: "Residential Wellness | Custom Home Saunas & Recovery Spaces Melbourne — Element 7",
+  title: "Residential Wellness | Home Recovery Architecture — Element 7",
   description:
-    "Element 7 designs and builds bespoke residential wellness environments — custom saunas, steam rooms, cold plunge, and complete home recovery suites for luxury Melbourne homes.",
+    "Custom home wellness environments — saunas, cold plunge, steam, hammam, and complete recovery suites. Designed and built end to end across Australia.",
 };
 
 const features = [
-  { title: "Indoor Wellness Rooms", description: "Transform a basement, bathroom annex, or dedicated room into a fully-realised wellness sanctuary — custom designed for your floor plan." },
-  { title: "Outdoor Sanctuaries", description: "Freestanding outdoor saunas, barrel saunas, and wellness pavilions that become the architectural centrepiece of your garden or landscape." },
-  { title: "Luxury Recovery Spaces", description: "Multi-modality recovery environments combining sauna, cold plunge, steam, and relaxation zones in a single integrated space." },
-  { title: "Architectural Integration", description: "Every Element 7 residential build is designed to complement and enhance your home's architecture — not impose upon it." },
-  { title: "Custom Design", description: "We design your wellness space from scratch — no stock solutions, no compromises. Your vision, engineered to perfection." },
-  { title: "Sauna & Cold Plunge Combinations", description: "The ultimate contrast therapy setup — a premium sauna paired with a precision cold plunge pool, designed as one cohesive environment." },
+  { title: "Indoor wellness rooms", description: "Basement, annex, or dedicated suite — composed for your floor plan and daily rituals." },
+  { title: "Outdoor sanctuaries", description: "Architectural saunas and wellness pavilions — integrated into garden and landscape." },
+  { title: "Recovery suites", description: "Sauna, cold plunge, steam, and lounge — one calm, connected environment." },
+  { title: "Architectural integration", description: "Earth-tone materials and minimal lines that honour your home's design language." },
+  { title: "Fully custom", description: "No templates. Every space tailored to lifestyle, property, and vision." },
+  { title: "Contrast therapy", description: "Heat and cold, designed as one system — precision thermal performance throughout." },
 ];
 
 export default function ResidentialPage() {
@@ -26,9 +26,9 @@ export default function ResidentialPage() {
       <PageHero
         image={Residential.src}
         label="Residential"
-        title="Your Personal" 
-        titleAccent="Wellness Sanctuary"
-        subtitle="Bespoke wellness environments designed around your life, your architecture, and your ambitions."
+        title="Home"
+        titleAccent="recovery architecture."
+        subtitle="Luxury wellness integration — custom, low-tox, designed around how you live."
         height="100vh"
       />
 
@@ -36,23 +36,21 @@ export default function ResidentialPage() {
         <div className="container-e7">
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
           <div className="scroll-reveal">
-            <p className="section-label">Luxury Home Wellness</p>
+            <p className="section-label">Luxury home wellness</p>
             <h2 className="font-display text-4xl font-light text-sand leading-tight mb-6">
-              Designed Around <span className="italic text-gold">Your Life</span>
+              Wellness as <span className="italic text-gold">infrastructure.</span>
             </h2>
             <div className="divider-gold" />
-            <p className="text-sand/55 text-sm leading-relaxed mt-6 mb-6">
-              Your home is your sanctuary. Element 7 creates wellness environments that
-              integrate seamlessly into your lifestyle and your architecture — delivering
-              a daily ritual that supports your health, performance, and wellbeing.
+            <p className="text-sand/55 text-sm leading-relaxed mt-6 mb-4">
+              Private saunas, cold plunge, steam, and complete recovery suites —
+              integrated into your architecture with calm, minimal refinement.
             </p>
             <p className="text-sand/55 text-sm leading-relaxed mb-8">
-              From a private sauna for two in a compact bathroom, to a full wellness
-              wing with sauna, steam, cold plunge, and relaxation lounge — we design
-              and build everything you need, with precision and luxury.
+              From a compact bathroom sauna to a full wellness wing — consultation,
+              design, construction, and delivery under one team.
             </p>
             <Link href="/contact" className="btn-gold" id="residential-cta">
-              Book Residential Consultation
+              Begin consultation
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -70,9 +68,9 @@ export default function ResidentialPage() {
         {/* Features */}
         <div className="scroll-reveal">
           <div className="text-center mb-12">
-            <p className="section-label">What We Offer</p>
+            <p className="section-label">What we create</p>
             <h2 className="font-display text-3xl font-light text-sand">
-              Residential <span className="italic text-gold">Wellness Solutions</span>
+              Residential <span className="italic text-gold">environments.</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-sand/[0.05]">
@@ -95,14 +93,13 @@ export default function ResidentialPage() {
         {/* CTA + form */}
         <div className="mt-20 grid lg:grid-cols-2 gap-16 items-start">
           <div className="scroll-reveal">
-            <p className="section-label">Ready to Start?</p>
+            <p className="section-label">Begin</p>
             <h2 className="font-display text-3xl font-light text-sand mb-4">
-              Book Your Free <span className="italic text-gold">Consultation</span>
+              Design your <span className="italic text-gold">home sanctuary.</span>
             </h2>
             <p className="text-sand/50 text-sm leading-relaxed">
-              Our residential consultations are obligation-free. We&apos;ll visit your property,
-              understand your goals, and provide a detailed design concept and indicative
-              investment range.
+              A quiet conversation about your property, rituals, and the recovery
+              environment you want — no obligation.
             </p>
           </div>
           <div className="scroll-reveal" style={{ transitionDelay: "200ms" }}>

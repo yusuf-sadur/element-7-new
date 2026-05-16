@@ -19,15 +19,15 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Element 7 | Bespoke Wellness & Recovery Environments | Melbourne",
+  title: "Element 7 | Wellness & Recovery Architecture | Australia",
   description:
-    "Element 7 is Melbourne's premier luxury wellness company specialising in custom saunas, steam rooms, cold plunge systems, and contrast therapy environments for residential and commercial clients.",
+    "Luxury wellness design and construction — custom saunas, cold plunge, steam, hammam, and complete recovery environments. End-to-end, Australia-wide.",
   keywords:
-    "custom sauna Melbourne, luxury sauna, infrared sauna, steam room, cold plunge pool, contrast therapy, wellness room, recovery space, barrel sauna, outdoor sauna",
+    "wellness architecture, recovery architecture, custom sauna Australia, luxury sauna, infrared sauna, steam room, hammam, cold plunge, low tox construction, contrast therapy, recovery space",
   openGraph: {
-    title: "Element 7 | Engineered Environments for Human Performance",
+    title: "Element 7 | Recovery Architecture, Built for Life",
     description:
-      "Bespoke wellness & recovery spaces. Custom saunas, steam rooms, cold plunge and contrast therapy systems — Melbourne's premium wellness builder.",
+      "Complete wellness environments — consultation, design, construction, and delivery. Not a supplier. A wellness architecture studio.",
     type: "website",
     locale: "en_AU",
     siteName: "Element 7",

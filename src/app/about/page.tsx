@@ -5,16 +5,25 @@ import WellnessPhilosophy from "@/components/home/WellnessPhilosophy";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Melbourne's Premium Wellness Builder — Element 7",
+  title: "About | Wellness & Recovery Architecture — Element 7",
   description:
-    "Element 7 is Melbourne's next-generation wellness company. We design and build luxury recovery environments for residential and commercial clients.",
+    "Element 7 designs and builds complete wellness and recovery environments across Australia — custom, low-tox, end-to-end.",
 };
 
 const values = [
-  { title: "Craftsmanship", text: "Every element of every build is executed to the highest standard — premium materials, precision installation, zero shortcuts." },
-  { title: "Innovation", text: "We continuously research emerging wellness science and design trends to deliver environments that are ahead of their time." },
-  { title: "Integrity", text: "Honest timelines, transparent pricing, and a single point of contact from first consultation to handover." },
-  { title: "Excellence", text: "We do not build standard installations. Every Element 7 environment is a luxury, bespoke creation tailored to you." },
+  { title: "Craft", text: "Premium materials, precise installation, architectural detailing — no shortcuts." },
+  { title: "Integrity", text: "Honest timelines, transparent scope, one team from consultation to handover." },
+  { title: "Health", text: "Low-tox construction and ethical materials — spaces built for how you live." },
+  { title: "Custom", text: "Every environment is bespoke. No templates. No prefabricated solutions." },
+];
+
+const capabilities = [
+  "Wellness consultation & custom design",
+  "Custom sauna & dry heat construction",
+  "Cold plunge & contrast therapy",
+  "Steam rooms & hammam",
+  "Recovery lounges & complete fit-outs",
+  "Residential & commercial delivery",
 ];
 
 export default function AboutPage() {
@@ -23,9 +32,9 @@ export default function AboutPage() {
       <PageHero
         image="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&q=85"
         label="About"
-        title="Built for"
-        titleAccent="Excellence"
-        subtitle="Melbourne's next-generation wellness design and build practice — engineered for performance, longevity and luxury."
+        title="Wellness"
+        titleAccent="architecture."
+        subtitle="A design and build practice devoted entirely to recovery environments — across Australia."
         height="100vh"
       />
 
@@ -34,24 +43,22 @@ export default function AboutPage() {
         {/* Our Vision */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <div className="scroll-reveal">
-            <p className="section-label">Our Vision</p>
+            <p className="section-label">Who we are</p>
             <h2 className="font-display text-4xl font-light text-sand leading-tight mb-6">
-              Redefining What&apos;s Possible in <span className="italic text-gold">Wellness Design</span>
+              Not a supplier. <span className="italic text-gold">A studio.</span>
             </h2>
             <div className="divider-gold" />
-            <p className="text-sand/55 text-sm leading-relaxed mt-6 mb-6">
-              Element 7 was founded on a singular belief: that premium wellness environments
-              should be engineered with the same precision and intentionality as the world&apos;s
-              finest architecture. We are not a product supplier — we are a design and build practice
-              specialising exclusively in human performance environments.
+            <p className="text-sand/55 text-sm leading-relaxed mt-6 mb-4">
+              Element 7 designs and builds complete wellness and recovery environments.
+              We are among the few companies in Australia focused entirely on wellness,
+              recovery, longevity, and low-tox construction.
             </p>
             <p className="text-sand/55 text-sm leading-relaxed mb-8">
-              Our clients are discerning homeowners, elite athletes, boutique hotel operators,
-              and commercial developers who understand that a great wellness space is transformative —
-              for health, lifestyle, and property value.
+              Our clients are homeowners, athletes, boutique studios, architects, and
+              hospitality brands who treat wellness as long-term health infrastructure.
             </p>
             <Link href="/contact" className="btn-gold" id="about-cta">
-              Start Your Project
+              Begin a conversation
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -59,10 +66,10 @@ export default function AboutPage() {
           <div className="scroll-reveal" style={{ transitionDelay: "200ms" }}>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: "100+", label: "Projects Delivered" },
-                { value: "5★", label: "Client Satisfaction" },
-                { value: "10+", label: "Years Experience" },
-                { value: "100%", label: "Custom Designed" },
+                { value: "25+", label: "Years in construction" },
+                { value: "100%", label: "Custom designed" },
+                { value: "AU", label: "& international" },
+                { value: "1", label: "Integrated team" },
               ].map((stat) => (
                 <div
                   key={stat.label}
@@ -92,18 +99,17 @@ export default function AboutPage() {
               />
             </div>
             <div className="order-1 lg:order-2">
-              <p className="section-label">What We Do</p>
+              <p className="section-label">What we do</p>
               <h2 className="font-display text-4xl font-light text-sand leading-tight mb-6">
-                End-to-End <span className="italic text-gold">Wellness Design</span>
+                Consultation to <span className="italic text-gold">delivery.</span>
               </h2>
               <div className="divider-gold" />
               <p className="text-sand/55 text-sm leading-relaxed mt-6">
-                We manage every phase of your project — from the initial consultation and
-                architectural design, through engineering, construction, and final installation.
-                You engage one team and we take full responsibility for the outcome.
+                One integrated path — design, specification, construction, and handover.
+                Sauna from design to build.
               </p>
               <div className="mt-8 space-y-3">
-                {["Custom sauna & steam room design", "Cold plunge and hydrotherapy systems", "Contrast therapy environments", "Outdoor wellness structures", "Commercial wellness fit-outs", "Retrofit and upgrade projects"].map(
+                {capabilities.map(
                   (item) => (
                     <div key={item} className="flex items-center gap-3 text-sm text-sand/55">
                       <div className="w-1 h-1 bg-gold rounded-full flex-shrink-0" />
@@ -119,9 +125,9 @@ export default function AboutPage() {
         {/* Values */}
         <div className="scroll-reveal">
           <div className="text-center mb-12">
-            <p className="section-label">Our Values</p>
+            <p className="section-label">Principles</p>
             <h2 className="font-display text-4xl font-light text-sand">
-              The Principles That <span className="italic text-gold">Guide Us</span>
+              How we <span className="italic text-gold">work.</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-sand/[0.05]">

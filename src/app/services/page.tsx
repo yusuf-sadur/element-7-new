@@ -6,9 +6,9 @@ import ServicesOverview from "@/components/home/ServicesOverview";
 import ourServices from "@/assets/our Services.png";
 
 export const metadata: Metadata = {
-  title: "Services | Custom Saunas, Steam Rooms & Cold Plunge — Element 7",
+  title: "Services | Wellness & Recovery Architecture — Element 7",
   description:
-    "Element 7 designs and builds custom saunas, infrared saunas, steam rooms and cold plunge systems for residential and commercial spaces in Melbourne.",
+    "Custom saunas, infrared, steam & hammam, cold plunge, recovery lounges, and complete wellness fit-outs — end-to-end design and construction.",
 };
 
 export default function ServicesPage() {
@@ -17,9 +17,9 @@ export default function ServicesPage() {
       <PageHero
         image={ourServices.src}
         label="Services"
-        title="Everything You Need for"
-        titleAccent="Wellness"
-        subtitle="Custom saunas, infrared, steam and cold plunge — designed and commissioned for your space."
+        title="Wellness"
+        titleAccent="ecosystems."
+        subtitle="Sauna, cold plunge, steam, hammam, and complete recovery environments — designed and built end to end."
         height="100vh"
       >
         <Link href="/contact" className="btn-gold" id="services-cta">
@@ -29,6 +29,38 @@ export default function ServicesPage() {
       </PageHero>
 
       <ServicesOverview showCatalogueFooter={false} />
+
+      <section className="section-padding border-t border-sand/[0.07] bg-obsidian">
+        <div className="container-e7">
+          <div className="scroll-reveal mx-auto max-w-3xl text-center">
+            <p className="section-label">Full scope</p>
+            <h2 className="font-display text-3xl font-light text-sand md:text-4xl">
+              Beyond the <span className="italic text-gold">four modalities.</span>
+            </h2>
+            <div className="divider-gold mx-auto mt-6" />
+            <p className="mt-6 text-sm font-light leading-relaxed text-sand/45">
+              We design complete wellness ecosystems — not isolated products.
+            </p>
+          </div>
+          <ul className="scroll-reveal mx-auto mt-12 grid max-w-2xl gap-3 sm:grid-cols-2">
+            {[
+              "Recovery lounges",
+              "Outdoor wellness spaces",
+              "Luxury home integration",
+              "Gym + sauna combinations",
+              "Commercial wellness fit-outs",
+              "End-to-end design & construction",
+            ].map((item) => (
+              <li
+                key={item}
+                className="border border-sand/[0.08] bg-sand/[0.02] px-4 py-3 text-center text-xs font-light tracking-wide text-sand/55"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }

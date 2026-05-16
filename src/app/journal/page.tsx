@@ -3,9 +3,9 @@ import { ArrowRight, Clock } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Journal | Wellness & Recovery Insights — Element 7",
+  title: "Journal | Wellness & Recovery — Element 7",
   description:
-    "Expert insights on contrast therapy, sauna benefits, cold plunge recovery, wellness design trends, and more from the Element 7 team.",
+    "Editorial notes on recovery architecture, heat therapy, cold plunge, and wellness design — from Element 7.",
 };
 
 const articles = [
@@ -16,7 +16,7 @@ const articles = [
     readTime: "6 min",
     date: "April 2025",
     image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
-    excerpt: "Contrast therapy — alternating between heat and cold — triggers a cascade of physiological responses that accelerate recovery, reduce inflammation, and boost resilience. Here's what the research says.",
+    excerpt: "Heat and cold, alternated with intention — how contrast therapy supports recovery, circulation, and resilience.",
   },
   {
     slug: "sauna-vs-infrared-sauna",
@@ -25,7 +25,7 @@ const articles = [
     readTime: "5 min",
     date: "March 2025",
     image: "https://images.unsplash.com/photo-1545579133-99bb5ad189be?w=800&q=80",
-    excerpt: "Traditional Finnish saunas and far-infrared saunas both deliver powerful wellness benefits — but through different mechanisms and at different temperatures. Understanding the distinction helps you choose wisely.",
+    excerpt: "Dry sauna and infrared — two heat therapy paths, different temperatures, different rituals. How to choose with clarity.",
   },
   {
     slug: "cold-plunge-recovery-benefits",
@@ -34,7 +34,7 @@ const articles = [
     readTime: "7 min",
     date: "February 2025",
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80",
-    excerpt: "Cold water immersion is one of the most researched recovery modalities in sport science. From norepinephrine release to inflammation reduction, the evidence is compelling.",
+    excerpt: "Cold plunge as recovery infrastructure — what the evidence suggests, and how to design for daily use.",
   },
   {
     slug: "wellness-design-trends-2025",
@@ -43,7 +43,7 @@ const articles = [
     readTime: "4 min",
     date: "January 2025",
     image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&q=80",
-    excerpt: "Biophilic design, integrated contrast therapy, red light therapy rooms, and outdoor wellness pavilions are defining the premium wellness space landscape in 2025.",
+    excerpt: "Earth-tone palettes, outdoor pavilions, and integrated contrast — the quiet direction of luxury wellness design.",
   },
   {
     slug: "recovery-spaces-for-athletes",
@@ -52,7 +52,7 @@ const articles = [
     readTime: "5 min",
     date: "December 2024",
     image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80",
-    excerpt: "Elite athletes are investing in private recovery environments as a competitive edge. Here's what a world-class home recovery suite looks like — and why it matters.",
+    excerpt: "Private recovery suites for high performers — what belongs in a world-class home environment.",
   },
   {
     slug: "sauna-maintenance-tips",
@@ -61,7 +61,7 @@ const articles = [
     readTime: "4 min",
     date: "November 2024",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    excerpt: "Proper maintenance extends the life of your sauna and ensures every session delivers optimal results. Element 7's experts share their essential care tips.",
+    excerpt: "Care and longevity for timber, heaters, and ventilation — keeping your sauna performing for decades.",
   },
 ];
 
@@ -74,8 +74,8 @@ export default function JournalPage() {
         image="https://images.unsplash.com/photo-1545579133-99bb5ad189be?w=1920&q=85"
         label="Journal"
         title="Insights &"
-        titleAccent="Perspectives"
-        subtitle="Wellness science, design thinking, and recovery culture — from the Element 7 team."
+        titleAccent="perspectives."
+        subtitle="Recovery science, design thinking, and wellness culture — quietly considered."
         height="100vh"
       />
 

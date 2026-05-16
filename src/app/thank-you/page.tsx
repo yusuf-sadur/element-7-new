@@ -16,15 +16,14 @@ export default function ThankYouPage() {
           <CheckCircle size={32} className="text-gold" />
         </div>
 
-        <p className="section-label animate-fade-up mb-4 opacity-0 delay-100">Enquiry Received</p>
+        <p className="section-label animate-fade-up mb-4 opacity-0 delay-100">Received</p>
         <h1 className="animate-fade-up mb-6 font-display text-4xl font-light leading-tight text-sand opacity-0 delay-200 md:text-5xl">
-          Thank You for <span className="italic text-gold">Reaching Out</span>
+          We&apos;ll be in <span className="italic text-gold">touch.</span>
         </h1>
         <div className="divider-gold animate-fade-up mx-auto mb-8 opacity-0 delay-200" />
         <p className="animate-fade-up mb-10 text-sm leading-relaxed text-sand/55 opacity-0 delay-300">
-          We&apos;ve received your consultation request and a member of our team will
-          be in touch within 24 hours. We look forward to discussing your wellness
-          project.
+          Your enquiry is with our team. We&apos;ll respond within one business day
+          to begin the conversation about your recovery space.
         </p>
 
         <div className="animate-fade-up flex flex-col justify-center gap-4 opacity-0 delay-[350ms] sm:flex-row">

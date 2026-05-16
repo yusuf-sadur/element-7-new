@@ -8,35 +8,35 @@ const steps = [
     icon: MessageSquare,
     title: "Consultation",
     description:
-      "We begin with a detailed consultation to understand your space, lifestyle, health goals, and design preferences. No pressure — just expert guidance.",
+      "Your space, lifestyle, and recovery goals — mapped with calm, expert guidance.",
   },
   {
     number: "02",
     icon: Ruler,
-    title: "Design & Planning",
+    title: "Design",
     description:
-      "Our design team creates detailed plans and 3D renders tailored to your space. We specify materials, finishes, and all technical requirements.",
+      "Custom plans, material specification, and architectural detailing — no templates.",
   },
   {
     number: "03",
     icon: HardHat,
-    title: "Custom Build",
+    title: "Construction",
     description:
-      "Our licensed builders construct every element to the highest standard, using premium materials sourced for quality and longevity.",
+      "Low-tox build, thermal performance, ventilation — executed by licensed specialists.",
   },
   {
     number: "04",
     icon: Wrench,
-    title: "Installation",
+    title: "Delivery",
     description:
-      "Professional installation of all wellness systems — sauna, steam, cold plunge, electrical, plumbing — managed and guaranteed.",
+      "Sauna, steam, cold plunge, and recovery systems — installed, commissioned, complete.",
   },
   {
     number: "05",
     icon: HeartHandshake,
-    title: "Ongoing Support",
+    title: "Handover",
     description:
-      "We provide comprehensive handover, user training, and ongoing maintenance support to ensure your wellness space performs for years.",
+      "Training, care guidance, and support — spaces built to perform for decades.",
   },
 ];
 
@@ -49,10 +49,10 @@ export default function ProcessSection() {
       <div className="container-e7">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
-          <p className="section-label">Our Process</p>
+          <p className="section-label">End to end</p>
           <h2 className="font-display text-5xl md:text-7xl font-light text-sand leading-tight">
-            How We{" "}
-            <span className="italic text-gold">Bring It To Life</span>
+            Consultation to{" "}
+            <span className="italic text-gold">delivery.</span>
           </h2>
           <div className="divider-gold mx-auto mt-6" />
         </div>

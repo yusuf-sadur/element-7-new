@@ -23,14 +23,14 @@ interface ServiceData {
 
 const servicesData: Record<string, ServiceData> = {
   "custom-saunas": {
-    title: "Custom Saunas Melbourne",
-    tagline: "Bespoke Finnish & dry heat sauna environments",
-    description: "Fully custom-designed saunas built with premium Finnish cedar, thermally modified timber, and kiuas heaters — tailored to your exact space and lifestyle.",
-    longDescription: "A custom Element 7 sauna is not purchased off a shelf. Every sauna we build begins with a blank canvas — your space, your lifestyle, your vision. We design around your architecture, your aesthetic, and your health goals. Using premium Scandinavian cedar, thermally modified timber, natural stone, and premium Harvia and Narvi heaters, we build saunas that will last a lifetime and elevate any property.",
+    title: "Custom Saunas",
+    tagline: "Dry sauna · from design to build",
+    description: "Finnish, infrared, and architectural timber saunas — indoor, outdoor, resort-style. Fully custom. No templates.",
+    longDescription: "Every Element 7 sauna begins with your space and your rituals — not a catalogue. We specify premium timbers, stone, ventilation, and heaters (Harvia, Narvi) with the same rigour we apply to the architecture around them. Indoor, outdoor, minimal, or resort-style — dry heat environments built for longevity and calm.",
     image: heroSaunaHome,
     heroImage: heroSaunaHome,
     features: ["Premium Finnish cedar & thermally modified timber", "Harvia, Narvi & Helo heater options", "Custom benching layouts", "LED chromotherapy lighting", "Architectural glass walls & doors", "Integrated sound systems", "Custom ventilation design", "Stone & tile feature walls"],
-    benefits: ["Cardiovascular health improvement", "Muscle recovery acceleration", "Stress & cortisol reduction", "Improved sleep quality", "Skin health & circulation", "Mental clarity & focus"],
+    benefits: ["Recovery & circulation", "Stress reduction", "Sleep quality", "Muscle restoration", "Mental clarity", "Long-term health rituals"],
     faqs: [
       { q: "How long does a custom sauna build take?", a: "Typically 4–10 weeks from design finalisation, depending on complexity and materials specified." },
       { q: "What size sauna do I need?", a: "This depends on your intended use. We design for 1-person private saunas through to 10+ person commercial units. We'll advise during consultation." },
@@ -39,41 +39,41 @@ const servicesData: Record<string, ServiceData> = {
   },
   "infrared-saunas": {
     title: "Infrared Saunas",
-    tagline: "Far-infrared technology for deep recovery",
-    description: "Infrared saunas operate at lower temperatures while delivering deeper tissue penetration — ideal for recovery, detoxification and extended sessions.",
-    longDescription: "Far-infrared (FIR) saunas use electromagnetic radiation in the infrared spectrum to heat the body directly rather than the air around it. This enables deeper tissue penetration at temperatures typically 40–55°C — compared to 80–100°C in traditional saunas — making sessions more comfortable and sustainable for longer periods. The result is superior muscle recovery, enhanced detoxification, and profound relaxation.",
+    tagline: "Heat therapy · gentle deep warmth",
+    description: "Lower-temperature sessions with deep tissue warmth — everyday recovery and nervous system regulation.",
+    longDescription: "Infrared heat warms the body directly — comfortable temperatures, longer sessions, quiet recovery. We design cabinets in premium cedar and hemlock with low-EMF panels, chromotherapy, and architectural integration. Heat therapy spaces composed for daily use, not occasional spectacle.",
     image: infraredSaunasHome,
     heroImage: infraredSaunasHome,
     features: ["Full-spectrum & far-infrared panel options", "Premium hemlock & cedar cabinets", "Chromotherapy LED systems", "Bluetooth audio integration", "Low EMF emitter technology", "Custom sizing options", "Carbon or ceramic panel choice"],
-    benefits: ["Deeper muscle tissue penetration", "Comfortable lower temperature operation", "Enhanced detoxification", "Joint pain relief", "Improved skin tone", "Extended session capability"],
+    benefits: ["Deep tissue warmth", "Everyday accessibility", "Nervous system calm", "Joint comfort", "Extended sessions", "Quiet recovery"],
     faqs: [
       { q: "Infrared vs traditional sauna — which is better?", a: "Both have distinct benefits. Infrared operates at lower temperatures with deeper tissue heating. Traditional Finnish saunas provide the classic löyly experience. Many clients choose both." },
       { q: "Is infrared sauna safe?", a: "Yes, infrared saunas are widely used and well-researched. We use low-EMF panels and follow all Australian safety standards." },
     ],
   },
   "steam-rooms": {
-    title: "Steam Rooms",
-    tagline: "Therapeutic wet steam environments",
-    description: "Custom steam rooms with chromotherapy, aromatherapy, and premium tile or stone finishes — designed as architectural centrepieces.",
-    longDescription: "Steam rooms operate at 100% humidity and temperatures of 40–50°C, creating a distinctly different experience to dry saunas. The moist heat opens pores, hydrates the skin, relieves respiratory congestion, and provides deep muscular relaxation. Element 7 steam rooms are architectural statements — tiled in premium stone, fitted with chromotherapy lighting, rainfall steam nozzles, and custom teak benching.",
+    title: "Steam & Hammam",
+    tagline: "Hammam culture · hydrothermal calm",
+    description: "Steam rooms with moisture control, stone, and refined finishes — hammam culture, architecturally composed.",
+    longDescription: "Steam and hammam spaces demand precision — humidity, ventilation, waterproofing, material longevity. We design hydrothermal environments in premium stone and tile, with chromotherapy, aromatherapy, and custom benching. Quiet steam performance. Elegant recovery environments.",
     image: steamRoomsHome,
     heroImage: steamRoomsHome,
     features: ["Tylo, Mr. Steam & Kohler generators", "Premium marble, stone & mosaic tile", "Chromotherapy lighting systems", "Aromatherapy injection systems", "Rainfall steam nozzle layouts", "Custom teak & iroko benching", "Waterproof audio systems", "Digital control panels"],
-    benefits: ["Skin hydration & pore cleansing", "Respiratory health improvement", "Deep muscular relaxation", "Circulation stimulation", "Stress reduction", "Joint flexibility improvement"],
+    benefits: ["Skin hydration", "Respiratory ease", "Muscular release", "Circulation", "Stress reduction", "Hammam ritual"],
     faqs: [
       { q: "How much does a custom steam room cost?", a: "Residential steam rooms typically range from $15,000 to $60,000+ depending on size, materials and complexity. We provide detailed quotes after consultation." },
       { q: "Can a steam room be combined with a sauna?", a: "Absolutely — many of our projects feature both, and we design the complete wellness suite as one integrated space." },
     ],
   },
   "cold-plunge": {
-    title: "Cold Plunge Systems",
-    tagline: "Precision cold immersion for optimal recovery",
-    description: "Custom cold plunge pools and ice baths with precision chilling systems — engineered for the ultimate contrast therapy and recovery protocol.",
-    longDescription: "Cold water immersion (CWI) is one of the most potent recovery tools available. At temperatures of 8–15°C, a cold plunge triggers vasoconstriction, reduces inflammation, clears lactic acid, and initiates a powerful hormonal response including norepinephrine and endorphin release. Element 7 installs bespoke cold plunge systems in natural stone, premium acrylic, and stainless steel — with precision chilling units maintaining exact temperature.",
+    title: "Cold Plunge",
+    tagline: "Cold therapy · contrast & clarity",
+    description: "Integrated ice baths and contrast therapy — precision chilled, architecturally composed.",
+    longDescription: "Cold plunge is contrast therapy at its most direct — circulation, inflammation, mental clarity. We integrate chilled immersion into complete recovery environments: natural stone, acrylic, or stainless, with filtration, UV sanitisation, and exact temperature control. Paired with sauna or standalone — always custom, always considered.",
     image: coldPlungeHome,
     heroImage: coldPlungeHome,
     features: ["Precision chilling to 4–15°C", "Natural stone, acrylic & stainless options", "Continuous filtration & UV sanitisation", "Digital temperature control & monitoring", "Indoor & outdoor configurations", "Entry steps & grab rails", "Integrated bench seating", "Custom sizing from 1–8 person"],
-    benefits: ["Acute inflammation reduction", "Enhanced circulation", "Norepinephrine release", "Improved recovery speed", "Cold adaptation & resilience", "Mental fortitude training"],
+    benefits: ["Inflammation reduction", "Circulation", "Mental clarity", "Recovery speed", "Resilience", "Contrast therapy"],
     faqs: [
       { q: "What temperature should a cold plunge be?", a: "Most protocols recommend 10–15°C for recovery, with advanced users going to 8–10°C. Our systems are adjustable and we advise on optimal protocols." },
       { q: "How is a cold plunge maintained?", a: "Our plunges include automated filtration and UV sanitisation. We provide maintenance guidance and offer servicing contracts." },
@@ -120,7 +120,8 @@ export default function ServiceDetailPage({ params }: Readonly<PageProps>) {
           <div className="max-w-4xl mx-auto space-y-16">
             {/* Overview */}
             <div className="scroll-reveal">
-              <p className="text-sand/65 text-base leading-relaxed">{service.longDescription}</p>
+              <p className="section-label mb-4">Overview</p>
+              <p className="text-sm font-light leading-relaxed text-sand/55">{service.longDescription}</p>
             </div>
 
             {/* Features & Benefits Grid */}
@@ -182,9 +183,9 @@ export default function ServiceDetailPage({ params }: Readonly<PageProps>) {
               <div className="lg:col-span-2 scroll-reveal" style={{ transitionDelay: "400ms" }}>
                 <div className="mb-8">
                   <h2 className="font-display text-3xl font-light text-sand mb-2">
-                    Book Your <span className="italic text-gold">Consultation</span>
+                    Begin your <span className="italic text-gold">project.</span>
                   </h2>
-                  <p className="text-sand/45 text-sm">Tell us about your project and we&apos;ll bring it to life.</p>
+                  <p className="text-sand/45 text-sm">A quiet conversation — your space, your vision, your rituals.</p>
                 </div>
                 <ConsultationForm />
               </div>

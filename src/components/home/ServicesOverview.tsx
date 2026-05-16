@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -28,26 +28,26 @@ const services: ServiceItem[] = [
   },
   {
     image: infraredSaunasImg,
-    label: "Recovery",
+    label: "Heat therapy",
     title: "Infrared Saunas",
     description:
-      "Gentle deep-tissue warmth for longer sessions and everyday recovery.",
+      "Gentle deep warmth for everyday recovery and nervous system regulation.",
     href: "/services/infrared-saunas",
   },
   {
     image: steamRoomsImg,
-    label: "Hydrothermal",
-    title: "Steam Rooms",
+    label: "Hammam",
+    title: "Steam & Hammam",
     description:
-      "Quiet steam performance with refined finishes and sensory integration.",
+      "Steam culture refined — moisture control, stone, and calm hydrothermal design.",
     href: "/services/steam-rooms",
   },
   {
     image: coldPlungeImg,
     label: "Cold therapy",
-    title: "Cold Plunge Systems",
+    title: "Cold Plunge",
     description:
-      "Precision chilled immersion for contrast therapy and mental clarity.",
+      "Integrated ice baths and contrast therapy — precision chilled, architecturally composed.",
     href: "/services/cold-plunge",
   },
 ];
@@ -89,20 +89,19 @@ export default function ServicesOverview({
               aria-hidden
             />
             <p className="text-[11px] font-semibold uppercase tracking-[0.42em] text-gold/90">
-              Signature offerings
+              What we create
             </p>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,4.8vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-sand">
-              <span className="block">Wellness environments</span>
+              <span className="block">Wellness ecosystems,</span>
               <span className="mt-2 inline-block bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text font-display italic text-transparent">
-                composed for your life.
+                not products alone.
               </span>
             </h2>
           </div>
           <div className="flex flex-col justify-end border-t border-sand/[0.07] pt-8 lg:col-span-5 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0 xl:pl-12">
             <p className="text-[15px] font-light leading-relaxed text-sand/45">
-              Every modality is engineered as part of a whole — thermal
-              performance, acoustic discipline, and materials that carry forward
-              for decades.
+              Custom saunas, cold plunge, steam & hammam, recovery lounges, and
+              complete fit-outs — indoor, outdoor, residential, and commercial.
             </p>
             <div className="mt-8 h-px w-12 bg-gradient-to-r from-gold/60 to-transparent" />
           </div>
@@ -174,8 +173,8 @@ export default function ServicesOverview({
                   Full catalogue
                 </p>
                 <p className="mt-3 text-lg font-light leading-snug text-sand/80 md:text-xl">
-                  Contrast therapy, recovery suites, outdoor wellness, and
-                  commercial programmes — all specified to the same standard.
+                  Recovery lounges, gym + sauna combinations, outdoor wellness,
+                  and commercial fit-outs — end-to-end design & construction.
                 </p>
               </div>
               <Link

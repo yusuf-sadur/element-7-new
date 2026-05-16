@@ -18,16 +18,15 @@ export default function FinalCTA() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left — text */}
           <div className="scroll-reveal">
-            <p className="section-label">Get Started</p>
+            <p className="section-label">Begin</p>
             <h2 className="font-display text-5xl md:text-7xl font-light text-sand leading-tight mb-6">
-              Create Your{" "}
-              <span className="italic text-gold">Wellness Space</span>
+              Design your{" "}
+              <span className="italic text-gold">recovery space.</span>
             </h2>
             <div className="divider-gold" />
             <p className="text-sand/55 text-sm leading-relaxed mt-6 mb-8">
-              Every Element 7 project begins with a conversation. Tell us about
-              your vision, your space, and your goals — and we&apos;ll show you
-              exactly how we can bring it to life.
+              A quiet conversation about your property, your rituals, and the
+              environment you want to live in — residential or commercial.
             </p>
 
             {/* Quick links */}

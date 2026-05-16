@@ -5,40 +5,47 @@ import { CheckCircle2 } from "lucide-react";
 const differences = [
   {
     number: "01",
-    title: "Fully Custom Designed",
+    title: "Complete environments",
     description:
-      "Every project begins with your vision. We design each wellness environment from scratch — no templates, no off-the-shelf solutions.",
+      "Not a sauna supplier. We design and build full wellness and recovery spaces — integrated, architectural, intentional.",
   },
   {
     number: "02",
-    title: "End-to-End Delivery",
+    title: "Australia-focused",
     description:
-      "From initial consultation through design, construction, and installation — we manage every aspect with a single point of contact.",
+      "Among the few companies here devoted entirely to wellness, recovery, longevity, and low-tox construction.",
   },
   {
     number: "03",
-    title: "Premium Materials & Finishes",
+    title: "End-to-end delivery",
     description:
-      "We source only the finest cedar, thermally modified timber, premium stone, and architectural fixtures for lasting quality.",
+      "Consultation through design, construction, and handover — one team, one vision.",
   },
   {
     number: "04",
-    title: "Residential & Commercial Expertise",
+    title: "Fully custom",
     description:
-      "Whether a private home sanctuary or a commercial wellness precinct — our team has the expertise to deliver at any scale.",
+      "No templates. No prefabricated shortcuts. Every space tailored to lifestyle, property, and vision.",
   },
   {
     number: "05",
-    title: "Wellness-Focused Design",
+    title: "Technical mastery",
     description:
-      "Our design philosophy is rooted in the science of recovery — every spatial decision is made to enhance the therapeutic experience.",
+      "Structural design, thermal performance, ventilation, moisture control — built for longevity.",
   },
   {
     number: "06",
-    title: "Tailored Recovery Solutions",
+    title: "25+ years experience",
     description:
-      "We align each build with your performance, health and lifestyle goals — creating environments that work as hard as you do.",
+      "Decades in construction across Australia and internationally — applied to recovery architecture.",
   },
+];
+
+const proofPoints = [
+  "Wellness consultation & custom design",
+  "Low-tox material specification",
+  "Licensed builders & wellness specialists",
+  "Projects across Australia & abroad",
 ];
 
 export default function TheDifference() {
@@ -47,54 +54,55 @@ export default function TheDifference() {
       id="the-difference"
       className="section-padding section-glass overflow-hidden"
     >
-      {/* Gold accent line */}
-      <div className="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
+      <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
 
       <div className="container-e7">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left — content */}
+        <div className="grid items-center gap-16 lg:grid-cols-2">
           <div className="scroll-reveal">
-            <p className="section-label">Why Element 7</p>
-            <h2 className="font-display text-5xl md:text-7xl font-light text-sand mb-6 leading-tight">
-              The Element 7{" "}
-              <span className="italic text-gold">Difference</span>
+            <p className="section-label">What makes us different</p>
+            <h2 className="mb-6 font-display text-5xl font-light leading-tight text-sand md:text-7xl">
+              A wellness architecture{" "}
+              <span className="italic text-gold">studio.</span>
             </h2>
             <div className="divider-gold" />
-            <p className="text-sand/55 leading-relaxed text-sm mt-6 mb-10">
-              This is not a basic sauna installation company. Element 7 delivers
-              high-end wellness and recovery environments tailored to lifestyle,
-              performance, and wellbeing. We bring architectural thinking to
-              every build.
+            <p className="mb-4 mt-6 text-sm font-light leading-relaxed text-sand/55">
+              We are not general contractors. We create elegant recovery
+              environments — saunas, cold plunge, steam, hammam, and complete
+              wellness fit-outs.
+            </p>
+            <p className="mb-10 text-sm font-light leading-relaxed text-sand/45">
+              Performance wellness design for homes, studios, and hospitality —
+              specified with the same rigour as the architecture around them.
             </p>
 
-            {/* Feature list */}
             <div className="space-y-4">
-              {["Premium-grade, hand-selected materials", "Licensed builders & wellness specialists", "Architect-reviewed designs", "5-year structural warranty"].map(
-                (item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle2 size={16} className="text-gold flex-shrink-0" />
-                    <span className="text-sand/65 text-sm">{item}</span>
-                  </div>
-                )
-              )}
+              {proofPoints.map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <CheckCircle2
+                    size={16}
+                    className="flex-shrink-0 text-gold"
+                  />
+                  <span className="text-sm text-sand/65">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right — difference cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {differences.map((item, idx) => (
               <div
                 key={item.number}
-                className="group card-dark p-6 scroll-reveal"
+                className="group card-dark scroll-reveal p-6"
                 style={{ transitionDelay: `${idx * 80}ms` }}
               >
-                <div className="text-gold/20 font-light text-4xl font-display mb-3 group-hover:text-gold/40 transition-colors duration-300">
+
+<div className="mb-3 font-display text-4xl font-light text-gold/20 transition-colors duration-300 group-hover:text-gold/40">
                   {item.number}
                 </div>
-                <h3 className="text-sand font-semibold text-sm mb-2 group-hover:text-gold transition-colors duration-300">
+                <h3 className="mb-2 text-sm font-semibold text-sand transition-colors duration-300 group-hover:text-gold">
                   {item.title}
                 </h3>
-                <p className="text-sand/45 text-xs leading-relaxed">
+                <p className="text-xs leading-relaxed text-sand/45">
                   {item.description}
                 </p>
               </div>
