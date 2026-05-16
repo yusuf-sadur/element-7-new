@@ -47,7 +47,7 @@ export default function RootLayout({
     <html lang="en-AU" className={`${montserrat.variable} ${playfair.variable}`}>
       <head>
       </head>
-      <body className="bg-obsidian text-white antialiased">
+      <body className="bg-obsidian text-sand antialiased">
         <ScrollRevealInit />
         <ScrollProgress />
         <Navbar />

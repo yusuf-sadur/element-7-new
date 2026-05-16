@@ -63,7 +63,7 @@ export default function ServicesOverview({
   return (
     <section
       id="services-overview"
-      className="section-padding relative isolate overflow-hidden border-t border-white/[0.07] bg-gradient-to-b from-obsidian via-obsidian-light/80 to-obsidian"
+      className="section-padding relative isolate overflow-hidden border-t border-sand/[0.07] bg-gradient-to-b from-obsidian via-obsidian-light/80 to-obsidian"
     >
       {/* Atmosphere */}
       <div className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-[0.22]" />
@@ -76,7 +76,7 @@ export default function ServicesOverview({
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -bottom-32 right-0 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_68%)] blur-3xl"
+        className="pointer-events-none absolute -bottom-32 right-0 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_center,rgba(216,220,208,0.04)_0%,transparent_68%)] blur-3xl"
         aria-hidden
       />
 
@@ -91,15 +91,15 @@ export default function ServicesOverview({
             <p className="text-[11px] font-semibold uppercase tracking-[0.42em] text-gold/90">
               Signature offerings
             </p>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,4.8vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-white">
+            <h2 className="mt-6 font-display text-[clamp(2.25rem,4.8vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-sand">
               <span className="block">Wellness environments</span>
               <span className="mt-2 inline-block bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text font-display italic text-transparent">
                 composed for your life.
               </span>
             </h2>
           </div>
-          <div className="flex flex-col justify-end border-t border-white/[0.07] pt-8 lg:col-span-5 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0 xl:pl-12">
-            <p className="text-[15px] font-light leading-relaxed text-white/45">
+          <div className="flex flex-col justify-end border-t border-sand/[0.07] pt-8 lg:col-span-5 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0 xl:pl-12">
+            <p className="text-[15px] font-light leading-relaxed text-sand/45">
               Every modality is engineered as part of a whole — thermal
               performance, acoustic discipline, and materials that carry forward
               for decades.
@@ -117,7 +117,7 @@ export default function ServicesOverview({
               <Link
                 key={service.href}
                 href={service.href}
-                className="scroll-reveal group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-bark/25 shadow-[0_24px_80px_rgba(24,32,22,0.45)] ring-1 ring-inset ring-white/[0.03] transition-all duration-500 hover:border-gold/25 hover:shadow-[0_32px_100px_rgba(24,32,22,0.55)] hover:ring-gold/10"
+                className="scroll-reveal group relative flex flex-col overflow-hidden rounded-2xl border border-sand/[0.08] bg-bark/25 shadow-[0_24px_80px_rgba(24,32,22,0.45)] ring-1 ring-inset ring-sand/[0.03] transition-all duration-500 hover:border-gold/25 hover:shadow-[0_32px_100px_rgba(24,32,22,0.55)] hover:ring-gold/10"
               >
                 <div className="relative aspect-[16/11] overflow-hidden sm:aspect-[16/10]">
                   <Image
@@ -134,28 +134,28 @@ export default function ServicesOverview({
                   </div>
 
                   <div className="absolute left-5 top-5 flex items-baseline gap-3 sm:left-6 sm:top-6">
-                    <span className="font-display text-4xl font-extralight leading-none text-white/25 sm:text-5xl">
+                    <span className="font-display text-4xl font-extralight leading-none text-sand/25 sm:text-5xl">
                       {n}
                     </span>
-                    <span className="rounded-full border border-white/15 bg-bark/40 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.28em] text-gold/95 backdrop-blur-md">
+                    <span className="rounded-full border border-sand/15 bg-bark/40 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.28em] text-gold/95 backdrop-blur-md">
                       {service.label}
                     </span>
                   </div>
                 </div>
 
-                <div className="relative flex flex-1 flex-col border-t border-white/[0.06] bg-gradient-to-b from-bark/40 to-bark/55 p-7 backdrop-blur-sm sm:p-8">
+                <div className="relative flex flex-1 flex-col border-t border-sand/[0.06] bg-gradient-to-b from-bark/40 to-bark/55 p-7 backdrop-blur-sm sm:p-8">
                   <div className="pointer-events-none absolute left-0 top-0 h-px w-16 bg-gradient-to-r from-gold/50 to-transparent" />
 
-                  <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-white sm:text-[1.65rem]">
+                  <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-sand sm:text-[1.65rem]">
                     {service.title}
                   </h3>
-                  <p className="mt-3 max-w-md flex-1 text-sm font-light leading-relaxed text-white/50 sm:text-[15px]">
+                  <p className="mt-3 max-w-md flex-1 text-sm font-light leading-relaxed text-sand/50 sm:text-[15px]">
                     {service.description}
                   </p>
 
-                  <span className="mt-8 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-white/55 transition-colors duration-300 group-hover:text-gold">
+                  <span className="mt-8 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-sand/55 transition-colors duration-300 group-hover:text-gold">
                     <span>Discover</span>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-all duration-300 group-hover:border-gold/40 group-hover:bg-gold group-hover:text-black">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-sand/15 text-sand/70 transition-all duration-300 group-hover:border-gold/40 group-hover:bg-gold group-hover:text-earth-umber">
                       <ArrowUpRight size={16} strokeWidth={1.75} />
                     </span>
                   </span>
@@ -167,13 +167,13 @@ export default function ServicesOverview({
 
         {/* Footer strip */}
         {showCatalogueFooter && (
-          <div className="scroll-reveal mt-16 border-t border-white/[0.08] pt-12 md:mt-20 md:pt-14">
+          <div className="scroll-reveal mt-16 border-t border-sand/[0.08] pt-12 md:mt-20 md:pt-14">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
               <div className="max-w-lg">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-gold/80">
                   Full catalogue
                 </p>
-                <p className="mt-3 text-lg font-light leading-snug text-white/80 md:text-xl">
+                <p className="mt-3 text-lg font-light leading-snug text-sand/80 md:text-xl">
                   Contrast therapy, recovery suites, outdoor wellness, and
                   commercial programmes — all specified to the same standard.
                 </p>

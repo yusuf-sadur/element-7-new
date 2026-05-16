@@ -96,7 +96,7 @@ export default function HeroSection() {
             />
 
             <div
-              className={`relative border border-white/[0.07] bg-bark/25 p-5 backdrop-blur-md transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] sm:p-6 md:p-7 ${loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+              className={`relative border border-sand/[0.07] bg-bark/25 p-5 backdrop-blur-md transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] sm:p-6 md:p-7 ${loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
               style={{ transitionDelay: "40ms" }}
             >
               <div className="pointer-events-none absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent md:left-7 md:right-7" />
@@ -109,7 +109,7 @@ export default function HeroSection() {
               </p>
 
               <h1
-                className={`font-display font-light tracking-[-0.04em] text-white transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${loaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}
+                className={`font-display font-light tracking-[-0.04em] text-sand transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${loaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}
                 style={{
                   transitionDelay: "160ms",
                   textShadow:
@@ -127,7 +127,7 @@ export default function HeroSection() {
               </h1>
 
               <p
-                className={`mt-4 max-w-lg border-l border-gold/25 pl-4 text-[13px] font-light leading-snug text-white/55 transition-all duration-1000 sm:mt-5 sm:pl-5 sm:text-sm ${loaded ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}
+                className={`mt-4 max-w-lg border-l border-gold/25 pl-4 text-[13px] font-light leading-snug text-sand/55 transition-all duration-1000 sm:mt-5 sm:pl-5 sm:text-sm ${loaded ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}
                 style={{ transitionDelay: "240ms" }}
               >
                 Sauna, steam & cold plunge — engineered and commissioned for
@@ -141,7 +141,7 @@ export default function HeroSection() {
                 {["Residential", "Commercial", "Turnkey"].map((tag) => (
                   <span
                     key={tag}
-                    className="border border-white/[0.09] bg-white/[0.03] px-2 py-1 text-[9px] font-medium uppercase tracking-[0.18em] text-white/45"
+                    className="border border-sand/[0.09] bg-sand/[0.03] px-2 py-1 text-[9px] font-medium uppercase tracking-[0.18em] text-sand/45"
                   >
                     {tag}
                   </span>
@@ -161,7 +161,7 @@ export default function HeroSection() {
                 </Link>
                 <Link
                   href="/contact"
-                  className="group/ghost inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.26em] text-white/65 transition-colors hover:text-gold"
+                  className="group/ghost inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.26em] text-sand/65 transition-colors hover:text-gold"
                   id="hero-cta-secondary"
                 >
                   Book consultation
@@ -177,28 +177,28 @@ export default function HeroSection() {
       </div>
 
       <div
-        className={`pointer-events-none absolute inset-x-0 bottom-0 z-10 border-t border-white/[0.06] bg-bark/35 backdrop-blur-md transition-opacity duration-500 ${scrollY > 100 ? "opacity-0" : "opacity-100"}`}
+        className={`pointer-events-none absolute inset-x-0 bottom-0 z-10 border-t border-sand/[0.06] bg-bark/35 backdrop-blur-md transition-opacity duration-500 ${scrollY > 100 ? "opacity-0" : "opacity-100"}`}
       >
         <div
           className={`mx-auto flex max-w-[1600px] items-center justify-between gap-4 py-3 ${pagePad}`}
         >
           <div className="flex min-w-0 items-center gap-4">
             <div className="flex shrink-0 flex-col gap-1.5">
-              <span className="text-[8px] font-semibold uppercase tracking-[0.36em] text-white/35">
+              <span className="text-[8px] font-semibold uppercase tracking-[0.36em] text-sand/35">
                 Scroll
               </span>
               <span
-                className="relative flex h-6 w-px overflow-hidden rounded-full bg-white/[0.1]"
+                className="relative flex h-6 w-px overflow-hidden rounded-full bg-sand/[0.1]"
                 aria-hidden
               >
                 <span className="absolute left-0 top-0 h-1.5 w-full animate-hero-scroll-line rounded-full bg-gradient-to-b from-gold from-40% to-transparent" />
               </span>
             </div>
-            <p className="hidden truncate text-[10px] font-light tracking-wide text-white/30 sm:block md:max-w-[min(40vw,280px)]">
+            <p className="hidden truncate text-[10px] font-light tracking-wide text-sand/30 sm:block md:max-w-[min(40vw,280px)]">
               Recovery & calm — engineered.
             </p>
           </div>
-          <p className="shrink-0 text-[9px] font-medium uppercase tracking-[0.28em] text-white/25">
+          <p className="shrink-0 text-[9px] font-medium uppercase tracking-[0.28em] text-sand/25">
             Element Seven · Melbourne
           </p>
         </div>

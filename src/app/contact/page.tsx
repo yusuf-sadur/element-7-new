@@ -32,8 +32,8 @@ export default function ContactPage() {
             style={{ "--reveal-delay": "60ms" } as CSSProperties}
           >
             {/* Contact details */}
-            <div className="bg-white/[0.03] border border-white/[0.07] p-8">
-              <h2 className="font-semibold text-white text-base mb-6 tracking-wider">Contact Information</h2>
+            <div className="bg-sand/[0.03] border border-sand/[0.07] p-8">
+              <h2 className="font-semibold text-sand text-base mb-6 tracking-wider">Contact Information</h2>
               <div className="space-y-5">
                 {[
                   { Icon: Phone, label: "Phone", value: "1300 000 000", href: "tel:+611300000000" },
@@ -45,13 +45,13 @@ export default function ContactPage() {
                       <Icon size={16} className="text-gold/60" />
                     </div>
                     <div>
-                      <div className="text-xs text-white/30 tracking-widest uppercase mb-1">{label}</div>
+                      <div className="text-xs text-sand/30 tracking-widest uppercase mb-1">{label}</div>
                       {href ? (
-                        <a href={href} className="text-white/70 hover:text-gold transition-colors text-sm">
+                        <a href={href} className="text-sand/70 hover:text-gold transition-colors text-sm">
                           {value}
                         </a>
                       ) : (
-                        <span className="text-white/70 text-sm">{value}</span>
+                        <span className="text-sand/70 text-sm">{value}</span>
                       )}
                     </div>
                   </div>
@@ -60,7 +60,7 @@ export default function ContactPage() {
             </div>
 
             {/* Map embed */}
-            <div className="bg-white/[0.03] border border-white/[0.07] overflow-hidden h-72">
+            <div className="bg-sand/[0.03] border border-sand/[0.07] overflow-hidden h-72">
               <iframe
                 title="Element 7 Melbourne"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100940.14245968247!2d144.9630576!3d-37.8136276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne%20VIC!5e0!3m2!1sen!2sau!4v1234567890"
@@ -74,12 +74,12 @@ export default function ContactPage() {
             </div>
 
             {/* Service areas */}
-            <div className="bg-white/[0.03] border border-white/[0.07] p-8">
+            <div className="bg-sand/[0.03] border border-sand/[0.07] p-8">
               <h3 className="text-xs font-semibold tracking-[0.3em] uppercase text-gold mb-4">Service Areas</h3>
               <div className="flex flex-wrap gap-2">
                 {["Melbourne CBD", "Inner East", "Inner West", "Bayside", "Mornington Peninsula", "Yarra Valley", "Dandenong Ranges", "Surf Coast", "All Victoria"].map(
                   (area) => (
-                    <span key={area} className="text-xs text-white/40 border border-white/[0.08] px-3 py-1">
+                    <span key={area} className="text-xs text-sand/40 border border-sand/[0.08] px-3 py-1">
                       {area}
                     </span>
                   )

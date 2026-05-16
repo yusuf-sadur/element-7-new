@@ -120,19 +120,19 @@ export default function ServiceDetailPage({ params }: Readonly<PageProps>) {
           <div className="max-w-4xl mx-auto space-y-16">
             {/* Overview */}
             <div className="scroll-reveal">
-              <p className="text-white/65 text-base leading-relaxed">{service.longDescription}</p>
+              <p className="text-sand/65 text-base leading-relaxed">{service.longDescription}</p>
             </div>
 
             {/* Features & Benefits Grid */}
             <div className="grid md:grid-cols-2 gap-12">
               {/* Features */}
               <div className="scroll-reveal" style={{ transitionDelay: "100ms" }}>
-                <h2 className="font-display text-2xl font-light text-white mb-6">
+                <h2 className="font-display text-2xl font-light text-sand mb-6">
                   Features & <span className="italic text-gold">Specifications</span>
                 </h2>
                 <div className="space-y-3">
                   {service.features.map((f) => (
-                    <div key={f} className="flex items-start gap-3 text-sm text-white/55">
+                    <div key={f} className="flex items-start gap-3 text-sm text-sand/55">
                       <div className="w-1 h-1 bg-gold rounded-full flex-shrink-0 mt-1.5" />
                       {f}
                     </div>
@@ -142,14 +142,14 @@ export default function ServiceDetailPage({ params }: Readonly<PageProps>) {
 
               {/* Benefits */}
               <div className="scroll-reveal" style={{ transitionDelay: "200ms" }}>
-                <h2 className="font-display text-2xl font-light text-white mb-6">
+                <h2 className="font-display text-2xl font-light text-sand mb-6">
                   Health <span className="italic text-gold">Benefits</span>
                 </h2>
                 <div className="grid gap-3">
                   {service.benefits.map((b) => (
                     <div
                       key={b}
-                      className="bg-white/[0.03] border border-white/[0.07] px-4 py-3 text-sm text-white/55 hover:border-gold/20 hover:text-white/70 transition-all duration-300"
+                      className="bg-sand/[0.03] border border-sand/[0.07] px-4 py-3 text-sm text-sand/55 hover:border-gold/20 hover:text-sand/70 transition-all duration-300"
                     >
                       {b}
                     </div>
@@ -160,14 +160,14 @@ export default function ServiceDetailPage({ params }: Readonly<PageProps>) {
 
             {/* FAQs */}
             <div className="scroll-reveal" style={{ transitionDelay: "300ms" }}>
-              <h2 className="font-display text-2xl font-light text-white mb-6">
+              <h2 className="font-display text-2xl font-light text-sand mb-6">
                 Frequently Asked <span className="italic text-gold">Questions</span>
               </h2>
               <div className="grid sm:grid-cols-2 gap-8">
                 {service.faqs.map((faq) => (
-                  <div key={faq.q} className="border-b border-white/[0.08] pb-4">
-                    <h3 className="font-semibold text-white text-sm mb-2">{faq.q}</h3>
-                    <p className="text-white/45 text-sm leading-relaxed">{faq.a}</p>
+                  <div key={faq.q} className="border-b border-sand/[0.08] pb-4">
+                    <h3 className="font-semibold text-sand text-sm mb-2">{faq.q}</h3>
+                    <p className="text-sand/45 text-sm leading-relaxed">{faq.a}</p>
                   </div>
                 ))}
               </div>
@@ -181,10 +181,10 @@ export default function ServiceDetailPage({ params }: Readonly<PageProps>) {
               {/* Consultation Form - takes 2 cols */}
               <div className="lg:col-span-2 scroll-reveal" style={{ transitionDelay: "400ms" }}>
                 <div className="mb-8">
-                  <h2 className="font-display text-3xl font-light text-white mb-2">
+                  <h2 className="font-display text-3xl font-light text-sand mb-2">
                     Book Your <span className="italic text-gold">Consultation</span>
                   </h2>
-                  <p className="text-white/45 text-sm">Tell us about your project and we&apos;ll bring it to life.</p>
+                  <p className="text-sand/45 text-sm">Tell us about your project and we&apos;ll bring it to life.</p>
                 </div>
                 <ConsultationForm />
               </div>

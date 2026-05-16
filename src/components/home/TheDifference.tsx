@@ -55,12 +55,12 @@ export default function TheDifference() {
           {/* Left — content */}
           <div className="scroll-reveal">
             <p className="section-label">Why Element 7</p>
-            <h2 className="font-display text-5xl md:text-7xl font-light text-white mb-6 leading-tight">
+            <h2 className="font-display text-5xl md:text-7xl font-light text-sand mb-6 leading-tight">
               The Element 7{" "}
               <span className="italic text-gold">Difference</span>
             </h2>
             <div className="divider-gold" />
-            <p className="text-white/55 leading-relaxed text-sm mt-6 mb-10">
+            <p className="text-sand/55 leading-relaxed text-sm mt-6 mb-10">
               This is not a basic sauna installation company. Element 7 delivers
               high-end wellness and recovery environments tailored to lifestyle,
               performance, and wellbeing. We bring architectural thinking to
@@ -73,7 +73,7 @@ export default function TheDifference() {
                 (item) => (
                   <div key={item} className="flex items-center gap-3">
                     <CheckCircle2 size={16} className="text-gold flex-shrink-0" />
-                    <span className="text-white/65 text-sm">{item}</span>
+                    <span className="text-sand/65 text-sm">{item}</span>
                   </div>
                 )
               )}
@@ -91,10 +91,10 @@ export default function TheDifference() {
                 <div className="text-gold/20 font-light text-4xl font-display mb-3 group-hover:text-gold/40 transition-colors duration-300">
                   {item.number}
                 </div>
-                <h3 className="text-white font-semibold text-sm mb-2 group-hover:text-gold transition-colors duration-300">
+                <h3 className="text-sand font-semibold text-sm mb-2 group-hover:text-gold transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-white/45 text-xs leading-relaxed">
+                <p className="text-sand/45 text-xs leading-relaxed">
                   {item.description}
                 </p>
               </div>

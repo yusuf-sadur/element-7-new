@@ -82,7 +82,7 @@ export default function BlogsPage() {
 
       <section className="section-padding section-glass">
         <div className="container-e7 mb-12">
-        <div className="group grid lg:grid-cols-2 gap-px bg-white/[0.05] scroll-reveal">
+        <div className="group grid lg:grid-cols-2 gap-px bg-sand/[0.05] scroll-reveal">
           <div className="relative h-72 lg:h-auto overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -95,16 +95,16 @@ export default function BlogsPage() {
           <div className="bg-obsidian p-10 lg:p-12 flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-4">
               <span className="badge-gold text-[10px]">{articles[0].category}</span>
-              <div className="flex items-center gap-1.5 text-white/30 text-xs">
+              <div className="flex items-center gap-1.5 text-sand/30 text-xs">
                 <Clock size={11} />
                 {articles[0].readTime} read
               </div>
-              <span className="text-white/25 text-xs">{articles[0].date}</span>
+              <span className="text-sand/25 text-xs">{articles[0].date}</span>
             </div>
-            <h2 className="font-display text-4xl lg:text-5xl font-light text-white mb-6 leading-tight group-hover:text-gold transition-colors duration-500">
+            <h2 className="font-display text-4xl lg:text-5xl font-light text-sand mb-6 leading-tight group-hover:text-gold transition-colors duration-500">
               {articles[0].title}
             </h2>
-            <p className="text-white/50 text-sm leading-relaxed mb-8">{articles[0].excerpt}</p>
+            <p className="text-sand/50 text-sm leading-relaxed mb-8">{articles[0].excerpt}</p>
             <Link
               href={`/blogs/${articles[0].slug}`}
               className="text-gold/60 hover:text-gold text-xs font-semibold tracking-wider uppercase flex items-center gap-2 transition-all duration-300"
@@ -119,7 +119,7 @@ export default function BlogsPage() {
 
       {/* Article grid */}
       <div className="container-e7 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.04]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-sand/[0.04]">
           {articles.slice(1).map((article, idx) => (
             <Link
               key={article.slug}
@@ -140,15 +140,15 @@ export default function BlogsPage() {
               <div className="p-7">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="badge-gold text-[10px]">{article.category}</span>
-                  <div className="flex items-center gap-1 text-white/30 text-xs">
+                  <div className="flex items-center gap-1 text-sand/30 text-xs">
                     <Clock size={10} />
                     {article.readTime}
                   </div>
                 </div>
-                <h3 className="font-display text-lg font-light text-white mb-2 leading-tight group-hover:text-gold transition-colors duration-300">
+                <h3 className="font-display text-lg font-light text-sand mb-2 leading-tight group-hover:text-gold transition-colors duration-300">
                   {article.title}
                 </h3>
-                <p className="text-white/40 text-xs leading-relaxed line-clamp-3">{article.excerpt}</p>
+                <p className="text-sand/40 text-xs leading-relaxed line-clamp-3">{article.excerpt}</p>
                 <div className="mt-5 text-gold/40 group-hover:text-gold text-xs font-semibold tracking-wider uppercase flex items-center gap-1.5 transition-all duration-300">
                   Read More
                   <ArrowRight size={12} />

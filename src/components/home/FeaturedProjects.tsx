@@ -62,7 +62,7 @@ export default function FeaturedProjects() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div className="scroll-reveal">
             <p className="section-label">Portfolio</p>
-            <h2 className="font-display text-5xl md:text-7xl font-light text-white leading-tight">
+            <h2 className="font-display text-5xl md:text-7xl font-light text-sand leading-tight">
               Featured{" "}
               <span className="italic text-gold">Projects</span>
             </h2>
@@ -76,8 +76,8 @@ export default function FeaturedProjects() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
                   activeCategory === cat
-                    ? "bg-gold text-black"
-                    : "border border-white/10 text-white/40 hover:border-gold/30 hover:text-gold/70"
+                    ? "bg-gold text-earth-umber"
+                    : "border border-sand/10 text-sand/40 hover:border-gold/30 hover:text-gold/70"
                 }`}
               >
                 {cat}
@@ -87,7 +87,7 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Project grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.04]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-sand/[0.04]">
           {filtered.map((project, idx) => (
             <div
               key={project.id}
@@ -117,17 +117,17 @@ export default function FeaturedProjects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] text-white/40 tracking-wider uppercase border border-white/[0.08] px-2.5 py-1"
+                      className="text-[10px] text-sand/40 tracking-wider uppercase border border-sand/[0.08] px-2.5 py-1"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <h3 className="font-display text-xl font-light text-white mb-3 group-hover:text-gold transition-colors duration-300">
+                <h3 className="font-display text-xl font-light text-sand mb-3 group-hover:text-gold transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-white/45 text-xs leading-relaxed mb-5">
+                <p className="text-sand/45 text-xs leading-relaxed mb-5">
                   {project.description}
                 </p>
                 <Link

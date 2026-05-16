@@ -50,7 +50,7 @@ export default function ProcessSection() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
           <p className="section-label">Our Process</p>
-          <h2 className="font-display text-5xl md:text-7xl font-light text-white leading-tight">
+          <h2 className="font-display text-5xl md:text-7xl font-light text-sand leading-tight">
             How We{" "}
             <span className="italic text-gold">Bring It To Life</span>
           </h2>
@@ -58,11 +58,11 @@ export default function ProcessSection() {
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-px bg-white/[0.04]">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-px bg-sand/[0.04]">
           {steps.map((step, idx) => (
             <div
               key={step.number}
-              className="group bg-obsidian-mid p-8 hover:bg-white/[0.025] transition-all duration-500 relative scroll-reveal"
+              className="group bg-obsidian-mid p-8 hover:bg-sand/[0.025] transition-all duration-500 relative scroll-reveal"
               style={{ transitionDelay: `${idx * 100}ms` }}
             >
               {/* Number */}
@@ -75,10 +75,10 @@ export default function ProcessSection() {
                 <step.icon size={20} className="text-gold/60 group-hover:text-gold transition-colors duration-300" />
               </div>
 
-              <h3 className="font-semibold text-white text-sm mb-3 group-hover:text-gold transition-colors duration-300">
+              <h3 className="font-semibold text-sand text-sm mb-3 group-hover:text-gold transition-colors duration-300">
                 {step.title}
               </h3>
-              <p className="text-white/40 text-xs leading-relaxed group-hover:text-white/55 transition-colors duration-300">
+              <p className="text-sand/40 text-xs leading-relaxed group-hover:text-sand/55 transition-colors duration-300">
                 {step.description}
               </p>
             </div>

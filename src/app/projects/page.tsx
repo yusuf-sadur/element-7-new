@@ -107,8 +107,8 @@ export default function ProjectsPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
                   activeCategory === cat
-                    ? "bg-gold text-black"
-                    : "border border-white/10 text-white/40 hover:border-gold/30 hover:text-gold/70"
+                    ? "bg-gold text-earth-umber"
+                    : "border border-sand/10 text-sand/40 hover:border-gold/30 hover:text-gold/70"
                 }`}
               >
                 {cat}
@@ -122,8 +122,8 @@ export default function ProjectsPage() {
                 onClick={() => setActiveType(type)}
                 className={`px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
                   activeType === type
-                    ? "bg-white/10 text-white border border-white/20"
-                    : "border border-white/[0.06] text-white/30 hover:text-white/60"
+                    ? "bg-sand/10 text-sand border border-sand/20"
+                    : "border border-sand/[0.06] text-sand/30 hover:text-sand/60"
                 }`}
               >
                 {type}
@@ -136,11 +136,11 @@ export default function ProjectsPage() {
       {/* Grid */}
       <div className="container-e7 pb-20">
         {filtered.length === 0 ? (
-          <div className="scroll-reveal py-20 text-center text-white/30" data-reveal="blur">
+          <div className="scroll-reveal py-20 text-center text-sand/30" data-reveal="blur">
             No projects match the selected filters.
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.04]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-sand/[0.04]">
             {filtered.map((project, idx) => (
               <div
                 key={project.id}
@@ -157,23 +157,23 @@ export default function ProjectsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-bark/40 to-transparent" />
                   <div className="absolute top-4 left-4 flex gap-2">
                     <span className="badge-gold text-[10px]">{project.category}</span>
-                    <span className="text-[10px] border border-white/20 text-white/60 px-2 py-1">{project.type}</span>
+                    <span className="text-[10px] border border-sand/20 text-sand/60 px-2 py-1">{project.type}</span>
                   </div>
                 </div>
 
                 <div className="p-7">
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="text-[10px] text-white/35 tracking-wider uppercase border border-white/[0.07] px-2 py-0.5">
+                      <span key={tag} className="text-[10px] text-sand/35 tracking-wider uppercase border border-sand/[0.07] px-2 py-0.5">
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <h3 className="font-display text-lg font-light text-white mb-2 group-hover:text-gold transition-colors duration-300">
+                  <h3 className="font-display text-lg font-light text-sand mb-2 group-hover:text-gold transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-white/35 text-xs mb-1">{project.suburb}</p>
-                  <p className="text-white/45 text-xs leading-relaxed mb-5 line-clamp-2">{project.description}</p>
+                  <p className="text-sand/35 text-xs mb-1">{project.suburb}</p>
+                  <p className="text-sand/45 text-xs leading-relaxed mb-5 line-clamp-2">{project.description}</p>
                   <div className="text-gold/50 hover:text-gold text-xs font-semibold tracking-wider uppercase flex items-center gap-2 transition-all duration-300 group/link cursor-pointer">
                     View Project
                     <ArrowRight size={12} className="translate-x-0 group-hover/link:translate-x-1 transition-transform duration-300" />

@@ -37,16 +37,16 @@ export default function ResidentialPage() {
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
           <div className="scroll-reveal">
             <p className="section-label">Luxury Home Wellness</p>
-            <h2 className="font-display text-4xl font-light text-white leading-tight mb-6">
+            <h2 className="font-display text-4xl font-light text-sand leading-tight mb-6">
               Designed Around <span className="italic text-gold">Your Life</span>
             </h2>
             <div className="divider-gold" />
-            <p className="text-white/55 text-sm leading-relaxed mt-6 mb-6">
+            <p className="text-sand/55 text-sm leading-relaxed mt-6 mb-6">
               Your home is your sanctuary. Element 7 creates wellness environments that
               integrate seamlessly into your lifestyle and your architecture — delivering
               a daily ritual that supports your health, performance, and wellbeing.
             </p>
-            <p className="text-white/55 text-sm leading-relaxed mb-8">
+            <p className="text-sand/55 text-sm leading-relaxed mb-8">
               From a private sauna for two in a compact bathroom, to a full wellness
               wing with sauna, steam, cold plunge, and relaxation lounge — we design
               and build everything you need, with precision and luxury.
@@ -71,22 +71,22 @@ export default function ResidentialPage() {
         <div className="scroll-reveal">
           <div className="text-center mb-12">
             <p className="section-label">What We Offer</p>
-            <h2 className="font-display text-3xl font-light text-white">
+            <h2 className="font-display text-3xl font-light text-sand">
               Residential <span className="italic text-gold">Wellness Solutions</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.05]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-sand/[0.05]">
             {features.map((f, idx) => (
               <div
                 key={f.title}
-                className="group bg-obsidian p-8 hover:bg-white/[0.02] transition-all duration-500 scroll-reveal"
+                className="group bg-obsidian p-8 hover:bg-sand/[0.02] transition-all duration-500 scroll-reveal"
                 style={{ transitionDelay: `${idx * 80}ms` }}
               >
                 <div className="w-8 h-px bg-gold mb-5 group-hover:w-16 transition-all duration-500" />
-                <h3 className="font-display text-xl font-light text-white mb-3 group-hover:text-gold transition-colors">
+                <h3 className="font-display text-xl font-light text-sand mb-3 group-hover:text-gold transition-colors">
                   {f.title}
                 </h3>
-                <p className="text-white/40 text-xs leading-relaxed">{f.description}</p>
+                <p className="text-sand/40 text-xs leading-relaxed">{f.description}</p>
               </div>
             ))}
           </div>
@@ -96,10 +96,10 @@ export default function ResidentialPage() {
         <div className="mt-20 grid lg:grid-cols-2 gap-16 items-start">
           <div className="scroll-reveal">
             <p className="section-label">Ready to Start?</p>
-            <h2 className="font-display text-3xl font-light text-white mb-4">
+            <h2 className="font-display text-3xl font-light text-sand mb-4">
               Book Your Free <span className="italic text-gold">Consultation</span>
             </h2>
-            <p className="text-white/50 text-sm leading-relaxed">
+            <p className="text-sand/50 text-sm leading-relaxed">
               Our residential consultations are obligation-free. We&apos;ll visit your property,
               understand your goals, and provide a detailed design concept and indicative
               investment range.

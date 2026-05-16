@@ -91,7 +91,7 @@ export default function Navbar() {
   }, [isMobileMenuOpen, isScrolled]);
 
   const activeLink = (path: string) =>
-    pathname === path ? "text-white" : "text-white/55 hover:text-white/90";
+    pathname === path ? "text-sand" : "text-sand/55 hover:text-sand/90";
 
   return (
     <header ref={headerRef} className="pointer-events-none fixed inset-x-0 top-0 z-50 pt-3 sm:pt-4 md:pt-5">
@@ -100,8 +100,8 @@ export default function Navbar() {
         <div
           className={`relative z-[55] flex items-center justify-between gap-3 rounded-2xl border px-3 py-2.5 shadow-2xl shadow-bark/30 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 sm:gap-4 sm:px-5 sm:py-3 md:rounded-[1.35rem] md:px-6 ${
             isScrolled
-              ? "border-white/[0.09] bg-obsidian/85 shadow-[0_12px_48px_rgba(24,32,22,0.55)] backdrop-blur-2xl"
-              : "border-white/[0.06] bg-bark/35 backdrop-blur-xl"
+              ? "border-sand/[0.09] bg-obsidian/85 shadow-[0_12px_48px_rgba(24,32,22,0.55)] backdrop-blur-2xl"
+              : "border-sand/[0.06] bg-bark/35 backdrop-blur-xl"
           }`}
         >
           <Link
@@ -110,7 +110,7 @@ export default function Navbar() {
             aria-label="Element 7 — Home"
           >
             <span
-              className={`font-display font-light uppercase tracking-[0.32em] text-white transition-all duration-300 ${
+              className={`font-display font-light uppercase tracking-[0.32em] text-sand transition-all duration-300 ${
                 isScrolled ? "text-[13px] sm:text-sm" : "text-sm sm:text-[15px]"
               }`}
             >
@@ -132,7 +132,7 @@ export default function Navbar() {
                     >
                       <button
                         type="button"
-                        className={`${linkBase} inline-flex items-center gap-1 ${isServicesActive ? "text-white" : "text-white/55 hover:text-white/90"}`}
+                        className={`${linkBase} inline-flex items-center gap-1 ${isServicesActive ? "text-sand" : "text-sand/55 hover:text-sand/90"}`}
                         aria-expanded={isServicesDropdownOpen}
                         aria-haspopup="true"
                         aria-controls="services-menu"
@@ -159,14 +159,14 @@ export default function Navbar() {
                         id="services-menu"
                         role="menu"
                         aria-labelledby="services-trigger"
-                        className={`absolute left-1/2 top-[calc(100%+10px)] z-50 w-[min(22rem,calc(100vw-3rem))] -translate-x-1/2 overflow-hidden rounded-2xl border border-white/[0.08] bg-bark-light/95 shadow-[0_20px_50px_rgba(24,32,22,0.65)] ring-1 ring-white/[0.03] backdrop-blur-2xl transition-all duration-200 ease-out ${
+                        className={`absolute left-1/2 top-[calc(100%+10px)] z-50 w-[min(22rem,calc(100vw-3rem))] -translate-x-1/2 overflow-hidden rounded-2xl border border-sand/[0.08] bg-bark-light/95 shadow-[0_20px_50px_rgba(24,32,22,0.65)] ring-1 ring-sand/[0.03] backdrop-blur-2xl transition-all duration-200 ease-out ${
                           isServicesDropdownOpen
                             ? "visible translate-y-0 opacity-100"
                             : "invisible -translate-y-1.5 opacity-0"
                         }`}
                       >
-                        <div className="border-b border-white/[0.06] px-5 py-4">
-                          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                        <div className="border-b border-sand/[0.06] px-5 py-4">
+                          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-sand/35">
                             Browse
                           </p>
                           <Link
@@ -184,7 +184,7 @@ export default function Navbar() {
                               key={service.slug}
                               href={`/services/${service.slug}`}
                               role="menuitem"
-                              className="block px-5 py-2.5 text-[13px] text-white/65 transition-colors hover:bg-white/[0.04] hover:text-white"
+                              className="block px-5 py-2.5 text-[13px] text-sand/65 transition-colors hover:bg-sand/[0.04] hover:text-sand"
                               onClick={() => setIsServicesDropdownOpen(false)}
                             >
                               {service.title}
@@ -218,7 +218,7 @@ export default function Navbar() {
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <Link
               href="/contact"
-              className="hidden rounded-full bg-gradient-to-r from-gold to-gold-light px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-black shadow-[0_4px_24px_rgba(201,168,76,0.28)] transition-all duration-300 hover:shadow-[0_6px_32px_rgba(201,168,76,0.4)] lg:inline-flex lg:items-center"
+              className="hidden rounded-full bg-gradient-to-r from-gold to-gold-light px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-earth-umber shadow-[0_4px_24px_rgba(201,168,76,0.28)] transition-all duration-300 hover:shadow-[0_6px_32px_rgba(201,168,76,0.4)] lg:inline-flex lg:items-center"
               id="nav-cta-desktop"
             >
               Book consultation
@@ -227,7 +227,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.1] bg-white/[0.04] text-white transition-colors hover:border-white/20 hover:bg-white/[0.07] lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-sand/[0.1] bg-sand/[0.04] text-sand transition-colors hover:border-sand/20 hover:bg-sand/[0.07] lg:hidden"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
               id="mobile-menu-toggle"
@@ -254,18 +254,18 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-[min(100%,400px)] max-w-full flex-col border-l border-white/[0.08] bg-obsidian shadow-[-16px_0_48px_rgba(24,32,22,0.55)] transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-[min(100%,400px)] max-w-full flex-col border-l border-sand/[0.08] bg-obsidian shadow-[-16px_0_48px_rgba(24,32,22,0.55)] transition-transform duration-300 ease-out lg:hidden ${
           isMobileMenuOpen
             ? "pointer-events-auto translate-x-0"
             : "pointer-events-none translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-4">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/40">Menu</span>
+        <div className="flex items-center justify-between border-b border-sand/[0.06] px-5 py-4">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-sand/40">Menu</span>
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.1] text-white/80 transition-colors hover:bg-white/[0.05]"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-sand/[0.1] text-sand/80 transition-colors hover:bg-sand/[0.05]"
             aria-label="Close menu"
           >
             <X size={20} />
@@ -277,17 +277,17 @@ export default function Navbar() {
             {navLinks.map((link) => {
               if (link.type === "dropdown") {
                 return (
-                  <div key={link.name} className="rounded-xl bg-white/[0.03]">
+                  <div key={link.name} className="rounded-xl bg-sand/[0.03]">
                     <button
                       type="button"
                       onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                      className="flex w-full items-center justify-between px-4 py-3.5 text-left text-[15px] font-medium text-white"
+                      className="flex w-full items-center justify-between px-4 py-3.5 text-left text-[15px] font-medium text-sand"
                       aria-expanded={isMobileServicesOpen}
                     >
                       {link.name}
                       <ChevronDown
                         size={18}
-                        className={`shrink-0 text-white/45 transition-transform duration-200 ${
+                        className={`shrink-0 text-sand/45 transition-transform duration-200 ${
                           isMobileServicesOpen ? "rotate-180" : ""
                         }`}
                       />
@@ -298,7 +298,7 @@ export default function Navbar() {
                       }`}
                     >
                       <div className="min-h-0 overflow-hidden">
-                        <div className="border-t border-white/[0.06] px-2 pb-3 pt-1">
+                        <div className="border-t border-sand/[0.06] px-2 pb-3 pt-1">
                           <Link
                             href="/services"
                             className="block rounded-lg px-3 py-2.5 text-sm font-medium text-gold"
@@ -310,7 +310,7 @@ export default function Navbar() {
                             <Link
                               key={service.slug}
                               href={`/services/${service.slug}`}
-                              className="block rounded-lg px-3 py-2 text-[14px] text-white/55 transition-colors hover:bg-white/[0.04] hover:text-white"
+                              className="block rounded-lg px-3 py-2 text-[14px] text-sand/55 transition-colors hover:bg-sand/[0.04] hover:text-sand"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               {service.title}
@@ -327,7 +327,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.to ?? "/"}
                   className={`block rounded-xl px-4 py-3.5 text-[15px] font-medium transition-colors ${
-                    pathname === link.to ? "bg-white/[0.06] text-white" : "text-white/55 hover:bg-white/[0.04] hover:text-white"
+                    pathname === link.to ? "bg-sand/[0.06] text-sand" : "text-sand/55 hover:bg-sand/[0.04] hover:text-sand"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -338,10 +338,10 @@ export default function Navbar() {
           </div>
         </nav>
 
-        <div className="border-t border-white/[0.06] p-5">
+        <div className="border-t border-sand/[0.06] p-5">
           <Link
             href="/contact"
-            className="flex w-full items-center justify-center rounded-full bg-gradient-to-r from-gold to-gold-light py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-black shadow-lg shadow-gold/25"
+            className="flex w-full items-center justify-center rounded-full bg-gradient-to-r from-gold to-gold-light py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-earth-umber shadow-lg shadow-gold/25"
             id="nav-cta-mobile"
             onClick={() => setIsMobileMenuOpen(false)}
           >

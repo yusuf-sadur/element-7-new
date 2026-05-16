@@ -31,13 +31,13 @@ const services = [
 ];
 
 const linkClass =
-  "group inline-flex items-center gap-1 text-[13px] font-light tracking-wide text-white/55 hover:text-gold transition-colors duration-300";
+  "group inline-flex items-center gap-1 text-[13px] font-light tracking-wide text-sand/55 hover:text-gold transition-colors duration-300";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 overflow-hidden border-t border-white/[0.07] bg-obsidian text-white">
+    <footer className="relative z-10 overflow-hidden border-t border-sand/[0.07] bg-obsidian text-sand">
       {/* Ambient layers */}
       <div
         className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-[0.35]"
@@ -54,14 +54,14 @@ export default function Footer() {
 
       <div className="relative">
         {/* Top band: positioning + primary CTA */}
-        <div className="container-e7 border-b border-white/[0.06] py-12 md:py-14 lg:py-16">
+        <div className="container-e7 border-b border-sand/[0.06] py-12 md:py-14 lg:py-16">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-xl scroll-reveal" data-reveal="left">
-              <p className="font-display text-2xl font-light leading-snug tracking-tight text-white/95 md:text-3xl">
+              <p className="font-display text-2xl font-light leading-snug tracking-tight text-sand/95 md:text-3xl">
                 Engineered environments for{" "}
                 <span className="text-gold/95">recovery</span> and performance.
               </p>
-              <p className="mt-3 text-sm font-light leading-relaxed text-white/45">
+              <p className="mt-3 text-sm font-light leading-relaxed text-sand/45">
                 Bespoke sauna, steam, cold plunge, and contrast therapy — designed
                 and built in Melbourne for residential and commercial spaces.
               </p>
@@ -78,7 +78,7 @@ export default function Footer() {
               >
                 Book consultation
               </Link>
-              <p className="text-center text-[11px] font-medium uppercase tracking-[0.28em] text-white/35 lg:text-right">
+              <p className="text-center text-[11px] font-medium uppercase tracking-[0.28em] text-sand/35 lg:text-right">
                 Response within one business day
               </p>
             </div>
@@ -93,14 +93,14 @@ export default function Footer() {
                 href="/"
                 className="group mb-8 inline-block rounded-2xl outline-none ring-offset-2 ring-offset-obsidian transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-gold"
               >
-                <span className="font-display block text-2xl font-light uppercase tracking-[0.28em] text-white transition-colors group-hover:text-white/90">
+                <span className="font-display block text-2xl font-light uppercase tracking-[0.28em] text-sand transition-colors group-hover:text-sand/90">
                   ELEMENT <span className="text-gold">7</span>
                 </span>
                 <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.35em] text-gold/80">
                   Melbourne
                 </span>
               </Link>
-              <p className="max-w-sm text-sm font-light leading-relaxed text-white/45">
+              <p className="max-w-sm text-sm font-light leading-relaxed text-sand/45">
                 Premium wellness infrastructure — from concept and engineering to
                 installation and aftercare.
               </p>
@@ -116,7 +116,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.02] text-white/45 transition-all duration-300 hover:border-gold/35 hover:bg-gold/5 hover:text-gold hover:shadow-[0_0_24px_rgba(201,168,76,0.12)]"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-sand/[0.08] bg-sand/[0.02] text-sand/45 transition-all duration-300 hover:border-gold/35 hover:bg-gold/5 hover:text-gold hover:shadow-[0_0_24px_rgba(201,168,76,0.12)]"
                   >
                     <Icon size={17} strokeWidth={1.5} />
                   </a>
@@ -177,18 +177,18 @@ export default function Footer() {
               data-reveal="right"
             >
               <h3 className="section-label !mb-6">Contact</h3>
-              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 shadow-[0_16px_48px_rgba(24,32,22,0.35)] backdrop-blur-md">
+              <div className="rounded-2xl border border-sand/[0.08] bg-sand/[0.02] p-6 shadow-[0_16px_48px_rgba(24,32,22,0.35)] backdrop-blur-md">
                 <ul className="space-y-5">
                   <li>
                     <a
                       href="tel:+611300000000"
-                      className="group flex gap-4 text-white/55 transition-colors hover:text-gold"
+                      className="group flex gap-4 text-sand/55 transition-colors hover:text-gold"
                     >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-gold/90 transition-colors group-hover:border-gold/30">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-sand/[0.06] bg-sand/[0.03] text-gold/90 transition-colors group-hover:border-gold/30">
                         <Phone size={17} strokeWidth={1.5} />
                       </span>
                       <div className="min-w-0 pt-0.5">
-                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-sand/35">
                           Phone
                         </div>
                         <div className="text-sm font-light tracking-wide">1300 000 000</div>
@@ -198,13 +198,13 @@ export default function Footer() {
                   <li>
                     <a
                       href="mailto:hello@element7.com.au"
-                      className="group flex gap-4 text-white/55 transition-colors hover:text-gold"
+                      className="group flex gap-4 text-sand/55 transition-colors hover:text-gold"
                     >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-gold/90 transition-colors group-hover:border-gold/30">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-sand/[0.06] bg-sand/[0.03] text-gold/90 transition-colors group-hover:border-gold/30">
                         <Mail size={17} strokeWidth={1.5} />
                       </span>
                       <div className="min-w-0 pt-0.5">
-                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-sand/35">
                           Email
                         </div>
                         <div className="truncate text-sm font-light tracking-wide">
@@ -213,12 +213,12 @@ export default function Footer() {
                       </div>
                     </a>
                   </li>
-                  <li className="flex gap-4 text-white/55">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-gold/90">
+                  <li className="flex gap-4 text-sand/55">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-sand/[0.06] bg-sand/[0.03] text-gold/90">
                       <MapPin size={17} strokeWidth={1.5} />
                     </span>
                     <div className="pt-0.5">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-sand/35">
                         Studio
                       </div>
                       <div className="text-sm font-light tracking-wide">Melbourne, VIC</div>
@@ -231,19 +231,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/[0.06] bg-bark/40 backdrop-blur-sm">
+        <div className="border-t border-sand/[0.06] bg-bark/40 backdrop-blur-sm">
           <div className="container-e7 flex scroll-reveal flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between md:gap-6">
-            <p className="text-center text-[11px] font-light tracking-wide text-white/35 md:text-left">
+            <p className="text-center text-[11px] font-light tracking-wide text-sand/35 md:text-left">
               © {year} Element Seven. Crafted in Melbourne.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[11px] font-medium uppercase tracking-[0.22em] text-white/40">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[11px] font-medium uppercase tracking-[0.22em] text-sand/40">
               <Link
                 href="/privacy-policy"
                 className="transition-colors hover:text-gold"
               >
                 Privacy
               </Link>
-              <span className="hidden text-white/15 sm:inline" aria-hidden>
+              <span className="hidden text-sand/15 sm:inline" aria-hidden>
                 ·
               </span>
               <Link href="/terms" className="transition-colors hover:text-gold">

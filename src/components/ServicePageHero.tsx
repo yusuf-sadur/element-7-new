@@ -90,7 +90,7 @@ export default function ServicePageHero({
 
       <div className="relative z-10 flex min-h-0 flex-1 flex-col lg:grid lg:min-h-0 lg:grid-cols-[min(52%,640px)_minmax(0,1fr)] lg:items-stretch">
         <div
-          className={`relative flex w-full flex-1 flex-col justify-center border-white/[0.07] bg-earth-umber/91 backdrop-blur-xl max-lg:border-x max-lg:border-b max-lg:border-white/[0.09] max-lg:shadow-[0_28px_90px_rgba(24,32,22,0.52)] max-lg:ring-1 max-lg:ring-inset max-lg:ring-white/[0.06] lg:min-h-full lg:flex-none lg:border-x-0 lg:border-b-0 lg:border-r lg:shadow-none lg:ring-0 ${pagePad} pb-12 pt-16 sm:pb-14 sm:pt-20 lg:pb-16 lg:pt-24 xl:pb-20`}
+          className={`relative flex w-full flex-1 flex-col justify-center border-sand/[0.07] bg-earth-umber/91 backdrop-blur-xl max-lg:border-x max-lg:border-b max-lg:border-sand/[0.09] max-lg:shadow-[0_28px_90px_rgba(24,32,22,0.52)] max-lg:ring-1 max-lg:ring-inset max-lg:ring-sand/[0.06] lg:min-h-full lg:flex-none lg:border-x-0 lg:border-b-0 lg:border-r lg:shadow-none lg:ring-0 ${pagePad} pb-12 pt-16 sm:pb-14 sm:pt-20 lg:pb-16 lg:pt-24 xl:pb-20`}
         >
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.45]"
@@ -125,7 +125,7 @@ export default function ServicePageHero({
               </span>
             </div>
 
-            <h1 className="font-display font-light tracking-[-0.03em] text-white max-lg:text-center lg:text-left">
+            <h1 className="font-display font-light tracking-[-0.03em] text-sand max-lg:text-center lg:text-left">
               <span
                 className={`block text-balance text-[clamp(1.85rem,4.5vw,3.15rem)] leading-[1.06] transition-all duration-700 max-lg:duration-[880ms] max-lg:delay-[90ms] lg:delay-[75ms] ${easeHero} ${loaded ? "translate-y-0 opacity-100" : "translate-y-7 opacity-0 max-lg:translate-y-8"}`}
               >
@@ -141,7 +141,7 @@ export default function ServicePageHero({
             </h1>
 
             <p
-              className={`mt-7 max-w-md border-l-2 border-gold/35 pl-5 text-[14px] font-light leading-relaxed text-white/55 transition-all duration-700 max-lg:mx-auto max-lg:border-l-0 max-lg:pl-0 max-lg:duration-[820ms] max-lg:delay-[300ms] sm:text-[15px] lg:delay-[150ms] ${easeHero} ${loaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0 max-lg:translate-y-6"}`}
+              className={`mt-7 max-w-md border-l-2 border-gold/35 pl-5 text-[14px] font-light leading-relaxed text-sand/55 transition-all duration-700 max-lg:mx-auto max-lg:border-l-0 max-lg:pl-0 max-lg:duration-[820ms] max-lg:delay-[300ms] sm:text-[15px] lg:delay-[150ms] ${easeHero} ${loaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0 max-lg:translate-y-6"}`}
             >
               {lead}
             </p>
@@ -158,7 +158,7 @@ export default function ServicePageHero({
               </Link>
               <Link
                 href="/services"
-                className="group/ghost inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.26em] text-white/55 transition-colors hover:text-gold"
+                className="group/ghost inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.26em] text-sand/55 transition-colors hover:text-gold"
                 id="service-hero-cta-secondary"
               >
                 All services
@@ -173,8 +173,8 @@ export default function ServicePageHero({
             <div
               className={`mt-12 flex items-center gap-3 max-lg:justify-center transition-all duration-1000 max-lg:delay-[530ms] lg:delay-[300ms] ${easeHero} ${loaded ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}
             >
-              <span className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-white/25 to-transparent" />
-              <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-white/25">
+              <span className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-sand/25 to-transparent" />
+              <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-sand/25">
                 Melbourne
               </span>
             </div>
@@ -184,7 +184,7 @@ export default function ServicePageHero({
         <div className="relative hidden min-h-0 lg:block" aria-hidden />
       </div>
 
-      <p className="pointer-events-none absolute bottom-6 right-6 z-10 hidden max-w-[220px] text-right font-mono text-[9px] uppercase leading-relaxed tracking-[0.26em] text-white/35 lg:block">
+      <p className="pointer-events-none absolute bottom-6 right-6 z-10 hidden max-w-[220px] text-right font-mono text-[9px] uppercase leading-relaxed tracking-[0.26em] text-sand/35 lg:block">
         Specifications below · Element Seven
       </p>
     </section>

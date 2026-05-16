@@ -49,6 +49,19 @@ const config: Config = {
           light: "#DCE0D0",
           dark: "#848C80",
         },
+        /* Warm light tones (replaces pure white in UI) */
+        sand: {
+          DEFAULT: "#D8DCD0",
+          light: "#E8ECE2",
+          dark: "#A8AE9E",
+          faint: "#7A8274",
+        },
+        /* Earthy accent for form errors */
+        rust: {
+          DEFAULT: "#9A6B58",
+          light: "#B8846E",
+          dark: "#6E4A3C",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "sans-serif"],

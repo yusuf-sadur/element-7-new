@@ -134,14 +134,14 @@ export default function ConsultationForm({
 
   const inputClass = `form-input ${compact ? "py-3" : "py-3.5"}`;
   const labelClass =
-    "block text-xs font-semibold tracking-wider text-white/60 uppercase mb-1.5";
+    "block text-xs font-semibold tracking-wider text-sand/60 uppercase mb-1.5";
 
   return (
-    <div className="rounded-2xl bg-obsidian-mid/82 backdrop-blur-md border border-white/[0.12] p-8 md:p-10">
-      <h3 className="font-display text-2xl font-light text-white mb-2">
+    <div className="rounded-2xl bg-obsidian-mid/82 backdrop-blur-md border border-sand/[0.12] p-8 md:p-10">
+      <h3 className="font-display text-2xl font-light text-sand mb-2">
         Book Your Consultation
       </h3>
-      <p className="text-white/40 text-xs mb-8 leading-relaxed">
+      <p className="text-sand/40 text-xs mb-8 leading-relaxed">
         Complete the form and we&apos;ll be in touch within 24 hours to arrange
         your no-obligation consultation.
       </p>
@@ -270,7 +270,7 @@ export default function ConsultationForm({
           </div>
         )}
         {formStatus.error && (
-          <div className="flex items-center gap-3 bg-red-900/20 border border-red-500/30 text-red-400 px-4 py-3 text-sm">
+          <div className="flex items-center gap-3 bg-rust/15 border border-rust/35 text-rust-light px-4 py-3 text-sm">
             <AlertCircle size={18} className="flex-shrink-0" />
             <span className="font-medium">{formStatus.message}</span>
           </div>
@@ -296,7 +296,7 @@ export default function ConsultationForm({
           )}
         </button>
 
-        <p className="text-xs text-white/30 text-center flex items-center justify-center gap-1.5">
+        <p className="text-xs text-sand/30 text-center flex items-center justify-center gap-1.5">
           <Lock size={11} />
           Your information is kept private and secure
         </p>

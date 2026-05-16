@@ -17,11 +17,11 @@ export default function ThankYouPage() {
         </div>
 
         <p className="section-label animate-fade-up mb-4 opacity-0 delay-100">Enquiry Received</p>
-        <h1 className="animate-fade-up mb-6 font-display text-4xl font-light leading-tight text-white opacity-0 delay-200 md:text-5xl">
+        <h1 className="animate-fade-up mb-6 font-display text-4xl font-light leading-tight text-sand opacity-0 delay-200 md:text-5xl">
           Thank You for <span className="italic text-gold">Reaching Out</span>
         </h1>
         <div className="divider-gold animate-fade-up mx-auto mb-8 opacity-0 delay-200" />
-        <p className="animate-fade-up mb-10 text-sm leading-relaxed text-white/55 opacity-0 delay-300">
+        <p className="animate-fade-up mb-10 text-sm leading-relaxed text-sand/55 opacity-0 delay-300">
           We&apos;ve received your consultation request and a member of our team will
           be in touch within 24 hours. We look forward to discussing your wellness
           project.
@@ -37,8 +37,8 @@ export default function ThankYouPage() {
           </Link>
         </div>
 
-        <div className="animate-fade-up mt-12 border-t border-white/[0.08] pt-8 opacity-0 delay-500">
-          <p className="text-white/30 text-xs">
+        <div className="animate-fade-up mt-12 border-t border-sand/[0.08] pt-8 opacity-0 delay-500">
+          <p className="text-sand/30 text-xs">
             Have an urgent enquiry? Call us on{" "}
             <a href="tel:+611300000000" className="text-gold hover:underline">
               1300 000 000

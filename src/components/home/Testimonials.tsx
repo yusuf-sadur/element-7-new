@@ -46,7 +46,7 @@ export default function Testimonials() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
           <p className="section-label">Testimonials</p>
-          <h2 className="font-display text-4xl md:text-6xl font-light text-white leading-tight">
+          <h2 className="font-display text-4xl md:text-6xl font-light text-sand leading-tight">
             What Our{" "}
             <span className="italic text-gold">Clients Say</span>
           </h2>
@@ -67,11 +67,11 @@ export default function Testimonials() {
                       <Star key={i} size={18} className="text-gold fill-gold" />
                     ))}
                   </div>
-                  <p className="text-2xl md:text-4xl text-white/90 leading-relaxed mb-12 font-display font-light italic">
+                  <p className="text-2xl md:text-4xl text-sand/90 leading-relaxed mb-12 font-display font-light italic">
                     &ldquo;{t.text}&rdquo;
                   </p>
                   <div>
-                    <div className="font-semibold text-white tracking-wide text-lg">{t.name}</div>
+                    <div className="font-semibold text-sand tracking-wide text-lg">{t.name}</div>
                     <div className="text-gold/60 text-[10px] md:text-xs tracking-[0.25em] uppercase mt-3">
                       {t.location} — {t.project}
                     </div>
@@ -85,7 +85,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-8 mt-16">
             <button 
               onClick={prevSlide}
-              className="p-3 rounded-full border border-white/10 text-white/50 hover:text-gold hover:border-gold/40 transition-all duration-500 hover:bg-gold/5"
+              className="p-3 rounded-full border border-sand/10 text-sand/50 hover:text-gold hover:border-gold/40 transition-all duration-500 hover:bg-gold/5"
             >
               <ChevronLeft size={20} />
             </button>
@@ -95,14 +95,14 @@ export default function Testimonials() {
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
                   className={`w-2 h-2 rounded-full transition-all duration-500 ${
-                    currentIndex === idx ? "bg-gold scale-150" : "bg-white/20 hover:bg-white/50"
+                    currentIndex === idx ? "bg-gold scale-150" : "bg-sand/20 hover:bg-sand/50"
                   }`}
                 />
               ))}
             </div>
             <button 
               onClick={nextSlide}
-              className="p-3 rounded-full border border-white/10 text-white/50 hover:text-gold hover:border-gold/40 transition-all duration-500 hover:bg-gold/5"
+              className="p-3 rounded-full border border-sand/10 text-sand/50 hover:text-gold hover:border-gold/40 transition-all duration-500 hover:bg-gold/5"
             >
               <ChevronRight size={20} />
             </button>
@@ -110,14 +110,14 @@ export default function Testimonials() {
         </div>
 
         {/* Trust badges */}
-        <div className="mt-24 pt-12 border-t border-white/[0.06] scroll-reveal" style={{ transitionDelay: "300ms" }}>
-          <p className="text-center text-xs text-white/30 tracking-widest uppercase mb-8">
+        <div className="mt-24 pt-12 border-t border-sand/[0.06] scroll-reveal" style={{ transitionDelay: "300ms" }}>
+          <p className="text-center text-xs text-sand/30 tracking-widest uppercase mb-8">
             Trusted Partners & Certifications
           </p>
           <div className="flex flex-wrap items-center justify-center gap-12 opacity-40">
             {["HIA Member", "Master Builders", "SPASA Australia", "Licensed Builder VIC", "Sauna Society Australia"].map(
               (badge) => (
-                <div key={badge} className="text-sm font-light text-white tracking-widest uppercase">
+                <div key={badge} className="text-sm font-light text-sand tracking-widest uppercase">
                   {badge}
                 </div>
               )

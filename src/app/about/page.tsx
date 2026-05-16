@@ -35,17 +35,17 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <div className="scroll-reveal">
             <p className="section-label">Our Vision</p>
-            <h2 className="font-display text-4xl font-light text-white leading-tight mb-6">
+            <h2 className="font-display text-4xl font-light text-sand leading-tight mb-6">
               Redefining What&apos;s Possible in <span className="italic text-gold">Wellness Design</span>
             </h2>
             <div className="divider-gold" />
-            <p className="text-white/55 text-sm leading-relaxed mt-6 mb-6">
+            <p className="text-sand/55 text-sm leading-relaxed mt-6 mb-6">
               Element 7 was founded on a singular belief: that premium wellness environments
               should be engineered with the same precision and intentionality as the world&apos;s
               finest architecture. We are not a product supplier — we are a design and build practice
               specialising exclusively in human performance environments.
             </p>
-            <p className="text-white/55 text-sm leading-relaxed mb-8">
+            <p className="text-sand/55 text-sm leading-relaxed mb-8">
               Our clients are discerning homeowners, elite athletes, boutique hotel operators,
               and commercial developers who understand that a great wellness space is transformative —
               for health, lifestyle, and property value.
@@ -66,12 +66,12 @@ export default function AboutPage() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="bg-white/[0.03] border border-white/[0.07] p-8 text-center hover:border-gold/30 transition-all duration-300"
+                  className="bg-sand/[0.03] border border-sand/[0.07] p-8 text-center hover:border-gold/30 transition-all duration-300"
                 >
                   <div className="font-display text-4xl font-light text-gold mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-xs text-white/40 tracking-wider uppercase">{stat.label}</div>
+                  <div className="text-xs text-sand/40 tracking-wider uppercase">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -93,11 +93,11 @@ export default function AboutPage() {
             </div>
             <div className="order-1 lg:order-2">
               <p className="section-label">What We Do</p>
-              <h2 className="font-display text-4xl font-light text-white leading-tight mb-6">
+              <h2 className="font-display text-4xl font-light text-sand leading-tight mb-6">
                 End-to-End <span className="italic text-gold">Wellness Design</span>
               </h2>
               <div className="divider-gold" />
-              <p className="text-white/55 text-sm leading-relaxed mt-6">
+              <p className="text-sand/55 text-sm leading-relaxed mt-6">
                 We manage every phase of your project — from the initial consultation and
                 architectural design, through engineering, construction, and final installation.
                 You engage one team and we take full responsibility for the outcome.
@@ -105,7 +105,7 @@ export default function AboutPage() {
               <div className="mt-8 space-y-3">
                 {["Custom sauna & steam room design", "Cold plunge and hydrotherapy systems", "Contrast therapy environments", "Outdoor wellness structures", "Commercial wellness fit-outs", "Retrofit and upgrade projects"].map(
                   (item) => (
-                    <div key={item} className="flex items-center gap-3 text-sm text-white/55">
+                    <div key={item} className="flex items-center gap-3 text-sm text-sand/55">
                       <div className="w-1 h-1 bg-gold rounded-full flex-shrink-0" />
                       {item}
                     </div>
@@ -120,22 +120,22 @@ export default function AboutPage() {
         <div className="scroll-reveal">
           <div className="text-center mb-12">
             <p className="section-label">Our Values</p>
-            <h2 className="font-display text-4xl font-light text-white">
+            <h2 className="font-display text-4xl font-light text-sand">
               The Principles That <span className="italic text-gold">Guide Us</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.05]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-sand/[0.05]">
             {values.map((v, idx) => (
               <div
                 key={v.title}
-                className="group bg-obsidian p-8 hover:bg-white/[0.02] transition-all duration-500 scroll-reveal"
+                className="group bg-obsidian p-8 hover:bg-sand/[0.02] transition-all duration-500 scroll-reveal"
                 style={{ transitionDelay: `${idx * 80}ms` }}
               >
                 <div className="w-8 h-px bg-gold mb-5 group-hover:w-16 transition-all duration-500" />
-                <h3 className="font-display text-xl font-light text-white mb-3 group-hover:text-gold transition-colors">
+                <h3 className="font-display text-xl font-light text-sand mb-3 group-hover:text-gold transition-colors">
                   {v.title}
                 </h3>
-                <p className="text-white/40 text-xs leading-relaxed">{v.text}</p>
+                <p className="text-sand/40 text-xs leading-relaxed">{v.text}</p>
               </div>
             ))}
           </div>
