@@ -117,7 +117,7 @@ export default function ServicesOverview({
               <Link
                 key={service.href}
                 href={service.href}
-                className="scroll-reveal group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-black/25 shadow-[0_24px_80px_rgba(0,0,0,0.45)] ring-1 ring-inset ring-white/[0.03] transition-all duration-500 hover:border-gold/25 hover:shadow-[0_32px_100px_rgba(0,0,0,0.55)] hover:ring-gold/10"
+                className="scroll-reveal group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-bark/25 shadow-[0_24px_80px_rgba(14,18,12,0.45)] ring-1 ring-inset ring-white/[0.03] transition-all duration-500 hover:border-gold/25 hover:shadow-[0_32px_100px_rgba(14,18,12,0.55)] hover:ring-gold/10"
               >
                 <div className="relative aspect-[16/11] overflow-hidden sm:aspect-[16/10]">
                   <Image
@@ -128,7 +128,7 @@ export default function ServicesOverview({
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover transition-[transform,filter] duration-[1.1s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.04]"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bark/85 via-bark/25 to-bark/10" />
                   <div className="pointer-events-none absolute inset-0 opacity-0 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-100">
                     <div className="absolute inset-0 bg-gradient-to-tr from-gold/15 via-transparent to-transparent" />
                   </div>
@@ -137,13 +137,13 @@ export default function ServicesOverview({
                     <span className="font-display text-4xl font-extralight leading-none text-white/25 sm:text-5xl">
                       {n}
                     </span>
-                    <span className="rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.28em] text-gold/95 backdrop-blur-md">
+                    <span className="rounded-full border border-white/15 bg-bark/40 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.28em] text-gold/95 backdrop-blur-md">
                       {service.label}
                     </span>
                   </div>
                 </div>
 
-                <div className="relative flex flex-1 flex-col border-t border-white/[0.06] bg-gradient-to-b from-black/40 to-black/55 p-7 backdrop-blur-sm sm:p-8">
+                <div className="relative flex flex-1 flex-col border-t border-white/[0.06] bg-gradient-to-b from-bark/40 to-bark/55 p-7 backdrop-blur-sm sm:p-8">
                   <div className="pointer-events-none absolute left-0 top-0 h-px w-16 bg-gradient-to-r from-gold/50 to-transparent" />
 
                   <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-white sm:text-[1.65rem]">

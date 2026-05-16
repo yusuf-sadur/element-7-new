@@ -2,8 +2,6 @@
 
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import logoSrc from "@/assets/logo.jpeg";
 import {
   Phone,
   Mail,
@@ -93,24 +91,13 @@ export default function Footer() {
             <div className="scroll-reveal lg:col-span-4" data-reveal="up">
               <Link
                 href="/"
-                className="group mb-8 inline-flex items-center gap-4 rounded-2xl outline-none ring-offset-2 ring-offset-obsidian transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-gold"
+                className="group mb-8 inline-block rounded-2xl outline-none ring-offset-2 ring-offset-obsidian transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-gold"
               >
-                <span className="relative flex h-[88px] w-[88px] shrink-0 items-center justify-center rounded-2xl border border-white/[0.08] bg-white/[0.03] p-2 shadow-[0_8px_40px_rgba(0,0,0,0.45)] backdrop-blur-sm transition-all duration-500 group-hover:border-gold/25 group-hover:shadow-[0_12px_48px_rgba(201,168,76,0.08)]">
-                  <Image
-                    src={logoSrc}
-                    alt="Element Seven — Engineered Environments for Human Performance"
-                    width={72}
-                    height={72}
-                    className="object-contain"
-                  />
+                <span className="font-display block text-2xl font-light uppercase tracking-[0.28em] text-white transition-colors group-hover:text-white/90">
+                  ELEMENT <span className="text-gold">7</span>
                 </span>
-                <span className="hidden min-[400px]:block">
-                  <span className="font-display block text-lg font-light tracking-wide text-white">
-                    Element Seven
-                  </span>
-                  <span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-[0.35em] text-gold/80">
-                    Melbourne
-                  </span>
+                <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.35em] text-gold/80">
+                  Melbourne
                 </span>
               </Link>
               <p className="max-w-sm text-sm font-light leading-relaxed text-white/45">
@@ -190,7 +177,7 @@ export default function Footer() {
               data-reveal="right"
             >
               <h3 className="section-label !mb-6">Contact</h3>
-              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 shadow-[0_16px_48px_rgba(0,0,0,0.35)] backdrop-blur-md">
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 shadow-[0_16px_48px_rgba(14,18,12,0.35)] backdrop-blur-md">
                 <ul className="space-y-5">
                   <li>
                     <a
@@ -244,7 +231,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/[0.06] bg-black/40 backdrop-blur-sm">
+        <div className="border-t border-white/[0.06] bg-bark/40 backdrop-blur-sm">
           <div className="container-e7 flex scroll-reveal flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between md:gap-6">
             <p className="text-center text-[11px] font-light tracking-wide text-white/35 md:text-left">
               © {year} Element Seven. Crafted in Melbourne.

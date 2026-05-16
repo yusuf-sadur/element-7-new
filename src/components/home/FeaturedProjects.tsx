@@ -102,7 +102,7 @@ export default function FeaturedProjects() {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-bark/40 to-transparent" />
 
                 {/* Category badge */}
                 <div className="absolute top-4 left-4">

@@ -90,7 +90,7 @@ export default function BlogsPage() {
               alt={articles[0].title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent lg:hidden" />
+            <div className="absolute inset-0 bg-gradient-to-r from-bark/60 via-transparent to-transparent lg:hidden" />
           </div>
           <div className="bg-obsidian p-10 lg:p-12 flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-4">

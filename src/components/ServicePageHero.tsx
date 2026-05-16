@@ -81,27 +81,27 @@ export default function ServicePageHero({
           className="object-cover transition-opacity duration-1000 ease-in-out"
           style={{ opacity: loaded ? 1 : 0 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-bark/50 via-transparent to-bark/80" />
         <div className="absolute inset-0 bg-dot-pattern opacity-20" />
       </div>
 
-      <div className="pointer-events-none fixed inset-0 z-[1] bg-gradient-to-r from-black/69 via-black/34 to-transparent" />
+      <div className="pointer-events-none fixed inset-0 z-[1] bg-gradient-to-r from-bark/69 via-bark/34 to-transparent" />
       <div className="pointer-events-none fixed inset-0 z-[1] bg-obsidian/26" />
 
       <div className="relative z-10 flex min-h-0 flex-1 flex-col lg:grid lg:min-h-0 lg:grid-cols-[min(52%,640px)_minmax(0,1fr)] lg:items-stretch">
         <div
-          className={`relative flex w-full flex-1 flex-col justify-center border-white/[0.07] bg-[#040404]/91 backdrop-blur-xl max-lg:border-x max-lg:border-b max-lg:border-white/[0.09] max-lg:shadow-[0_28px_90px_rgba(0,0,0,0.52)] max-lg:ring-1 max-lg:ring-inset max-lg:ring-white/[0.06] lg:min-h-full lg:flex-none lg:border-x-0 lg:border-b-0 lg:border-r lg:shadow-none lg:ring-0 ${pagePad} pb-12 pt-16 sm:pb-14 sm:pt-20 lg:pb-16 lg:pt-24 xl:pb-20`}
+          className={`relative flex w-full flex-1 flex-col justify-center border-white/[0.07] bg-earth-umber/91 backdrop-blur-xl max-lg:border-x max-lg:border-b max-lg:border-white/[0.09] max-lg:shadow-[0_28px_90px_rgba(14,18,12,0.52)] max-lg:ring-1 max-lg:ring-inset max-lg:ring-white/[0.06] lg:min-h-full lg:flex-none lg:border-x-0 lg:border-b-0 lg:border-r lg:shadow-none lg:ring-0 ${pagePad} pb-12 pt-16 sm:pb-14 sm:pt-20 lg:pb-16 lg:pt-24 xl:pb-20`}
         >
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.45]"
             style={{
               backgroundImage:
-                "linear-gradient(135deg, rgba(201,168,76,0.042) 0%, transparent 42%), linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.43) 100%)",
+                "linear-gradient(135deg, rgba(201,168,76,0.042) 0%, transparent 42%), linear-gradient(to bottom, transparent 0%, rgba(14,18,12,0.43) 100%)",
             }}
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-36 bg-gradient-to-t from-black/74 via-black/26 to-transparent lg:hidden"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-36 bg-gradient-to-t from-bark/74 via-bark/26 to-transparent lg:hidden"
             aria-hidden
           />
           <div
@@ -120,7 +120,7 @@ export default function ServicePageHero({
               <span
                 className={`interior-hero-label-line h-px w-10 shrink-0 bg-gradient-to-r from-gold to-gold/30 transition-transform duration-700 ease-out max-lg:origin-center max-lg:duration-1000 lg:origin-left md:w-14 ${loaded ? "scale-x-100" : "scale-x-0"}`}
               />
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.26em] text-gold drop-shadow-[0_1px_14px_rgba(0,0,0,0.9)]">
+              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.26em] text-gold drop-shadow-[0_1px_14px_rgba(14,18,12,0.9)]">
                 {label}
               </span>
             </div>

@@ -62,7 +62,7 @@ export default function ProcessSection() {
           {steps.map((step, idx) => (
             <div
               key={step.number}
-              className="group bg-[#080808] p-8 hover:bg-white/[0.025] transition-all duration-500 relative scroll-reveal"
+              className="group bg-obsidian-mid p-8 hover:bg-white/[0.025] transition-all duration-500 relative scroll-reveal"
               style={{ transitionDelay: `${idx * 100}ms` }}
             >
               {/* Number */}

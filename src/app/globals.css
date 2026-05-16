@@ -9,9 +9,10 @@
   --gold: #C9A84C;
   --gold-light: #E2C070;
   --gold-dark: #A07832;
-  --obsidian: #0A0A0A;
-  --obsidian-light: #111111;
-  --silver: #C0C0C0;
+  --obsidian: #151C14;
+  --obsidian-light: #1C2418;
+  --bark: #0E120C;
+  --silver: #B4B8A8;
 }
 
 /* ─── Base ─── */
@@ -28,7 +29,7 @@
 
   body {
     font-family: var(--font-sans), sans-serif;
-    background-color: #0A0A0A;
+    background-color: var(--obsidian);
     color: #fff;
     overflow-x: hidden;
   }
@@ -57,7 +58,7 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0A0A0A;
+    background: var(--obsidian);
   }
   ::-webkit-scrollbar-thumb {
     background: var(--gold-dark);
@@ -268,7 +269,7 @@
 
   /* Card */
   .card-dark {
-    @apply bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] shadow-[0_8px_32px_rgba(0,0,0,0.5)]
+    @apply bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] shadow-[0_8px_32px_rgba(14,18,12,0.5)]
       hover:border-gold/40 hover:bg-white/[0.04] transition-all duration-700 hover:-translate-y-1;
   }
 

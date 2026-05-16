@@ -65,19 +65,19 @@ export default function HeroSection() {
           className="object-cover transition-opacity duration-1000 ease-in-out"
           style={{ opacity: loaded ? 1 : 0 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-bark/50 via-transparent to-bark/80" />
         <div className="absolute inset-0 bg-dot-pattern opacity-20" />
       </div>
 
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-bark/55 via-bark/25 to-transparent" />
       <div className="pointer-events-none absolute inset-0 z-[1] bg-obsidian/20" />
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[min(100%,480px)] bg-gradient-to-r from-black/40 to-transparent opacity-90"
+        className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[min(100%,480px)] bg-gradient-to-r from-bark/40 to-transparent opacity-90"
         aria-hidden
       />
 
       <div
-        className="pointer-events-none absolute left-[-10%] top-[40%] z-[2] h-[min(65vh,420px)] w-[min(100vw,720px)] max-w-[700px] -translate-y-1/2 bg-[radial-gradient(ellipse_72%_58%_at_28%_50%,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.1)_58%,transparent_80%)] blur-[40px] sm:top-[42%]"
+        className="pointer-events-none absolute left-[-10%] top-[40%] z-[2] h-[min(65vh,420px)] w-[min(100vw,720px)] max-w-[700px] -translate-y-1/2 bg-[radial-gradient(ellipse_72%_58%_at_28%_50%,rgba(14,18,12,0.52)_0%,rgba(14,18,12,0.1)_58%,transparent_80%)] blur-[40px] sm:top-[42%]"
         aria-hidden
       />
 
@@ -96,7 +96,7 @@ export default function HeroSection() {
             />
 
             <div
-              className={`relative border border-white/[0.07] bg-black/25 p-5 backdrop-blur-md transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] sm:p-6 md:p-7 ${loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+              className={`relative border border-white/[0.07] bg-bark/25 p-5 backdrop-blur-md transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] sm:p-6 md:p-7 ${loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
               style={{ transitionDelay: "40ms" }}
             >
               <div className="pointer-events-none absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent md:left-7 md:right-7" />
@@ -113,7 +113,7 @@ export default function HeroSection() {
                 style={{
                   transitionDelay: "160ms",
                   textShadow:
-                    "0 3px 36px rgba(0,0,0,0.35), 0 1px 0 rgba(0,0,0,0.15)",
+                    "0 3px 36px rgba(14,18,12,0.35), 0 1px 0 rgba(14,18,12,0.15)",
                 }}
               >
                 <span className="block text-balance text-[clamp(1.85rem,5vw,3.35rem)] leading-[1.08]">
@@ -177,7 +177,7 @@ export default function HeroSection() {
       </div>
 
       <div
-        className={`pointer-events-none absolute inset-x-0 bottom-0 z-10 border-t border-white/[0.06] bg-black/35 backdrop-blur-md transition-opacity duration-500 ${scrollY > 100 ? "opacity-0" : "opacity-100"}`}
+        className={`pointer-events-none absolute inset-x-0 bottom-0 z-10 border-t border-white/[0.06] bg-bark/35 backdrop-blur-md transition-opacity duration-500 ${scrollY > 100 ? "opacity-0" : "opacity-100"}`}
       >
         <div
           className={`mx-auto flex max-w-[1600px] items-center justify-between gap-4 py-3 ${pagePad}`}

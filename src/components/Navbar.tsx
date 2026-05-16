@@ -2,8 +2,6 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import logoSrc from "@/assets/logo.jpeg";
 
 import { Menu, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -100,26 +98,24 @@ export default function Navbar() {
       {/* Same width + horizontal padding as HeroSection content wrapper */}
       <div className={`pointer-events-auto mx-auto w-full max-w-[1600px] ${pagePad}`}>
         <div
-          className={`relative z-[55] flex items-center justify-between gap-3 rounded-2xl border px-3 py-2.5 shadow-2xl shadow-black/30 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 sm:gap-4 sm:px-5 sm:py-3 md:rounded-[1.35rem] md:px-6 ${
+          className={`relative z-[55] flex items-center justify-between gap-3 rounded-2xl border px-3 py-2.5 shadow-2xl shadow-bark/30 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 sm:gap-4 sm:px-5 sm:py-3 md:rounded-[1.35rem] md:px-6 ${
             isScrolled
-              ? "border-white/[0.09] bg-[#0a0a0a]/85 shadow-[0_12px_48px_rgba(0,0,0,0.55)] backdrop-blur-2xl"
-              : "border-white/[0.06] bg-black/35 backdrop-blur-xl"
+              ? "border-white/[0.09] bg-obsidian/85 shadow-[0_12px_48px_rgba(14,18,12,0.55)] backdrop-blur-2xl"
+              : "border-white/[0.06] bg-bark/35 backdrop-blur-xl"
           }`}
         >
           <Link
             href="/"
-            className="flex shrink-0 items-center gap-2 rounded-xl outline-offset-4 transition-opacity hover:opacity-90"
-            aria-label="Element Seven — Home"
+            className="flex shrink-0 items-center rounded-xl outline-offset-4 transition-opacity hover:opacity-90"
+            aria-label="Element 7 — Home"
           >
-            <Image
-              src={logoSrc}
-              alt=""
-              width={88}
-              height={88}
-              className={`w-auto object-contain transition-all duration-300 ${
-                isScrolled ? "h-10 sm:h-11" : "h-11 sm:h-[52px]"
+            <span
+              className={`font-display font-light uppercase tracking-[0.32em] text-white transition-all duration-300 ${
+                isScrolled ? "text-[13px] sm:text-sm" : "text-sm sm:text-[15px]"
               }`}
-            />
+            >
+              ELEMENT <span className="text-gold">7</span>
+            </span>
           </Link>
 
           {/* Desktop navigation */}
@@ -163,7 +159,7 @@ export default function Navbar() {
                         id="services-menu"
                         role="menu"
                         aria-labelledby="services-trigger"
-                        className={`absolute left-1/2 top-[calc(100%+10px)] z-50 w-[min(22rem,calc(100vw-3rem))] -translate-x-1/2 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#101010]/95 shadow-[0_20px_50px_rgba(0,0,0,0.65)] ring-1 ring-white/[0.03] backdrop-blur-2xl transition-all duration-200 ease-out ${
+                        className={`absolute left-1/2 top-[calc(100%+10px)] z-50 w-[min(22rem,calc(100vw-3rem))] -translate-x-1/2 overflow-hidden rounded-2xl border border-white/[0.08] bg-bark-light/95 shadow-[0_20px_50px_rgba(14,18,12,0.65)] ring-1 ring-white/[0.03] backdrop-blur-2xl transition-all duration-200 ease-out ${
                           isServicesDropdownOpen
                             ? "visible translate-y-0 opacity-100"
                             : "invisible -translate-y-1.5 opacity-0"
@@ -247,7 +243,7 @@ export default function Navbar() {
         type="button"
         aria-label="Close menu"
         style={{ top: headerHeight }}
-        className={`fixed inset-x-0 bottom-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-x-0 bottom-0 z-40 bg-bark/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
           isMobileMenuOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -258,7 +254,7 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-[min(100%,400px)] max-w-full flex-col border-l border-white/[0.08] bg-[#0a0a0a] shadow-[-16px_0_48px_rgba(0,0,0,0.55)] transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-[min(100%,400px)] max-w-full flex-col border-l border-white/[0.08] bg-obsidian shadow-[-16px_0_48px_rgba(14,18,12,0.55)] transition-transform duration-300 ease-out lg:hidden ${
           isMobileMenuOpen
             ? "pointer-events-auto translate-x-0"
             : "pointer-events-none translate-x-full"
