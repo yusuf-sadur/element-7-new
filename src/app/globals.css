@@ -373,6 +373,40 @@
     }
   }
 
+  /* Footer */
+  .footer-col-label {
+    @apply mb-4 inline-flex items-center gap-2.5 font-sans text-[10px] font-medium uppercase tracking-label text-olive sm:mb-5 sm:gap-3 sm:text-[11px];
+  }
+
+  .footer-col-label::before {
+    content: "";
+    @apply h-px w-6 bg-olive/35 sm:w-8 sm:bg-olive/40;
+  }
+
+  .footer-link-list {
+    @apply space-y-2 sm:space-y-3;
+  }
+
+  .footer-contact-card {
+    @apply relative overflow-hidden rounded-2xl border border-line/70 bg-white p-4 shadow-soft sm:rounded-3xl sm:bg-gradient-to-br sm:from-white sm:via-white sm:to-cream-warm/60 sm:p-7 sm:shadow-card;
+  }
+
+  .footer-contact-row {
+    @apply flex items-center gap-3 rounded-xl px-1 py-2.5 transition-colors sm:gap-4 sm:px-3 sm:py-3 sm:hover:bg-cream-warm/90;
+  }
+
+  .footer-contact-row:not(:last-child) {
+    @apply border-b border-line/40 sm:border-0;
+  }
+
+  .footer-contact-icon {
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-olive/10 text-olive transition-colors sm:h-11 sm:w-11 sm:rounded-xl;
+  }
+
+  .footer-contact-label {
+    @apply font-sans text-[9px] uppercase tracking-label text-sand-faint sm:text-[10px];
+  }
+
   /* Contact page */
   .contact-trust-grid {
     @apply grid gap-8 sm:grid-cols-3 sm:gap-6;
