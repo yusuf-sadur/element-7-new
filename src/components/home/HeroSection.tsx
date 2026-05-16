@@ -77,7 +77,7 @@ export default function HeroSection() {
       />
 
       <div
-        className="pointer-events-none absolute left-[-10%] top-[40%] z-[2] h-[min(65vh,420px)] w-[min(100vw,720px)] max-w-[700px] -translate-y-1/2 bg-[radial-gradient(ellipse_72%_58%_at_28%_50%,rgba(14,18,12,0.52)_0%,rgba(14,18,12,0.1)_58%,transparent_80%)] blur-[40px] sm:top-[42%]"
+        className="pointer-events-none absolute left-[-10%] top-[40%] z-[2] h-[min(65vh,420px)] w-[min(100vw,720px)] max-w-[700px] -translate-y-1/2 bg-[radial-gradient(ellipse_72%_58%_at_28%_50%,rgba(24,32,22,0.52)_0%,rgba(24,32,22,0.1)_58%,transparent_80%)] blur-[40px] sm:top-[42%]"
         aria-hidden
       />
 
@@ -113,7 +113,7 @@ export default function HeroSection() {
                 style={{
                   transitionDelay: "160ms",
                   textShadow:
-                    "0 3px 36px rgba(14,18,12,0.35), 0 1px 0 rgba(14,18,12,0.15)",
+                    "0 3px 36px rgba(24,32,22,0.35), 0 1px 0 rgba(24,32,22,0.15)",
                 }}
               >
                 <span className="block text-balance text-[clamp(1.85rem,5vw,3.35rem)] leading-[1.08]">

@@ -177,7 +177,7 @@ export default function Footer() {
               data-reveal="right"
             >
               <h3 className="section-label !mb-6">Contact</h3>
-              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 shadow-[0_16px_48px_rgba(14,18,12,0.35)] backdrop-blur-md">
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 shadow-[0_16px_48px_rgba(24,32,22,0.35)] backdrop-blur-md">
                 <ul className="space-y-5">
                   <li>
                     <a

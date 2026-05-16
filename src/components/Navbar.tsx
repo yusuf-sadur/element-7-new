@@ -100,7 +100,7 @@ export default function Navbar() {
         <div
           className={`relative z-[55] flex items-center justify-between gap-3 rounded-2xl border px-3 py-2.5 shadow-2xl shadow-bark/30 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 sm:gap-4 sm:px-5 sm:py-3 md:rounded-[1.35rem] md:px-6 ${
             isScrolled
-              ? "border-white/[0.09] bg-obsidian/85 shadow-[0_12px_48px_rgba(14,18,12,0.55)] backdrop-blur-2xl"
+              ? "border-white/[0.09] bg-obsidian/85 shadow-[0_12px_48px_rgba(24,32,22,0.55)] backdrop-blur-2xl"
               : "border-white/[0.06] bg-bark/35 backdrop-blur-xl"
           }`}
         >
@@ -159,7 +159,7 @@ export default function Navbar() {
                         id="services-menu"
                         role="menu"
                         aria-labelledby="services-trigger"
-                        className={`absolute left-1/2 top-[calc(100%+10px)] z-50 w-[min(22rem,calc(100vw-3rem))] -translate-x-1/2 overflow-hidden rounded-2xl border border-white/[0.08] bg-bark-light/95 shadow-[0_20px_50px_rgba(14,18,12,0.65)] ring-1 ring-white/[0.03] backdrop-blur-2xl transition-all duration-200 ease-out ${
+                        className={`absolute left-1/2 top-[calc(100%+10px)] z-50 w-[min(22rem,calc(100vw-3rem))] -translate-x-1/2 overflow-hidden rounded-2xl border border-white/[0.08] bg-bark-light/95 shadow-[0_20px_50px_rgba(24,32,22,0.65)] ring-1 ring-white/[0.03] backdrop-blur-2xl transition-all duration-200 ease-out ${
                           isServicesDropdownOpen
                             ? "visible translate-y-0 opacity-100"
                             : "invisible -translate-y-1.5 opacity-0"
@@ -254,7 +254,7 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-[min(100%,400px)] max-w-full flex-col border-l border-white/[0.08] bg-obsidian shadow-[-16px_0_48px_rgba(14,18,12,0.55)] transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-[min(100%,400px)] max-w-full flex-col border-l border-white/[0.08] bg-obsidian shadow-[-16px_0_48px_rgba(24,32,22,0.55)] transition-transform duration-300 ease-out lg:hidden ${
           isMobileMenuOpen
             ? "pointer-events-auto translate-x-0"
             : "pointer-events-none translate-x-full"

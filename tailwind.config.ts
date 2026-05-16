@@ -12,8 +12,8 @@ const config: Config = {
         drip: {
           beige: "#F4F1EA",
           sand: "#E8E4D9",
-          charcoal: "#2A3228",
-          brown: "#3A4534",
+          charcoal: "#3A463C",
+          brown: "#4A5844",
         },
         gold: {
           DEFAULT: "#C9A84C",
@@ -21,33 +21,33 @@ const config: Config = {
           dark: "#A07832",
           glow: "rgba(201,168,76,0.3)",
         },
-        /* Olive dark surfaces — deep forest, moss, grove */
+        /* Olive dark surfaces — deep forest, moss, grove (slightly lifted) */
         obsidian: {
-          DEFAULT: "#151C14",
-          light: "#1C2418",
-          mid: "#243020",
+          DEFAULT: "#212B21",
+          light: "#2B362B",
+          mid: "#344234",
         },
         /* Deepest olive overlay / vignette */
         bark: {
-          DEFAULT: "#0E120C",
-          light: "#1A2218",
-          mid: "#141A12",
+          DEFAULT: "#181F1A",
+          light: "#2A3630",
+          mid: "#212A24",
         },
         earth: {
-          canopy: "#151C14",
-          moss: "#1C2418",
-          grove: "#243020",
-          charcoal: "#2E3828",
-          clay: "#4A5244",
-          olive: "#3D4A38",
-          forest: "#1E2A1C",
-          stone: "#6B7364",
-          umber: "#121810",
+          canopy: "#212B21",
+          moss: "#2B362B",
+          grove: "#344234",
+          charcoal: "#3E4E42",
+          clay: "#5C665C",
+          olive: "#505E50",
+          forest: "#2C3A2C",
+          stone: "#828A7C",
+          umber: "#1D271E",
         },
         silver: {
-          DEFAULT: "#B4B8A8",
-          light: "#D0D4C4",
-          dark: "#737A6A",
+          DEFAULT: "#C0C4B6",
+          light: "#DCE0D0",
+          dark: "#848C80",
         },
       },
       fontFamily: {

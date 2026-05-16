@@ -117,7 +117,7 @@ export default function ServicesOverview({
               <Link
                 key={service.href}
                 href={service.href}
-                className="scroll-reveal group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-bark/25 shadow-[0_24px_80px_rgba(14,18,12,0.45)] ring-1 ring-inset ring-white/[0.03] transition-all duration-500 hover:border-gold/25 hover:shadow-[0_32px_100px_rgba(14,18,12,0.55)] hover:ring-gold/10"
+                className="scroll-reveal group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-bark/25 shadow-[0_24px_80px_rgba(24,32,22,0.45)] ring-1 ring-inset ring-white/[0.03] transition-all duration-500 hover:border-gold/25 hover:shadow-[0_32px_100px_rgba(24,32,22,0.55)] hover:ring-gold/10"
               >
                 <div className="relative aspect-[16/11] overflow-hidden sm:aspect-[16/10]">
                   <Image

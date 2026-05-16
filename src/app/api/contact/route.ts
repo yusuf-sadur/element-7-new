@@ -86,8 +86,8 @@ export async function POST(request: NextRequest) {
           <meta charset="utf-8">
           <title>New Consultation Enquiry — Element 7</title>
         </head>
-        <body style="font-family: Georgia, serif; background: #151C14; color: #ffffff; padding: 40px 20px; margin: 0;">
-          <div style="max-width: 600px; margin: 0 auto; background: #1C2418; border: 1px solid #4A5244; padding: 40px;">
+        <body style="font-family: Georgia, serif; background: #212B21; color: #ffffff; padding: 40px 20px; margin: 0;">
+          <div style="max-width: 600px; margin: 0 auto; background: #2B362B; border: 1px solid #5C665C; padding: 40px;">
             <div style="border-bottom: 2px solid #C9A84C; padding-bottom: 20px; margin-bottom: 30px;">
               <h1 style="color: #C9A84C; font-size: 22px; margin: 0; letter-spacing: 2px; text-transform: uppercase; font-weight: 400;">
                 New Consultation Enquiry
@@ -162,8 +162,8 @@ export async function POST(request: NextRequest) {
     const autoReplyHtml = `
       <!DOCTYPE html>
       <html>
-        <body style="font-family: Georgia, serif; background: #151C14; color: #ffffff; padding: 40px 20px; margin: 0;">
-          <div style="max-width: 600px; margin: 0 auto; background: #1C2418; border: 1px solid #4A5244; padding: 40px;">
+        <body style="font-family: Georgia, serif; background: #212B21; color: #ffffff; padding: 40px 20px; margin: 0;">
+          <div style="max-width: 600px; margin: 0 auto; background: #2B362B; border: 1px solid #5C665C; padding: 40px;">
             <div style="border-bottom: 2px solid #C9A84C; padding-bottom: 20px; margin-bottom: 30px;">
               <h1 style="color: #C9A84C; font-size: 20px; margin: 0; letter-spacing: 2px; text-transform: uppercase; font-weight: 400;">
                 Thank You, ${fullName}
@@ -178,7 +178,7 @@ export async function POST(request: NextRequest) {
             <p style="color: #cccccc; font-size: 14px; line-height: 1.8;">
               If you have any urgent questions in the meantime, please don't hesitate to call us directly.
             </p>
-            <div style="margin-top: 32px; padding: 20px; background: #151C14; border-left: 2px solid #C9A84C;">
+            <div style="margin-top: 32px; padding: 20px; background: #212B21; border-left: 2px solid #C9A84C;">
               <p style="color: #C9A84C; font-size: 13px; margin: 0 0 6px; letter-spacing: 1px; text-transform: uppercase;">Element 7</p>
               <p style="color: #888; font-size: 13px; margin: 0;">hello@element7.com.au</p>
               <p style="color: #888; font-size: 13px; margin: 4px 0 0;">1300 000 000</p>

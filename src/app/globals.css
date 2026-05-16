@@ -9,10 +9,10 @@
   --gold: #C9A84C;
   --gold-light: #E2C070;
   --gold-dark: #A07832;
-  --obsidian: #151C14;
-  --obsidian-light: #1C2418;
-  --bark: #0E120C;
-  --silver: #B4B8A8;
+  --obsidian: #212B21;
+  --obsidian-light: #2B362B;
+  --bark: #181F1A;
+  --silver: #C0C4B6;
 }
 
 /* ─── Base ─── */
@@ -269,7 +269,7 @@
 
   /* Card */
   .card-dark {
-    @apply bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] shadow-[0_8px_32px_rgba(14,18,12,0.5)]
+    @apply bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] shadow-[0_8px_32px_rgba(24,32,22,0.45)]
       hover:border-gold/40 hover:bg-white/[0.04] transition-all duration-700 hover:-translate-y-1;
   }
 
