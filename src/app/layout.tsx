@@ -1,22 +1,9 @@
 import type { Metadata } from "next";
-import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
 import ScrollProgress from "@/components/ScrollProgress";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Element 7 | Wellness & Recovery Architecture | Australia",
@@ -44,10 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-AU" className={`${montserrat.variable} ${playfair.variable}`}>
-      <head>
-      </head>
-      <body className="bg-obsidian text-sand antialiased">
+    <html lang="en-AU">
+      <body className="bg-cream font-sans text-ink-muted antialiased">
         <ScrollRevealInit />
         <ScrollProgress />
         <Navbar />

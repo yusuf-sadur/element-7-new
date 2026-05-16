@@ -1,12 +1,7 @@
 import HeroSection from "@/components/home/HeroSection";
-import TheDifference from "@/components/home/TheDifference";
-import ServicesOverview from "@/components/home/ServicesOverview";
-import IdealClients from "@/components/home/IdealClients";
+import CorePillars from "@/components/home/CorePillars";
+import ModalityGallery from "@/components/home/ModalityGallery";
 import ProcessSection from "@/components/home/ProcessSection";
-import WellnessPhilosophy from "@/components/home/WellnessPhilosophy";
-import MaterialsPhilosophy from "@/components/home/MaterialsPhilosophy";
-import Testimonials from "@/components/home/Testimonials";
-import FinalCTA from "@/components/home/FinalCTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,14 +14,9 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <TheDifference />
-      <ServicesOverview />
-      <IdealClients />
+      <CorePillars />
+      <ModalityGallery />
       <ProcessSection />
-      <WellnessPhilosophy />
-      <MaterialsPhilosophy />
-      <Testimonials />
-      <FinalCTA />
     </>
   );
 }

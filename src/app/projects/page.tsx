@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/ui/Reveal";
 import Residential from "@/assets/Residential.png";
 import wellnessStudio from "@/assets/Wellness Trends.png";
 import ourProjects from "@/assets/Our Projects.png";
-
-
 
 const projects = [
   {
@@ -73,12 +73,12 @@ const projects = [
   },
 ];
 
-const categories = ["All", "Residential", "Commercial"];
-const types = ["All", "Sauna", "Steam", "Recovery", "Outdoor"];
+const categories = ["All", "Residential", "Commercial"] as const;
+const types = ["All", "Sauna", "Steam", "Recovery", "Outdoor"] as const;
 
 export default function ProjectsPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [activeType, setActiveType] = useState("All");
+  const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>("All");
+  const [activeType, setActiveType] = useState<(typeof types)[number]>("All");
 
   const filtered = projects.filter((p) => {
     const catMatch = activeCategory === "All" || p.category === activeCategory;
@@ -87,102 +87,110 @@ export default function ProjectsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-transparent">
+    <div className="min-h-screen bg-cream">
       <PageHero
         image={ourProjects.src}
         label="Portfolio"
         title="Selected"
         titleAccent="work."
         subtitle="Recovery architecture — residential and commercial environments across Australia."
-        height="100vh"
       />
 
-      <section className="section-padding section-glass">
-        <div className="container-e7 mb-10 scroll-reveal" data-reveal="scale">
-        <div className="flex flex-wrap gap-6">
-          <div className="flex gap-1">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
-                  activeCategory === cat
-                    ? "bg-gold text-earth-umber"
-                    : "border border-sand/10 text-sand/40 hover:border-gold/30 hover:text-gold/70"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-          <div className="flex gap-1">
-            {types.map((type) => (
-              <button
-                key={type}
-                onClick={() => setActiveType(type)}
-                className={`px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
-                  activeType === type
-                    ? "bg-sand/10 text-sand border border-sand/20"
-                    : "border border-sand/[0.06] text-sand/30 hover:text-sand/60"
-                }`}
-              >
-                {type}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
+      <section className="section-padding bg-white">
+        <div className="container-e7">
+          <Reveal variant="up" className="mb-12">
+            <div className="flex flex-wrap gap-3">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setActiveCategory(cat)}
+                  className={`rounded-full px-5 py-2.5 font-sans text-[11px] uppercase tracking-nav transition-all duration-300 ${
+                    activeCategory === cat
+                      ? "bg-olive text-cream shadow-soft"
+                      : "border border-line bg-white text-ink-muted hover:border-olive/30"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+            <div className="mt-3 flex flex-wrap gap-3">
+              {types.map((type) => (
+                <button
+                  key={type}
+                  type="button"
+                  onClick={() => setActiveType(type)}
+                  className={`rounded-full px-4 py-2 font-sans text-[10px] uppercase tracking-nav transition-all duration-300 ${
+                    activeType === type
+                      ? "border border-olive bg-cream-warm text-olive"
+                      : "border border-line text-sand-faint hover:text-ink-muted"
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+          </Reveal>
 
-      {/* Grid */}
-      <div className="container-e7 pb-20">
-        {filtered.length === 0 ? (
-          <div className="scroll-reveal py-20 text-center text-sand/30" data-reveal="blur">
-            No projects match the selected filters.
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-sand/[0.04]">
-            {filtered.map((project, idx) => (
-              <div
-                key={project.id}
-                className="group relative overflow-hidden bg-obsidian scroll-reveal"
-                style={{ transitionDelay: `${idx * 80}ms` }}
+          <AnimatePresence mode="popLayout">
+            {filtered.length === 0 ? (
+              <motion.p
+                key="empty"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="py-20 text-center text-ink-muted"
               >
-                <div className="relative h-64 overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-bark/40 to-transparent" />
-                  <div className="absolute top-4 left-4 flex gap-2">
-                    <span className="badge-gold text-[10px]">{project.category}</span>
-                    <span className="text-[10px] border border-sand/20 text-sand/60 px-2 py-1">{project.type}</span>
-                  </div>
-                </div>
-
-                <div className="p-7">
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-[10px] text-sand/35 tracking-wider uppercase border border-sand/[0.07] px-2 py-0.5">
-                        {tag}
+                No projects match the selected filters.
+              </motion.p>
+            ) : (
+              <motion.div
+                key={`${activeCategory}-${activeType}`}
+                layout
+                className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                {filtered.map((project, idx) => (
+                  <motion.article
+                    key={project.id}
+                    layout
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="group card-modern !p-0 overflow-hidden"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-[1.2s] ease-smooth group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+<div className="absolute inset-0 bg-image-overlay-soft" />
+                      <div className="absolute left-4 top-4 flex gap-2">
+                        <span className="badge-gold !bg-white/90">{project.category}</span>
+                      </div>
+                    </div>
+<div className="p-7">
+                      <h3 className="font-display text-xl text-ink transition-colors group-hover:text-olive">
+                        {project.title}
+                      </h3>
+                      <p className="mt-1 text-xs uppercase tracking-nav text-sand-faint">{project.suburb}</p>
+                      <p className="mt-3 line-clamp-2 text-sm font-light text-ink-muted">{project.description}</p>
+                      <span className="mt-5 inline-flex items-center gap-1 font-sans text-[11px] uppercase tracking-nav text-olive">
+                        View project <ArrowUpRight size={12} />
                       </span>
-                    ))}
-                  </div>
-                  <h3 className="font-display text-lg font-light text-sand mb-2 group-hover:text-gold transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <p className="text-sand/35 text-xs mb-1">{project.suburb}</p>
-                  <p className="text-sand/45 text-xs leading-relaxed mb-5 line-clamp-2">{project.description}</p>
-                  <div className="text-gold/50 hover:text-gold text-xs font-semibold tracking-wider uppercase flex items-center gap-2 transition-all duration-300 group/link cursor-pointer">
-                    View Project
-                    <ArrowRight size={12} className="translate-x-0 group-hover/link:translate-x-1 transition-transform duration-300" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+                    </div>
+                  </motion.article>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
     </div>

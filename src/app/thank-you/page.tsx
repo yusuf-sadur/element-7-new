@@ -1,50 +1,54 @@
+"use client";
+
 import Link from "next/link";
 import { CheckCircle, ArrowRight } from "lucide-react";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Thank You — Element 7",
-  description: "Your consultation request has been received. We'll be in touch within 24 hours.",
-};
+import { motion } from "framer-motion";
 
 export default function ThankYouPage() {
   return (
-    <div className="min-h-screen bg-obsidian flex items-center justify-center px-4">
-      <div className="max-w-lg text-center">
-        {/* Icon */}
-        <div className="animate-fade-up mx-auto mb-8 flex h-16 w-16 items-center justify-center border border-gold/30 opacity-0">
-          <CheckCircle size={32} className="text-gold" />
-        </div>
+    <div className="flex min-h-screen items-center justify-center bg-cream px-4">
+      <motion.div
+        className="max-w-lg text-center"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <motion.div
+          className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-sage/20 text-olive"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <CheckCircle size={32} strokeWidth={1.25} />
+        </motion.div>
 
-        <p className="section-label animate-fade-up mb-4 opacity-0 delay-100">Received</p>
-        <h1 className="animate-fade-up mb-6 font-display text-4xl font-light leading-tight text-sand opacity-0 delay-200 md:text-5xl">
-          We&apos;ll be in <span className="italic text-gold">touch.</span>
+        <p className="section-label justify-center">Received</p>
+        <h1 className="display-lg mt-4">
+          We&apos;ll be in <span className="italic text-olive">touch.</span>
         </h1>
-        <div className="divider-gold animate-fade-up mx-auto mb-8 opacity-0 delay-200" />
-        <p className="animate-fade-up mb-10 text-sm leading-relaxed text-sand/55 opacity-0 delay-300">
-          Your enquiry is with our team. We&apos;ll respond within one business day
-          to begin the conversation about your recovery space.
+        <div className="divider-gold mx-auto" />
+        <p className="mt-6 text-base font-light leading-relaxed text-ink-muted">
+          Your enquiry is with our team. We&apos;ll respond within one business day to begin
+          the conversation about your recovery space.
         </p>
 
-        <div className="animate-fade-up flex flex-col justify-center gap-4 opacity-0 delay-[350ms] sm:flex-row">
-          <Link href="/" className="btn-gold" id="thankyou-home">
-            Back to Home
+        <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+          <Link href="/" className="btn-primary" id="thankyou-home">
+            Back to home
           </Link>
-          <Link href="/projects" className="btn-outline" id="thankyou-projects">
-            View Our Projects
+          <Link href="/projects" className="btn-ghost" id="thankyou-projects">
+            View projects
             <ArrowRight size={16} />
           </Link>
         </div>
 
-        <div className="animate-fade-up mt-12 border-t border-sand/[0.08] pt-8 opacity-0 delay-500">
-          <p className="text-sand/30 text-xs">
-            Have an urgent enquiry? Call us on{" "}
-            <a href="tel:+611300000000" className="text-gold hover:underline">
-              1300 000 000
-            </a>
-          </p>
-        </div>
-      </div>
+        <p className="mt-12 text-sm text-sand-faint">
+          Urgent enquiry?{" "}
+          <a href="tel:+611300000000" className="text-olive hover:underline">
+            1300 000 000
+          </a>
+        </p>
+      </motion.div>
     </div>
   );
 }

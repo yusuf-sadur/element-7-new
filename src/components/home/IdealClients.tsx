@@ -69,7 +69,7 @@ export default function IdealClients() {
           {clientTypes.map((client, idx) => (
             <div
               key={client.title}
-              className="group bg-bark/30 p-8 transition-colors duration-500 hover:bg-sand/[0.02]"
+              className="group bg-cream-warm/50 p-8 transition-colors duration-500 hover:bg-sand/[0.02]"
               style={{ transitionDelay: `${idx * 60}ms` }}
             >
               <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-gold/70">

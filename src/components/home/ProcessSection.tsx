@@ -1,6 +1,8 @@
 "use client";
 
 import { MessageSquare, Ruler, HardHat, Wrench, HeartHandshake } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+import { RevealStagger, RevealStaggerItem } from "@/components/ui/RevealStagger";
 
 const steps = [
   {
@@ -42,48 +44,45 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="section-padding section-glass overflow-hidden">
-      {/* Connection line (desktop) */}
-      <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent pointer-events-none" />
+    <section id="process" className="relative overflow-hidden bg-olive-dark">
+      <div className="bg-mesh pointer-events-none absolute inset-0 opacity-40" aria-hidden />
 
-      <div className="container-e7">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
-          <p className="section-label">End to end</p>
-          <h2 className="font-display text-5xl md:text-7xl font-light text-sand leading-tight">
+      <div className="container-e7 relative section-padding">
+        <Reveal variant="left" className="mb-16 max-w-xl md:mb-24">
+          <p className="section-label text-sage-light [&::before]:bg-sage/50">End to end</p>
+          <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-light leading-[1.08] tracking-tight text-cream">
             Consultation to{" "}
-            <span className="italic text-gold">delivery.</span>
+            <span className="italic text-sage-light">delivery.</span>
           </h2>
-          <div className="divider-gold mx-auto mt-6" />
-        </div>
+          <div className="mt-8 h-px w-16 bg-sage/40" />
+        </Reveal>
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-px bg-sand/[0.04]">
-          {steps.map((step, idx) => (
-            <div
-              key={step.number}
-              className="group bg-obsidian-mid p-8 hover:bg-sand/[0.025] transition-all duration-500 relative scroll-reveal"
-              style={{ transitionDelay: `${idx * 100}ms` }}
-            >
-              {/* Number */}
-              <div className="font-display text-6xl font-light text-gold/8 group-hover:text-gold/15 transition-colors duration-300 absolute top-6 right-6 leading-none">
-                {step.number}
-              </div>
+        <Reveal variant="fade" delay={0.1}>
+          <div className="relative">
+            <div className="absolute left-0 right-0 top-[52px] hidden h-px bg-cream/10 lg:block" aria-hidden />
 
-              {/* Icon */}
-              <div className="w-12 h-12 border border-gold/20 flex items-center justify-center mb-6 group-hover:border-gold/50 group-hover:bg-gold/5 transition-all duration-300">
-                <step.icon size={20} className="text-gold/60 group-hover:text-gold transition-colors duration-300" />
-              </div>
-
-              <h3 className="font-semibold text-sand text-sm mb-3 group-hover:text-gold transition-colors duration-300">
-                {step.title}
-              </h3>
-              <p className="text-sand/40 text-xs leading-relaxed group-hover:text-sand/55 transition-colors duration-300">
-                {step.description}
-              </p>
-            </div>
-          ))}
-        </div>
+            <RevealStagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5" stagger={0.07}>
+              {steps.map((step) => (
+                <RevealStaggerItem
+                  key={step.number}
+                  as="motion.article"
+                  className="group rounded-3xl border border-cream/10 bg-cream/5 p-8 backdrop-blur-sm transition-all duration-500 hover:border-sage/30 hover:bg-cream/10"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cream/10 text-sage-light transition-all duration-500 group-hover:scale-105 group-hover:bg-sage/20">
+                    <step.icon size={20} strokeWidth={1.25} />
+                  </div>
+                  <span className="mt-8 block font-sans text-[11px] font-semibold tabular-nums text-wood/80">
+                    {step.number}
+                  </span>
+                  <h3 className="mt-4 font-display text-xl text-cream">{step.title}</h3>
+                  <p className="mt-3 font-sans text-sm font-light leading-relaxed text-cream/60">
+                    {step.description}
+                  </p>
+                </RevealStaggerItem>
+              ))}
+            </RevealStagger>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

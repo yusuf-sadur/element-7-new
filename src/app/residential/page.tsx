@@ -1,7 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
-import ConsultationForm from "@/components/ConsultationForm";
+import ConsultationPanel from "@/components/ui/ConsultationPanel";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 import type { Metadata } from "next";
 import Residential from "@/assets/Residential.png";
 
@@ -22,90 +25,88 @@ const features = [
 
 export default function ResidentialPage() {
   return (
-    <div className="min-h-screen bg-transparent">
+    <div className="min-h-screen bg-cream">
       <PageHero
         image={Residential.src}
         label="Residential"
         title="Home"
         titleAccent="recovery architecture."
         subtitle="Luxury wellness integration — custom, low-tox, designed around how you live."
-        height="100vh"
       />
 
-      <section className="section-padding section-glass">
-        <div className="container-e7">
-        <div className="grid lg:grid-cols-2 gap-16 mb-20">
-          <div className="scroll-reveal">
-            <p className="section-label">Luxury home wellness</p>
-            <h2 className="font-display text-4xl font-light text-sand leading-tight mb-6">
-              Wellness as <span className="italic text-gold">infrastructure.</span>
-            </h2>
-            <div className="divider-gold" />
-            <p className="text-sand/55 text-sm leading-relaxed mt-6 mb-4">
-              Private saunas, cold plunge, steam, and complete recovery suites —
-              integrated into your architecture with calm, minimal refinement.
-            </p>
-            <p className="text-sand/55 text-sm leading-relaxed mb-8">
-              From a compact bathroom sauna to a full wellness wing — consultation,
-              design, construction, and delivery under one team.
-            </p>
-            <Link href="/contact" className="btn-gold" id="residential-cta">
-              Begin consultation
-              <ArrowRight size={16} />
-            </Link>
-          </div>
+      <section className="section-padding bg-white">
 
-          <div className="scroll-reveal" style={{ transitionDelay: "200ms" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80"
-              alt="Residential cold plunge and sauna"
-              className="w-full h-80 object-cover"
-            />
+<div className="container-e7">
+          <div className="grid items-center gap-16 lg:grid-cols-2">
+            <Reveal variant="left">
+              <SectionHeader
+                label="Luxury home wellness"
+                title={
+                  <>
+                    Wellness as <span className="italic text-olive">infrastructure.</span>
+                  </>
+                }
+                description="Private saunas, cold plunge, steam, and complete recovery suites — integrated into your architecture with calm, minimal refinement."
+              />
+              <p className="mt-6 text-base font-light text-ink-muted">
+                From a compact bathroom sauna to a full wellness wing — consultation, design,
+                construction, and delivery under one team.
+              </p>
+              <Link href="/contact" className="btn-primary mt-10 inline-flex" id="residential-cta">
+                Begin consultation
+                <ArrowRight size={16} />
+              </Link>
+            </Reveal>
+            <Reveal variant="right" delay={0.12}>
+              <div className="image-card aspect-[4/5]">
+                <Image
+                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80"
+                  alt="Residential cold plunge and sauna"
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                />
+              </div>
+            </Reveal>
           </div>
         </div>
+      </section>
 
-        {/* Features */}
-        <div className="scroll-reveal">
-          <div className="text-center mb-12">
-            <p className="section-label">What we create</p>
-            <h2 className="font-display text-3xl font-light text-sand">
-              Residential <span className="italic text-gold">environments.</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-sand/[0.05]">
+      <section className="section-padding bg-cream-warm">
+        <div className="container-e7">
+          <Reveal variant="up" className="mb-14">
+            <SectionHeader
+              align="center"
+              label="What we create"
+              title={
+                <>
+                  Residential <span className="italic text-olive">environments.</span>
+                </>
+              }
+            />
+          </Reveal>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((f, idx) => (
-              <div
-                key={f.title}
-                className="group bg-obsidian p-8 hover:bg-sand/[0.02] transition-all duration-500 scroll-reveal"
-                style={{ transitionDelay: `${idx * 80}ms` }}
-              >
-                <div className="w-8 h-px bg-gold mb-5 group-hover:w-16 transition-all duration-500" />
-                <h3 className="font-display text-xl font-light text-sand mb-3 group-hover:text-gold transition-colors">
-                  {f.title}
-                </h3>
-                <p className="text-sand/40 text-xs leading-relaxed">{f.description}</p>
-              </div>
+              <Reveal key={f.title} variant="up" delay={idx * 0.06} className="card-modern group">
+                <span className="block h-px w-8 bg-olive/30 transition-all group-hover:w-14" />
+                <h3 className="mt-6 font-display text-xl text-ink group-hover:text-olive">{f.title}</h3>
+                <p className="mt-3 text-sm font-light text-ink-muted">{f.description}</p>
+              </Reveal>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* CTA + form */}
-        <div className="mt-20 grid lg:grid-cols-2 gap-16 items-start">
-          <div className="scroll-reveal">
-            <p className="section-label">Begin</p>
-            <h2 className="font-display text-3xl font-light text-sand mb-4">
-              Design your <span className="italic text-gold">home sanctuary.</span>
-            </h2>
-            <p className="text-sand/50 text-sm leading-relaxed">
-              A quiet conversation about your property, rituals, and the recovery
-              environment you want — no obligation.
-            </p>
-          </div>
-          <div className="scroll-reveal" style={{ transitionDelay: "200ms" }}>
-            <ConsultationForm compact />
-          </div>
-        </div>
+      <section className="section-padding bg-cream">
+        <div className="container-e7">
+          <ConsultationPanel
+            title={
+              <>
+                Design your <span className="italic text-olive">home sanctuary.</span>
+              </>
+            }
+            compact
+          />
         </div>
       </section>
     </div>

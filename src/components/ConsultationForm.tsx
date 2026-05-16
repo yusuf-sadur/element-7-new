@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Send, Loader2, CheckCircle, AlertCircle, Lock } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+import FormSelect from "@/components/ui/FormSelect";
 
 interface FormData {
   fullName: string;
@@ -44,9 +46,16 @@ const projectTypes = ["Residential", "Commercial", "Both"];
  */
 export default function ConsultationForm({
   compact = false,
+  theme = "dark",
+  embedded = false,
+  showHeader = true,
 }: {
   compact?: boolean;
+  theme?: "dark" | "light";
+  embedded?: boolean;
+  showHeader?: boolean;
 }) {
+  const isLight = theme === "light";
   const router = useRouter();
 
   const [formData, setFormData] = useState<FormData>({
@@ -133,24 +142,21 @@ export default function ConsultationForm({
   };
 
   const inputClass = `form-input ${compact ? "py-3" : "py-3.5"}`;
-  const labelClass =
-    "block text-xs font-semibold tracking-wider text-sand/60 uppercase mb-1.5";
+  const labelClass = isLight
+    ? "mb-1.5 block font-sans text-[10px] font-semibold uppercase tracking-label text-ink-faint"
+    : "mb-1.5 block text-xs font-semibold uppercase tracking-wider text-sand/60";
+  const requiredMark = isLight ? "text-olive" : "text-gold";
+  const wrapperClass = isLight
+    ? "rounded-2xl border border-line/60 bg-white"
+    : "rounded-2xl border border-sand/[0.12] bg-obsidian-mid/82 backdrop-blur-md";
+  const paddingClass = embedded ? "" : "p-8 md:p-10";
 
-  return (
-    <div className="rounded-2xl bg-obsidian-mid/82 backdrop-blur-md border border-sand/[0.12] p-8 md:p-10">
-      <h3 className="font-display text-2xl font-light text-sand mb-2">
-        Begin a conversation
-      </h3>
-      <p className="text-sand/40 text-xs mb-8 leading-relaxed">
-        Share your vision — we&apos;ll respond within one business day to arrange
-        a calm, no-obligation consultation.
-      </p>
-
+  const formEl = (
       <form onSubmit={handleSubmit} className="space-y-5" id="consultation-form">
         {/* Full Name */}
         <div>
           <label htmlFor="fullName" className={labelClass}>
-            Full Name <span className="text-gold">*</span>
+            Full Name <span className={requiredMark}>*</span>
           </label>
           <input
             type="text"
@@ -168,7 +174,7 @@ export default function ConsultationForm({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="phone" className={labelClass}>
-              Phone <span className="text-gold">*</span>
+              Phone <span className={requiredMark}>*</span>
             </label>
             <input
               type="tel"
@@ -183,7 +189,7 @@ export default function ConsultationForm({
           </div>
           <div>
             <label htmlFor="email" className={labelClass}>
-              Email <span className="text-gold">*</span>
+              Email <span className={requiredMark}>*</span>
             </label>
             <input
               type="email"
@@ -202,53 +208,41 @@ export default function ConsultationForm({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="serviceType" className={labelClass}>
-              Service Interested In <span className="text-gold">*</span>
+              Service Interested In <span className={requiredMark}>*</span>
             </label>
-            <select
+            <FormSelect
               id="serviceType"
               name="serviceType"
               value={formData.serviceType}
               onChange={handleChange}
               required
-              className={`${inputClass} appearance-none cursor-pointer`}
-            >
-              <option value="" disabled>
-                Select a service
-              </option>
-              {serviceTypes.map((s) => (
-                <option key={s} value={s} className="bg-obsidian">
-                  {s}
-                </option>
-              ))}
-            </select>
+              theme={isLight ? "light" : "dark"}
+              compact={compact}
+              placeholder="Select a service"
+              options={serviceTypes}
+            />
           </div>
           <div>
             <label htmlFor="projectType" className={labelClass}>
               Project Type
             </label>
-            <select
+            <FormSelect
               id="projectType"
               name="projectType"
               value={formData.projectType}
               onChange={handleChange}
-              className={`${inputClass} appearance-none cursor-pointer`}
-            >
-              <option value="" disabled>
-                Select type
-              </option>
-              {projectTypes.map((t) => (
-                <option key={t} value={t} className="bg-obsidian">
-                  {t}
-                </option>
-              ))}
-            </select>
+              theme={isLight ? "light" : "dark"}
+              compact={compact}
+              placeholder="Select project type"
+              options={projectTypes}
+            />
           </div>
         </div>
 
         {/* Message */}
         <div>
           <label htmlFor="message" className={labelClass}>
-            Tell Us About Your Project <span className="text-gold">*</span>
+            Tell Us About Your Project <span className={requiredMark}>*</span>
           </label>
           <textarea
             id="message"
@@ -264,13 +258,25 @@ export default function ConsultationForm({
 
         {/* Status messages — mirror Supreme Town exactly */}
         {formStatus.success && (
-          <div className="flex items-center gap-3 bg-gold/10 border border-gold/30 text-gold px-4 py-3 text-sm">
+          <div
+            className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-sm ${
+              isLight
+                ? "border-sage/30 bg-sage/10 text-olive"
+                : "border-gold/30 bg-gold/10 text-gold"
+            }`}
+          >
             <CheckCircle size={18} className="flex-shrink-0" />
             <span className="font-medium">{formStatus.message}</span>
           </div>
         )}
         {formStatus.error && (
-          <div className="flex items-center gap-3 bg-rust/15 border border-rust/35 text-rust-light px-4 py-3 text-sm">
+          <div
+            className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-sm ${
+              isLight
+                ? "border-rust/25 bg-rust/10 text-rust"
+                : "border-rust/35 bg-rust/15 text-rust-light"
+            }`}
+          >
             <AlertCircle size={18} className="flex-shrink-0" />
             <span className="font-medium">{formStatus.message}</span>
           </div>
@@ -281,7 +287,7 @@ export default function ConsultationForm({
           type="submit"
           id="consultation-submit"
           disabled={formStatus.loading}
-          className="btn-gold w-full justify-center text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+          className={`${isLight ? "btn-primary" : "btn-gold"} w-full justify-center text-sm disabled:cursor-not-allowed disabled:opacity-50`}
         >
           {formStatus.loading ? (
             <>
@@ -296,11 +302,49 @@ export default function ConsultationForm({
           )}
         </button>
 
-        <p className="text-xs text-sand/30 text-center flex items-center justify-center gap-1.5">
+        <p
+          className={`flex items-center justify-center gap-1.5 text-center text-xs ${
+            isLight ? "text-ink-faint" : "text-sand/30"
+          }`}
+        >
           <Lock size={11} />
           Your information is kept private and secure
         </p>
       </form>
-    </div>
+  );
+
+  const inner = (
+    <>
+      {showHeader && (
+        <>
+          <h3
+            className={`mb-2 font-display text-2xl font-light ${
+              isLight ? "text-ink" : "text-sand"
+            }`}
+          >
+            Begin a conversation
+          </h3>
+          <p
+            className={`mb-8 text-xs leading-relaxed ${
+              isLight ? "text-ink-muted" : "text-sand/40"
+            }`}
+          >
+            Share your vision — we&apos;ll respond within one business day to arrange a calm,
+            no-obligation consultation.
+          </p>
+        </>
+      )}
+      {formEl}
+    </>
+  );
+
+  if (embedded) {
+    return inner;
+  }
+
+  return (
+    <Reveal variant="up" delay={0.1}>
+      <div className={`${wrapperClass} ${paddingClass}`}>{inner}</div>
+    </Reveal>
   );
 }

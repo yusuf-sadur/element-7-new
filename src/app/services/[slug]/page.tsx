@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import type { StaticImageData } from "next/image";
-import ConsultationForm from "@/components/ConsultationForm";
+import ConsultationPanel from "@/components/ui/ConsultationPanel";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 import ServicePageHero from "@/components/ServicePageHero";
 
 import heroSaunaHome from "@/assets/hero-sauna.jpg";
@@ -100,13 +102,13 @@ export async function generateStaticParams() {
   return Object.keys(servicesData).map((slug) => ({ slug }));
 }
 
+
 export default function ServiceDetailPage({ params }: Readonly<PageProps>) {
   const service = servicesData[params.slug];
   if (!service) notFound();
 
   return (
-    <div className="min-h-screen bg-transparent">
-      {/* Hero */}
+<div className="min-h-screen bg-cream">
       <ServicePageHero
         image={service.heroImage}
         label="Services"
@@ -115,83 +117,68 @@ export default function ServiceDetailPage({ params }: Readonly<PageProps>) {
         lead={service.description}
       />
 
-      <section className="section-padding section-glass">
-        <div className="container-e7">
-          <div className="max-w-4xl mx-auto space-y-16">
-            {/* Overview */}
-            <div className="scroll-reveal">
-              <p className="section-label mb-4">Overview</p>
-              <p className="text-sm font-light leading-relaxed text-sand/55">{service.longDescription}</p>
-            </div>
+      <section className="section-padding bg-white">
+        <div className="container-e7 max-w-4xl">
+          <Reveal variant="up">
+            <SectionHeader label="Overview" title="Built for your rituals." />
+            <p className="-mt-4 text-base font-light leading-relaxed text-ink-muted">
+              {service.longDescription}
+            </p>
+          </Reveal>
 
-            {/* Features & Benefits Grid */}
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Features */}
-              <div className="scroll-reveal" style={{ transitionDelay: "100ms" }}>
-                <h2 className="font-display text-2xl font-light text-sand mb-6">
-                  Features & <span className="italic text-gold">Specifications</span>
-                </h2>
-                <div className="space-y-3">
-                  {service.features.map((f) => (
-                    <div key={f} className="flex items-start gap-3 text-sm text-sand/55">
-                      <div className="w-1 h-1 bg-gold rounded-full flex-shrink-0 mt-1.5" />
-                      {f}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Benefits */}
-              <div className="scroll-reveal" style={{ transitionDelay: "200ms" }}>
-                <h2 className="font-display text-2xl font-light text-sand mb-6">
-                  Health <span className="italic text-gold">Benefits</span>
-                </h2>
-                <div className="grid gap-3">
-                  {service.benefits.map((b) => (
-                    <div
-                      key={b}
-                      className="bg-sand/[0.03] border border-sand/[0.07] px-4 py-3 text-sm text-sand/55 hover:border-gold/20 hover:text-sand/70 transition-all duration-300"
-                    >
-                      {b}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* FAQs */}
-            <div className="scroll-reveal" style={{ transitionDelay: "300ms" }}>
-              <h2 className="font-display text-2xl font-light text-sand mb-6">
-                Frequently Asked <span className="italic text-gold">Questions</span>
+          <div className="mt-20 grid gap-12 md:grid-cols-2">
+            <Reveal variant="left" delay={0.1}>
+              <h2 className="font-display text-2xl text-ink">
+                Features & <span className="italic text-olive">specifications</span>
               </h2>
-              <div className="grid sm:grid-cols-2 gap-8">
-                {service.faqs.map((faq) => (
-                  <div key={faq.q} className="border-b border-sand/[0.08] pb-4">
-                    <h3 className="font-semibold text-sand text-sm mb-2">{faq.q}</h3>
-                    <p className="text-sand/45 text-sm leading-relaxed">{faq.a}</p>
+              <ul className="mt-6 space-y-3">
+                {service.features.map((f) => (
+                  <li key={f} className="flex gap-3 text-sm text-ink-muted">
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-sage" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+            <Reveal variant="right" delay={0.15}>
+              <h2 className="font-display text-2xl text-ink">
+                Health <span className="italic text-olive">benefits</span>
+              </h2>
+              <div className="mt-6 grid gap-3">
+                {service.benefits.map((b) => (
+                  <div key={b} className="rounded-2xl border border-line/80 bg-cream-warm/50 px-4 py-3 text-sm text-ink-muted">
+                    {b}
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Divider */}
-            <div className="divider-gold opacity-20" />
-
-            {/* Bottom Row: Consultation & Related */}
-            <div className="pt-8">
-              {/* Consultation Form - takes 2 cols */}
-              <div className="lg:col-span-2 scroll-reveal" style={{ transitionDelay: "400ms" }}>
-                <div className="mb-8">
-                  <h2 className="font-display text-3xl font-light text-sand mb-2">
-                    Begin your <span className="italic text-gold">project.</span>
-                  </h2>
-                  <p className="text-sand/45 text-sm">A quiet conversation — your space, your vision, your rituals.</p>
-                </div>
-                <ConsultationForm />
-              </div>
-
-            </div>
+            </Reveal>
           </div>
+
+          <Reveal variant="up" delay={0.2} className="mt-20">
+            <h2 className="font-display text-2xl text-ink">
+              Frequently asked <span className="italic text-olive">questions</span>
+            </h2>
+            <div className="mt-8 grid gap-8 sm:grid-cols-2">
+              {service.faqs.map((faq) => (
+                <div key={faq.q} className="border-b border-line pb-6">
+                  <h3 className="font-sans text-sm font-medium text-ink">{faq.q}</h3>
+                  <p className="mt-2 text-sm font-light leading-relaxed text-ink-muted">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section-padding bg-cream">
+        <div className="container-e7">
+          <ConsultationPanel
+            title={
+              <>
+                Begin your <span className="italic text-olive">project.</span>
+              </>
+            }
+          />
         </div>
       </section>
     </div>

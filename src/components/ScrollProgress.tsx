@@ -38,11 +38,11 @@ export default function ScrollProgress() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-x-0 top-0 z-[100] h-[3px] overflow-hidden bg-bark/20"
+      className="pointer-events-none fixed inset-x-0 top-0 z-[100] h-[2px] overflow-hidden bg-line/50"
       aria-hidden
     >
       <div
-        className="h-full bg-gradient-to-r from-gold-dark via-gold to-gold-light shadow-[0_0_12px_rgba(201,168,76,0.35)] transition-[width] duration-150 ease-out"
+        className="h-full bg-gradient-to-r from-olive-dark via-olive to-wood transition-[width] duration-150 ease-out"
         style={{ width: `${pct}%` }}
       />
     </div>

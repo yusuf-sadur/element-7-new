@@ -3,3 +3,10 @@ node_modules
 .env.local
 .env
 dist
+
+# Licensed GT Super web fonts (add locally from Grilli Type)
+public/fonts/*.woff
+public/fonts/*.woff2
+public/fonts/*.otf
+public/fonts/*.ttf
+public/fonts/*.eot

@@ -54,7 +54,7 @@ export default function Testimonials() {
         </div>
 
         {/* Minimalist Slider */}
-        <div className="relative max-w-5xl mx-auto bg-obsidian-light p-10 md:p-20 rounded-[32px] card-dark scroll-reveal">
+        <div className="relative max-w-5xl mx-auto bg-white p-10 shadow-card md:p-20 rounded-[32px] card-dark scroll-reveal">
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"

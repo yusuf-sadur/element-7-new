@@ -2,16 +2,22 @@
 
 import { useEffect } from "react";
 
+const revealTransforms: Record<string, string> = {
+  left: "translate3d(-28px, 0, 0)",
+  right: "translate3d(28px, 0, 0)",
+  up: "translate3d(0, 24px, 0)",
+  scale: "translate3d(0, 12px, 0) scale(0.97)",
+  blur: "translate3d(0, 16px, 0)",
+};
+
 /**
- * Initialises the scroll-reveal IntersectionObserver globally —
- * mirrors the Supreme Town App.tsx implementation exactly.
+ * Scroll-reveal via IntersectionObserver; complements Framer Motion `Reveal` components.
  */
 export default function ScrollRevealInit() {
   useEffect(() => {
     const observerOptions: IntersectionObserverInit = {
-      threshold: 0.08,
-      /* Slightly earlier reveals than a deep -50px inset */
-      rootMargin: "0px 0px -36px 0px",
+      threshold: 0.1,
+      rootMargin: "0px 0px -48px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -23,11 +29,23 @@ export default function ScrollRevealInit() {
       });
     }, observerOptions);
 
+    const applyInitialTransform = (el: Element) => {
+      const htmlEl = el as HTMLElement;
+      const mode = el.getAttribute("data-reveal");
+      if (mode && revealTransforms[mode]) {
+        htmlEl.style.transform = revealTransforms[mode];
+      }
+      const delay = el.getAttribute("data-reveal-delay");
+      if (delay) {
+        htmlEl.style.setProperty("--reveal-delay", delay);
+      }
+    };
+
     const observeElements = () => {
-      const revealElements = document.querySelectorAll(
-        ".scroll-reveal:not(.revealed)"
-      );
-      revealElements.forEach((el) => observer.observe(el));
+      document.querySelectorAll(".scroll-reveal:not(.revealed)").forEach((el) => {
+        applyInitialTransform(el);
+        observer.observe(el);
+      });
     };
 
     observeElements();
@@ -41,10 +59,7 @@ export default function ScrollRevealInit() {
       });
     });
 
-    mutationObserver.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       if (rafId !== null) cancelAnimationFrame(rafId);

@@ -76,7 +76,7 @@ export default function FeaturedProjects() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
                   activeCategory === cat
-                    ? "bg-gold text-earth-umber"
+                    ? "bg-olive text-cream"
                     : "border border-sand/10 text-sand/40 hover:border-gold/30 hover:text-gold/70"
                 }`}
               >
