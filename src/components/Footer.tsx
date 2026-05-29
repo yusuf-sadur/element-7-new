@@ -6,38 +6,34 @@ import {
   Phone,
   Mail,
   MapPin,
-  Facebook,
   Instagram,
-  Youtube,
+  Linkedin,
   ArrowUpRight,
 } from "lucide-react";
+import { BRAND, SPACES } from "@/lib/brand";
 
 const quickLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Residential", href: "/residential" },
-  { name: "Commercial", href: "/commercial" },
+  { name: "Spaces", href: "/services" },
   { name: "Projects", href: "/projects" },
-  { name: "Blogs", href: "/blogs" },
+  { name: "Our Approach", href: "/our-approach" },
+  { name: "Journal", href: "/journal" },
+  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
-const services = [
-  { name: "Custom Saunas", href: "/services/custom-saunas" },
-  { name: "Infrared Saunas", href: "/services/infrared-saunas" },
-  { name: "Steam & Hammam", href: "/services/steam-rooms" },
-  { name: "Cold Plunge", href: "/services/cold-plunge" },
-];
+const spaceLinks = SPACES.map((space) => ({
+  name: space.shortTitle,
+  href: `/services/${space.slug}`,
+}));
 
 const socials = [
-  { href: "https://facebook.com", Icon: Facebook, label: "Facebook" },
   { href: "https://instagram.com", Icon: Instagram, label: "Instagram" },
-  { href: "https://youtube.com", Icon: Youtube, label: "YouTube" },
+  { href: "https://linkedin.com", Icon: Linkedin, label: "LinkedIn" },
 ] as const;
 
 const linkClass =
-  "group flex w-full items-center justify-between gap-2 font-sans text-sm font-light text-ink-muted transition-colors hover:text-olive sm:inline-flex sm:w-auto sm:justify-start";
+  "group flex w-full items-center justify-between gap-2 font-sans text-sm font-light text-stone/60 transition-colors hover:text-bronze sm:inline-flex sm:w-auto sm:justify-start";
 
 function FooterLinkColumn({
   title,
@@ -54,7 +50,7 @@ function FooterLinkColumn({
       style={{ "--reveal-delay": revealDelay } as CSSProperties}
       data-reveal="up"
     >
-      <h3 className="footer-col-label">{title}</h3>
+      <h3 className="footer-col-label-dark">{title}</h3>
       <ul className="footer-link-list">
         {links.map((link) => (
           <li key={link.name}>
@@ -62,7 +58,7 @@ function FooterLinkColumn({
               <span className="truncate">{link.name}</span>
               <ArrowUpRight
                 size={14}
-                className="shrink-0 text-olive/35 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-olive group-hover:opacity-100 sm:opacity-0"
+                className="shrink-0 text-bronze/35 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-bronze group-hover:opacity-100 sm:opacity-0"
                 aria-hidden
               />
             </Link>
@@ -77,18 +73,17 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 overflow-hidden border-t border-line bg-cream">
+    <footer className="relative z-10 overflow-hidden border-t border-stone/10 bg-warm-black">
       <div className="relative">
-        <div className="container-e7 border-b border-line py-9 sm:py-12 md:py-14 lg:py-16">
+        <div className="container-e7 border-b border-stone/10 py-9 sm:py-12 md:py-14 lg:py-16">
           <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-xl scroll-reveal" data-reveal="left">
-              <p className="font-display text-[1.35rem] font-light leading-snug text-ink sm:text-[1.65rem] md:text-3xl">
-                Recovery architecture,{" "}
-                <span className="italic text-olive">built for life.</span>
+              <p className="font-display text-[1.35rem] font-light leading-snug text-stone sm:text-[1.65rem] md:text-3xl">
+                Ready to build your{" "}
+                <span className="italic text-bronze">recovery space?</span>
               </p>
-              <p className="mt-2.5 font-sans text-[13px] font-light leading-relaxed text-ink-muted sm:mt-3 sm:text-sm">
-                Complete wellness environments — consultation, design, construction,
-                and delivery across Australia.
+              <p className="mt-2.5 font-sans text-[13px] font-light leading-relaxed text-stone/55 sm:mt-3 sm:text-sm">
+                {BRAND.description}
               </p>
             </div>
             <div
@@ -98,13 +93,13 @@ export default function Footer() {
             >
               <Link
                 href="/contact"
-                className="btn-primary w-full justify-center sm:w-auto lg:min-w-[240px]"
+                className="btn-primary w-full justify-center sm:w-auto lg:min-w-[260px]"
                 id="footer-cta"
               >
-                Book consultation
+                Book a consultation
               </Link>
-              <p className="text-center font-sans text-[10px] uppercase tracking-label text-sand-faint lg:text-right">
-                Response within one business day
+              <p className="text-center font-sans text-[10px] uppercase tracking-label text-stone/35 lg:text-right">
+                Melbourne based · {BRAND.coverage}
               </p>
             </div>
           </div>
@@ -112,17 +107,17 @@ export default function Footer() {
 
         <div className="container-e7 py-10 sm:py-14 md:py-16 lg:py-20">
           <div className="flex flex-col gap-10 sm:gap-12 lg:grid lg:grid-cols-12 lg:gap-12 xl:gap-16">
-            <div className="scroll-reveal border-b border-line/50 pb-10 sm:pb-0 lg:col-span-4 lg:border-0 lg:pb-0" data-reveal="up">
+            <div className="scroll-reveal border-b border-stone/10 pb-10 sm:pb-0 lg:col-span-4 lg:border-0 lg:pb-0" data-reveal="up">
               <div className="flex items-start justify-between gap-4">
                 <Link
                   href="/"
                   className="group inline-block min-w-0 transition-opacity hover:opacity-90"
                 >
-                  <span className="font-display block text-xl tracking-[0.18em] text-ink sm:text-2xl sm:tracking-[0.2em]">
-                    ELEMENT <span className="text-olive">7</span>
+                  <span className="font-display block text-xl tracking-[0.18em] text-stone sm:text-2xl sm:tracking-[0.2em]">
+                    ELEMENT <span className="text-bronze">7</span>
                   </span>
-                  <span className="mt-0.5 block font-sans text-[10px] uppercase tracking-label text-wood">
-                    Melbourne
+                  <span className="mt-0.5 block font-sans text-[10px] uppercase tracking-label text-timber">
+                    Recovery Architecture
                   </span>
                 </Link>
                 <div className="flex shrink-0 gap-2 sm:hidden">
@@ -133,15 +128,15 @@ export default function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="flex h-9 w-9 items-center justify-center rounded-full border border-line/80 bg-white/60 text-ink-muted transition-colors hover:border-olive/30 hover:text-olive"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border border-stone/15 text-stone/60 transition-colors hover:border-bronze/30 hover:text-bronze"
                     >
                       <Icon size={15} strokeWidth={1.5} />
                     </a>
                   ))}
                 </div>
               </div>
-              <p className="mt-4 max-w-sm font-sans text-[13px] font-light leading-relaxed text-ink-muted sm:mt-5 sm:text-sm">
-                Wellness & recovery design studio — low-tox, custom, end to end.
+              <p className="mt-4 max-w-sm font-sans text-[13px] font-light leading-relaxed text-stone/55 sm:mt-5 sm:text-sm">
+                {BRAND.slogan}
               </p>
               <div className="mt-6 hidden flex-wrap gap-2.5 sm:flex">
                 {socials.map(({ href, Icon, label }) => (
@@ -151,7 +146,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink-muted transition-colors hover:border-olive/30 hover:bg-white hover:text-olive"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-stone/15 text-stone/60 transition-colors hover:border-bronze/30 hover:text-bronze"
                   >
                     <Icon size={17} strokeWidth={1.5} />
                   </a>
@@ -160,8 +155,8 @@ export default function Footer() {
             </div>
 
             <div className="grid grid-cols-2 gap-x-5 sm:gap-x-10 lg:col-span-4 lg:gap-x-12">
-              <FooterLinkColumn title="Explore" links={quickLinks} revealDelay="80ms" />
-              <FooterLinkColumn title="Services" links={services} revealDelay="140ms" />
+              <FooterLinkColumn title="Navigate" links={quickLinks} revealDelay="80ms" />
+              <FooterLinkColumn title="Spaces" links={spaceLinks} revealDelay="140ms" />
             </div>
 
             <div
@@ -169,106 +164,78 @@ export default function Footer() {
               style={{ "--reveal-delay": "200ms" } as CSSProperties}
               data-reveal="right"
             >
-              <h3 className="footer-col-label lg:!mb-6">Contact Us</h3>
-              <div className="footer-contact-card">
-                <div
-                  className="pointer-events-none absolute -right-12 -top-12 hidden h-40 w-40 rounded-full bg-sage/15 blur-2xl sm:block"
-                  aria-hidden
-                />
-                <div
-                  className="pointer-events-none absolute inset-x-0 top-0 hidden h-px bg-gradient-to-r from-transparent via-olive/35 to-transparent sm:block"
-                  aria-hidden
-                />
-
-                <p className="relative font-sans text-[10px] font-medium uppercase tracking-label text-olive sm:text-[11px]">
-                  Melbourne studio
+              <h3 className="footer-col-label-dark lg:!mb-6">Studio</h3>
+              <div className="footer-contact-card-dark">
+                <p className="relative font-sans text-[10px] font-medium uppercase tracking-label text-bronze sm:text-[11px]">
+                  {BRAND.studio} studio
                 </p>
-                <p className="relative mt-0.5 font-display text-base font-light text-ink sm:mt-1 sm:text-lg">
-                  Let&apos;s plan your space
+                <p className="relative mt-0.5 font-display text-base font-light text-stone sm:mt-1 sm:text-lg">
+                  Discuss your build
                 </p>
 
                 <ul className="relative mt-4 sm:mt-6">
                   <li>
-                    <a href="tel:+611300000000" className="footer-contact-row group">
-                      <span className="footer-contact-icon group-hover:bg-olive group-hover:text-cream">
+                    <a href="tel:+611300000000" className="footer-contact-row-dark group">
+                      <span className="footer-contact-icon-dark group-hover:bg-bronze group-hover:text-warm-black">
                         <Phone size={17} strokeWidth={1.5} />
                       </span>
                       <div className="min-w-0 flex-1">
-                        <div className="footer-contact-label">Phone</div>
-                        <div className="font-sans text-sm font-medium text-ink group-hover:text-olive">
+                        <div className="footer-contact-label-dark">Phone</div>
+                        <div className="font-sans text-sm font-medium text-stone group-hover:text-bronze">
                           1300 000 000
                         </div>
                       </div>
-                      <ArrowUpRight
-                        size={14}
-                        className="shrink-0 text-olive/30 sm:text-sand-faint sm:opacity-0 sm:group-hover:translate-x-0.5 sm:group-hover:-translate-y-0.5 sm:group-hover:text-olive sm:group-hover:opacity-100"
-                        aria-hidden
-                      />
                     </a>
                   </li>
                   <li>
                     <a
                       href="mailto:hello@element7.com.au"
-                      className="footer-contact-row group"
+                      className="footer-contact-row-dark group"
                     >
-                      <span className="footer-contact-icon group-hover:bg-olive group-hover:text-cream">
+                      <span className="footer-contact-icon-dark group-hover:bg-bronze group-hover:text-warm-black">
                         <Mail size={17} strokeWidth={1.5} />
                       </span>
                       <div className="min-w-0 flex-1">
-                        <div className="footer-contact-label">Email</div>
-                        <div className="truncate font-sans text-sm font-medium text-ink group-hover:text-olive">
+                        <div className="footer-contact-label-dark">Email</div>
+                        <div className="truncate font-sans text-sm font-medium text-stone group-hover:text-bronze">
                           hello@element7.com.au
                         </div>
                       </div>
-                      <ArrowUpRight
-                        size={14}
-                        className="shrink-0 text-olive/30 sm:text-sand-faint sm:opacity-0 sm:group-hover:translate-x-0.5 sm:group-hover:-translate-y-0.5 sm:group-hover:text-olive sm:group-hover:opacity-100"
-                        aria-hidden
-                      />
                     </a>
                   </li>
                   <li>
-                    <div className="footer-contact-row">
-                      <span className="footer-contact-icon bg-sage/15">
+                    <div className="footer-contact-row-dark">
+                      <span className="footer-contact-icon-dark bg-bronze/10">
                         <MapPin size={17} strokeWidth={1.5} />
                       </span>
                       <div className="min-w-0 flex-1">
-                        <div className="footer-contact-label">Studio</div>
-                        <p className="font-sans text-sm font-medium leading-snug text-ink">
+                        <div className="footer-contact-label-dark">Location</div>
+                        <p className="font-sans text-sm font-medium leading-snug text-stone">
                           Melbourne, VIC
-                          <span className="text-ink-muted"> · Australia-wide</span>
+                          <span className="text-stone/50"> · Australia-wide</span>
                         </p>
                       </div>
                     </div>
                   </li>
                 </ul>
-
-                <div className="relative mt-4 hidden border-t border-line/60 pt-4 sm:mt-5 sm:block sm:pt-5">
-                  <Link href="/contact" className="link-line text-[11px] text-ink-muted hover:text-olive">
-                    Book a consultation
-                  </Link>
-                  <p className="mt-2 font-sans text-[10px] text-sand-faint">
-                    We respond within one business day
-                  </p>
-                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-line bg-white">
+        <div className="border-t border-stone/10 bg-charcoal">
           <div className="container-e7 flex scroll-reveal flex-col gap-3 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-8">
-            <p className="text-center font-sans text-[11px] font-light text-ink-muted sm:text-left">
-              © {year} Element Seven. Crafted in Melbourne.
+            <p className="text-center font-sans text-[11px] font-light text-stone/45 sm:text-left">
+              © {year} Element Seven. {BRAND.studio} · {BRAND.coverage}.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 font-sans text-[11px] uppercase tracking-nav text-ink-muted sm:gap-x-8">
-              <Link href="/privacy-policy" className="transition-colors hover:text-olive">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 font-sans text-[11px] uppercase tracking-nav text-stone/45 sm:gap-x-8">
+              <Link href="/privacy-policy" className="transition-colors hover:text-bronze">
                 Privacy Policy
               </Link>
-              <span className="text-line/80" aria-hidden>
+              <span className="text-stone/20" aria-hidden>
                 ·
               </span>
-              <Link href="/terms" className="transition-colors hover:text-olive">
+              <Link href="/terms" className="transition-colors hover:text-bronze">
                 Terms & Conditions
               </Link>
             </div>

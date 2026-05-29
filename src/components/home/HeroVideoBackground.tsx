@@ -10,12 +10,18 @@ type Props = {
   poster: StaticImageData;
   mp4Src?: string;
   webmSrc?: string;
+  overlay?: "hero" | "cinematic" | "none";
+  imagePriority?: boolean;
+  imageSizes?: string;
 };
 
 export default function HeroVideoBackground({
   poster,
   mp4Src,
   webmSrc,
+  overlay = "hero",
+  imagePriority = true,
+  imageSizes = "100vw",
 }: Props) {
   const reduceMotion = useReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -79,11 +85,11 @@ export default function HeroVideoBackground({
         src={poster}
         alt=""
         fill
-        priority
+        priority={imagePriority}
         className={`object-cover transition-opacity duration-1000 ${
           videoReady ? "opacity-0" : "opacity-100"
         }`}
-        sizes="100vw"
+        sizes={imageSizes}
       />
 
       {useVideo && (
@@ -104,8 +110,15 @@ export default function HeroVideoBackground({
         </video>
       )}
 
-      <div className="hero-video-scrim" />
-      <div className="hero-video-vignette" />
+      {overlay === "hero" ? (
+        <>
+          <div className="hero-video-scrim" />
+          <div className="hero-video-vignette" />
+        </>
+      ) : null}
+      {overlay === "cinematic" ? (
+        <div className="cinematic-overlay absolute inset-0" />
+      ) : null}
     </div>
   );
 }

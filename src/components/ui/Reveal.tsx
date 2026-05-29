@@ -84,7 +84,7 @@ export default function Reveal({
     <Component
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.15, margin: "-60px" }}
+      viewport={{ once: true, amount: 0.12, margin: "-50px" }}
       transition={{ duration, delay, ease: EASE_PREMIUM }}
       variants={variants[variant]}
       className={className}

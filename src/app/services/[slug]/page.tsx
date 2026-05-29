@@ -1,87 +1,7 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
-import type { StaticImageData } from "next/image";
-import ConsultationPanel from "@/components/ui/ConsultationPanel";
-import Reveal from "@/components/ui/Reveal";
-import SectionHeader from "@/components/ui/SectionHeader";
-import ServicePageHero from "@/components/ServicePageHero";
-
-import heroSaunaHome from "@/assets/hero-sauna.jpg";
-import infraredSaunasHome from "@/assets/infrared Saunas.png";
-import steamRoomsHome from "@/assets/steam rooms.png";
-import coldPlungeHome from "@/assets/cold plunge.png";
-
-interface ServiceData {
-  title: string;
-  tagline: string;
-  description: string;
-  longDescription: string;
-  image: StaticImageData;
-  heroImage: StaticImageData;
-  features: string[];
-  benefits: string[];
-  faqs: { q: string; a: string }[];
-}
-
-const servicesData: Record<string, ServiceData> = {
-  "custom-saunas": {
-    title: "Custom Saunas",
-    tagline: "Dry sauna · from design to build",
-    description: "Finnish, infrared, and architectural timber saunas — indoor, outdoor, resort-style. Fully custom. No templates.",
-    longDescription: "Every Element 7 sauna begins with your space and your rituals — not a catalogue. We specify premium timbers, stone, ventilation, and heaters (Harvia, Narvi) with the same rigour we apply to the architecture around them. Indoor, outdoor, minimal, or resort-style — dry heat environments built for longevity and calm.",
-    image: heroSaunaHome,
-    heroImage: heroSaunaHome,
-    features: ["Premium Finnish cedar & thermally modified timber", "Harvia, Narvi & Helo heater options", "Custom benching layouts", "LED chromotherapy lighting", "Architectural glass walls & doors", "Integrated sound systems", "Custom ventilation design", "Stone & tile feature walls"],
-    benefits: ["Recovery & circulation", "Stress reduction", "Sleep quality", "Muscle restoration", "Mental clarity", "Long-term health rituals"],
-    faqs: [
-      { q: "How long does a custom sauna build take?", a: "Typically 4–10 weeks from design finalisation, depending on complexity and materials specified." },
-      { q: "What size sauna do I need?", a: "This depends on your intended use. We design for 1-person private saunas through to 10+ person commercial units. We'll advise during consultation." },
-      { q: "Do you handle all trades?", a: "Yes. Element 7 manages all aspects including electrical, ventilation, plumbing, and structural work under a single contract." },
-    ],
-  },
-  "infrared-saunas": {
-    title: "Infrared Saunas",
-    tagline: "Heat therapy · gentle deep warmth",
-    description: "Lower-temperature sessions with deep tissue warmth — everyday recovery and nervous system regulation.",
-    longDescription: "Infrared heat warms the body directly — comfortable temperatures, longer sessions, quiet recovery. We design cabinets in premium cedar and hemlock with low-EMF panels, chromotherapy, and architectural integration. Heat therapy spaces composed for daily use, not occasional spectacle.",
-    image: infraredSaunasHome,
-    heroImage: infraredSaunasHome,
-    features: ["Full-spectrum & far-infrared panel options", "Premium hemlock & cedar cabinets", "Chromotherapy LED systems", "Bluetooth audio integration", "Low EMF emitter technology", "Custom sizing options", "Carbon or ceramic panel choice"],
-    benefits: ["Deep tissue warmth", "Everyday accessibility", "Nervous system calm", "Joint comfort", "Extended sessions", "Quiet recovery"],
-    faqs: [
-      { q: "Infrared vs traditional sauna — which is better?", a: "Both have distinct benefits. Infrared operates at lower temperatures with deeper tissue heating. Traditional Finnish saunas provide the classic löyly experience. Many clients choose both." },
-      { q: "Is infrared sauna safe?", a: "Yes, infrared saunas are widely used and well-researched. We use low-EMF panels and follow all Australian safety standards." },
-    ],
-  },
-  "steam-rooms": {
-    title: "Steam & Hammam",
-    tagline: "Hammam culture · hydrothermal calm",
-    description: "Steam rooms with moisture control, stone, and refined finishes — hammam culture, architecturally composed.",
-    longDescription: "Steam and hammam spaces demand precision — humidity, ventilation, waterproofing, material longevity. We design hydrothermal environments in premium stone and tile, with chromotherapy, aromatherapy, and custom benching. Quiet steam performance. Elegant recovery environments.",
-    image: steamRoomsHome,
-    heroImage: steamRoomsHome,
-    features: ["Tylo, Mr. Steam & Kohler generators", "Premium marble, stone & mosaic tile", "Chromotherapy lighting systems", "Aromatherapy injection systems", "Rainfall steam nozzle layouts", "Custom teak & iroko benching", "Waterproof audio systems", "Digital control panels"],
-    benefits: ["Skin hydration", "Respiratory ease", "Muscular release", "Circulation", "Stress reduction", "Hammam ritual"],
-    faqs: [
-      { q: "How much does a custom steam room cost?", a: "Residential steam rooms typically range from $15,000 to $60,000+ depending on size, materials and complexity. We provide detailed quotes after consultation." },
-      { q: "Can a steam room be combined with a sauna?", a: "Absolutely — many of our projects feature both, and we design the complete wellness suite as one integrated space." },
-    ],
-  },
-  "cold-plunge": {
-    title: "Cold Plunge",
-    tagline: "Cold therapy · contrast & clarity",
-    description: "Integrated ice baths and contrast therapy — precision chilled, architecturally composed.",
-    longDescription: "Cold plunge is contrast therapy at its most direct — circulation, inflammation, mental clarity. We integrate chilled immersion into complete recovery environments: natural stone, acrylic, or stainless, with filtration, UV sanitisation, and exact temperature control. Paired with sauna or standalone — always custom, always considered.",
-    image: coldPlungeHome,
-    heroImage: coldPlungeHome,
-    features: ["Precision chilling to 4–15°C", "Natural stone, acrylic & stainless options", "Continuous filtration & UV sanitisation", "Digital temperature control & monitoring", "Indoor & outdoor configurations", "Entry steps & grab rails", "Integrated bench seating", "Custom sizing from 1–8 person"],
-    benefits: ["Inflammation reduction", "Circulation", "Mental clarity", "Recovery speed", "Resilience", "Contrast therapy"],
-    faqs: [
-      { q: "What temperature should a cold plunge be?", a: "Most protocols recommend 10–15°C for recovery, with advanced users going to 8–10°C. Our systems are adjustable and we advise on optimal protocols." },
-      { q: "How is a cold plunge maintained?", a: "Our plunges include automated filtration and UV sanitisation. We provide maintenance guidance and offer servicing contracts." },
-    ],
-  },
-};
+import ServiceDetailScrollExperience from "@/components/services/ServiceDetailScrollExperience";
+import { LEGACY_SPACE_SLUGS, SPACES_BY_SLUG } from "@/lib/brand";
 
 interface PageProps {
   params: { slug: string };
@@ -90,97 +10,30 @@ interface PageProps {
 export async function generateMetadata({
   params,
 }: Readonly<PageProps>): Promise<Metadata> {
-  const service = servicesData[params.slug];
-  if (!service) return { title: "Service Not Found — Element 7" };
+  const resolvedSlug = LEGACY_SPACE_SLUGS[params.slug] ?? params.slug;
+  const space = SPACES_BY_SLUG[resolvedSlug as keyof typeof SPACES_BY_SLUG];
+  if (!space) return { title: "Space Not Found — Element Seven" };
   return {
-    title: `${service.title} | Element 7 Melbourne`,
-    description: service.description,
+    title: `${space.title} | Design & Build — Element Seven`,
+    description: space.description,
   };
 }
 
 export async function generateStaticParams() {
-  return Object.keys(servicesData).map((slug) => ({ slug }));
+  return [
+    ...Object.keys(SPACES_BY_SLUG).map((slug) => ({ slug })),
+    ...Object.keys(LEGACY_SPACE_SLUGS).map((slug) => ({ slug })),
+  ];
 }
 
+export default function SpaceDetailPage({ params }: Readonly<PageProps>) {
+  const legacySlug = LEGACY_SPACE_SLUGS[params.slug];
+  if (legacySlug) {
+    redirect(`/services/${legacySlug}`);
+  }
 
-export default function ServiceDetailPage({ params }: Readonly<PageProps>) {
-  const service = servicesData[params.slug];
-  if (!service) notFound();
+  const space = SPACES_BY_SLUG[params.slug as keyof typeof SPACES_BY_SLUG];
+  if (!space) notFound();
 
-  return (
-<div className="min-h-screen bg-cream">
-      <ServicePageHero
-        image={service.heroImage}
-        label="Services"
-        title={service.title}
-        tagline={service.tagline}
-        lead={service.description}
-      />
-
-      <section className="section-padding bg-white">
-        <div className="container-e7 max-w-4xl">
-          <Reveal variant="up">
-            <SectionHeader label="Overview" title="Built for your rituals." />
-            <p className="-mt-4 text-base font-light leading-relaxed text-ink-muted">
-              {service.longDescription}
-            </p>
-          </Reveal>
-
-          <div className="mt-20 grid gap-12 md:grid-cols-2">
-            <Reveal variant="left" delay={0.1}>
-              <h2 className="font-display text-2xl text-ink">
-                Features & <span className="italic text-olive">specifications</span>
-              </h2>
-              <ul className="mt-6 space-y-3">
-                {service.features.map((f) => (
-                  <li key={f} className="flex gap-3 text-sm text-ink-muted">
-                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-sage" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-            <Reveal variant="right" delay={0.15}>
-              <h2 className="font-display text-2xl text-ink">
-                Health <span className="italic text-olive">benefits</span>
-              </h2>
-              <div className="mt-6 grid gap-3">
-                {service.benefits.map((b) => (
-                  <div key={b} className="rounded-2xl border border-line/80 bg-cream-warm/50 px-4 py-3 text-sm text-ink-muted">
-                    {b}
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal variant="up" delay={0.2} className="mt-20">
-            <h2 className="font-display text-2xl text-ink">
-              Frequently asked <span className="italic text-olive">questions</span>
-            </h2>
-            <div className="mt-8 grid gap-8 sm:grid-cols-2">
-              {service.faqs.map((faq) => (
-                <div key={faq.q} className="border-b border-line pb-6">
-                  <h3 className="font-sans text-sm font-medium text-ink">{faq.q}</h3>
-                  <p className="mt-2 text-sm font-light leading-relaxed text-ink-muted">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section-padding bg-cream">
-        <div className="container-e7">
-          <ConsultationPanel
-            title={
-              <>
-                Begin your <span className="italic text-olive">project.</span>
-              </>
-            }
-          />
-        </div>
-      </section>
-    </div>
-  );
+  return <ServiceDetailScrollExperience space={space} />;
 }

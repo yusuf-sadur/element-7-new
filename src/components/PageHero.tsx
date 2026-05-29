@@ -1,82 +1,62 @@
 "use client";
 
-
-
-import InteriorHero from "@/components/ui/InteriorHero";
-
+import type { ReactNode } from "react";
+import type { StaticImageData } from "next/image";
+import ServiceCinematicHero from "@/components/services/ServiceCinematicHero";
 import type { HeroVariant } from "@/lib/hero-variants";
 
-
-
 interface PageHeroProps {
-
-  image: string;
-
+  image: string | StaticImageData;
   label: string;
-
   title: string;
-
   titleAccent?: string;
-
   subtitle?: string;
-
   compact?: boolean;
-
-  children?: React.ReactNode;
-
+  children?: ReactNode;
   variant?: HeroVariant;
-
+  eyebrowSuffix?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+  showSecondary?: boolean;
 }
-
-
 
 export default function PageHero({
-
   image,
-
   label,
-
   title,
-
   titleAccent,
-
   subtitle,
-
   compact,
-
   children,
-
-  variant = "mist",
-
+  variant,
+  eyebrowSuffix,
+  primaryHref,
+  primaryLabel,
+  secondaryHref,
+  secondaryLabel,
+  showSecondary,
 }: Readonly<PageHeroProps>) {
+  const resolvedEyebrow =
+    eyebrowSuffix ?? (variant === "invitation" ? "Consultation" : "Design & Build");
 
   return (
-
-    <InteriorHero
-
+    <ServiceCinematicHero
       image={image}
-
       label={label}
-
       title={title}
-
-      accent={titleAccent}
-
+      titleAccent={titleAccent}
       subtitle={subtitle}
-
       compact={compact}
-
-      variant={variant}
-
-      imageAlt={`${title}${titleAccent ? ` ${titleAccent}` : ""} — Element 7`}
-
+      eyebrowSuffix={resolvedEyebrow}
+      primaryHref={primaryHref}
+      primaryLabel={primaryLabel}
+      secondaryHref={secondaryHref}
+      secondaryLabel={secondaryLabel}
+      showSecondary={showSecondary}
     >
-
       {children}
-
-    </InteriorHero>
-
+    </ServiceCinematicHero>
   );
-
 }
-

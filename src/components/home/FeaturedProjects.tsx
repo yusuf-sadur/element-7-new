@@ -1,156 +1,109 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+import ParallaxMedia from "@/components/home/parallax/ParallaxMedia";
+import ourProjectsImg from "@/assets/Our Projects.png";
+import residentialImg from "@/assets/Residential.png";
+import wellnessStudioImg from "@/assets/Wellness Trends.png";
+import heroSauna2Img from "@/assets/hero-sauna2.jpg";
+import steamRoomsImg from "@/assets/steam rooms.png";
 
 const projects = [
   {
-    id: 1,
-    title: "Toorak Private Wellness Suite",
-    category: "Residential",
-    tags: ["Custom Sauna", "Steam Room", "Cold Plunge"],
-    image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&q=80",
-    description:
-      "A complete indoor wellness suite featuring a Finnish sauna, chromotherapy steam room, and precision cold plunge — seamlessly integrated into a luxury Melbourne home.",
+    title: "Toorak Residence",
+    type: "Sauna & Recovery Suite",
+    image: ourProjectsImg,
   },
   {
-    id: 2,
-    title: "Mornington Peninsula Outdoor Sauna",
-    category: "Residential",
-    tags: ["Outdoor Sauna", "Contrast Therapy"],
-    image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80",
-    description:
-      "A bespoke outdoor barrel sauna and cold plunge pod nestled within a coastal landscape — designed for year-round use and architectural harmony.",
+    title: "Brighton Contrast Suite",
+    type: "Sauna & Plunge Build",
+    image: residentialImg,
   },
   {
-    id: 3,
-    title: "South Yarra Boutique Gym Recovery",
-    category: "Commercial",
-    tags: ["Commercial", "Recovery Room", "Infrared"],
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80",
-    description:
-      "A complete gym recovery wing featuring infrared sauna pods, a contrast therapy pool, and a guided recovery lounge for a premium South Yarra fitness studio.",
+    title: "Fitzroy Studio Fit-Out",
+    type: "Commercial Fit-Out",
+    image: wellnessStudioImg,
   },
   {
-    id: 4,
-    title: "Portsea Wellness Pavilion",
-    category: "Residential",
-    tags: ["Steam Room", "Cold Plunge", "Outdoor"],
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80",
-    description:
-      "A stunning freestanding wellness pavilion with internal steam room and external cold plunge, overlooking Port Phillip Bay.",
+    title: "Mornington Outdoor Sauna",
+    type: "Outdoor Sauna Build",
+    image: heroSauna2Img,
   },
-];
-
-const categories = ["All", "Residential", "Commercial"];
+  {
+    title: "Portsea Steam & Plunge",
+    type: "Steam & Cold Plunge",
+    image: steamRoomsImg,
+  },
+] as const;
 
 export default function FeaturedProjects() {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filtered =
-    activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
-
   return (
-    <section id="projects" className="section-padding section-glass overflow-hidden">
-      <div className="absolute inset-0 bg-dot-pattern opacity-30 pointer-events-none" />
-
-      <div className="container-e7 relative z-10">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <div className="scroll-reveal">
-            <p className="section-label">Portfolio</p>
-            <h2 className="font-display text-5xl md:text-7xl font-light text-sand leading-tight">
-              Featured{" "}
-              <span className="italic text-gold">Projects</span>
+    <section id="projects" className="bg-stone">
+      <div className="container-e7 section-padding">
+        <Reveal
+          variant="up"
+          className="mb-10 flex flex-col gap-5 md:mb-12 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-light uppercase leading-[1.12] tracking-tight text-ink">
+              Projects we&apos;ve delivered
             </h2>
+            <p className="mt-3 max-w-xl text-sm font-light leading-relaxed text-ink-muted">
+              Selected residential and commercial builds — saunas, steam, plunge, and
+              recovery suites.
+            </p>
           </div>
-
-          {/* Filter tabs */}
-          <div className="flex gap-1 scroll-reveal" style={{ transitionDelay: "200ms" }}>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
-                  activeCategory === cat
-                    ? "bg-olive text-cream"
-                    : "border border-sand/10 text-sand/40 hover:border-gold/30 hover:text-gold/70"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Project grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-sand/[0.04]">
-          {filtered.map((project, idx) => (
-            <div
-              key={project.id}
-              className="group relative overflow-hidden bg-obsidian scroll-reveal"
-              style={{ transitionDelay: `${idx * 100}ms` }}
-            >
-              {/* Image */}
-              <div className="relative h-72 overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-bark/40 to-transparent" />
-
-                {/* Category badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="badge-gold text-[10px]">{project.category}</span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-7">
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] text-sand/40 tracking-wider uppercase border border-sand/[0.08] px-2.5 py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h3 className="font-display text-xl font-light text-sand mb-3 group-hover:text-gold transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-sand/45 text-xs leading-relaxed mb-5">
-                  {project.description}
-                </p>
-                <Link
-                  href={`/projects/${project.id}`}
-                  className="text-gold/60 hover:text-gold text-xs font-semibold tracking-wider uppercase flex items-center gap-2 transition-all duration-300 group/link"
-                >
-                  View Project
-                  <ArrowRight
-                    size={14}
-                    className="translate-x-0 group-hover/link:translate-x-1 transition-transform duration-300"
-                  />
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-12 scroll-reveal" style={{ transitionDelay: "400ms" }}>
-          <Link href="/projects" className="btn-outline" id="projects-view-all">
-            View All Projects
-            <ArrowRight size={16} />
+          <Link
+            href="/projects"
+            className="link-line shrink-0 text-[11px] text-ink-muted hover:text-bronze"
+          >
+            View all projects
+            <ArrowUpRight size={14} />
           </Link>
+        </Reveal>
+
+        <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-2 scrollbar-none sm:gap-4 md:mx-0 md:grid md:grid-cols-5 md:overflow-visible md:px-0 md:pb-0">
+          {projects.map((project, idx) => (
+            <Reveal
+              key={project.title}
+              variant="up"
+              delay={idx * 0.05}
+              className="w-[72vw] shrink-0 md:w-auto"
+            >
+              <Link href="/projects" className="group block">
+                <div className="cinematic-card relative aspect-[4/5] min-h-[240px] overflow-hidden sm:min-h-[260px] md:aspect-[5/6] md:min-h-0">
+                  <div className="cinematic-card-media">
+                    <ParallaxMedia speed={0.2} className="!absolute !inset-0">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 72vw, 20vw"
+                        className="object-cover transition-transform duration-[1.6s] ease-smooth group-hover:scale-[1.04]"
+                      />
+                    </ParallaxMedia>
+                  </div>
+                  <div className="cinematic-card-gradient-bottom" aria-hidden />
+                  <div className="cinematic-card-hover-dim" aria-hidden />
+                  <div className="cinematic-card-caption absolute inset-x-0 bottom-0 p-5 md:p-6">
+                    <h3 className="font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-stone/90 transition-colors duration-500 group-hover:text-stone">
+                      {project.title}
+                    </h3>
+                    <p className="mt-1.5 text-[11px] font-light uppercase tracking-[0.12em] text-stone/55 transition-colors duration-500 group-hover:text-stone/85">
+                      {project.type}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1 font-sans text-[10px] font-medium uppercase tracking-[0.16em] text-stone/65 transition-colors duration-500 group-hover:text-bronze">
+                      View project
+                      <ArrowUpRight size={11} />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

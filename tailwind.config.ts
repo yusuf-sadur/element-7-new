@@ -9,10 +9,38 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        "warm-black": {
+          DEFAULT: "#0D0D0D",
+          light: "#171717",
+        },
+        charcoal: {
+          DEFAULT: "#171717",
+          light: "#1F1F1F",
+        },
+        bronze: {
+          DEFAULT: "#C29A63",
+          light: "#D4B07A",
+          dark: "#A67F4A",
+        },
+        stone: {
+          DEFAULT: "#F2EEE8",
+          warm: "#EAE4DB",
+          deep: "#DFDBD3",
+        },
+        concrete: {
+          DEFAULT: "#7E7E7A",
+          light: "#9A9A96",
+          dark: "#62625E",
+        },
+        timber: {
+          DEFAULT: "#6F4E37",
+          light: "#8A6548",
+          dark: "#553A28",
+        },
         cream: {
-          DEFAULT: "#FAF8F4",
-          warm: "#F4F1EA",
-          deep: "#EBE6DC",
+          DEFAULT: "#F2EEE8",
+          warm: "#EAE4DB",
+          deep: "#DFDBD3",
         },
         linen: {
           DEFAULT: "#E8E3DA",
@@ -31,9 +59,9 @@ const config: Config = {
           mid: "#EBE6DC",
         },
         ink: {
-          DEFAULT: "#1C2118",
-          muted: "#4A5244",
-          faint: "#7A8274",
+          DEFAULT: "#0D0D0D",
+          muted: "#4A4A48",
+          faint: "#7E7E7A",
         },
         sand: {
           DEFAULT: "#1C2118",
@@ -150,9 +178,9 @@ const config: Config = {
         "hero-wash":
           "linear-gradient(100deg, rgba(250,248,244,0.97) 0%, rgba(250,248,244,0.85) 35%, rgba(250,248,244,0.4) 60%, transparent 85%)",
         "image-overlay":
-          "linear-gradient(to top, rgba(28,33,24,0.75) 0%, rgba(28,33,24,0.25) 45%, rgba(28,33,24,0.05) 100%)",
+          "linear-gradient(to top, rgba(13,13,13,0.82) 0%, rgba(13,13,13,0.35) 45%, rgba(13,13,13,0.05) 100%)",
         "image-overlay-soft":
-          "linear-gradient(to top, rgba(28,33,24,0.55) 0%, transparent 60%)",
+          "linear-gradient(to top, rgba(13,13,13,0.65) 0%, transparent 60%)",
         "mesh-accent":
           "radial-gradient(ellipse 80% 60% at 10% 0%, rgba(143,166,126,0.12) 0%, transparent 50%), radial-gradient(ellipse 60% 50% at 90% 100%, rgba(196,137,106,0.08) 0%, transparent 50%)",
         "dot-pattern":

@@ -1,23 +1,37 @@
 import type { Metadata } from "next";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
 import ScrollProgress from "@/components/ScrollProgress";
+import { BRAND } from "@/lib/brand";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Element 7 | Wellness & Recovery Architecture | Australia",
-  description:
-    "Luxury wellness design and construction — custom saunas, cold plunge, steam, hammam, and complete recovery environments. End-to-end, Australia-wide.",
+  title: "Element Seven | Recovery Architecture | Australia",
+  description: BRAND.description,
   keywords:
-    "wellness architecture, recovery architecture, custom sauna Australia, luxury sauna, infrared sauna, steam room, hammam, cold plunge, low tox construction, contrast therapy, recovery space",
+    "recovery architecture, wellness architecture, custom sauna Australia, luxury sauna builder, infrared sauna, steam room, hammam, cold plunge, contrast therapy, nervous system recovery",
   openGraph: {
-    title: "Element 7 | Recovery Architecture, Built for Life",
-    description:
-      "Complete wellness environments — consultation, design, construction, and delivery. Not a supplier. A wellness architecture studio.",
+    title: "Element Seven | Recovery Architecture",
+    description: BRAND.supportingLine,
     type: "website",
     locale: "en_AU",
-    siteName: "Element 7",
+    siteName: "Element Seven",
   },
   robots: {
     index: true,
@@ -31,8 +45,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-AU">
-      <body className="bg-cream font-sans text-ink-muted antialiased">
+    <html lang="en-AU" className={`${inter.variable} ${cormorant.variable}`}>
+      <body className="bg-stone font-sans text-ink-muted antialiased">
         <ScrollRevealInit />
         <ScrollProgress />
         <Navbar />

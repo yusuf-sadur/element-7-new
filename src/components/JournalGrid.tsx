@@ -1,9 +1,11 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Clock } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { SnapSection } from "@/components/scroll/PageScrollShell";
 
 export type JournalArticle = {
   slug: string;
@@ -18,15 +20,32 @@ export type JournalArticle = {
 interface JournalGridProps {
   articles: JournalArticle[];
   basePath: "/blogs" | "/journal";
+  snapSections?: boolean;
 }
 
-export default function JournalGrid({ articles, basePath }: Readonly<JournalGridProps>) {
+function SectionWrap({
+  snap,
+  children,
+}: {
+  snap?: boolean;
+  children: ReactNode;
+}) {
+  if (snap) return <SnapSection>{children}</SnapSection>;
+  return <>{children}</>;
+}
+
+export default function JournalGrid({
+  articles,
+  basePath,
+  snapSections,
+}: Readonly<JournalGridProps>) {
   const [featured, ...rest] = articles;
 
   return (
     <>
+      <SectionWrap snap={snapSections}>
       <section className="section-padding bg-cream">
-<div className="container-e7">
+        <div className="container-e7">
           <Reveal variant="scale">
             <Link
               href={`${basePath}/${featured.slug}`}
@@ -62,9 +81,17 @@ export default function JournalGrid({ articles, basePath }: Readonly<JournalGrid
           </Reveal>
         </div>
       </section>
+      </SectionWrap>
 
+      <SectionWrap snap={snapSections}>
       <section className="section-padding !pt-0 bg-white">
         <div className="container-e7">
+          <Reveal variant="up" className="mb-10">
+            <p className="section-label">Archive</p>
+            <h2 className="font-display text-2xl text-ink md:text-3xl">
+              More <span className="italic text-olive">reading.</span>
+            </h2>
+          </Reveal>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {rest.map((article, idx) => (
               <Reveal key={article.slug} variant="up" delay={idx * 0.08}>
@@ -80,9 +107,9 @@ export default function JournalGrid({ articles, basePath }: Readonly<JournalGrid
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
-</div>
+                  </div>
                   <div className="p-7">
-<div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                       <span className="badge-gold">{article.category}</span>
                       <span className="flex items-center gap-1 font-sans text-xs text-sand-faint">
                         <Clock size={11} />
@@ -105,6 +132,7 @@ export default function JournalGrid({ articles, basePath }: Readonly<JournalGrid
           </div>
         </div>
       </section>
+      </SectionWrap>
     </>
   );
 }

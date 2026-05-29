@@ -1,22 +1,16 @@
-import HeroSection from "@/components/home/HeroSection";
-import CorePillars from "@/components/home/CorePillars";
-import ModalityGallery from "@/components/home/ModalityGallery";
-import ProcessSection from "@/components/home/ProcessSection";
+import HomeScrollExperience from "@/components/home/HomeScrollExperience";
 import type { Metadata } from "next";
+import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: "Element 7 | Wellness & Recovery Architecture | Australia",
-  description:
-    "Luxury wellness design and construction — custom saunas, cold plunge, steam, hammam, and complete recovery environments. End-to-end, Australia-wide.",
+  title: "Element Seven | Recovery Architecture | Australia",
+  description: BRAND.description,
 };
 
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <CorePillars />
-      <ModalityGallery />
-      <ProcessSection />
+      <HomeScrollExperience />
     </>
   );
 }

@@ -1,87 +1,99 @@
 "use client";
 
-import { MessageSquare, Ruler, HardHat, Wrench, HeartHandshake } from "lucide-react";
+import Link from "next/link";
+import {
+  ArrowUpRight,
+  MessageSquare,
+  Ruler,
+  HardHat,
+  Wrench,
+  HeartHandshake,
+} from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
-import { RevealStagger, RevealStaggerItem } from "@/components/ui/RevealStagger";
+import HeroVideoBackground from "@/components/home/HeroVideoBackground";
+import { PROCESS_STEPS } from "@/lib/brand";
+import heroSaunaImg from "@/assets/hero-sauna3.jpg";
 
-const steps = [
-  {
-    number: "01",
-    icon: MessageSquare,
-    title: "Consultation",
-    description:
-      "Your space, lifestyle, and recovery goals — mapped with calm, expert guidance.",
-  },
-  {
-    number: "02",
-    icon: Ruler,
-    title: "Design",
-    description:
-      "Custom plans, material specification, and architectural detailing — no templates.",
-  },
-  {
-    number: "03",
-    icon: HardHat,
-    title: "Construction",
-    description:
-      "Low-tox build, thermal performance, ventilation — executed by licensed specialists.",
-  },
-  {
-    number: "04",
-    icon: Wrench,
-    title: "Delivery",
-    description:
-      "Sauna, steam, cold plunge, and recovery systems — installed, commissioned, complete.",
-  },
-  {
-    number: "05",
-    icon: HeartHandshake,
-    title: "Handover",
-    description:
-      "Training, care guidance, and support — spaces built to perform for decades.",
-  },
-];
+const icons = [MessageSquare, Ruler, HardHat, Wrench, HeartHandshake];
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="relative overflow-hidden bg-olive-dark">
-      <div className="bg-mesh pointer-events-none absolute inset-0 opacity-40" aria-hidden />
+    <section
+      id="process"
+      className="process-section relative isolate min-h-[100dvh] w-full overflow-hidden bg-ink"
+      aria-labelledby="process-heading"
+    >
+      {/* Full-bleed video background */}
+      <div className="absolute inset-0 z-0" aria-hidden>
+        <HeroVideoBackground
+          poster={heroSaunaImg}
+          overlay="none"
+          imagePriority={false}
+          imageSizes="100vw"
+        />
+        <div className="process-section-scrim absolute inset-0" />
+      </div>
 
-      <div className="container-e7 relative section-padding">
-        <Reveal variant="left" className="mb-16 max-w-xl md:mb-24">
-          <p className="section-label text-sage-light [&::before]:bg-sage/50">End to end</p>
-          <h2 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] font-light leading-[1.08] tracking-tight text-cream">
-            Consultation to{" "}
-            <span className="italic text-sage-light">delivery.</span>
+      <div className="container-e7 relative z-10 flex min-h-[100dvh] flex-col justify-center section-padding py-24 md:py-32">
+        <Reveal variant="up" className="max-w-3xl">
+          <p className="mb-6 inline-flex items-center gap-3 font-sans text-[11px] font-medium uppercase tracking-label text-bronze">
+            <span className="h-px w-8 bg-bronze/60" aria-hidden />
+            Our Process
+          </p>
+          <h2
+            id="process-heading"
+            className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-light uppercase leading-[1.06] tracking-tight text-stone"
+          >
+            From consultation to handover.
           </h2>
-          <div className="mt-8 h-px w-16 bg-sage/40" />
+          <p className="mt-5 max-w-xl text-sm font-light leading-relaxed text-stone/75 md:text-[15px]">
+            One studio manages your project — drawings, trades, construction,
+            commissioning, and documentation through to completion.
+          </p>
         </Reveal>
 
-        <Reveal variant="fade" delay={0.1}>
-          <div className="relative">
-            <div className="absolute left-0 right-0 top-[52px] hidden h-px bg-cream/10 lg:block" aria-hidden />
-
-            <RevealStagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5" stagger={0.07}>
-              {steps.map((step) => (
-                <RevealStaggerItem
+        <Reveal variant="fade" delay={0.1} className="mt-12 md:mt-16">
+          <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-2 scrollbar-none md:mx-0 md:grid md:grid-cols-5 md:gap-3 md:overflow-visible md:px-0 md:pb-0 lg:gap-4">
+            {PROCESS_STEPS.map((step, idx) => {
+              const Icon = icons[idx];
+              return (
+                <article
                   key={step.number}
-                  as="motion.article"
-                  className="group rounded-3xl border border-cream/10 bg-cream/5 p-8 backdrop-blur-sm transition-all duration-500 hover:border-sage/30 hover:bg-cream/10"
+                  className="process-step-card w-[min(82vw,300px)] shrink-0 md:w-auto"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cream/10 text-sage-light transition-all duration-500 group-hover:scale-105 group-hover:bg-sage/20">
-                    <step.icon size={20} strokeWidth={1.25} />
+                  <div className="flex h-9 w-9 items-center justify-center border border-white/15 bg-white/[0.06] text-stone/80">
+                    <Icon size={17} strokeWidth={1} aria-hidden />
                   </div>
-                  <span className="mt-8 block font-sans text-[11px] font-semibold tabular-nums text-wood/80">
+                  <span className="mt-5 block font-sans text-[10px] font-medium tabular-nums tracking-[0.28em] text-bronze">
                     {step.number}
                   </span>
-                  <h3 className="mt-4 font-display text-xl text-cream">{step.title}</h3>
-                  <p className="mt-3 font-sans text-sm font-light leading-relaxed text-cream/60">
+                  <h3 className="mt-2 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-stone">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-[12px] font-light leading-relaxed text-stone/65 md:text-[13px]">
                     {step.description}
                   </p>
-                </RevealStaggerItem>
-              ))}
-            </RevealStagger>
+                </article>
+              );
+            })}
           </div>
+        </Reveal>
+
+        <Reveal variant="fade" delay={0.16} className="mt-10 flex flex-wrap items-center gap-4 md:mt-14">
+          <Link href="/contact" className="btn-primary group">
+            Book a consultation
+            <ArrowUpRight
+              size={14}
+              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </Link>
+          <Link
+            href="/our-approach"
+            className="link-line inline-flex text-[11px] text-stone/70 after:bg-bronze hover:text-stone"
+          >
+            How we work
+            <ArrowUpRight size={14} />
+          </Link>
         </Reveal>
       </div>
     </section>

@@ -14,7 +14,7 @@ interface ConsultationShellProps {
 }
 
 const defaultDescription =
-  "Complete the form and we'll be in touch within one business day to arrange a calm, no-obligation consultation.";
+  "Tell us about your property and build scope. We'll respond within one business day to arrange a consultation.";
 
 export default function ConsultationShell({
   label = "Your enquiry",

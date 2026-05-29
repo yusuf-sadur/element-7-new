@@ -23,15 +23,14 @@ interface FormStatus {
 }
 
 const serviceTypes = [
-  "Custom Sauna",
+  "Traditional Dry Sauna",
   "Infrared Sauna",
-  "Steam & Hammam",
-  "Cold Plunge",
-  "Contrast Therapy",
-  "Recovery Lounge",
-  "Outdoor Wellness",
+  "Hybrid Sauna",
+  "Hammam & Steam Room",
+  "Recovery Pool",
+  "Stainless Steel Plunge Pool",
+  "Complete Recovery Suite",
   "Commercial Fit-Out",
-  "Complete Wellness Suite",
   "Not sure yet",
 ];
 
@@ -49,11 +48,15 @@ export default function ConsultationForm({
   theme = "dark",
   embedded = false,
   showHeader = true,
+  defaultServiceType = "",
+  lockServiceType = false,
 }: {
   compact?: boolean;
   theme?: "dark" | "light";
   embedded?: boolean;
   showHeader?: boolean;
+  defaultServiceType?: string;
+  lockServiceType?: boolean;
 }) {
   const isLight = theme === "light";
   const router = useRouter();
@@ -62,7 +65,7 @@ export default function ConsultationForm({
     fullName: "",
     phone: "",
     email: "",
-    serviceType: "",
+    serviceType: defaultServiceType,
     projectType: "",
     message: "",
   });
@@ -205,23 +208,27 @@ export default function ConsultationForm({
         </div>
 
         {/* Service Type & Project Type */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label htmlFor="serviceType" className={labelClass}>
-              Service Interested In <span className={requiredMark}>*</span>
-            </label>
-            <FormSelect
-              id="serviceType"
-              name="serviceType"
-              value={formData.serviceType}
-              onChange={handleChange}
-              required
-              theme={isLight ? "light" : "dark"}
-              compact={compact}
-              placeholder="Select a service"
-              options={serviceTypes}
-            />
-          </div>
+        <div
+          className={`grid grid-cols-1 gap-4 ${lockServiceType ? "" : "sm:grid-cols-2"}`}
+        >
+          {lockServiceType ? null : (
+            <div>
+              <label htmlFor="serviceType" className={labelClass}>
+                Service Interested In <span className={requiredMark}>*</span>
+              </label>
+              <FormSelect
+                id="serviceType"
+                name="serviceType"
+                value={formData.serviceType}
+                onChange={handleChange}
+                required
+                theme={isLight ? "light" : "dark"}
+                compact={compact}
+                placeholder="Select a service"
+                options={serviceTypes}
+              />
+            </div>
+          )}
           <div>
             <label htmlFor="projectType" className={labelClass}>
               Project Type
@@ -252,7 +259,7 @@ export default function ConsultationForm({
             required
             rows={compact ? 3 : 5}
             className={`${inputClass} resize-none`}
-            placeholder="Describe your space, goals, and any specific requirements..."
+            placeholder="Describe your property, build scope, timeline, and any technical requirements..."
           />
         </div>
 
