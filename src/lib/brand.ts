@@ -16,8 +16,22 @@ export const BRAND = {
   tagline: "Recovery Architecture",
   slogan: "Engineered Environments for Human Performance.",
   headline: "Spaces Designed to Restore the Nervous System.",
+  heroEyebrow: "Architectural wellness environments",
+  heroLeadLines: [
+    "Custom saunas, steam rooms, plunge pools and",
+    "wellness environments — designed and built",
+    "across Australia.",
+  ] as const,
+  heroLead:
+    "Custom saunas, steam rooms, plunge pools and wellness environments — designed and built across Australia.",
   supportingLine:
-    "We are a design and build studio — custom saunas, steam rooms, plunge pools, and recovery environments, architecturally specified and constructed across Australia.",
+    "Architectural wellness environments engineered for recovery, longevity, and human performance.",
+  heroHeadlineLines: [
+    "Spaces designed",
+    "to restore the",
+    "nervous system.",
+  ] as const,
+  heroCtaLabel: "Explore our spaces",
   description:
     "Element Seven designs and builds custom saunas, steam rooms, plunge pools, and complete recovery environments. Consultation, architectural design, construction, and handover — one studio, Australia-wide.",
   studio: "Melbourne",

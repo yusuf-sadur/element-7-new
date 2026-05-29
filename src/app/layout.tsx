@@ -1,25 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
 import ScrollProgress from "@/components/ScrollProgress";
 import { BRAND } from "@/lib/brand";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
-  variable: "--font-display",
-  display: "swap",
-});
+import { canelaSubstitute, inter } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Element Seven | Recovery Architecture | Australia",
@@ -45,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-AU" className={`${inter.variable} ${cormorant.variable}`}>
+    <html lang="en-AU" className={`${inter.variable} ${canelaSubstitute.variable}`}>
       <body className="bg-stone font-sans text-ink-muted antialiased">
         <ScrollRevealInit />
         <ScrollProgress />

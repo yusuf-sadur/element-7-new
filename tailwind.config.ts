@@ -131,7 +131,9 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
-        display: ["var(--font-display)"],
+        heading: ["var(--font-heading)"],
+        display: ["var(--font-heading)"],
+        hero: ["var(--font-hero)", "Georgia", "Times New Roman", "serif"],
       },
       letterSpacing: {
         editorial: "0.02em",

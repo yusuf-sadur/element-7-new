@@ -3,15 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { StaticImageData } from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import HeroImageBackground from "@/components/ui/HeroImageBackground";
-import {
-  HERO_VARIANTS,
-  heroTextClasses,
-  type HeroVariant,
-} from "@/lib/hero-variants";
+import type { HeroVariant } from "@/lib/hero-variants";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -49,15 +44,12 @@ export default function InteriorHero({
   subtitle,
   children,
   compact = false,
-  imageAlt,
   eyebrow,
   secondaryLink,
   variant = "mist",
 }: Readonly<InteriorHeroProps>) {
   const [ready, setReady] = useState(false);
   const reduceMotion = useReducedMotion();
-  const config = HERO_VARIANTS[variant];
-  const text = heroTextClasses(config.theme);
   const eyebrowText = eyebrow ?? `${label} · Australia`;
   const isCentered = variant === "invitation";
 
@@ -66,103 +58,80 @@ export default function InteriorHero({
   }, []);
 
   const heightClass = compact
-    ? "h-[min(58svh,440px)] max-h-[min(62svh,480px)] md:h-[min(100svh,720px)] md:max-h-[min(100svh,720px)]"
-    : "h-[min(68svh,520px)] max-h-[min(72svh,560px)] md:h-[100svh] md:max-h-[100svh]";
+    ? "min-h-[72svh] md:min-h-[80svh]"
+    : "min-h-[88svh] md:min-h-[92svh]";
 
   return (
     <section
       id="hero"
-      className={`hero-density-compact relative ${heightClass} overflow-hidden bg-ink`}
+      className={`hero-home hero-home--editorial relative flex flex-col overflow-x-hidden bg-ink ${heightClass}`}
       aria-label={`${label} — Element 7`}
     >
-      <HeroImageBackground image={image} variant={variant} />
+      <div className="hero-home__media absolute z-0 overflow-hidden" aria-hidden>
+        <HeroImageBackground image={image} variant={variant} />
+        <div className="hero-video-scrim hero-home-scrim absolute inset-0" />
+      </div>
 
-      {config.watermark && (
-        <span
-          className="pointer-events-none absolute right-4 top-[4.75rem] z-[1] hidden font-display text-[clamp(4rem,12vw,8rem)] font-light leading-none text-white/[0.05] md:right-8 lg:block"
-          aria-hidden
-        >
-          07
-        </span>
-      )}
-
-      {config.decor === "frame" && (
-        <div className="hero-decor-frame pointer-events-none absolute inset-0 z-[1]" aria-hidden />
-      )}
-
-      <motion.div
-        className={`interior-hero-stage container-e7 relative z-10 flex h-full min-w-0 w-full ${config.layout} pb-3 pt-[4rem] sm:pb-6 sm:pt-[4.75rem] md:pb-6 md:pt-[5rem]`}
+      <div
+        className={`hero-content-stage hero-content-stage--left hero-content-stage--flush container-e7 relative z-10 grid w-full min-h-0 flex-1 grid-cols-1 items-end pb-0 pt-[4.75rem] max-md:px-3 md:items-center md:pb-16 md:pt-[5.25rem] lg:grid-cols-12 ${isCentered ? "justify-center md:justify-center" : ""}`}
       >
         <motion.div
-          className={`interior-hero-panel hero-copy-panel min-w-0 w-full sm:w-auto ${config.panelMax}`}
+          className={`hero-editorial hero-editorial--mobile-panel w-full lg:col-span-6 lg:max-w-[38rem] xl:col-span-6 ${isCentered ? "hero-editorial--centered mx-auto text-center" : ""}`}
           variants={reduceMotion ? undefined : container}
           initial={reduceMotion ? false : "hidden"}
           animate={reduceMotion ? undefined : ready ? "show" : "hidden"}
         >
-          <span className="hero-copy-panel-shine" aria-hidden />
+          <div className="hero-editorial__glass" aria-hidden />
           <div
-            className={`hero-copy-panel-body ${isCentered ? "flex flex-col items-center text-center" : ""}`}
+            className={`hero-editorial__content ${isCentered ? "flex flex-col items-center" : ""}`}
           >
-            <div
-              className={`hero-eyebrow-row ${isCentered ? "justify-center" : ""}`}
+            <motion.p
+              variants={reduceMotion ? undefined : item}
+              className="hero-editorial__eyebrow mb-0"
             >
-              <span className={`h-px w-8 shrink-0 sm:w-10 ${text.rule}`} aria-hidden />
-              <span className={`hero-eyebrow ${text.eyebrow}`}>{eyebrowText}</span>
-              {isCentered && (
-                <span className={`h-px w-8 sm:w-10 ${text.rule}`} aria-hidden />
-              )}
-            </div>
+              {eyebrowText}
+            </motion.p>
 
             <motion.h1
               variants={reduceMotion ? undefined : item}
-              className={`hero-display-compact text-balance ${text.title}`}
+              className="hero-editorial__title hero-editorial__title--service mt-4"
             >
               {title}
-              {accent && (
+              {accent ? (
                 <>
                   {" "}
-                  <span className={text.accent}>{accent}</span>
+                  <span className="font-hero font-light italic normal-case text-sage-light">
+                    {accent}
+                  </span>
                 </>
-              )}
+              ) : null}
             </motion.h1>
 
-            {subtitle && (
+            {subtitle ? (
               <motion.p
                 variants={reduceMotion ? undefined : item}
-                className={`hero-lead mt-3 max-w-lg text-[14px] font-normal leading-relaxed sm:mt-4 sm:text-[15px] ${text.lead} ${isCentered ? "mx-auto" : ""}`}
+                className={`hero-editorial__lead mt-5 max-w-lg ${isCentered ? "mx-auto" : ""}`}
               >
                 {subtitle}
               </motion.p>
-            )}
+            ) : null}
 
-            {children && (
-              <motion.div
-                variants={reduceMotion ? undefined : item}
-                className={`mt-4 flex flex-wrap items-center gap-3 border-t border-white/[0.08] pt-4 sm:mt-5 sm:gap-4 sm:pt-5 ${isCentered ? "justify-center" : ""}`}
-              >
+            {children ? (
+              <motion.div variants={reduceMotion ? undefined : item} className="hero-editorial__actions">
                 {children}
               </motion.div>
-            )}
+            ) : secondaryLink ? (
+              <motion.div variants={reduceMotion ? undefined : item} className="hero-editorial__actions">
+                <Link href={secondaryLink.href} className="hero-editorial__link">
+                  {secondaryLink.label}
+                </Link>
+              </motion.div>
+            ) : null}
           </div>
         </motion.div>
-      </motion.div>
 
-      {secondaryLink && (
-        <motion.div
-          className="absolute bottom-4 right-4 z-10 lg:hidden"
-          initial={reduceMotion ? false : { opacity: 0 }}
-          animate={reduceMotion ? undefined : ready ? { opacity: 1 } : {}}
-          transition={{ delay: 0.6, duration: 0.6 }}
-        >
-          <Link
-            href={secondaryLink.href}
-            className={`inline-flex items-center gap-1.5 font-sans text-[10px] font-medium uppercase tracking-nav transition-colors ${text.mobileLink}`}
-          >
-            {secondaryLink.label}
-            <ArrowUpRight size={12} />
-          </Link>
-        </motion.div>
-      )}
+        {!isCentered ? <div className="hidden lg:col-span-6 lg:block" aria-hidden /> : null}
+      </div>
     </section>
   );
 }
