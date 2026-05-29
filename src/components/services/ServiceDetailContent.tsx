@@ -7,6 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 import ConsultationForm from "@/components/ConsultationForm";
 import ServiceScopeSection from "@/components/services/ServiceScopeSection";
 import Reveal from "@/components/ui/Reveal";
+import MobileCarouselTrack from "@/components/ui/MobileCarouselTrack";
 import type { SpaceDefinition } from "@/lib/brand";
 import { SPACES } from "@/lib/brand";
 import { SnapSection } from "@/components/scroll/PageScrollShell";
@@ -136,12 +137,12 @@ export default function ServiceDetailContent({
             </Link>
           </Reveal>
 
-          <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-2 scrollbar-none md:mx-0 md:grid md:grid-cols-4 md:gap-4 md:overflow-visible md:px-0">
+          <MobileCarouselTrack className="md:grid md:grid-cols-4 md:gap-4">
             {otherSpaces.map((item) => (
               <Link
                 key={item.slug}
                 href={`/services/${item.slug}`}
-                className="cinematic-card group relative block aspect-[4/3] min-w-[70vw] shrink-0 overflow-hidden md:min-w-0"
+                className="mobile-carousel-item cinematic-card group relative block aspect-[4/3] overflow-hidden"
               >
                 <Image
                   src={item.image}
@@ -159,7 +160,7 @@ export default function ServiceDetailContent({
                 </div>
               </Link>
             ))}
-          </div>
+          </MobileCarouselTrack>
         </div>
       </section>
       </SectionWrap>

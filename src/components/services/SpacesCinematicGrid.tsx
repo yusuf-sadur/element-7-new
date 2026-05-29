@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import MobileCarouselTrack from "@/components/ui/MobileCarouselTrack";
 import ParallaxMedia from "@/components/home/parallax/ParallaxMedia";
 import type { SpaceDefinition } from "@/lib/brand";
 import { BRAND, SPACES } from "@/lib/brand";
@@ -253,18 +254,13 @@ export default function SpacesCinematicGrid({
           ) : null}
         </Reveal>
 
-        <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-2 scrollbar-none sm:gap-4 md:mx-0 md:grid md:grid-cols-5 md:overflow-visible md:px-0 md:pb-0">
+        <MobileCarouselTrack className="sm:gap-4 md:grid md:grid-cols-5 md:pb-0">
           {items.map((space, idx) => (
-            <Reveal
-              key={space.slug}
-              variant="up"
-              delay={idx * 0.05}
-              className="w-[72vw] shrink-0 md:w-auto"
-            >
+            <div key={space.slug} className="mobile-carousel-item">
               <SpaceCard space={space} idx={idx} ctaLabel={ctaLabel} variant="home" />
-            </Reveal>
+            </div>
           ))}
-        </div>
+        </MobileCarouselTrack>
       </div>
     </section>
   );

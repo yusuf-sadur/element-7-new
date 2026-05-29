@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import MobileCarouselTrack from "@/components/ui/MobileCarouselTrack";
 import ParallaxMedia from "@/components/home/parallax/ParallaxMedia";
 import ourProjectsImg from "@/assets/Our Projects.png";
 import residentialImg from "@/assets/Residential.png";
@@ -65,14 +66,9 @@ export default function FeaturedProjects() {
           </Link>
         </Reveal>
 
-        <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-2 scrollbar-none sm:gap-4 md:mx-0 md:grid md:grid-cols-5 md:overflow-visible md:px-0 md:pb-0">
-          {projects.map((project, idx) => (
-            <Reveal
-              key={project.title}
-              variant="up"
-              delay={idx * 0.05}
-              className="w-[72vw] shrink-0 md:w-auto"
-            >
+        <MobileCarouselTrack className="sm:gap-4 md:grid md:grid-cols-5 md:gap-3 md:pb-0 lg:gap-4">
+          {projects.map((project) => (
+            <div key={project.title} className="mobile-carousel-item">
               <Link href="/projects" className="group block">
                 <div className="cinematic-card relative aspect-[4/5] min-h-[240px] overflow-hidden sm:min-h-[260px] md:aspect-[5/6] md:min-h-0">
                   <div className="cinematic-card-media">
@@ -102,9 +98,9 @@ export default function FeaturedProjects() {
                   </div>
                 </div>
               </Link>
-            </Reveal>
+            </div>
           ))}
-        </div>
+        </MobileCarouselTrack>
       </div>
     </section>
   );

@@ -10,6 +10,7 @@ import {
   HeartHandshake,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import MobileCarouselTrack from "@/components/ui/MobileCarouselTrack";
 import HeroVideoBackground from "@/components/home/HeroVideoBackground";
 import { PROCESS_STEPS } from "@/lib/brand";
 import heroSaunaImg from "@/assets/hero-sauna3.jpg";
@@ -52,14 +53,13 @@ export default function ProcessSection() {
           </p>
         </Reveal>
 
-        <Reveal variant="fade" delay={0.1} className="mt-12 md:mt-16">
-          <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-2 scrollbar-none md:mx-0 md:grid md:grid-cols-5 md:gap-3 md:overflow-visible md:px-0 md:pb-0 lg:gap-4">
+        <MobileCarouselTrack className="mt-12 md:mt-16 md:grid md:grid-cols-5 md:gap-3 lg:gap-4">
             {PROCESS_STEPS.map((step, idx) => {
               const Icon = icons[idx];
               return (
                 <article
                   key={step.number}
-                  className="process-step-card w-[min(82vw,300px)] shrink-0 md:w-auto"
+                  className="process-step-card mobile-carousel-item"
                 >
                   <div className="flex h-9 w-9 items-center justify-center border border-white/15 bg-white/[0.06] text-stone/80">
                     <Icon size={17} strokeWidth={1} aria-hidden />
@@ -76,8 +76,7 @@ export default function ProcessSection() {
                 </article>
               );
             })}
-          </div>
-        </Reveal>
+        </MobileCarouselTrack>
 
         <Reveal variant="fade" delay={0.16} className="mt-10 flex flex-wrap items-center gap-4 md:mt-14">
           <Link href="/contact" className="btn-primary group">

@@ -783,6 +783,22 @@
     @apply relative z-10 transition-[color] duration-500 ease-smooth;
   }
 
+  /* Mobile carousels — show peek of next slide; avoid per-card scroll-reveal */
+  .mobile-carousel-track {
+    @apply -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-pl-5 scroll-pr-8 px-5 pb-2 scrollbar-none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-carousel-item {
+    @apply w-[min(82vw,340px)] shrink-0 snap-start md:w-auto md:snap-align-none;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-carousel-track {
+      @apply mx-0 snap-none scroll-pl-0 scroll-pr-0 overflow-visible px-0 pb-0;
+    }
+  }
+
   .materials-editorial-gallery {
     @apply overflow-x-auto scrollbar-none lg:overflow-hidden;
   }

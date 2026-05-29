@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import MobileCarouselTrack from "@/components/ui/MobileCarouselTrack";
 import ParallaxMedia from "@/components/home/parallax/ParallaxMedia";
 
 const articles = [
@@ -55,9 +56,9 @@ export default function JournalPreview() {
           </Link>
         </Reveal>
 
-        <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-2 scrollbar-none md:mx-0 md:grid md:grid-cols-4 md:gap-4 md:overflow-visible md:px-0 md:pb-0">
-          {articles.map((article, idx) => (
-            <Reveal key={article.slug} variant="up" delay={idx * 0.06} className="w-[78vw] shrink-0 md:w-auto">
+        <MobileCarouselTrack className="md:grid md:grid-cols-4 md:gap-4 md:pb-0">
+          {articles.map((article) => (
+            <div key={article.slug} className="mobile-carousel-item">
               <Link href="/journal" className="group block">
                 <div className="cinematic-card relative aspect-[16/10] overflow-hidden">
                   <ParallaxMedia speed={0.2}>
@@ -80,9 +81,9 @@ export default function JournalPreview() {
                   </h3>
                 </div>
               </Link>
-            </Reveal>
+            </div>
           ))}
-        </div>
+        </MobileCarouselTrack>
       </div>
     </section>
   );
