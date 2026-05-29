@@ -28,10 +28,10 @@ const capabilities = [
 ];
 
 const stats = [
-  { value: "50+", label: "Builds delivered" },
-  { value: "15+", label: "Years constructing" },
-  { value: "100%", label: "Design & build" },
-  { value: "AU", label: "Nationwide" },
+  { type: "count" as const, end: 50, suffix: "+", label: "Builds delivered" },
+  { type: "count" as const, end: 15, suffix: "+", label: "Years constructing" },
+  { type: "count" as const, end: 100, suffix: "%", label: "Design & build" },
+  { type: "text" as const, value: "AU", label: "Nationwide" },
 ];
 
 export default function AboutScrollExperience() {
