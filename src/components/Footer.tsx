@@ -93,7 +93,7 @@ export default function Footer() {
             >
               <Link
                 href="/contact"
-                className="btn-primary w-full justify-center sm:w-auto lg:min-w-[260px]"
+                className="btn-consultation w-full justify-center sm:w-auto lg:min-w-[260px]"
                 id="footer-cta"
               >
                 Book a consultation

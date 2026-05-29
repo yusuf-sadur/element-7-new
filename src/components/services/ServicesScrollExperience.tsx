@@ -47,7 +47,7 @@ export default function ServicesScrollExperience() {
               </p>
               <Link
                 href="/contact"
-                className="btn-ghost mt-10 inline-flex"
+                className="btn-consultation btn-consultation--light mt-10 inline-flex"
                 id="services-page-cta"
               >
                 Book a consultation
@@ -72,7 +72,7 @@ export default function ServicesScrollExperience() {
                 Complete recovery suites, contrast installations, and commercial
                 fit-outs — designed and built end to end.
               </p>
-              <Link href="/contact" className="btn-ghost-light mt-10">
+              <Link href="/contact" className="btn-consultation mt-10 inline-flex">
                 Book a consultation
               </Link>
             </Reveal>

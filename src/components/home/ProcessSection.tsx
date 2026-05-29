@@ -78,13 +78,13 @@ export default function ProcessSection() {
             })}
         </MobileCarouselTrack>
 
-        <Reveal variant="fade" delay={0.16} className="mt-10 flex flex-wrap items-center gap-4 md:mt-14">
-          <Link href="/contact" className="btn-primary group">
+        <Reveal
+          variant="fade"
+          delay={0.16}
+          className="mt-10 flex flex-col items-center justify-center gap-4 md:mt-14 md:flex-row md:flex-wrap md:justify-start"
+        >
+          <Link href="/contact" className="btn-consultation">
             Book a consultation
-            <ArrowUpRight
-              size={14}
-              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
           </Link>
           <Link
             href="/our-approach"

@@ -1230,9 +1230,19 @@
     @apply mt-7 flex w-full flex-col items-stretch gap-2.5 md:mt-9 md:w-auto md:max-w-none md:flex-row md:flex-wrap md:items-center md:gap-x-5 md:gap-y-2;
   }
 
-  .hero-editorial__cta {
-    @apply inline-flex w-full shrink-0 items-center justify-center border border-cream/35 bg-cream/[0.04] px-7 py-3 font-hero text-[10px] font-normal uppercase tracking-[0.14em] text-cream transition-all duration-500 ease-smooth hover:border-cream/55 hover:bg-cream/[0.08] md:w-auto;
+  /* Consultation CTA — black fill, cream type (home hero + site-wide Book a consultation) */
+  .hero-editorial__cta,
+  .btn-consultation {
+    @apply inline-flex shrink-0 items-center justify-center border border-cream/20 bg-ink px-7 py-3 font-hero text-[10px] font-normal uppercase tracking-[0.14em] text-cream transition-all duration-500 ease-smooth hover:border-cream/35 hover:bg-warm-black;
     text-shadow: none;
+  }
+
+  .hero-editorial__cta {
+    @apply w-full md:w-auto;
+  }
+
+  .btn-consultation--light {
+    @apply border-ink/15 bg-ink text-cream hover:border-ink/25 hover:bg-warm-black;
   }
 
   .hero-editorial__link {
@@ -1390,7 +1400,7 @@
     }
 
     .hero-home--editorial .hero-editorial__cta {
-      @apply min-h-[2.75rem] w-full px-6 py-3.5 text-[10px] tracking-[0.14em];
+      @apply min-h-[2.75rem] w-full border-cream/20 bg-ink px-6 py-3.5 text-[10px] tracking-[0.14em] hover:bg-warm-black;
     }
 
     .hero-home--editorial .hero-editorial__actions:has(.hero-editorial__link) .hero-editorial__cta {

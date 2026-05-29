@@ -319,11 +319,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             href="/contact"
-            className={
-              isTransparent
-                ? "btn-primary hidden !border !border-cream/25 !bg-cream/10 !px-6 !py-3 !text-cream !shadow-none backdrop-blur-sm hover:!border-cream/40 hover:!bg-cream/20 lg:inline-flex"
-                : "btn-primary hidden !py-3 !px-6 lg:inline-flex"
-            }
+            className={`btn-consultation hidden lg:inline-flex ${isTransparent ? "" : "btn-consultation--light"}`}
             id="nav-cta-desktop"
           >
             Book a consultation
@@ -455,7 +451,7 @@ export default function Navbar() {
               <div className="border-t border-line p-5">
                 <Link
                   href="/contact"
-                  className="btn-primary w-full justify-center"
+                  className="btn-consultation btn-consultation--light w-full justify-center"
                   id="nav-cta-mobile"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
