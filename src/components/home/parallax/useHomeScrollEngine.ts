@@ -55,7 +55,6 @@ export function useHomeScrollEngine(
           type: "proximity",
           duration: 1.15,
           easing: easeOutCubic,
-          velocityThreshold: 0.55,
           debounce: 220,
         });
 
