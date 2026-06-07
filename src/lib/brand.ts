@@ -42,6 +42,7 @@ export const BRAND = {
     "Not on the list? We service other areas across Melbourne and Australia-wide — reach out first and we'll let you know what's possible for your location.",
   phone: "0422 797 790",
   phoneTel: "+61422797790",
+  email: "yusufsadur@gmail.com",
   studioIdentity:
     "Not a spa. Not a resort operator. A recovery architecture studio that designs and builds wellness environments for your property.",
 } as const;

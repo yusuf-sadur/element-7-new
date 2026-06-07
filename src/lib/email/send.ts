@@ -25,7 +25,7 @@ function getResendClient(): Resend {
 
 export function getEmailConfig() {
   return {
-    toEmail: process.env.CONTACT_EMAIL_TO || "yusufsadur@gmail.com",
+    toEmail: process.env.CONTACT_EMAIL_TO || BRAND.email,
     fromEmail:
       process.env.CONTACT_EMAIL_FROM || "onboarding@resend.dev",
     hasApiKey: Boolean(process.env.RESEND_API_KEY),

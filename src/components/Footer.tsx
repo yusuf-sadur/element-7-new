@@ -187,7 +187,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <a
-                      href="mailto:hello@element7.com.au"
+                      href={`mailto:${BRAND.email}`}
                       className="footer-contact-row-dark group"
                     >
                       <span className="footer-contact-icon-dark group-hover:bg-bronze group-hover:text-warm-black">
@@ -196,7 +196,7 @@ export default function Footer() {
                       <div className="min-w-0 flex-1">
                         <div className="footer-contact-label-dark">Email</div>
                         <div className="truncate font-sans text-sm font-medium text-stone group-hover:text-bronze">
-                          hello@element7.com.au
+                          {BRAND.email}
                         </div>
                       </div>
                     </a>

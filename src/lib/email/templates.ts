@@ -15,7 +15,7 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   "https://element7.com.au";
 
-const PUBLIC_CONTACT_EMAIL = "hello@element7.com.au";
+const PUBLIC_CONTACT_EMAIL = BRAND.email;
 
 const BRAND_COLORS = {
   cream: "#f2eee8",

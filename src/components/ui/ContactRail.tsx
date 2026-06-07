@@ -38,13 +38,13 @@ export default function ContactRail({ className = "" }: Readonly<ContactRailProp
         />
       </a>
 
-      <a href="mailto:hello@element7.com.au" className="contact-rail__channel group">
+      <a href={`mailto:${BRAND.email}`} className="contact-rail__channel group">
         <span className="contact-rail__channel-icon" aria-hidden>
           <Mail size={17} strokeWidth={1.25} />
         </span>
         <span className="min-w-0 flex-1">
           <span className="contact-rail__channel-label">Email</span>
-          <span className="contact-rail__channel-value">hello@element7.com.au</span>
+          <span className="contact-rail__channel-value">{BRAND.email}</span>
         </span>
         <ArrowUpRight size={15} className="contact-rail__channel-arrow" aria-hidden />
       </a>
