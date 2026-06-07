@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -41,6 +42,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <FloatingCallButton />
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
