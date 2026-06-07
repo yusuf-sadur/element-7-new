@@ -61,20 +61,26 @@ export async function POST(request: NextRequest) {
     const { hasApiKey } = getEmailConfig();
 
     if (!hasApiKey) {
-      console.log("=== ELEMENT 7 CONSULTATION ENQUIRY (DEV MODE) ===");
+      console.warn(
+        "[contact] RESEND_API_KEY is missing — add it to .env.local and restart the dev server.",
+      );
+      console.log("=== ELEMENT 7 CONSULTATION ENQUIRY (NOT SENT) ===");
       console.log(`Name: ${fullName}`);
       console.log(`Phone: ${phone}`);
       console.log(`Email: ${email}`);
       console.log(`Service: ${serviceType}`);
       console.log(`Project Type: ${projectType}`);
       console.log(`Message: ${message}`);
-      console.log("================================================");
+      console.log("===============================================");
 
-      return NextResponse.json({
-        success: true,
-        message:
-          "Thank you! We'll be in touch within 24 hours. (Dev mode — email logged to console)",
-      });
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            "Email is not configured yet. Add RESEND_API_KEY to .env.local, set CONTACT_EMAIL_TO, then restart the dev server.",
+        },
+        { status: 503 },
+      );
     }
 
     await sendEnquiryEmails({

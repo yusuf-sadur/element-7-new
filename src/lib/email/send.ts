@@ -11,7 +11,7 @@ import {
 let resendClient: Resend | null = null;
 
 function getResendClient(): Resend {
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = process.env.RESEND_API_KEY?.trim();
   if (!apiKey) {
     throw new Error("RESEND_API_KEY is not configured");
   }
@@ -24,11 +24,12 @@ function getResendClient(): Resend {
 }
 
 export function getEmailConfig() {
+  const apiKey = process.env.RESEND_API_KEY?.trim();
   return {
-    toEmail: process.env.CONTACT_EMAIL_TO || BRAND.email,
+    toEmail: process.env.CONTACT_EMAIL_TO?.trim() || BRAND.email,
     fromEmail:
-      process.env.CONTACT_EMAIL_FROM || "onboarding@resend.dev",
-    hasApiKey: Boolean(process.env.RESEND_API_KEY),
+      process.env.CONTACT_EMAIL_FROM?.trim() || "onboarding@resend.dev",
+    hasApiKey: Boolean(apiKey),
   };
 }
 
