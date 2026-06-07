@@ -1239,7 +1239,7 @@
     font-synthesis: none;
     letter-spacing: 0.1em;
     word-spacing: 0.18em;
-    @apply text-[clamp(1.65rem,4.2vw,3rem)] uppercase leading-[1.12] text-cream;
+    @apply text-[clamp(1.65rem,4.2vw,3rem)] uppercase leading-none text-cream;
     text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35);
   }
 
@@ -1252,10 +1252,14 @@
   }
 
   .hero-editorial__line {
-    @apply block font-hero;
+    @apply block font-hero leading-none;
     font-weight: inherit;
     letter-spacing: inherit;
     word-spacing: inherit;
+  }
+
+  .hero-editorial__line + .hero-editorial__line {
+    margin-top: -0.04em;
   }
 
   .hero-editorial__line--accent {
@@ -1519,7 +1523,7 @@
       font-size: clamp(1.5rem, 7.2vw, 1.85rem);
       letter-spacing: 0.08em;
       word-spacing: 0.14em;
-      line-height: 1.14;
+      line-height: 1;
       @apply text-cream;
       text-shadow: none;
     }
