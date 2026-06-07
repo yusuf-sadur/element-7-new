@@ -81,7 +81,7 @@ export default function ServiceDetailContent({
         <div className="cinematic-overlay absolute inset-0" />
         <div className="container-e7 relative z-10 flex min-h-[50vh] items-end section-padding md:min-h-[60vh]">
           <Reveal variant="up" className="max-w-xl pb-4">
-            <p className="font-display text-2xl font-light italic text-stone/90 md:text-3xl">
+            <p className="font-display text-2xl font-light text-stone/90 md:text-3xl">
               {space.heading}
             </p>
           </Reveal>
@@ -176,7 +176,7 @@ export default function ServiceDetailContent({
                   </p>
                   <h2 className="mt-4 font-display text-[clamp(1.35rem,2.2vw,1.75rem)] font-light leading-snug text-ink">
                     Your{" "}
-                    <span className="italic text-bronze">{space.shortTitle.toLowerCase()}</span>{" "}
+                    <span className="text-bronze">{space.shortTitle.toLowerCase()}</span>{" "}
                     build
                   </h2>
                   <p className="mt-3 text-[13px] font-light leading-relaxed text-ink-muted">

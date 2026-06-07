@@ -54,7 +54,7 @@ export default function IdealClients() {
             <p className="section-label">Who we work with</p>
             <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] font-light leading-[1.1] tracking-[-0.03em] text-sand">
               For those who treat wellness as{" "}
-              <span className="italic text-gold">infrastructure.</span>
+              <span className="text-gold">infrastructure.</span>
             </h2>
           </div>
           <div className="flex flex-col justify-end border-t border-sand/[0.07] pt-8 lg:col-span-6 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0">

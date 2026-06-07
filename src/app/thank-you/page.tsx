@@ -23,7 +23,7 @@ export default function ThankYouPage() {
 
             <p className="section-label justify-center">Received</p>
             <h1 className="display-lg mt-4">
-              We&apos;ll be in <span className="italic text-olive">touch.</span>
+              We&apos;ll be in <span className="text-olive">touch.</span>
             </h1>
             <div className="divider-gold mx-auto" />
             <p className="mt-6 text-base font-light leading-relaxed text-ink-muted">

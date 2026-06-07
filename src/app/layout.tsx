@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingCallButton from "@/components/FloatingCallButton";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
 import ScrollProgress from "@/components/ScrollProgress";
 import { BRAND } from "@/lib/brand";
@@ -38,6 +39,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <FloatingCallButton />
       </body>
     </html>
   );

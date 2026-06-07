@@ -48,7 +48,7 @@ export default function Testimonials() {
           <p className="section-label">Client voices</p>
           <h2 className="font-display text-4xl md:text-6xl font-light text-sand leading-tight">
             Spaces that{" "}
-            <span className="italic text-gold">endure.</span>
+            <span className="text-gold">endure.</span>
           </h2>
           <div className="divider-gold mx-auto mt-6" />
         </div>
@@ -67,7 +67,7 @@ export default function Testimonials() {
                       <Star key={i} size={18} className="text-gold fill-gold" />
                     ))}
                   </div>
-                  <p className="text-2xl md:text-4xl text-sand/90 leading-relaxed mb-12 font-display font-light italic">
+                  <p className="text-2xl md:text-4xl text-sand/90 leading-relaxed mb-12 font-display font-light">
                     &ldquo;{t.text}&rdquo;
                   </p>
                   <div>

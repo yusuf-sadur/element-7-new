@@ -45,7 +45,7 @@ export default function OurApproachScrollExperience() {
                   title={
                     <>
                       Recovery architecture,{" "}
-                      <span className="italic text-bronze">built on site.</span>
+                      <span className="text-bronze">built on site.</span>
                     </>
                   }
                   description={BRAND.description}
@@ -97,7 +97,7 @@ export default function OurApproachScrollExperience() {
               <ConsultationPanel
                 title={
                   <>
-                    Start your <span className="italic text-bronze">build.</span>
+                    Start your <span className="text-bronze">build.</span>
                   </>
                 }
                 description="Tell us about your property and scope. We'll respond within one business day to arrange a consultation."

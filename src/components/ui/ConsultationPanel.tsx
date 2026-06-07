@@ -12,7 +12,7 @@ interface ConsultationPanelProps {
 export default function ConsultationPanel({
   title = (
     <>
-      Tell us about your <span className="italic text-olive">space</span>
+      Tell us about your <span className="text-olive">space</span>
     </>
   ),
   description,

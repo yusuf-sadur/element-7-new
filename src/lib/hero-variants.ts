@@ -136,7 +136,7 @@ const TEXT_THEME = {
     eyebrow: "text-olive",
     rule: "bg-olive/60",
     title: "text-ink",
-    accent: "italic text-olive",
+    accent: "text-olive",
     lead: "text-ink-muted",
     mobileLink: "text-ink/70 hover:text-ink",
   },

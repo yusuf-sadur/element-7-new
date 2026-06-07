@@ -42,7 +42,7 @@ export default function MaterialsPhilosophy() {
             <p className="section-label">Materials & build</p>
             <h2 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-light leading-[1.1] tracking-[-0.03em] text-sand">
               Sauna from{" "}
-              <span className="italic text-gold">design to build.</span>
+              <span className="text-gold">design to build.</span>
             </h2>
             <div className="divider-gold mt-6" />
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-sand/50">
@@ -91,7 +91,7 @@ export default function MaterialsPhilosophy() {
             {keywords.map((word) => (
               <span
                 key={word}
-                className="font-display text-sm font-light italic text-sand/35"
+                className="font-display text-sm font-light text-sand/35"
               >
                 {word}
               </span>

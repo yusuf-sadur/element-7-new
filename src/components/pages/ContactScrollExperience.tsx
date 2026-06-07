@@ -3,7 +3,7 @@
 import ConsultationShell from "@/components/ui/ConsultationShell";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/ui/Reveal";
-import PageScrollShell, { SnapSection } from "@/components/scroll/PageScrollShell";
+import PageScrollShell from "@/components/scroll/PageScrollShell";
 import {
   Phone,
   Mail,
@@ -40,9 +40,8 @@ const areas = [
 
 export default function ContactScrollExperience() {
   return (
-    <PageScrollShell className="bg-cream">
-      <SnapSection>
-        <PageHero
+    <PageScrollShell className="bg-cream" snap={false} smoothScroll={false}>
+      <PageHero
           variant="invitation"
           image={heroSaunaImg}
           label="Contact"
@@ -51,11 +50,9 @@ export default function ContactScrollExperience() {
           subtitle="A consultation about your property, scope, and the sauna or recovery installation you need designed and built."
           secondaryHref="/services"
           secondaryLabel="Explore spaces"
-        />
-      </SnapSection>
+      />
 
-      <SnapSection>
-        <section className="border-b border-line/60 bg-white" aria-label="Contact assurances">
+      <section className="border-b border-line/60 bg-white" aria-label="Contact assurances">
           <div className="container-e7 py-8 md:py-10">
             <div className="contact-trust-grid">
               {trustPoints.map(({ Icon, label, detail }, i) => (
@@ -71,11 +68,9 @@ export default function ContactScrollExperience() {
               ))}
             </div>
           </div>
-        </section>
-      </SnapSection>
+      </section>
 
-      <SnapSection>
-        <section className="contact-main relative overflow-hidden">
+      <section className="contact-main relative overflow-hidden">
           <div
             className="pointer-events-none absolute inset-0 opacity-60"
             aria-hidden
@@ -88,7 +83,7 @@ export default function ContactScrollExperience() {
             <Reveal variant="up" className="mx-auto mb-14 max-w-2xl text-center md:mb-20">
               <p className="section-label justify-center">Enquire</p>
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-light leading-tight tracking-tight text-ink">
-                Tell us about your <span className="italic text-bronze">build</span>
+                Tell us about your <span className="text-bronze">build</span>
               </h2>
               <p className="mt-4 text-base font-light leading-relaxed text-ink-muted">
                 Planning a sauna, steam room, plunge pool, or complete recovery suite —
@@ -186,7 +181,7 @@ export default function ContactScrollExperience() {
                   reveal={false}
                   title={
                     <>
-                      Tell us about your <span className="italic text-olive">space</span>
+                      Tell us about your <span className="text-olive">space</span>
                     </>
                   }
                 />
@@ -194,7 +189,6 @@ export default function ContactScrollExperience() {
             </div>
           </div>
         </section>
-      </SnapSection>
     </PageScrollShell>
   );
 }

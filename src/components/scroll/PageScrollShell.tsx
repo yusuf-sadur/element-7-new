@@ -10,14 +10,18 @@ export function SnapSection({ children }: { children: ReactNode }) {
 type PageScrollShellProps = {
   children: ReactNode;
   className?: string;
+  snap?: boolean;
+  smoothScroll?: boolean;
 };
 
 export default function PageScrollShell({
   children,
   className = "bg-stone",
+  snap = true,
+  smoothScroll = true,
 }: Readonly<PageScrollShellProps>) {
   const containerRef = useRef<HTMLDivElement>(null);
-  useHomeScrollEngine(containerRef);
+  useHomeScrollEngine(containerRef, { snap, smoothScroll });
 
   return (
     <div

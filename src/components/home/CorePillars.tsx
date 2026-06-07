@@ -45,7 +45,7 @@ export default function CorePillars() {
             <p className="section-label">What defines us</p>
             <h2 className="display-lg text-balance">
               Six principles of{" "}
-              <span className="italic text-olive">recovery architecture</span>
+              <span className="text-olive">recovery architecture</span>
             </h2>
           </div>
           <p className="max-w-sm text-base font-light leading-relaxed text-ink-muted md:text-right">

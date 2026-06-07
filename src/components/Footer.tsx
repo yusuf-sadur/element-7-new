@@ -80,7 +80,7 @@ export default function Footer() {
             <div className="max-w-xl scroll-reveal" data-reveal="left">
               <p className="font-display text-[1.35rem] font-light leading-snug text-stone sm:text-[1.65rem] md:text-3xl">
                 Ready to build your{" "}
-                <span className="italic text-bronze">recovery space?</span>
+                <span className="text-bronze">recovery space?</span>
               </p>
               <p className="mt-2.5 font-sans text-[13px] font-light leading-relaxed text-stone/55 sm:mt-3 sm:text-sm">
                 {BRAND.description}
@@ -93,7 +93,7 @@ export default function Footer() {
             >
               <Link
                 href="/contact"
-                className="btn-consultation w-full justify-center sm:w-auto lg:min-w-[260px]"
+                className="btn-consultation btn-consultation--footer w-full justify-center sm:w-auto lg:min-w-[260px]"
                 id="footer-cta"
               >
                 Book a consultation

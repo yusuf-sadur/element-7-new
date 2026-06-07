@@ -100,7 +100,7 @@ export default function InteriorHero({
               {accent ? (
                 <>
                   {" "}
-                  <span className="font-hero font-light italic normal-case text-sage-light">
+                  <span className="font-hero font-light normal-case text-sage-light">
                     {accent}
                   </span>
                 </>

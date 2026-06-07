@@ -25,7 +25,7 @@ export default function WellnessPhilosophy() {
             label="Philosophy"
             title={
               <>
-                Wellness is <span className="italic text-olive">infrastructure.</span>
+                Wellness is <span className="text-olive">infrastructure.</span>
               </>
             }
             description="Not a trend — long-term health, designed into the architecture of how you live."
@@ -52,7 +52,7 @@ export default function WellnessPhilosophy() {
             {purpose.map((phrase, i) => (
               <span
                 key={phrase}
-                className="font-display text-2xl italic text-ink-muted md:text-3xl"
+                className="font-display text-2xl text-ink-muted md:text-3xl"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
                 {phrase}

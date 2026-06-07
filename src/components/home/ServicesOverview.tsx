@@ -23,7 +23,7 @@ export default function ServicesOverview({
             title={
               <>
                 What we design &{" "}
-                <span className="italic text-bronze">construct.</span>
+                <span className="text-bronze">construct.</span>
               </>
             }
           />

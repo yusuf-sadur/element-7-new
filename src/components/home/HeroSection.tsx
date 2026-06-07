@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
 import heroSaunaImg from "@/assets/hero-sauna4.png";
+import HeroVideoBackground from "@/components/home/HeroVideoBackground";
 import { BRAND } from "@/lib/brand";
 import { useParallaxMultiplier } from "@/components/home/parallax/useParallaxMultiplier";
 
@@ -61,7 +61,7 @@ export default function HeroSection() {
     >
       <div className="hero-home__media absolute z-0 overflow-hidden" aria-hidden>
         <motion.div
-          className="parallax-layer absolute right-0 h-[115%] -top-[8%] will-change-transform"
+          className="parallax-layer absolute inset-0 will-change-transform"
           style={
             reduceMotion
               ? undefined
@@ -71,13 +71,12 @@ export default function HeroSection() {
                 }
           }
         >
-          <Image
-            src={heroSaunaImg}
-            alt=""
-            fill
-            priority
-            className="object-cover object-[center_38%] md:object-[48%_center] lg:object-[58%_center]"
-            sizes="100vw"
+          <HeroVideoBackground
+            poster={heroSaunaImg}
+            mp4Src="/videos/main-hero.mp4"
+            overlay="none"
+            imagePriority
+            imageSizes="100vw"
           />
         </motion.div>
         <div className="hero-video-scrim hero-home-scrim absolute inset-0" />
@@ -122,7 +121,7 @@ export default function HeroSection() {
           <motion.div variants={reduceMotion ? undefined : item} className="hero-editorial__actions">
             <Link
               href="/services"
-              className="hero-editorial__cta"
+              className="hero-editorial__cta cta-standout cta-standout--dark"
               id="hero-cta-primary"
             >
               {BRAND.heroCtaLabel}

@@ -42,7 +42,7 @@ export default function ResidentialScrollExperience() {
               <Reveal variant="left">
                 <SectionHeader
                   label="Residential construction"
-                  title={<>Recovery architecture, <span className="italic text-bronze">built in.</span></>}
+                  title={<>Recovery architecture, <span className="text-bronze">built in.</span></>}
                   description="Private saunas, plunge pools, steam rooms, and complete recovery suites — designed and constructed within your home with architectural precision."
                 />
                 <p className="mt-6 text-base font-light text-ink-muted">
@@ -68,7 +68,7 @@ export default function ResidentialScrollExperience() {
         <section className="section-padding bg-stone">
           <div className="container-e7">
             <Reveal variant="up" className="mb-14">
-              <SectionHeader align="center" label="Build types" title={<>What we <span className="italic text-bronze">construct.</span></>} />
+              <SectionHeader align="center" label="Build types" title={<>What we <span className="text-bronze">construct.</span></>} />
             </Reveal>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {features.map((f, idx) => (
@@ -88,7 +88,7 @@ export default function ResidentialScrollExperience() {
           <div className="container-e7">
             <Reveal variant="up">
               <ConsultationPanel
-                title={<>Scope your <span className="italic text-bronze">home build.</span></>}
+                title={<>Scope your <span className="text-bronze">home build.</span></>}
                 compact
               />
             </Reveal>

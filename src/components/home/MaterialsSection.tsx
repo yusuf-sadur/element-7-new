@@ -9,8 +9,8 @@ import { MATERIALS } from "@/lib/brand";
 const GALLERY_ORDER = [
   "Natural Timber",
   "Stone & Marble",
-  "Concrete & Plaster",
   "Precision Lighting",
+  "Concrete & Plaster",
   "Custom Detailing",
 ] as const;
 

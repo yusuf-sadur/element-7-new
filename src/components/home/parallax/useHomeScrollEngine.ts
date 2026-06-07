@@ -11,15 +11,21 @@ function easeOutCubic(t: number) {
   return 1 - Math.pow(1 - t, 3);
 }
 
+type ScrollEngineOptions = {
+  snap?: boolean;
+  smoothScroll?: boolean;
+};
+
 export function useHomeScrollEngine(
   containerRef: RefObject<HTMLElement | null>,
+  { snap: enableSnap = true, smoothScroll = true }: ScrollEngineOptions = {},
 ) {
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const root = document.documentElement;
 
-    if (reduceMotion) {
+    if (reduceMotion || !smoothScroll) {
       root.classList.remove(ROOT_CLASS);
       return;
     }
@@ -44,25 +50,27 @@ export function useHomeScrollEngine(
         autoResize: true,
       });
 
-      snap = new Snap(lenis, {
-        type: "proximity",
-        duration: 1.15,
-        easing: easeOutCubic,
-        velocityThreshold: 0.55,
-        debounce: 220,
-      });
-
-      container
-        .querySelectorAll<HTMLElement>("[data-snap-section]")
-        .forEach((section) => {
-          removeSnaps.push(
-            snap!.addElement(section, { align: ["start"] }),
-          );
+      if (enableSnap) {
+        snap = new Snap(lenis, {
+          type: "proximity",
+          duration: 1.15,
+          easing: easeOutCubic,
+          velocityThreshold: 0.55,
+          debounce: 220,
         });
 
-      const footer = document.querySelector<HTMLElement>("footer");
-      if (footer) {
-        removeSnaps.push(snap.addElement(footer, { align: ["start"] }));
+        container
+          .querySelectorAll<HTMLElement>("[data-snap-section]")
+          .forEach((section) => {
+            removeSnaps.push(
+              snap!.addElement(section, { align: ["start"] }),
+            );
+          });
+
+        const footer = document.querySelector<HTMLElement>("footer");
+        if (footer) {
+          removeSnaps.push(snap.addElement(footer, { align: ["start"] }));
+        }
       }
 
       const loop = (time: number) => {
@@ -84,5 +92,5 @@ export function useHomeScrollEngine(
       lenis?.destroy();
       root.classList.remove(ROOT_CLASS);
     };
-  }, [reduceMotion, containerRef]);
+  }, [reduceMotion, smoothScroll, enableSnap, containerRef]);
 }

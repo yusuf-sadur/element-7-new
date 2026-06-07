@@ -319,10 +319,13 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             href="/contact"
-            className={`btn-consultation hidden lg:inline-flex ${isTransparent ? "" : "btn-consultation--light"}`}
+            className={`btn-consultation cta-standout hidden lg:inline-flex ${
+              isTransparent ? "cta-standout--dark" : "cta-standout--light"
+            }`}
             id="nav-cta-desktop"
           >
             Book a consultation
+            <ArrowUpRight size={14} strokeWidth={1.75} aria-hidden />
           </Link>
 
           <button
@@ -451,11 +454,12 @@ export default function Navbar() {
               <div className="border-t border-line p-5">
                 <Link
                   href="/contact"
-                  className="btn-consultation btn-consultation--light w-full justify-center"
+                  className="btn-consultation cta-standout cta-standout--light w-full justify-center"
                   id="nav-cta-mobile"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Book a consultation
+                  <ArrowUpRight size={14} strokeWidth={1.75} aria-hidden />
                 </Link>
               </div>
             </motion.div>

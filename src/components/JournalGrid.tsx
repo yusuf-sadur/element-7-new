@@ -89,7 +89,7 @@ export default function JournalGrid({
           <Reveal variant="up" className="mb-10">
             <p className="section-label">Archive</p>
             <h2 className="font-display text-2xl text-ink md:text-3xl">
-              More <span className="italic text-olive">reading.</span>
+              More <span className="text-olive">reading.</span>
             </h2>
           </Reveal>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

@@ -47,7 +47,7 @@ export default function CommercialScrollExperience() {
               <Reveal variant="left">
                 <SectionHeader
                   label="Commercial construction"
-                  title={<>Built for <span className="italic text-bronze">throughput.</span></>}
+                  title={<>Built for <span className="text-bronze">throughput.</span></>}
                   description="The same architectural rigour we bring to private homes — applied to gyms, hotels, studios, and mixed-use developments."
                 />
                 <p className="mt-6 text-base font-light text-ink-muted">
@@ -78,7 +78,7 @@ export default function CommercialScrollExperience() {
         <section className="section-padding bg-stone">
           <div className="container-e7">
             <Reveal variant="up" className="mb-14">
-              <SectionHeader align="center" label="Who we build for" title={<>Commercial <span className="italic text-bronze">clients.</span></>} />
+              <SectionHeader align="center" label="Who we build for" title={<>Commercial <span className="text-bronze">clients.</span></>} />
             </Reveal>
             <div className="grid gap-5 md:grid-cols-2">
               {targetClients.map((client, idx) => (
@@ -100,7 +100,7 @@ export default function CommercialScrollExperience() {
           <div className="container-e7">
             <Reveal variant="up">
               <ConsultationPanel
-                title={<>Scope your <span className="italic text-bronze">commercial build.</span></>}
+                title={<>Scope your <span className="text-bronze">commercial build.</span></>}
                 description="Recovery architecture for hospitality, fitness, and mixed-use — consultation through construction and handover."
                 compact
               />

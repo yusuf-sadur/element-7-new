@@ -62,7 +62,7 @@ export default function TheDifference() {
             <p className="section-label">What makes us different</p>
             <h2 className="mb-6 font-display text-5xl font-light leading-tight text-sand md:text-7xl">
               A wellness architecture{" "}
-              <span className="italic text-gold">studio.</span>
+              <span className="text-gold">studio.</span>
             </h2>
             <div className="divider-gold" />
             <p className="mb-4 mt-6 text-sm font-light leading-relaxed text-sand/55">

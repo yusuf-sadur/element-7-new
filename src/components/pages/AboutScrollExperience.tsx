@@ -58,7 +58,7 @@ export default function AboutScrollExperience() {
                   label="Who we are"
                   title={
                     <>
-                      Not a spa. <span className="italic text-bronze">A build studio.</span>
+                      Not a spa. <span className="text-bronze">A build studio.</span>
                     </>
                   }
                   description={BRAND.studioIdentity}
@@ -117,7 +117,7 @@ export default function AboutScrollExperience() {
                   label="What we build"
                   title={
                     <>
-                      Drawings to <span className="italic text-bronze">handover.</span>
+                      Drawings to <span className="text-bronze">handover.</span>
                     </>
                   }
                   description="One integrated build path — design, specification, on-site construction, commissioning, and documentation."
@@ -151,7 +151,7 @@ export default function AboutScrollExperience() {
                 label="Principles"
                 title={
                   <>
-                    How we <span className="italic text-bronze">deliver.</span>
+                    How we <span className="text-bronze">deliver.</span>
                   </>
                 }
               />

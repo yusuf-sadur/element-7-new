@@ -39,7 +39,7 @@ function ScopePanel({
             </p>
             <h3 className="mt-2 font-display text-[clamp(1.35rem,2.2vw,1.75rem)] font-light leading-snug text-ink">
               {title}{" "}
-              <span className="italic text-bronze">{titleAccent}</span>
+              <span className="text-bronze">{titleAccent}</span>
             </h3>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function ServiceScopeSection({
         <Reveal variant="up" className="mb-10 max-w-2xl md:mb-14">
           <p className="section-label">What we deliver</p>
           <h2 className="font-display text-[clamp(1.75rem,3.2vw,2.5rem)] font-light uppercase leading-[1.1] tracking-tight text-ink">
-            Scope & <span className="italic text-bronze">outcomes.</span>
+            Scope & <span className="text-bronze">outcomes.</span>
           </h2>
           <p className="mt-4 max-w-lg text-sm font-light leading-relaxed text-ink-muted">
             Every build is specified in drawings, constructed on site, and handed over with
