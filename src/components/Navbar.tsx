@@ -131,10 +131,10 @@ export default function Navbar() {
           : "border-b border-line bg-stone shadow-[0_4px_24px_rgba(13,13,13,0.06)]"
       }`}
     >
-      <div className="pointer-events-auto container-e7 flex h-16 items-center justify-between md:h-[4.5rem]">
+      <div className="pointer-events-auto grid h-16 w-full max-w-none grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-8 lg:px-10 xl:px-12 md:h-[4.5rem]">
         <Link
           href="/"
-          className={`font-display text-lg tracking-[0.2em] transition-colors duration-300 md:text-xl ${
+          className={`col-start-1 justify-self-start font-display text-lg tracking-[0.2em] transition-colors duration-300 md:text-xl ${
             isTransparent ? "text-cream" : "text-ink"
           }`}
           aria-label="Element Seven — Home"
@@ -142,7 +142,10 @@ export default function Navbar() {
           ELEMENT <span className={isTransparent ? "text-bronze-light" : "text-bronze"}>7</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav
+          className="col-start-2 hidden items-center justify-self-center gap-8 lg:flex"
+          aria-label="Primary"
+        >
           <Link
             href="/"
             className={`${linkBase} after:absolute after:bottom-0 after:left-0 after:h-px after:transition-all ${underlineColor} ${activeLink("/")}`}
@@ -316,12 +319,10 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="col-start-3 flex items-center justify-self-end gap-4">
           <Link
             href="/contact"
-            className={`btn-consultation cta-standout hidden lg:inline-flex ${
-              isTransparent ? "cta-standout--dark" : "cta-standout--light"
-            }`}
+            className="btn-accent btn-accent--nav hidden lg:inline-flex"
             id="nav-cta-desktop"
           >
             Book a consultation
@@ -454,7 +455,7 @@ export default function Navbar() {
               <div className="border-t border-line p-5">
                 <Link
                   href="/contact"
-                  className="btn-consultation cta-standout cta-standout--light w-full justify-center"
+                  className="btn-accent w-full justify-center"
                   id="nav-cta-mobile"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

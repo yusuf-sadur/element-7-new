@@ -6,13 +6,14 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import MobileCarouselTrack from "@/components/ui/MobileCarouselTrack";
 import ParallaxMedia from "@/components/home/parallax/ParallaxMedia";
+import { MATERIAL_IMAGES } from "@/lib/material-images";
 
 const articles = [
   {
     slug: "specifying-custom-saunas",
     title: "How to Specify a Custom Sauna for Your Project",
     date: "April 2025",
-    image: "https://images.unsplash.com/photo-1545579133-99bb5ad189be?w=800&q=80",
+    image: MATERIAL_IMAGES.detailing,
   },
   {
     slug: "steam-room-construction",

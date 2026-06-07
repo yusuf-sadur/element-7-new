@@ -83,8 +83,9 @@ export default function ProcessSection() {
           delay={0.16}
           className="mt-10 flex flex-col items-center justify-center gap-4 md:mt-14 md:flex-row md:flex-wrap md:justify-start"
         >
-          <Link href="/contact" className="btn-consultation">
+          <Link href="/contact" className="btn-accent" id="process-cta">
             Book a consultation
+            <ArrowUpRight size={14} strokeWidth={1.75} aria-hidden />
           </Link>
           <Link
             href="/our-approach"

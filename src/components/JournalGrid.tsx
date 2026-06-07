@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import type { StaticImageData } from "next/image";
 import Link from "next/link";
 import Image from "next/image";
 import { Clock } from "lucide-react";
@@ -13,7 +14,7 @@ export type JournalArticle = {
   category: string;
   readTime: string;
   date: string;
-  image: string;
+  image: string | StaticImageData;
   excerpt: string;
 };
 

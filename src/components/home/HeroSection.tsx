@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
 import heroSaunaImg from "@/assets/hero-sauna4.png";
@@ -91,8 +92,8 @@ export default function HeroSection() {
         >
           <div className="hero-editorial__glass" aria-hidden />
           <div className="hero-editorial__content">
-          <motion.p variants={reduceMotion ? undefined : item} className="hero-editorial__eyebrow">
-            {BRAND.heroEyebrow}
+          <motion.p variants={reduceMotion ? undefined : item} className="hero-brand-mark">
+            ELEMENT <span className="hero-brand-mark__accent">7</span>
           </motion.p>
 
           <motion.h1
@@ -121,10 +122,11 @@ export default function HeroSection() {
           <motion.div variants={reduceMotion ? undefined : item} className="hero-editorial__actions">
             <Link
               href="/services"
-              className="hero-editorial__cta cta-standout cta-standout--dark"
+              className="hero-editorial__cta btn-accent btn-accent--hero"
               id="hero-cta-primary"
             >
               {BRAND.heroCtaLabel}
+              <ArrowUpRight size={14} strokeWidth={1.75} aria-hidden />
             </Link>
           </motion.div>
           </div>

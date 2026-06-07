@@ -93,10 +93,11 @@ export default function Footer() {
             >
               <Link
                 href="/contact"
-                className="btn-consultation btn-consultation--footer w-full justify-center sm:w-auto lg:min-w-[260px]"
+                className="btn-consultation btn-consultation--footer w-full justify-center sm:w-auto lg:min-w-[280px]"
                 id="footer-cta"
               >
                 Book a consultation
+                <ArrowUpRight size={14} strokeWidth={1.75} aria-hidden />
               </Link>
               <p className="text-center font-sans text-[10px] uppercase tracking-label text-stone/35 lg:text-right">
                 Melbourne based · {BRAND.coverage}
