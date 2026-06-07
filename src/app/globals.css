@@ -148,7 +148,6 @@
     font-weight: 100;
     font-synthesis: none;
     letter-spacing: 0.1em;
-    word-spacing: 0.18em;
   }
 
   /* All page heroes — same Canela + cream type as home (override base heading ink) */
@@ -165,7 +164,6 @@
     font-synthesis: none;
     color: var(--cream);
     letter-spacing: 0.08em;
-    word-spacing: 0.14em;
   }
 
   #hero .hero-eyebrow,
@@ -1238,7 +1236,6 @@
     font-weight: 100;
     font-synthesis: none;
     letter-spacing: 0.1em;
-    word-spacing: 0.18em;
     @apply text-[clamp(1.65rem,4.2vw,3rem)] uppercase leading-none text-cream;
     text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35);
   }
@@ -1247,7 +1244,6 @@
     font-size: clamp(1.55rem, 4vw, 2.75rem);
     line-height: 1.1;
     letter-spacing: 0.07em;
-    word-spacing: 0.12em;
     text-shadow: none;
   }
 
@@ -1255,7 +1251,6 @@
     @apply block font-hero leading-none;
     font-weight: inherit;
     letter-spacing: inherit;
-    word-spacing: inherit;
   }
 
   .hero-editorial__line + .hero-editorial__line {
@@ -1464,7 +1459,6 @@
     .hero-home--editorial .hero-editorial__title--service {
       font-size: clamp(1.45rem, 6.8vw, 1.8rem);
       letter-spacing: 0.06em;
-      word-spacing: 0.1em;
     }
 
     .hero-home--editorial .hero-editorial__actions {
@@ -1522,7 +1516,6 @@
     .hero-home--editorial .hero-editorial__title {
       font-size: clamp(1.5rem, 7.2vw, 1.85rem);
       letter-spacing: 0.08em;
-      word-spacing: 0.14em;
       line-height: 1;
       @apply text-cream;
       text-shadow: none;
