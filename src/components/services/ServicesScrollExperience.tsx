@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import ConsultationCta from "@/components/ui/ConsultationCta";
 import ServiceCinematicHero from "@/components/services/ServiceCinematicHero";
 import SpacesCinematicGrid from "@/components/services/SpacesCinematicGrid";
 import ProcessSection from "@/components/home/ProcessSection";
@@ -45,13 +45,10 @@ export default function ServicesScrollExperience() {
               <p className="mt-5 text-sm font-light leading-relaxed text-ink-muted">
                 {BRAND.description}
               </p>
-              <Link
-                href="/contact"
-                className="btn-consultation btn-consultation--light mt-10 inline-flex"
+              <ConsultationCta
                 id="services-page-cta"
-              >
-                Book a consultation
-              </Link>
+                className="mt-10 justify-center"
+              />
             </Reveal>
           </div>
         </section>
@@ -72,9 +69,7 @@ export default function ServicesScrollExperience() {
                 Complete recovery suites, contrast installations, and commercial
                 fit-outs — designed and built end to end.
               </p>
-              <Link href="/contact" className="btn-consultation mt-10 inline-flex">
-                Book a consultation
-              </Link>
+              <ConsultationCta className="mt-10 justify-center" />
             </Reveal>
           </div>
         </section>

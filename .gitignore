@@ -4,9 +4,14 @@ node_modules
 .env
 dist
 
-# Licensed GT Super web fonts (add locally from Grilli Type)
+# Licensed brand fonts (add locally — hero Canela synced into src/assets at build)
 public/fonts/*.woff
 public/fonts/*.woff2
 public/fonts/*.otf
 public/fonts/*.ttf
 public/fonts/*.eot
+src/assets/fonts/canela/*
+!src/assets/fonts/canela/.gitkeep
+fonts-secrets/
+hero-fonts-bundle.*
+.tmp-hero-font*

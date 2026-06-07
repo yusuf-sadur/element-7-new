@@ -8,6 +8,8 @@ interface MobileCarouselTrackProps {
   children: ReactNode;
   /** Tailwind grid classes at md+ e.g. `md:grid md:grid-cols-5` */
   className?: string;
+  /** When false, children handle their own scroll reveals (e.g. staggered cards). */
+  reveal?: boolean;
 }
 
 /**
@@ -17,10 +19,15 @@ interface MobileCarouselTrackProps {
 export default function MobileCarouselTrack({
   children,
   className = "",
+  reveal = true,
 }: Readonly<MobileCarouselTrackProps>) {
+  const track = <div className={`mobile-carousel-track ${className}`.trim()}>{children}</div>;
+
+  if (!reveal) return track;
+
   return (
     <Reveal variant="fade" delay={0.05}>
-      <div className={`mobile-carousel-track ${className}`.trim()}>{children}</div>
+      {track}
     </Reveal>
   );
 }

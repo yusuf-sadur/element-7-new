@@ -1,10 +1,9 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
-import { useHomeScrollEngine } from "@/components/home/parallax/useHomeScrollEngine";
+import type { ReactNode } from "react";
 
 export function SnapSection({ children }: { children: ReactNode }) {
-  return <div data-snap-section>{children}</div>;
+  return <>{children}</>;
 }
 
 type PageScrollShellProps = {
@@ -17,15 +16,9 @@ type PageScrollShellProps = {
 export default function PageScrollShell({
   children,
   className = "bg-stone",
-  snap = true,
-  smoothScroll = true,
 }: Readonly<PageScrollShellProps>) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  useHomeScrollEngine(containerRef, { snap, smoothScroll });
-
   return (
     <div
-      ref={containerRef}
       className={`home-scroll-experience relative min-h-screen overflow-x-clip ${className}`.trim()}
     >
       {children}

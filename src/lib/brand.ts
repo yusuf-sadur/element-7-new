@@ -36,11 +36,42 @@ export const BRAND = {
     "Element Seven designs and builds custom saunas, steam rooms, plunge pools, and complete recovery environments. Consultation, architectural design, construction, and handover — one studio, Australia-wide.",
   studio: "Melbourne",
   coverage: "Australia-wide",
+  serviceAreasHeadline: "Areas We Service",
+  serviceAreasSubline: "Melbourne studio · residential & commercial delivery across Victoria.",
+  serviceAreasNote:
+    "Not on the list? We service other areas across Melbourne and Australia-wide — reach out first and we'll let you know what's possible for your location.",
   phone: "0422 797 790",
   phoneTel: "+61422797790",
   studioIdentity:
     "Not a spa. Not a resort operator. A recovery architecture studio that designs and builds wellness environments for your property.",
 } as const;
+
+export const SERVICE_AREA_REGIONS = [
+  {
+    region: "Inner East",
+    suburbs: ["Toorak", "Hawthorn", "Camberwell", "Malvern", "Armadale", "Kew", "Balwyn"],
+  },
+  {
+    region: "Bayside",
+    suburbs: ["Brighton", "Brighton East", "Hampton", "Sandringham", "Black Rock", "Beaumaris"],
+  },
+  {
+    region: "Mornington Peninsula",
+    suburbs: ["Portsea", "Sorrento", "Mornington", "Mount Eliza", "Flinders", "Blairgowrie"],
+  },
+  {
+    region: "Inner North",
+    suburbs: ["Fitzroy", "Collingwood", "Northcote", "Brunswick", "Carlton"],
+  },
+  {
+    region: "South East",
+    suburbs: ["Glen Waverley", "Wheelers Hill", "Doncaster", "Templestowe", "Doncaster East"],
+  },
+  {
+    region: "Yarra Valley & Hills",
+    suburbs: ["Eltham", "Warrandyte", "Healesville", "Hurstbridge"],
+  },
+] as const;
 
 export type SpaceSlug =
   | "traditional-dry-sauna"

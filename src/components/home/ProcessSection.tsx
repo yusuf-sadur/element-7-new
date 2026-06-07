@@ -9,6 +9,7 @@ import {
   Wrench,
   HeartHandshake,
 } from "lucide-react";
+import ConsultationCta from "@/components/ui/ConsultationCta";
 import Reveal from "@/components/ui/Reveal";
 import MobileCarouselTrack from "@/components/ui/MobileCarouselTrack";
 import HeroVideoBackground from "@/components/home/HeroVideoBackground";
@@ -83,10 +84,7 @@ export default function ProcessSection() {
           delay={0.16}
           className="mt-10 flex flex-col items-center justify-center gap-4 md:mt-14 md:flex-row md:flex-wrap md:justify-start"
         >
-          <Link href="/contact" className="btn-accent" id="process-cta">
-            Book a consultation
-            <ArrowUpRight size={14} strokeWidth={1.75} aria-hidden />
-          </Link>
+          <ConsultationCta id="process-cta" className="justify-center md:justify-start" />
           <Link
             href="/our-approach"
             className="link-line inline-flex text-[11px] text-stone/70 after:bg-bronze hover:text-stone"

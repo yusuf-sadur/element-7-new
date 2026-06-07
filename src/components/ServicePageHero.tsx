@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import type { StaticImageData } from "next/image";
+import ConsultationCta from "@/components/ui/ConsultationCta";
 import InteriorHero from "@/components/ui/InteriorHero";
 
 interface ServicePageHeroProps {
@@ -31,9 +32,7 @@ export default function ServicePageHero({
       eyebrow={`${label} · Design & Construction`}
     >
       <div className="hero-editorial__actions">
-        <Link href="/contact" className="hero-editorial__cta" id="service-hero-cta-primary">
-          Book a consultation
-        </Link>
+        <ConsultationCta id="service-hero-cta-primary" className="hero-editorial__cta" />
         <Link href="/services" className="hero-editorial__link" id="service-hero-cta-secondary">
           All spaces
         </Link>

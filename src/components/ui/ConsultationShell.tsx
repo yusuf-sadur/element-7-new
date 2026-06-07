@@ -26,14 +26,28 @@ export default function ConsultationShell({
   reveal = true,
 }: Readonly<ConsultationShellProps>) {
   const shell = (
-    <div className={`contact-form-shell ${className}`.trim()}>
+    <div
+      className={`contact-form-shell ${compact ? "contact-form-shell--compact" : ""} ${className}`.trim()}
+    >
       <div className="contact-form-shell-header bg-mesh">
-        <p className="section-label !mb-4">{label}</p>
-        <h3 className="font-display text-2xl font-light leading-snug text-ink md:text-3xl">
+        <p className={`section-label ${compact ? "!mb-3" : "!mb-4"}`}>{label}</p>
+        <h3
+          className={
+            compact
+              ? "font-display text-xl font-light leading-snug text-ink md:text-2xl"
+              : "font-display text-2xl font-light leading-snug text-ink md:text-3xl"
+          }
+        >
           {title}
         </h3>
         {description ? (
-          <p className="mt-3 max-w-2xl text-sm font-light leading-relaxed text-ink-muted">
+          <p
+            className={
+              compact
+                ? "mt-2 max-w-md text-xs font-light leading-relaxed text-ink-muted"
+                : "mt-3 max-w-2xl text-sm font-light leading-relaxed text-ink-muted"
+            }
+          >
             {description}
           </p>
         ) : null}

@@ -1,14 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import heroSaunaImg from "@/assets/hero-sauna4.png";
 import HeroVideoBackground from "@/components/home/HeroVideoBackground";
+import ConsultationCta from "@/components/ui/ConsultationCta";
 import { BRAND } from "@/lib/brand";
-import { useParallaxMultiplier } from "@/components/home/parallax/useParallaxMultiplier";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -27,24 +25,6 @@ const item = {
 export default function HeroSection() {
   const [ready, setReady] = useState(false);
   const reduceMotion = useReducedMotion();
-  const multiplier = useParallaxMultiplier();
-  const heroRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  const imageY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["-6%", `${28 * multiplier}%`],
-  );
-  const imageScale = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [1.08, 1.18],
-  );
 
   useEffect(() => {
     setReady(true);
@@ -55,23 +35,12 @@ export default function HeroSection() {
 
   return (
     <section
-      ref={heroRef}
       id="hero"
       className="hero-home hero-home--editorial relative flex min-h-[100dvh] flex-col overflow-x-hidden bg-ink md:h-[100svh] md:max-h-[100svh] md:overflow-hidden"
       aria-label={`${BRAND.name} — ${BRAND.tagline}`}
     >
       <div className="hero-home__media absolute z-0 overflow-hidden" aria-hidden>
-        <motion.div
-          className="parallax-layer absolute inset-0 will-change-transform"
-          style={
-            reduceMotion
-              ? undefined
-              : {
-                  y: imageY,
-                  scale: imageScale,
-                }
-          }
-        >
+        <div className="absolute inset-0">
           <HeroVideoBackground
             poster={heroSaunaImg}
             mp4Src="/videos/main-hero.mp4"
@@ -79,7 +48,7 @@ export default function HeroSection() {
             imagePriority
             imageSizes="100vw"
           />
-        </motion.div>
+        </div>
         <div className="hero-video-scrim hero-home-scrim absolute inset-0" />
       </div>
 
@@ -120,14 +89,12 @@ export default function HeroSection() {
           </motion.p>
 
           <motion.div variants={reduceMotion ? undefined : item} className="hero-editorial__actions">
-            <Link
-              href="/services"
-              className="hero-editorial__cta btn-accent btn-accent--hero"
+            <ConsultationCta
               id="hero-cta-primary"
-            >
-              {BRAND.heroCtaLabel}
-              <ArrowUpRight size={14} strokeWidth={1.75} aria-hidden />
-            </Link>
+              href="/services"
+              label={BRAND.heroCtaLabel}
+              className="hero-editorial__cta"
+            />
           </motion.div>
           </div>
         </motion.div>

@@ -11,15 +11,16 @@ import { BRAND, SPACES } from "@/lib/brand";
 
 const HOME_SLUGS = [
   "traditional-dry-sauna",
+  "infrared-sauna",
+  "hybrid-sauna",
   "hammam-steam",
   "stainless-steel-plunge",
   "recovery-pools",
-  "hybrid-sauna",
 ] as const;
 
 const GALLERY_COPY: Record<string, string> = {
   "traditional-dry-sauna":
-    "Traditional and infrared saunas — custom timber builds designed and constructed on site.",
+    "Traditional dry saunas — custom cedar and timber builds designed and constructed on site.",
   "infrared-sauna":
     "Infrared sauna construction — premium cabinetry, panel systems, and architectural integration.",
   "hybrid-sauna":
@@ -49,6 +50,7 @@ const PAGE_MODALITIES = [
 
 type SpacesCinematicGridProps = {
   id?: string;
+  kicker?: string;
   heading?: string;
   subheading?: string;
   spaces?: SpaceDefinition[];
@@ -77,7 +79,7 @@ function SpaceCard({
       className={`cinematic-card group relative block overflow-hidden ${
         isPage
           ? "aspect-[4/5] min-h-[300px] md:min-h-[340px]"
-          : "aspect-[4/5] min-h-[260px] sm:min-h-[280px] md:aspect-[5/6] md:min-h-0"
+          : "aspect-[4/5] min-h-[300px] sm:min-h-[320px] md:aspect-[4/5] md:min-h-[340px] lg:min-h-[380px]"
       }`}
     >
       <div className="cinematic-card-media">
@@ -89,7 +91,7 @@ function SpaceCard({
             sizes={
               isPage
                 ? "(max-width: 768px) 100vw, 33vw"
-                : "(max-width: 768px) 72vw, 16vw"
+                : "(max-width: 768px) 72vw, (max-width: 1024px) 50vw, 33vw"
             }
             className="object-cover transition-transform duration-[1.6s] ease-smooth group-hover:scale-[1.05]"
             priority={idx < 3}
@@ -107,7 +109,11 @@ function SpaceCard({
         </div>
       ) : null}
 
-      <div className="cinematic-card-caption absolute inset-x-0 bottom-0 p-5 md:p-6">
+      <div
+        className={`cinematic-card-caption absolute inset-x-0 bottom-0 ${
+          isPage ? "p-5 md:p-6" : "p-6 md:p-7"
+        }`}
+      >
         {isPage ? (
           <span className="font-sans text-[10px] font-medium tabular-nums tracking-[0.28em] text-bronze/80 transition-colors duration-500 group-hover:text-bronze">
             {index}
@@ -115,7 +121,7 @@ function SpaceCard({
         ) : null}
         <h3
           className={`font-sans font-semibold uppercase tracking-[0.2em] text-stone/90 transition-colors duration-500 group-hover:text-stone ${
-            isPage ? "mt-2 text-[12px] md:text-[13px]" : "text-[11px]"
+            isPage ? "mt-2 text-[12px] md:text-[13px]" : "text-[12px] md:text-[13px]"
           }`}
         >
           {space.shortTitle}
@@ -129,7 +135,7 @@ function SpaceCard({
           className={`font-light leading-relaxed text-stone/55 transition-colors duration-500 group-hover:text-stone/90 ${
             isPage
               ? "mt-3 line-clamp-2 text-[13px] md:line-clamp-3 md:text-[12px]"
-              : "mt-2 line-clamp-3 text-[12px]"
+              : "mt-3 line-clamp-4 text-[13px] md:text-sm"
           }`}
         >
           {GALLERY_COPY[space.slug] ?? space.subtitle}
@@ -148,6 +154,7 @@ function SpaceCard({
 
 export default function SpacesCinematicGrid({
   id,
+  kicker,
   heading = "Designed for how you live, work & recover.",
   subheading,
   spaces,
@@ -241,23 +248,38 @@ export default function SpacesCinematicGrid({
   }
 
   return (
-    <section id={id} className={`bg-warm-black ${className}`.trim()}>
-      <div className="container-e7 section-padding">
-        <Reveal variant="fade" className="mb-12 md:mb-16">
-          <h2 className="max-w-4xl font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-light uppercase leading-[1.12] tracking-tight text-stone">
-            {heading}
-          </h2>
-          {subheading ? (
-            <p className="mt-4 max-w-2xl text-sm font-light leading-relaxed text-stone/50">
-              {subheading}
-            </p>
+    <section id={id} className={`spaces-build-section ${className}`.trim()}>
+      <div className="spaces-build-section__ambient" aria-hidden />
+      <div className="container-e7 relative section-padding">
+        <div className="mb-12 md:mb-14 lg:mb-16">
+          {kicker ? (
+            <Reveal variant="blur" delay={0}>
+              <p className="section-label !text-bronze-light/90">{kicker}</p>
+            </Reveal>
           ) : null}
-        </Reveal>
+          <Reveal variant="up" delay={kicker ? 0.06 : 0}>
+            <h2 className="max-w-4xl font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-light uppercase leading-[1.12] tracking-tight text-stone">
+              {heading}
+            </h2>
+          </Reveal>
+          {subheading ? (
+            <Reveal variant="fade" delay={0.12}>
+              <p className="mt-5 max-w-2xl text-sm font-light leading-relaxed text-stone/55 md:text-base md:leading-[1.75]">
+                {subheading}
+              </p>
+            </Reveal>
+          ) : null}
+        </div>
 
-        <MobileCarouselTrack className="sm:gap-4 md:grid md:grid-cols-5 md:pb-0">
+        <MobileCarouselTrack
+          reveal={false}
+          className="gap-4 md:grid md:grid-cols-2 md:gap-5 md:pb-0 lg:grid-cols-3 lg:gap-6"
+        >
           {items.map((space, idx) => (
-            <div key={space.slug} className="mobile-carousel-item">
-              <SpaceCard space={space} idx={idx} ctaLabel={ctaLabel} variant="home" />
+            <div key={space.slug} className="mobile-carousel-item h-full">
+              <Reveal variant="up" delay={(idx % 3) * 0.08} className="h-full">
+                <SpaceCard space={space} idx={idx} ctaLabel={ctaLabel} variant="home" />
+              </Reveal>
             </div>
           ))}
         </MobileCarouselTrack>

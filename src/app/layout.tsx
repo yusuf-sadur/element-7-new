@@ -6,9 +6,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
-import ScrollProgress from "@/components/ScrollProgress";
 import { BRAND } from "@/lib/brand";
-import { canelaSubstitute, inter } from "@/lib/fonts";
+import { canela, canelaSubstitute, inter } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Element Seven | Recovery Architecture | Australia",
@@ -34,10 +33,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-AU" className={`${inter.variable} ${canelaSubstitute.variable}`}>
+    <html
+      lang="en-AU"
+      className={`${inter.variable} ${canelaSubstitute.variable} ${canela.variable}`}
+    >
       <body className="bg-stone font-sans text-ink-muted antialiased">
         <ScrollRevealInit />
-        <ScrollProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />

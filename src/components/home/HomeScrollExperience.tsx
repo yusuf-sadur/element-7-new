@@ -8,7 +8,6 @@ import MaterialsSection from "@/components/home/MaterialsSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import ContactSection from "@/components/home/ContactSection";
 import TrustSection from "@/components/home/TrustSection";
-import JournalPreview from "@/components/home/JournalPreview";
 import PageScrollShell, { SnapSection } from "@/components/scroll/PageScrollShell";
 
 export default function HomeScrollExperience() {
@@ -37,9 +36,6 @@ export default function HomeScrollExperience() {
       </SnapSection>
       <SnapSection>
         <ContactSection />
-      </SnapSection>
-      <SnapSection>
-        <JournalPreview />
       </SnapSection>
     </PageScrollShell>
   );
