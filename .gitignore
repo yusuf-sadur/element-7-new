@@ -1,7 +1,5 @@
 node_modules
 .next
-.env.local
-.env
 dist
 
 # Licensed brand fonts (add locally — hero Canela synced into src/assets at build)
