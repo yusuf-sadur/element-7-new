@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Send, Loader2, CheckCircle, AlertCircle, Lock } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import FormSelect from "@/components/ui/FormSelect";
+import { BRAND } from "@/lib/brand";
 
 interface FormData {
   fullName: string;
@@ -127,7 +128,7 @@ export default function ConsultationForm({
           error: true,
           message:
             result.message ||
-            "Submission failed. Please call us directly on 1300 000 000.",
+            `Submission failed. Please call us directly on ${BRAND.phone}.`,
         });
       }
     } catch (error) {
@@ -138,8 +139,8 @@ export default function ConsultationForm({
         success: false,
         error: true,
         message: isNetworkError
-          ? "Network error. Please check your connection and try again, or call us on 1300 000 000."
-          : "Something went wrong. Please call us directly on 1300 000 000.",
+          ? `Network error. Please check your connection and try again, or call us on ${BRAND.phone}.`
+          : `Something went wrong. Please call us directly on ${BRAND.phone}.`,
       });
     }
   };

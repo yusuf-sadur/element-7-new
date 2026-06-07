@@ -19,7 +19,9 @@ pnpm fonts:pack-hero
 Then in Vercel → Project Settings → Environment Variables, add:
 
 - `FONTS_HERO_ARCHIVE_BASE64` — paste contents of `hero-fonts-bundle.base64.txt`
-- `FONTS_HERO_REQUIRE` — `true` (optional; fails build if fonts are missing)
+- `FONTS_HERO_REQUIRE` — `true` to fail the build when Canela files are missing (optional)
+
+Without `FONTS_HERO_ARCHIVE_BASE64`, Vercel builds still succeed and hero text uses **Cormorant Garamond** as a fallback until you add the env var.
 
 The build runs `prepare-hero-fonts.mjs`, which extracts Canela into `src/assets/fonts/canela/` and bundles it for hero typography via `next/font/local`.
 
