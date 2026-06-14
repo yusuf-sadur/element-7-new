@@ -12,10 +12,10 @@ export default function ContactSection() {
           label="Contact us"
           title={
             <>
-              Ready to build your <span className="text-bronze">recovery space?</span>
+              Ready to start your build? <span className="text-bronze">Let&apos;s talk.</span>
             </>
           }
-          description="Share your brief — we respond within one business day with a calm, no-pressure next step."
+          description="Tell us about your space and what you're after — we respond within one business day with a clear scope and materials spec."
         />
       </div>
     </section>

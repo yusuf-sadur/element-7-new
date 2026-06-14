@@ -1,26 +1,54 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 
+import drySaunaImg from "@/assets/Dry_Sauna.png";
 import heroSaunaImg from "@/assets/hero-sauna4.png";
 import HeroVideoBackground from "@/components/home/HeroVideoBackground";
-import ConsultationCta from "@/components/ui/ConsultationCta";
+import CountUpStat from "@/components/ui/CountUpStat";
 import { BRAND } from "@/lib/brand";
+import { EASE_PREMIUM } from "@/lib/motion";
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_PREMIUM;
 
 const container = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.14 },
+    transition: { staggerChildren: 0.09, delayChildren: 0.14 },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease } },
+  hidden: { opacity: 0, y: 22 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.85, ease } },
 };
+
+const imageReveal = {
+  hidden: { opacity: 0, scale: 1.04, x: 24 },
+  show: { opacity: 1, scale: 1, x: 0, transition: { duration: 1, ease, delay: 0.22 } },
+};
+
+const statsContainer = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.48 },
+  },
+};
+
+const statItem = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
+};
+
+const HERO_STATS = [
+  { type: "count" as const, end: 120, suffix: "+", label: "Builds delivered" },
+  { type: "count" as const, end: 12, suffix: "", label: "Years on the tools" },
+  { type: "count" as const, end: 100, suffix: "%", label: "Design & build, one team" },
+  { type: "text" as const, value: "AU", label: "Australia-wide" },
+];
 
 export default function HeroSection() {
   const [ready, setReady] = useState(false);
@@ -30,17 +58,10 @@ export default function HeroSection() {
     setReady(true);
   }, []);
 
-  const headlineLines = BRAND.heroHeadlineLines;
-  const leadLines = BRAND.heroLeadLines;
-
   return (
-    <section
-      id="hero"
-      className="hero-home hero-home--editorial relative flex min-h-[100dvh] flex-col overflow-x-hidden bg-ink md:h-[100svh] md:max-h-[100svh] md:overflow-hidden"
-      aria-label={`${BRAND.name} — ${BRAND.tagline}`}
-    >
-      <div className="hero-home__media absolute z-0 overflow-hidden" aria-hidden>
-        <div className="absolute inset-0">
+    <section id="hero" className="hero-ref" aria-label={`${BRAND.name} — ${BRAND.tagline}`}>
+      <div className="hero-ref__bg" aria-hidden>
+        <div className="hero-ref__media">
           <HeroVideoBackground
             poster={heroSaunaImg}
             mp4Src="/videos/main-hero.mp4"
@@ -49,58 +70,74 @@ export default function HeroSection() {
             imageSizes="100vw"
           />
         </div>
-        <div className="hero-video-scrim hero-home-scrim absolute inset-0" />
       </div>
 
-      <div className="hero-content-stage hero-content-stage--left hero-content-stage--flush container-e7 relative z-10 grid w-full min-h-0 flex-1 grid-cols-1 items-end pb-0 pt-[4.75rem] max-md:px-3 md:items-center md:pb-16 md:pt-[5.25rem] lg:grid-cols-12">
+      <motion.div
+        className="hero-ref__content"
+        variants={reduceMotion ? undefined : container}
+        initial={reduceMotion ? false : "hidden"}
+        animate={reduceMotion ? undefined : ready ? "show" : "hidden"}
+      >
+        <div className="hero-ref__grid">
+          <div>
+            <motion.p variants={reduceMotion ? undefined : item} className="hero-ref__eyebrow">
+              {BRAND.heroEyebrow}
+            </motion.p>
+
+            <motion.h1 variants={reduceMotion ? undefined : item} className="hero-ref__title">
+              {BRAND.heroHeadlineBefore}{" "}
+              <em>{BRAND.heroHeadlineAccent}</em>
+            </motion.h1>
+
+            <motion.p variants={reduceMotion ? undefined : item} className="hero-ref__sub">
+              {BRAND.heroLead}
+            </motion.p>
+
+            <motion.div variants={reduceMotion ? undefined : item} className="hero-ref__actions">
+              <Link href="#contact" className="hero-ref__btn hero-ref__btn--primary">
+                {BRAND.heroCtaLabel}
+              </Link>
+              <Link href="#services" className="hero-ref__btn hero-ref__btn--secondary">
+                {BRAND.heroSecondaryCtaLabel}
+              </Link>
+            </motion.div>
+          </div>
+
+          <motion.div
+            variants={reduceMotion ? undefined : imageReveal}
+            className="hero-ref__side-img"
+          >
+            <Image
+              src={drySaunaImg}
+              alt="Custom timber dry sauna interior with hardwood benches and Harvis heater overlooking Australian bushland"
+              fill
+              sizes="(max-width: 860px) 0px, 40vw"
+              className="object-cover"
+              priority
+            />
+          </motion.div>
+        </div>
+
         <motion.div
-          className="hero-editorial hero-editorial--mobile-panel w-full lg:col-span-6 lg:max-w-[38rem] xl:col-span-6"
-          variants={reduceMotion ? undefined : container}
+          className="hero-ref__stats"
+          variants={reduceMotion ? undefined : statsContainer}
           initial={reduceMotion ? false : "hidden"}
           animate={reduceMotion ? undefined : ready ? "show" : "hidden"}
         >
-          <div className="hero-editorial__glass" aria-hidden />
-          <div className="hero-editorial__content">
-          <motion.p variants={reduceMotion ? undefined : item} className="hero-brand-mark">
-            ELEMENT <span className="hero-brand-mark__accent">7</span>
-          </motion.p>
-
-          <motion.h1
-            variants={reduceMotion ? undefined : container}
-            className="hero-editorial__title"
-          >
-            {headlineLines.map((line) => (
-              <motion.span
-                key={line}
-                variants={reduceMotion ? undefined : item}
-                className="hero-editorial__line"
-              >
-                {line}
-              </motion.span>
-            ))}
-          </motion.h1>
-
-          <motion.p variants={reduceMotion ? undefined : item} className="hero-editorial__lead">
-            {leadLines.map((line) => (
-              <span key={line} className="hero-editorial__lead-line">
-                {line}
+          {HERO_STATS.map((stat, idx) => (
+            <motion.div key={stat.label} variants={reduceMotion ? undefined : statItem} className="hero-ref__stat">
+              <span className="hero-ref__stat-num">
+                {stat.type === "count" ? (
+                  <CountUpStat end={stat.end} suffix={stat.suffix} delay={0.55 + idx * 0.08} />
+                ) : (
+                  stat.value
+                )}
               </span>
-            ))}
-          </motion.p>
-
-          <motion.div variants={reduceMotion ? undefined : item} className="hero-editorial__actions">
-            <ConsultationCta
-              id="hero-cta-primary"
-              href="/services"
-              label={BRAND.heroCtaLabel}
-              className="hero-editorial__cta"
-            />
-          </motion.div>
-          </div>
+              <span className="hero-ref__stat-label">{stat.label}</span>
+            </motion.div>
+          ))}
         </motion.div>
-
-        <div className="hidden lg:col-span-6 lg:block" aria-hidden />
-      </div>
+      </motion.div>
     </section>
   );
 }

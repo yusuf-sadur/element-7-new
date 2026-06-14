@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: "Element Seven | Recovery Architecture | Australia",
+  title: "Element Seven | Custom Sauna, Steam Room & Plunge Pool Builders Melbourne",
   description: BRAND.description,
 };
 

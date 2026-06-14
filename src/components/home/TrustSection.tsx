@@ -19,10 +19,10 @@ type TextStat = {
 type StatItem = CountStat | TextStat;
 
 const stats: StatItem[] = [
-  { type: "count", end: 50, suffix: "+", label: "Builds delivered" },
-  { type: "count", end: 15, suffix: "+", label: "Years constructing" },
-  { type: "count", end: 100, suffix: "%", label: "Design & build" },
-  { type: "text", value: "AU", label: "Australia wide" },
+  { type: "count", end: 120, suffix: "+", label: "Builds delivered" },
+  { type: "count", end: 12, suffix: "", label: "Years on the tools" },
+  { type: "count", end: 100, suffix: "%", label: "Design & build, one team" },
+  { type: "text", value: "AU", label: "Australia-wide" },
 ];
 
 export default function TrustSection() {
@@ -52,7 +52,7 @@ export default function TrustSection() {
               className="trust-stats__item flex flex-col items-center px-4 text-center sm:px-6 md:px-8"
             >
               <span className="mb-4 block h-px w-8 bg-bronze/45" aria-hidden />
-              <div className="font-display text-[clamp(2.5rem,5vw,3.35rem)] font-light tabular-nums leading-none tracking-tight text-stone">
+              <div className="font-display text-[clamp(2.5rem,5vw,3.35rem)] font-extrabold tabular-nums leading-none tracking-tight text-stone">
                 {stat.type === "count" ? (
                   <CountUpStat end={stat.end} suffix={stat.suffix} delay={idx * 0.1} />
                 ) : (

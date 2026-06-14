@@ -20,17 +20,17 @@ const HOME_SLUGS = [
 
 const GALLERY_COPY: Record<string, string> = {
   "traditional-dry-sauna":
-    "Traditional dry saunas — custom cedar and timber builds designed and constructed on site.",
+    "Custom-framed timber saunas built on site to your space — wood-fired or electric heaters, vapour-rated construction, natural hardwood interiors. Including barrel sauna builds.",
   "infrared-sauna":
-    "Infrared sauna construction — premium cabinetry, panel systems, and architectural integration.",
+    "Panel-system infrared builds with custom cabinetry — engineered for heat performance without synthetic off-gassing in the heated zone.",
   "hybrid-sauna":
-    "Dual-system saunas combining traditional heat and infrared — one integrated build.",
+    "Dual-system builds combining traditional heat and infrared in one structure — one fit-out, one materials spec, two heat systems integrated.",
   "hammam-steam":
-    "Steam rooms and hammam environments — waterproofed, tiled, and commissioned.",
+    "Fully waterproofed and tiled steam environments — vapour-open lime and clay render systems where possible, fully commissioned and pressure-tested.",
   "recovery-pools":
-    "Recovery pools — structural construction, stone finishes, and systems installation.",
+    "Structural pool construction with stone finishes and full systems install — built as part of a complete recovery suite alongside sauna and steam.",
   "stainless-steel-plunge":
-    "Cold plunge pools — stainless fabrication, chilling plant, and on-site commissioning.",
+    "Marine-grade stainless fabrication with chilling plant supply and on-site commissioning — no PVC liners or plastic-bodied components.",
 };
 
 const PAGE_MODALITIES = [
@@ -258,13 +258,13 @@ export default function SpacesCinematicGrid({
             </Reveal>
           ) : null}
           <Reveal variant="up" delay={kicker ? 0.06 : 0}>
-            <h2 className="max-w-4xl font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-light uppercase leading-[1.12] tracking-tight text-stone">
+            <h2 className="max-w-4xl font-display text-[clamp(1.8rem,4vw,2.8rem)] font-extrabold leading-[1.12] tracking-tight text-stone">
               {heading}
             </h2>
           </Reveal>
           {subheading ? (
             <Reveal variant="fade" delay={0.12}>
-              <p className="mt-5 max-w-2xl text-sm font-light leading-relaxed text-stone/55 md:text-base md:leading-[1.75]">
+              <p className="mt-5 max-w-2xl text-base font-light leading-relaxed text-stone/55 md:text-[17px] md:leading-[1.75]">
                 {subheading}
               </p>
             </Reveal>

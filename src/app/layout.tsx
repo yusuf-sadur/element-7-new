@@ -10,13 +10,13 @@ import { BRAND } from "@/lib/brand";
 import { canela, canelaSubstitute, inter } from "@/lib/fonts";
 
 export const metadata: Metadata = {
-  title: "Element Seven | Recovery Architecture | Australia",
+  title: "Element Seven | Custom Sauna, Steam Room & Plunge Pool Builders Melbourne",
   description: BRAND.description,
   keywords:
-    "recovery architecture, wellness architecture, custom sauna Australia, luxury sauna builder, infrared sauna, steam room, hammam, cold plunge, contrast therapy, nervous system recovery",
+    "custom sauna Melbourne, steam room builder, plunge pool Australia, recovery suite, low-VOC sauna, natural materials sauna, licensed builder wellness",
   openGraph: {
-    title: "Element Seven | Recovery Architecture",
-    description: BRAND.supportingLine,
+    title: "Element Seven | Custom Sauna & Recovery Suite Builders Melbourne",
+    description: BRAND.description,
     type: "website",
     locale: "en_AU",
     siteName: "Element Seven",

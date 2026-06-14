@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import ConsultationCta from "@/components/ui/ConsultationCta";
 import Reveal from "@/components/ui/Reveal";
-import MobileCarouselTrack from "@/components/ui/MobileCarouselTrack";
+import { RevealStagger, RevealStaggerItem } from "@/components/ui/RevealStagger";
 import HeroVideoBackground from "@/components/home/HeroVideoBackground";
 import { PROCESS_STEPS } from "@/lib/brand";
 import heroSaunaImg from "@/assets/hero-sauna3.jpg";
@@ -44,40 +44,50 @@ export default function ProcessSection() {
           </p>
           <h2
             id="process-heading"
-            className="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-light uppercase leading-[1.06] tracking-tight text-stone"
+            className="font-display text-[clamp(1.8rem,4vw,2.8rem)] font-extrabold leading-[1.1] tracking-tight text-stone"
           >
-            From consultation to handover.
+            From consultation to handover. One team, fixed scope.
           </h2>
-          <p className="mt-5 max-w-xl text-sm font-light leading-relaxed text-stone/75 md:text-[15px]">
-            One studio manages your project — drawings, trades, construction,
-            commissioning, and documentation through to completion.
+          <p className="mt-5 max-w-xl text-base font-light leading-relaxed text-stone/75 md:text-[17px]">
+            We manage your project end to end — drawings, trades, construction, commissioning and
+            documentation. No subcontracted scope-creep, no separate &ldquo;design&rdquo; company.
           </p>
         </Reveal>
 
-        <MobileCarouselTrack className="mt-12 md:mt-16 md:grid md:grid-cols-5 md:gap-3 lg:gap-4">
-            {PROCESS_STEPS.map((step, idx) => {
-              const Icon = icons[idx];
-              return (
-                <article
-                  key={step.number}
-                  className="process-step-card mobile-carousel-item"
-                >
-                  <div className="flex h-9 w-9 items-center justify-center border border-white/15 bg-white/[0.06] text-stone/80">
-                    <Icon size={17} strokeWidth={1} aria-hidden />
-                  </div>
-                  <span className="mt-5 block font-sans text-[10px] font-medium tabular-nums tracking-[0.28em] text-bronze">
-                    {step.number}
+        <RevealStagger
+          className="mobile-carousel-track mt-12 md:mt-16 md:grid md:grid-cols-5 md:gap-3 lg:gap-4"
+          stagger={0.08}
+          delayChildren={0.1}
+        >
+          {PROCESS_STEPS.map((step, idx) => {
+            const Icon = icons[idx];
+            return (
+              <RevealStaggerItem
+                key={step.number}
+                as="motion.article"
+                className="process-step-card mobile-carousel-item"
+              >
+                <div className="flex h-9 w-9 items-center justify-center border border-white/15 bg-white/[0.06] text-stone/80">
+                  <Icon size={17} strokeWidth={1} aria-hidden />
+                </div>
+                <span className="mt-5 block font-sans text-[10px] font-medium tabular-nums tracking-[0.28em] text-bronze">
+                  {step.number}
+                </span>
+                <h3 className="mt-2 font-display text-sm font-bold text-stone md:text-base">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-[13px] font-light leading-relaxed text-stone/65 md:text-sm">
+                  {step.description}
+                </p>
+                {"tag" in step && step.tag ? (
+                  <span className="mt-3 inline-block border border-bronze/60 px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.06em] text-bronze">
+                    {step.tag}
                   </span>
-                  <h3 className="mt-2 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-stone">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-[12px] font-light leading-relaxed text-stone/65 md:text-[13px]">
-                    {step.description}
-                  </p>
-                </article>
-              );
-            })}
-        </MobileCarouselTrack>
+                ) : null}
+              </RevealStaggerItem>
+            );
+          })}
+        </RevealStagger>
 
         <Reveal
           variant="fade"
