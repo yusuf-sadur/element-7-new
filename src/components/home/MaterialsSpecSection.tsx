@@ -30,16 +30,18 @@ export default function MaterialsSpecSection() {
       <div className="specsheet-ref__wrap">
         <Reveal variant="scale" duration={0.95} className="specsheet-ref__frame">
           <div className="specsheet-ref__split">
-            <Reveal variant="left" delay={0.06} className="specsheet-ref__img">
-              <Image
-                src={SPEC_IMAGE}
-                alt="Sauna heater filled with hot glowing stones with steam rising"
-                fill
-                sizes="(max-width: 860px) 100vw, 50vw"
-                className="specsheet-ref__img-el"
-              />
-              <div className="specsheet-ref__img-overlay">
-                <p className="specsheet-ref__img-tag">Why materials matter</p>
+            <Reveal variant="left" delay={0.06} className="specsheet-ref__story">
+              <div className="specsheet-ref__img">
+                <Image
+                  src={SPEC_IMAGE}
+                  alt="Sauna heater filled with hot glowing stones with steam rising"
+                  fill
+                  sizes="(max-width: 860px) 100vw, 50vw"
+                  className="specsheet-ref__img-el"
+                />
+              </div>
+              <div className="specsheet-ref__copy">
+                <p className="specsheet-ref__tag">Why materials matter</p>
                 <h2>
                   Heat changes <em>everything.</em>
                 </h2>
