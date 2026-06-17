@@ -140,7 +140,7 @@ function TimelineSection() {
               Explore spaces
               <ArrowRight size={15} aria-hidden />
             </Link>
-            <Link href="/our-approach" className="thank-you-timeline__link">
+            <Link href="/about" className="thank-you-timeline__link">
               Our approach
               <ArrowRight size={15} aria-hidden />
             </Link>

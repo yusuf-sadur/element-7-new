@@ -48,7 +48,7 @@ export default function SevenElements() {
             </div>
           </Reveal>
           <Reveal variant="fade" delay={0.1}>
-            <Link href="/our-approach" className="philosophy-ref__link">
+            <Link href="/about" className="philosophy-ref__link">
               Our approach →
             </Link>
           </Reveal>

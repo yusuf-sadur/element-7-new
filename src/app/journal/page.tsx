@@ -28,7 +28,7 @@ export default function JournalPage() {
       title="Build"
       titleAccent="knowledge."
       subtitle="Construction notes, specification guidance, and recovery architecture — from our studio."
-      secondaryHref="/our-approach"
+      secondaryHref="/about"
       secondaryLabel="Our approach"
     />
   );

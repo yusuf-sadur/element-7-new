@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 
-import drySaunaImg from "@/assets/Dry_Sauna.png";
 import heroSaunaImg from "@/assets/hero-sauna4.png";
 import HeroVideoBackground from "@/components/home/HeroVideoBackground";
 import CountUpStat from "@/components/ui/CountUpStat";
@@ -26,11 +24,6 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.85, ease } },
 };
 
-const imageReveal = {
-  hidden: { opacity: 0, scale: 1.04, x: 24 },
-  show: { opacity: 1, scale: 1, x: 0, transition: { duration: 1, ease, delay: 0.22 } },
-};
-
 const statsContainer = {
   hidden: {},
   show: {
@@ -45,7 +38,7 @@ const statItem = {
 
 const HERO_STATS = [
   { type: "count" as const, end: 120, suffix: "+", label: "Builds delivered" },
-  { type: "count" as const, end: 12, suffix: "", label: "Years on the tools" },
+  { type: "count" as const, end: 20, suffix: "+", label: "Years on the tools" },
   { type: "count" as const, end: 100, suffix: "%", label: "Design & build, one team" },
   { type: "text" as const, value: "AU", label: "Australia-wide" },
 ];
@@ -78,43 +71,27 @@ export default function HeroSection() {
         initial={reduceMotion ? false : "hidden"}
         animate={reduceMotion ? undefined : ready ? "show" : "hidden"}
       >
-        <div className="hero-ref__grid">
-          <div>
-            <motion.p variants={reduceMotion ? undefined : item} className="hero-ref__eyebrow">
-              {BRAND.heroEyebrow}
-            </motion.p>
+        <div className="hero-ref__copy">
+          <motion.p variants={reduceMotion ? undefined : item} className="hero-ref__eyebrow">
+            {BRAND.heroEyebrow}
+          </motion.p>
 
-            <motion.h1 variants={reduceMotion ? undefined : item} className="hero-ref__title">
-              {BRAND.heroHeadlineBefore}{" "}
-              <em>{BRAND.heroHeadlineAccent}</em>
-            </motion.h1>
+          <motion.h1 variants={reduceMotion ? undefined : item} className="hero-ref__title">
+            {BRAND.heroHeadlineBefore}{" "}
+            <em>{BRAND.heroHeadlineAccent}</em>
+          </motion.h1>
 
-            <motion.p variants={reduceMotion ? undefined : item} className="hero-ref__sub">
-              {BRAND.heroLead}
-            </motion.p>
+          <motion.p variants={reduceMotion ? undefined : item} className="hero-ref__sub">
+            {BRAND.heroLead}
+          </motion.p>
 
-            <motion.div variants={reduceMotion ? undefined : item} className="hero-ref__actions">
-              <Link href="#contact" className="hero-ref__btn hero-ref__btn--primary">
-                {BRAND.heroCtaLabel}
-              </Link>
-              <Link href="#services" className="hero-ref__btn hero-ref__btn--secondary">
-                {BRAND.heroSecondaryCtaLabel}
-              </Link>
-            </motion.div>
-          </div>
-
-          <motion.div
-            variants={reduceMotion ? undefined : imageReveal}
-            className="hero-ref__side-img"
-          >
-            <Image
-              src={drySaunaImg}
-              alt="Custom timber dry sauna interior with hardwood benches and Harvis heater overlooking Australian bushland"
-              fill
-              sizes="(max-width: 860px) 0px, 40vw"
-              className="object-cover"
-              priority
-            />
+          <motion.div variants={reduceMotion ? undefined : item} className="hero-ref__actions">
+            <Link href="#contact" className="hero-ref__btn hero-ref__btn--primary">
+              {BRAND.heroCtaLabel}
+            </Link>
+            <Link href="#services" className="hero-ref__btn hero-ref__btn--secondary">
+              {BRAND.heroSecondaryCtaLabel}
+            </Link>
           </motion.div>
         </div>
 

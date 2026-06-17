@@ -20,7 +20,7 @@ export type JournalArticle = {
 
 interface JournalGridProps {
   articles: JournalArticle[];
-  basePath: "/blogs" | "/journal";
+  basePath: "/blogs" | "/journal" | "/blog";
   snapSections?: boolean;
 }
 

@@ -96,7 +96,7 @@ export default function ProcessSection() {
         >
           <ConsultationCta id="process-cta" className="justify-center md:justify-start" />
           <Link
-            href="/our-approach"
+            href="/about"
             className="link-line inline-flex text-[11px] text-stone/70 after:bg-bronze hover:text-stone"
           >
             How we work

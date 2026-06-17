@@ -8,7 +8,7 @@ import type { StaticImageData } from "next/image";
 type JournalScrollExperienceProps = {
   image: string | StaticImageData;
   articles: JournalArticle[];
-  basePath: "/blogs" | "/journal";
+  basePath: "/blogs" | "/journal" | "/blog";
   title: string;
   titleAccent: string;
   subtitle: string;
@@ -31,7 +31,7 @@ export default function JournalScrollExperience({
       <SnapSection>
         <PageHero
           image={image}
-          label="Journal"
+          label={basePath === "/blog" ? "Blog" : "Journal"}
           title={title}
           titleAccent={titleAccent}
           subtitle={subtitle}

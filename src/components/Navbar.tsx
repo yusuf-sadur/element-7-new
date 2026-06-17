@@ -10,10 +10,8 @@ import { SPACES } from "@/lib/brand";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { type: "link", name: "Spaces", to: "/services" },
   { type: "link", name: "Projects", to: "/projects" },
-  { type: "link", name: "Our Approach", to: "/our-approach" },
-  { type: "link", name: "Journal", to: "/journal" },
+  { type: "link", name: "Blog", to: "/blog" },
   { type: "link", name: "About", to: "/about" },
   { type: "link", name: "Contact", to: "/contact" },
 ] as const;
@@ -163,7 +161,7 @@ export default function Navbar() {
               className={`${linkBase} inline-flex items-center gap-1 after:absolute after:bottom-0 after:left-0 after:h-px after:transition-all ${underlineColor} ${spacesButtonClass}`}
               aria-expanded={isSpacesDropdownOpen}
             >
-              Spaces
+              Builds
               <ChevronDown
                 size={14}
                 className={`transition-transform ${isSpacesDropdownOpen ? "rotate-180" : ""}`}
@@ -180,7 +178,7 @@ export default function Navbar() {
                 >
                   <motion.div
                     role="menu"
-                    aria-label="Spaces"
+                    aria-label="Builds"
                     className={`overflow-hidden rounded-2xl border ${dropdownPanelClass}`}
                   >
                     <div
@@ -308,7 +306,7 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {navLinks.slice(1).map((link) => (
+          {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.to}
@@ -400,7 +398,7 @@ export default function Navbar() {
                       className="flex w-full items-center justify-between px-4 py-3.5 text-left text-sm uppercase tracking-nav text-ink"
                       aria-expanded={isMobileSpacesOpen}
                     >
-                      Spaces
+                      Builds
                       <ChevronDown
                         size={18}
                         className={`shrink-0 text-ink-faint transition-transform duration-200 ${
@@ -437,7 +435,7 @@ export default function Navbar() {
                     </div>
                   </div>
 
-                  {navLinks.slice(1).map((link) => (
+                  {navLinks.map((link) => (
                     <Link
                       key={link.name}
                       href={link.to}

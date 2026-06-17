@@ -15,10 +15,8 @@ import { BRAND, SPACES } from "@/lib/brand";
 
 const quickLinks = [
   { name: "Home", href: "/" },
-  { name: "Spaces", href: "/services" },
-  { name: "Projects", href: "/projects" },
-  { name: "Our Approach", href: "/our-approach" },
-  { name: "Journal", href: "/journal" },
+  { name: "Builds", href: "/services" },
+  { name: "Blog", href: "/blog" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -114,8 +112,8 @@ export default function Footer() {
                   <span className="font-display block text-xl tracking-[0.18em] text-stone sm:text-2xl sm:tracking-[0.2em]">
                     ELEMENT <span className="text-bronze">7</span>
                   </span>
-                  <span className="mt-0.5 block font-sans text-[10px] uppercase tracking-label text-timber">
-                    Recovery Architecture
+                  <span className="mt-1 block max-w-xs font-sans text-[11px] font-light leading-relaxed text-bronze/85 sm:text-xs">
+                    Custom sauna, steam room, and plunge pool builders. Natural, non-toxic materials as standard.
                   </span>
                 </Link>
                 <div className="flex shrink-0 gap-2 sm:hidden">
@@ -173,14 +171,14 @@ export default function Footer() {
 
                 <ul className="relative mt-4 sm:mt-6">
                   <li>
-                    <a href="tel:+611300000000" className="footer-contact-row-dark group">
+                    <a href="tel:+61422797790" className="footer-contact-row-dark group">
                       <span className="footer-contact-icon-dark group-hover:bg-bronze group-hover:text-warm-black">
                         <Phone size={17} strokeWidth={1.5} />
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="footer-contact-label-dark">Phone</div>
                         <div className="font-sans text-sm font-medium text-stone group-hover:text-bronze">
-                          1300 000 000
+                          0422 797 790
                         </div>
                       </div>
                     </a>
@@ -222,21 +220,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-stone/10 bg-charcoal">
-          <div className="container-e7 flex scroll-reveal flex-col gap-3 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-8">
-            <p className="text-center font-sans text-[11px] font-light text-stone/45 sm:text-left">
+          <div className="container-e7 scroll-reveal py-6 sm:py-8">
+            <p className="text-center font-sans text-[11px] font-light text-stone/45">
               © {year} Element Seven. {BRAND.studio} · {BRAND.coverage}.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 font-sans text-[11px] uppercase tracking-nav text-stone/45 sm:gap-x-8">
-              <Link href="/privacy-policy" className="transition-colors hover:text-bronze">
-                Privacy Policy
-              </Link>
-              <span className="text-stone/20" aria-hidden>
-                ·
-              </span>
-              <Link href="/terms" className="transition-colors hover:text-bronze">
-                Terms & Conditions
-              </Link>
-            </div>
           </div>
         </div>
       </div>

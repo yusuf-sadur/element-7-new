@@ -45,7 +45,7 @@ export default function MaterialsSection() {
 
         <Reveal variant="fade" delay={0.12}>
           <Link
-            href="/our-approach"
+            href="/about"
             className="materials-editorial-cta mt-10 inline-flex items-center gap-2 font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-stone transition-colors duration-500 hover:text-bronze lg:mt-0"
           >
             Our materials
