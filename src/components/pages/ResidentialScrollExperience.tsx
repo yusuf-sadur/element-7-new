@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
-import ConsultationPanel from "@/components/ui/ConsultationPanel";
+import ContactSection from "@/components/ui/ContactSection";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
 import PageScrollShell, { SnapSection } from "@/components/scroll/PageScrollShell";
@@ -84,16 +84,7 @@ export default function ResidentialScrollExperience() {
       </SnapSection>
 
       <SnapSection>
-        <section className="section-padding bg-white">
-          <div className="container-e7">
-            <Reveal variant="up">
-              <ConsultationPanel
-                title={<>Scope your <span className="text-bronze">home build.</span></>}
-                compact
-              />
-            </Reveal>
-          </div>
-        </section>
+        <ContactSection />
       </SnapSection>
     </PageScrollShell>
   );

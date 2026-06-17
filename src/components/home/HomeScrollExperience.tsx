@@ -6,7 +6,7 @@ import ModalityGallery from "@/components/home/ModalityGallery";
 import MaterialsSpecSection from "@/components/home/MaterialsSpecSection";
 import MaterialsSection from "@/components/home/MaterialsSection";
 import ProcessSection from "@/components/home/ProcessSection";
-import ContactSection from "@/components/home/ContactSection";
+import ContactSection from "@/components/ui/ContactSection";
 import PageScrollShell, { SnapSection } from "@/components/scroll/PageScrollShell";
 
 export default function HomeScrollExperience() {

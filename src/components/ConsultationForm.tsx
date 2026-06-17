@@ -305,7 +305,7 @@ export default function ConsultationForm({
           ) : (
             <>
               <Send size={18} />
-              Send enquiry
+              Get A Quote
             </>
           )}
         </button>

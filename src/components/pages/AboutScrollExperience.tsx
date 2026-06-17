@@ -8,7 +8,7 @@ import ProcessSection from "@/components/home/ProcessSection";
 import MaterialsSection from "@/components/home/MaterialsSection";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
-import ConsultationPanel from "@/components/ui/ConsultationPanel";
+import ContactSection from "@/components/ui/ContactSection";
 import PageScrollShell, { SnapSection } from "@/components/scroll/PageScrollShell";
 import { BRAND } from "@/lib/brand";
 import heroSauna2Img from "@/assets/hero-sauna2.jpg";
@@ -98,20 +98,7 @@ export default function AboutScrollExperience() {
       </SnapSection>
 
       <SnapSection>
-        <section className="section-padding bg-stone">
-          <div className="container-e7">
-            <Reveal variant="up">
-              <ConsultationPanel
-                title={
-                  <>
-                    Start your <span className="text-bronze">build.</span>
-                  </>
-                }
-                description="Tell us about your property and scope. We'll respond within one business day to arrange a consultation."
-              />
-            </Reveal>
-          </div>
-        </section>
+        <ContactSection />
       </SnapSection>
     </PageScrollShell>
   );
