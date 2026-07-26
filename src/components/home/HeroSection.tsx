@@ -38,7 +38,7 @@ const statItem = {
 
 const HERO_STATS = [
   { type: "count" as const, end: 120, suffix: "+", label: "Builds delivered" },
-  { type: "count" as const, end: 20, suffix: "+", label: "Years on the tools" },
+  { type: "count" as const, end: 20, suffix: "+", label: "Years of Experience" },
   { type: "count" as const, end: 100, suffix: "%", label: "Design & build, one team" },
   { type: "text" as const, value: "AU", label: "Australia-wide" },
 ];

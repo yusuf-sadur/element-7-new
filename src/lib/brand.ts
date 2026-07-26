@@ -112,15 +112,15 @@ export const SPACES: SpaceDefinition[] = [
     label: "Dry heat",
     tagline: "Timber · ventilation · construction",
     subtitle:
-      "Custom-framed timber saunas built on site to your space — wood-fired or electric heaters, vapour-rated construction, natural hardwood interiors.",
+      "Custom-framed timber saunas built on site to your space — wood-fired or electric heaters, vapour-rated construction.",
     description:
-      "Custom-framed timber saunas built on site — wood-fired or electric heaters, vapour-rated construction, natural hardwood interiors. Including barrel sauna builds.",
+      "Custom-framed timber saunas built on site — wood-fired or electric heaters, vapour-rated construction. Including barrel sauna builds.",
     longDescription:
       "Every dry sauna we build starts with your floor plan and structural constraints — not an off-the-shelf kit. We specify premium cedar and thermo timber, engineer ventilation and heat distribution, coordinate electrical and structural trades, and construct benching, glazing, and lighting to architectural standard. Indoor, outdoor, compact, or multi-person — built on site, built to last.",
     image: barelSaunaImg,
     heroImage: barelSaunaImg,
     mood: "Timber construction · thermal engineering · architectural finish",
-    specChips: ["Hemp/wool insulation", "Untreated hardwood", "Low-VOC finish"],
+    specChips: ["Hemp/wool insulation", "Low-VOC finish"],
     features: [
       "Premium Finnish cedar & thermo timber supply & install",
       "Harvia, Narvi & Helo heater specification",
@@ -301,8 +301,8 @@ export const SPACES: SpaceDefinition[] = [
       "Marine-grade stainless fabrication with chilling plant supply and on-site commissioning — no PVC liners or plastic-bodied components.",
     longDescription:
       "Plunge pool construction combines fabrication and systems engineering — stainless steel vessels, chilling units, filtration, UV sanitisation, and temperature monitoring, set within stone or architectural surrounds. We design and build plunge installations for contrast therapy suites in homes, gyms, and commercial properties.",
-    image: plungePoolsImg,
-    heroImage: plungePoolsImg,
+    image: recoveryPoolImg,
+    heroImage: recoveryPoolImg,
     mood: "Steel fabrication · chilling plant · precision install",
     specChips: ["316 stainless steel", "No PVC liner", "Chiller included"],
     features: [
@@ -347,8 +347,8 @@ export const SPACES: SpaceDefinition[] = [
       "Structural pool construction with stone finishes and full systems install — built as part of a complete recovery suite alongside sauna and steam.",
     longDescription:
       "Recovery pools are construction projects — excavation or structural framing, waterproofing, stone or tile finishes, filtration plant, and temperature control systems. We design and build pools as architectural elements within residential and commercial properties, coordinating landscapers, plumbers, and electricians under one studio.",
-    image: recoveryPoolImg,
-    heroImage: recoveryPoolImg,
+    image: plungePoolsImg,
+    heroImage: plungePoolsImg,
     mood: "Pool construction · stone finishing · systems integration",
     specChips: ["Structural concrete", "Natural stone", "Full suite integration"],
     features: [
@@ -412,7 +412,7 @@ export interface MaterialItem {
 export const MATERIALS: MaterialItem[] = [
   {
     title: "Natural Timber",
-    text: "Untreated hardwoods selected for thermal stability and beauty.",
+    text: "Selected for thermal stability and beauty.",
     image: drySaunaImg,
   },
   {
@@ -439,7 +439,6 @@ export const MATERIALS: MaterialItem[] = [
 
 export const MATERIALS_SPEC_ROWS = [
   { standard: "Glass wool / spray foam", elementSeven: "Hemp & wool insulation" },
-  { standard: "Treated softwood / particleboard", elementSeven: "Untreated hardwood" },
   { standard: "Standard adhesives (high VOC)", elementSeven: "Low-VOC, formaldehyde-free" },
   { standard: "PVC pool liners", elementSeven: "Marine-grade stainless steel" },
   { standard: "Synthetic membranes", elementSeven: "Lime & clay renders" },

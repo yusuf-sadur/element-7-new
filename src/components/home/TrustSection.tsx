@@ -20,7 +20,7 @@ type StatItem = CountStat | TextStat;
 
 const stats: StatItem[] = [
   { type: "count", end: 120, suffix: "+", label: "Builds delivered" },
-  { type: "count", end: 20, suffix: "+", label: "Years on the tools" },
+  { type: "count", end: 20, suffix: "+", label: "Years of Experience" },
   { type: "count", end: 100, suffix: "%", label: "Design & build, one team" },
   { type: "text", value: "AU", label: "Australia-wide" },
 ];

@@ -11,7 +11,6 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { type: "link", name: "Projects", to: "/projects" },
-  { type: "link", name: "Blog", to: "/blog" },
   { type: "link", name: "About", to: "/about" },
   { type: "link", name: "Contact", to: "/contact" },
 ] as const;

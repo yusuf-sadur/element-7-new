@@ -16,7 +16,6 @@ import { BRAND, SPACES } from "@/lib/brand";
 const quickLinks = [
   { name: "Home", href: "/" },
   { name: "Builds", href: "/services" },
-  { name: "Blog", href: "/blog" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];

@@ -20,7 +20,7 @@ const HOME_SLUGS = [
 
 const GALLERY_COPY: Record<string, string> = {
   "traditional-dry-sauna":
-    "Custom-framed timber saunas built on site to your space — wood-fired or electric heaters, vapour-rated construction, natural hardwood interiors. Including barrel sauna builds.",
+    "Custom-framed timber saunas built on site to your space — wood-fired or electric heaters, vapour-rated construction. Including barrel sauna builds.",
   "infrared-sauna":
     "Panel-system infrared builds with custom cabinetry — engineered for heat performance without synthetic off-gassing in the heated zone.",
   "hybrid-sauna":
