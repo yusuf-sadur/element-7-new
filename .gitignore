@@ -2,6 +2,11 @@ node_modules
 .next
 dist
 
+# Environment variables
+.env
+.env*.local
+.env.*
+
 # Licensed brand fonts (add locally — hero Canela synced into src/assets at build)
 public/fonts/*.woff
 public/fonts/*.woff2
