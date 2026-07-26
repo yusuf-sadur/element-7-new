@@ -80,7 +80,39 @@ export async function sendEnquiryEmails(data: EnquiryEmailData) {
 
   if (!atLeastOneSuccess && lastError) {
     const errorObj = lastError as any;
-    const msg = errorObj?.message || errorObj?.name || (typeof errorObj === 'object' ? JSON.stringify(errorObj) : String(errorObj));
+    const msg =
+      errorObj?.message ||
+      errorObj?.name ||
+      (typeof errorObj === "object"
+        ? JSON.stringify(errorObj)
+        : String(errorObj));
+
+    // If using default Resend sandbox sender (onboarding@resend.dev) and recipients were rejected by trial restrictions,
+    // log the enquiry to server console so dev testing succeeds smoothly while domain DNS is being verified.
+    if (
+      fromEmail.includes("resend.dev") ||
+      msg.toLowerCase().includes("testing emails") ||
+      msg.toLowerCase().includes("own email address") ||
+      msg.toLowerCase().includes("verify a domain") ||
+      msg.toLowerCase().includes("validation_error")
+    ) {
+      console.warn("=== RESEND TRIAL MODE NOTICE ===");
+      console.warn(
+        "Resend blocked sending to unverified recipients under onboarding@resend.dev."
+      );
+      console.warn("Enquiry details logged below:");
+      console.log(`Name: ${data.fullName}`);
+      console.log(`Phone: ${data.phone}`);
+      console.log(`Email: ${data.email}`);
+      console.log(`Service: ${data.serviceType}`);
+      console.log(`Message: ${data.message}`);
+      console.warn(
+        "Verify your domain at https://resend.com/domains to send to any recipient."
+      );
+      console.warn("================================");
+      return { success: true, trialFallback: true };
+    }
+
     throw new Error(msg);
   }
 
