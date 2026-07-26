@@ -79,7 +79,9 @@ export async function sendEnquiryEmails(data: EnquiryEmailData) {
   }
 
   if (!atLeastOneSuccess && lastError) {
-    throw lastError;
+    const errorObj = lastError as any;
+    const msg = errorObj?.message || errorObj?.name || (typeof errorObj === 'object' ? JSON.stringify(errorObj) : String(errorObj));
+    throw new Error(msg);
   }
 
   const autoReply = buildEnquiryAutoReplyEmail(data);

@@ -10,6 +10,8 @@ import Reveal from "@/components/ui/Reveal";
 import MobileCarouselTrack from "@/components/ui/MobileCarouselTrack";
 import type { SpaceDefinition } from "@/lib/brand";
 import { SPACES } from "@/lib/brand";
+import { SPACE_GALLERIES } from "@/lib/space-galleries";
+import SpaceGallerySection from "@/components/services/SpaceGallerySection";
 import { SnapSection } from "@/components/scroll/PageScrollShell";
 
 interface ServiceDetailContentProps {
@@ -41,6 +43,7 @@ export default function ServiceDetailContent({
   snap = false,
 }: Readonly<ServiceDetailContentProps>) {
   const otherSpaces = SPACES.filter((s) => s.slug !== space.slug).slice(0, 4);
+  const galleryImages = SPACE_GALLERIES[space.slug] ?? [];
 
   return (
     <>
@@ -92,6 +95,12 @@ export default function ServiceDetailContent({
       <SectionWrap snap={snap}>
         <ServiceScopeSection features={space.features} benefits={space.benefits} />
       </SectionWrap>
+
+      {galleryImages.length > 0 && (
+        <SectionWrap snap={snap}>
+          <SpaceGallerySection images={galleryImages} title={space.shortTitle} />
+        </SectionWrap>
+      )}
 
       {space.faqs.length > 0 && (
         <SectionWrap snap={snap}>

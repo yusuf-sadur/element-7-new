@@ -97,12 +97,13 @@ export async function POST(request: NextRequest) {
       message:
         "Thank you! Your enquiry has been received. We'll be in touch within 24 hours.",
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Contact API error:", error);
+    const detail = error?.message || error?.name || (typeof error === 'object' ? JSON.stringify(error) : String(error));
     return NextResponse.json(
       {
         success: false,
-        message: `Failed to send enquiry. ${fallbackPhoneMessage}`,
+        message: `Failed to send enquiry (${detail}). ${fallbackPhoneMessage}`,
       },
       { status: 500 }
     );
