@@ -44,7 +44,7 @@ export const BRAND = {
     "Not on the list? We service other areas across Melbourne and Australia-wide — reach out first and we'll let you know what's possible for your location.",
   phone: "0422 797 790",
   phoneTel: "+61422797790",
-  email: "info@element7.com.au",
+  email: "info@element7.com.au", 
   studioIdentity:
     "Custom sauna, steam room, and plunge pool builders. Natural, non-toxic materials as standard — licensed trades, fixed-scope contracts, Australia-wide.",
 } as const;
