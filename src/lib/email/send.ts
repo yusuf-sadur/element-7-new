@@ -45,17 +45,41 @@ export async function sendEnquiryEmails(data: EnquiryEmailData) {
   const resend = getResendClient();
 
   const notification = buildEnquiryNotificationEmail(data);
-  const notificationResult = await resend.emails.send({
-    from: `${BRAND.name} Enquiries <${fromEmail}>`,
-    to: toEmails,
-    reply_to: data.email.trim(),
-    subject: `New Consultation Enquiry — ${data.serviceType.trim()} | ${data.fullName.trim()}`,
-    html: notification.html,
-    text: notification.text,
-  });
 
-  if (notificationResult.error) {
-    throw notificationResult.error;
+  // Send to recipients individually so trial/testing mode restrictions on unverified domains
+  // do not fail the entire enquiry if one email recipient is rejected by Resend.
+  const results = await Promise.allSettled(
+    toEmails.map((recipient) =>
+      resend.emails.send({
+        from: `${BRAND.name} Enquiries <${fromEmail}>`,
+        to: [recipient],
+        reply_to: data.email.trim(),
+        subject: `New Consultation Enquiry — ${data.serviceType.trim()} | ${data.fullName.trim()}`,
+        html: notification.html,
+        text: notification.text,
+      })
+    )
+  );
+
+  let atLeastOneSuccess = false;
+  let lastError: unknown = null;
+
+  for (const res of results) {
+    if (res.status === "fulfilled") {
+      if (res.value.error) {
+        console.error("Resend notification error for recipient:", res.value.error);
+        lastError = res.value.error;
+      } else {
+        atLeastOneSuccess = true;
+      }
+    } else {
+      console.error("Resend notification dispatch failed:", res.reason);
+      lastError = res.reason;
+    }
+  }
+
+  if (!atLeastOneSuccess && lastError) {
+    throw lastError;
   }
 
   const autoReply = buildEnquiryAutoReplyEmail(data);
@@ -71,5 +95,5 @@ export async function sendEnquiryEmails(data: EnquiryEmailData) {
       console.error("Auto-reply failed:", error);
     });
 
-  return notificationResult;
+  return { success: true };
 }
