@@ -25,8 +25,15 @@ function getResendClient(): Resend {
 
 export function getEmailConfig() {
   const apiKey = process.env.RESEND_API_KEY?.trim();
+  const rawTo = process.env.CONTACT_EMAIL_TO?.trim() || BRAND.email;
+  const toEmails = rawTo
+    .split(",")
+    .map((e) => e.trim())
+    .filter(Boolean);
+
   return {
-    toEmail: process.env.CONTACT_EMAIL_TO?.trim() || BRAND.email,
+    toEmail: toEmails[0] || BRAND.email,
+    toEmails,
     fromEmail:
       process.env.CONTACT_EMAIL_FROM?.trim() || "onboarding@resend.dev",
     hasApiKey: Boolean(apiKey),
@@ -34,13 +41,13 @@ export function getEmailConfig() {
 }
 
 export async function sendEnquiryEmails(data: EnquiryEmailData) {
-  const { toEmail, fromEmail } = getEmailConfig();
+  const { toEmails, fromEmail } = getEmailConfig();
   const resend = getResendClient();
 
   const notification = buildEnquiryNotificationEmail(data);
   const notificationResult = await resend.emails.send({
     from: `${BRAND.name} Enquiries <${fromEmail}>`,
-    to: [toEmail],
+    to: toEmails,
     reply_to: data.email.trim(),
     subject: `New Consultation Enquiry — ${data.serviceType.trim()} | ${data.fullName.trim()}`,
     html: notification.html,
