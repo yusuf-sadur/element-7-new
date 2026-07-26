@@ -142,7 +142,7 @@ export function buildEnquiryNotificationEmail(data: EnquiryEmailData): {
   const html = emailShell(`
     ${brandHeader()}
     <tr>
-      <td style="background-color:${BRAND_COLORS.white};padding:22px 40px 8px;border-bottom:1px solid ${BRAND_COLORS.line};">
+      <td style="background-color:${BRAND_COLORS.white};padding:22px 40px 18px;border-bottom:1px solid ${BRAND_COLORS.line};">
         <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:${BRAND_COLORS.inkMuted};line-height:1.7;text-align:center;">
           A consultation enquiry was submitted via the website.<br>
           <strong style="color:${BRAND_COLORS.ink};">Please respond within 24 hours.</strong>
@@ -150,7 +150,7 @@ export function buildEnquiryNotificationEmail(data: EnquiryEmailData): {
       </td>
     </tr>
     <tr>
-      <td style="background-color:${BRAND_COLORS.white};padding:0 40px 24px;">
+      <td style="background-color:${BRAND_COLORS.white};padding:24px 40px 24px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-radius:12px;overflow:hidden;border:1px solid ${BRAND_COLORS.line};">
           ${detailRow("Name", fullName)}
           ${detailRow("Email", email, { href: `mailto:${email}`, accent: true, alt: true })}
